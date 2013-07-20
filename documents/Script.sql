@@ -77,7 +77,7 @@ create table UpDownReason
 (
 	Id varchar(10) primary key,
 	Name nvarchar(50) not null,
-	[Type] varchar(10),
+	[Type] nvarchar(10),
 )
 
 create table AssetLiquidation
