@@ -73,7 +73,7 @@ create table [Partner]
 	TaxCode varchar(10)
 )
 
-create table UpDownManager
+create table UpDownReason
 (
 	Id varchar(10) primary key,
 	Name nvarchar(50) not null,
