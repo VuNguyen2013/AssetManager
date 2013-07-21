@@ -62,6 +62,7 @@ create table Asset
 	AnotherRemain bigint not null default 0,
 	TotalReamain bigint not null default 0,
 	UpDownCode varchar(10),
+	InputDateTime datetime not null default getdate()
 )
 
 create table [Partner]
