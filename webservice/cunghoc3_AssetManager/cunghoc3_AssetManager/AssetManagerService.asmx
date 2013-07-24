@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="AssetManagerService.asmx.cs" Class="cunghoc3_AssetManager.AssetManagerService" %>

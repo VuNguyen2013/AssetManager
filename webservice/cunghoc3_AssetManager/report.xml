@@ -1,0 +1,272 @@
+<NetTiersReport DALNameSpace="cunghoc3_AssetManager.Data" SolutionLink="file:\\\C:\Users\Phong\Documents\CodeSmith Generator\Templates\NetTiers\cunghoc3_AssetManager\cunghoc3_AssetManager.sln" ConnectionString="Data Source=123.30.174.116;Initial Catalog=cunghoc3_AssetManager;Persist Security Info=True;User ID=cunghoc3_AssetManager;Password=P@ssw0rd" FactoryType="cunghoc3_AssetManager.Entities.EntityFactory">
+  <initialization startTime="130191522091052181" executionTime="00:00:14.3688219">
+    <Message level="0" startTime="130191522114403517" message="Validating parameters." />
+    <Message level="2" startTime="130191522191697938" message="Generating .netTiers Entity Mapping" />
+    <Message level="0" startTime="130191522200658451" message="Loading templates." executionTime="00:00:02.7741586" />
+    <Message level="0" startTime="130191522228400037" message="Creating folders and copying dependencies." />
+  </initialization>
+  <customStoredProcedures includeCustoms="true" />
+  <common startTime="130191522234740400" executionTime="00:00:36.9111112">
+    <File name="ListBase.cs" startTime="130191522234760401" />
+    <File name="TList.cs" startTime="130191522238430611" />
+    <File name="VList.cs" startTime="130191522241080763" />
+    <File name="TestUtility.cs" startTime="130191522242200827" />
+    <File name="IEntity.cs" startTime="130191522242700855" />
+    <File name="IEntityId.cs" startTime="130191522245601021" />
+    <File name="IEntityKey.cs" startTime="130191522245671025" />
+    <File name="EntityFactory.cs" startTime="130191522245751030" />
+    <File name="EntityFactoryBase.cs" startTime="130191522245811033" />
+    <File name="IEntityFactory.cs" startTime="130191522246871094" />
+    <File name="IEntityCacheItem.cs" startTime="130191522246971100" />
+    <File name="EntityCache.cs" startTime="130191522247031103" />
+    <File name="EntityLocator.cs" startTime="130191522247471128" />
+    <File name="EntityManager.cs" startTime="130191522247911153" />
+    <File name="BrokenRule.cs" startTime="130191522250711313" />
+    <File name="BrokenRulesList.cs" startTime="130191522250841321" />
+    <File name="CommonRules.cs" startTime="130191522251071334" />
+    <File name="ValidationRuleArgs.cs" startTime="130191522253581478" />
+    <File name="ValidationRuleHandler.cs" startTime="130191522253761488" />
+    <File name="ValidationRuleInfo.cs" startTime="130191522253831492" />
+    <File name="ValidationRules.cs" startTime="130191522254041504" />
+    <File name="EntityBaseCore.generated.cs" startTime="130191522254541533" />
+    <File name="EntityBase.cs" startTime="130191522256121623" />
+    <File name="EntityKeyBaseCore.generated.cs" startTime="130191522256181626" />
+    <File name="EntityKeyBase.cs" startTime="130191522256291633" />
+    <File name="SecurityContext.cs" startTime="130191522256351636" />
+    <File name="SecurityContextBase.generated.cs" startTime="130191522256441641" />
+    <File name="ContextView.cs" startTime="130191522256691656" />
+    <File name="IProcessor.cs" startTime="130191522256941670" />
+    <File name="IProcessorResult.cs" startTime="130191522257041676" />
+    <File name="ProcessorBase.cs" startTime="130191522257141681" />
+    <File name="GenericProcessorResult.cs" startTime="130191522257361694" />
+    <File name="DomainUtil.cs" startTime="130191522257611708" />
+    <File name="IConnectionScope.cs" startTime="130191522258061734" />
+    <File name="ConnectionScope.cs" startTime="130191522258181741" />
+    <File name="ConnectionScopeBase.cs" startTime="130191522258891781" />
+    <File name="IComponentService.cs" startTime="130191522259151796" />
+    <File name="ServiceBase.cst.cs" startTime="130191522259231801" />
+    <File name="ServiceBaseCore.cst.cs" startTime="130191522259331807" />
+    <File name="ServiceViewBase.cst.cs" startTime="130191522261031904" />
+    <File name="ServiceViewBaseCore.cst.cs" startTime="130191522261141910" />
+    <File name="ServiceResult.cs" startTime="130191522262151968" />
+    <File name="EntityFilter.cs" startTime="130191522262461986" />
+    <File name="EntityPropertyComparer.cs" startTime="130191522265512160" />
+    <File name="GenericTypeConverter.cs" startTime="130191522265612166" />
+    <File name="Procedures.xml" startTime="130191522265712171" />
+    <File name="Utility.cs" startTime="130191522468023743" />
+    <File name="ITransactionManager.cs" startTime="130191522469623835" />
+    <File name="TransactionManager.cs" startTime="130191522469763843" />
+    <File name="DataRepository.cs" startTime="130191522470513885" />
+    <File name="IEntityProvider.cs" startTime="130191522472514000" />
+    <File name="IEntityViewProvider.cs" startTime="130191522475284158" />
+    <File name="EntityProviderBase.cs" startTime="130191522475614177" />
+    <File name="EntityProviderBaseCore.generated.cs" startTime="130191522475704182" />
+    <File name="EntityViewProviderBase.cs" startTime="130191522486354792" />
+    <File name="EntityViewProviderBaseCore.generated.cs" startTime="130191522487044831" />
+    <File name="INetTiersProvider.cs" startTime="130191522489194954" />
+    <File name="NetTiersProvider.cs" startTime="130191522490175010" />
+    <File name="NetTiersProviderBase.cs" startTime="130191522490295017" />
+    <File name="NetTiersProviderCollection.cs" startTime="130191522493715213" />
+    <File name="NetTiersServiceSection.cs" startTime="130191522493855221" />
+    <File name="ExpressionParserBase.cs" startTime="130191522493965227" />
+    <File name="SqlExpressionParser.cs" startTime="130191522494885279" />
+    <File name="SqlStringBuilder.cs" startTime="130191522498295474" />
+    <File name="SqlUtil.cs" startTime="130191522510556176" />
+    <File name="StringTokenizer.cs" startTime="130191522513066319" />
+    <File name="SqlClient\SqlNetTiersProvider.cs" startTime="130191522513976371" />
+    <File name="StoredProcedureProvider.cs" startTime="130191522516196498" />
+    <File name="BaseDataSource.cs" startTime="130191522517346564" />
+    <File name="BaseDataSourceDesigner.cs" startTime="130191522525447027" />
+    <File name="CustomDataSource.cs" startTime="130191522526607094" />
+    <File name="CustomDataSourceDesigner.cs" startTime="130191522529047233" />
+    <File name="CustomParameter.cs" startTime="130191522529127238" />
+    <File name="DataParameter.cs" startTime="130191522529557263" />
+    <File name="EntityDataSource.cs" startTime="130191522529807277" />
+    <File name="EntityDataSourceFilter.cs" startTime="130191522535497602" />
+    <File name="EntityRelationship.cs" startTime="130191522536277647" />
+    <File name="EntityRelationshipMember.cs" startTime="130191522537527718" />
+    <File name="EntityTransactionModule.cs" startTime="130191522539967858" />
+    <File name="ILinkedDataSource.cs" startTime="130191522540237873" />
+    <File name="ManyToManyListRelationship.cs" startTime="130191522540757903" />
+    <File name="ManyToManyViewRelationship.cs" startTime="130191522540967915" />
+    <File name="OneToManyGridRelationship.cs" startTime="130191522541137925" />
+    <File name="OneToOneViewRelationship.cs" startTime="130191522541377939" />
+    <File name="ProviderDataSource.cs" startTime="130191522541527947" />
+    <File name="ProviderDataSourceDesigner.cs" startTime="130191522543198043" />
+    <File name="ReadOnlyDataSource.cs" startTime="130191522543298048" />
+    <File name="ReadOnlyDataSourceDesigner.cs" startTime="130191522544388111" />
+    <File name="SqlParameter.cs" startTime="130191522544638125" />
+    <File name="DepartmentUsedDataSource.cs" startTime="130191522546868253" />
+    <File name="UnitDataSource.cs" startTime="130191522549138383" />
+    <File name="UpDownReasonDataSource.cs" startTime="130191522549808421" />
+    <File name="AssetGroupTypeDataSource.cs" startTime="130191522549848423" />
+    <File name="AssetGroupDataSource.cs" startTime="130191522549898426" />
+    <File name="PartnerDataSource.cs" startTime="130191522549948429" />
+    <File name="AssetDataSource.cs" startTime="130191522549988431" />
+    <File name="AssetLiquidationDataSource.cs" startTime="130191522550028433" />
+    <File name="CapitalDataSource.cs" startTime="130191522550078436" />
+    <File name="WarrantyAssetDataSource.cs" startTime="130191522550118439" />
+    <File name="RepairAssetDataSource.cs" startTime="130191522550168441" />
+    <File name="FormUtil.cs" startTime="130191522550228445" />
+    <File name="FormUtilBase.generated.cs" startTime="130191522550298449" />
+    <File name="MultiBindableTemplate.cs" startTime="130191522556798821" />
+    <File name="MultiFormView.cs" startTime="130191522557098838" />
+    <File name="EntityGridView.cs" startTime="130191522558028891" />
+    <File name="EntityDropDownList.cs" startTime="130191522560969059" />
+    <File name="BoundEntityDropDownField.cs" startTime="130191522562549150" />
+    <File name="BoundRadioButtonField.cs" startTime="130191522564219245" />
+    <File name="GridViewSearchPanel.cs" startTime="130191522564619268" />
+    <File name="GridViewSearchPanelState.cs" startTime="130191522568309479" />
+    <File name="EntityLabel.cs" startTime="130191522569479546" />
+    <File name="HyperlinkField.cs" startTime="130191522569889569" />
+    <File name="DepartmentUsedRepeater.cs" startTime="130191522570859625" />
+    <File name="UnitRepeater.cs" startTime="130191522571729675" />
+    <File name="UpDownReasonRepeater.cs" startTime="130191522571769677" />
+    <File name="AssetGroupTypeRepeater.cs" startTime="130191522572109696" />
+    <File name="AssetGroupRepeater.cs" startTime="130191522572139698" />
+    <File name="PartnerRepeater.cs" startTime="130191522572169700" />
+    <File name="AssetRepeater.cs" startTime="130191522572209702" />
+    <File name="AssetLiquidationRepeater.cs" startTime="130191522572279706" />
+    <File name="CapitalRepeater.cs" startTime="130191522572319708" />
+    <File name="WarrantyAssetRepeater.cs" startTime="130191522572349710" />
+    <File name="RepairAssetRepeater.cs" startTime="130191522572379712" />
+    <File name="Web.config" startTime="130191522572429715" />
+    <File name="Enterprise Library v3_1 website configuration files" startTime="130191522573139755" />
+    <File name="Default.aspx" startTime="130191522573669786" />
+    <File name="Default.aspx.cs" startTime="130191522573819794" />
+    <File name="cunghoc3_AssetManager.sln" startTime="130191522582070266" />
+    <File name="Services.csproj" startTime="130191522583970375" />
+    <File name="cunghoc3_AssetManager.Entities.csproj" startTime="130191522591940831" />
+    <File name="cunghoc3_AssetManager.Data.Data.csproj" startTime="130191522592710875" />
+    <File name="cunghoc3_AssetManager.Entities.Data.SqlClient.csproj" startTime="130191522592760878" />
+    <File name="cunghoc3_AssetManager.Web.csproj" startTime="130191522592800880" />
+    <File name="cunghoc3_AssetManager.build" startTime="130191522592840882" />
+    <File name="EntityHelper.cs" startTime="130191522593760935" />
+    <File name="EntityUtil.cs" startTime="130191522595721047" />
+  </common>
+  <Table name="Asset" startTime="130191522603861513" executionTime="00:00:03.3991944">
+    <File name="Asset.generated.cs" startTime="130191522603911515" executionTime="00:00:00.6660381" />
+    <File name="IAsset.cs" startTime="130191522610581897" executionTime="00:00:00.0230013" />
+    <File name="Asset.cs" startTime="130191522610821911" executionTime="00:00:00.0080004" />
+    <File name="AssetService.cs" startTime="130191522610911916" executionTime="00:00:00.0190011" />
+    <File name="AssetServiceBase.generated.cs" startTime="130191522611101927" executionTime="00:00:00.9540545" />
+    <File name="AssetProviderBase.generatedCore.cs" startTime="130191522620682475" executionTime="00:00:00.9450540" />
+    <File name="AssetProviderBase.generated.cs" startTime="130191522630213020" executionTime="00:00:00.0090005" />
+    <File name="SqlClient\SqlAssetProviderBase.generated.cs" startTime="130191522630333027" executionTime="00:00:00.7360421" />
+    <File name="SqlClient\AssetTest.cs" startTime="130191522637713449" executionTime="00:00:00.0140008" />
+  </Table>
+  <Table name="AssetGroup" startTime="130191522637853457" executionTime="00:00:00.2450140">
+    <File name="AssetGroup.generated.cs" startTime="130191522637873458" executionTime="00:00:00.0140008" />
+    <File name="IAssetGroup.cs" startTime="130191522638013466" executionTime="00:00:00.0030002" />
+    <File name="AssetGroup.cs" startTime="130191522638063469" executionTime="00:00:00.0990056" />
+    <File name="AssetGroupService.cs" startTime="130191522639063526" executionTime="00:00:00.0020001" />
+    <File name="AssetGroupServiceBase.generated.cs" startTime="130191522639093528" executionTime="00:00:00.0860049" />
+    <File name="AssetGroupProviderBase.generatedCore.cs" startTime="130191522639973578" executionTime="00:00:00.0090005" />
+    <File name="AssetGroupProviderBase.generated.cs" startTime="130191522640093585" executionTime="00:00:00.0040002" />
+    <File name="SqlClient\SqlAssetGroupProviderBase.generated.cs" startTime="130191522640143588" executionTime="00:00:00.0070004" />
+    <File name="SqlClient\AssetGroupTest.cs" startTime="130191522640293596" executionTime="00:00:00.0010001" />
+  </Table>
+  <Table name="AssetGroupType" startTime="130191522640303597" executionTime="00:00:00.1030059">
+    <File name="AssetGroupType.generated.cs" startTime="130191522640343599" executionTime="00:00:00.0180010" />
+    <File name="IAssetGroupType.cs" startTime="130191522640603614" executionTime="00:00:00.0030002" />
+    <File name="AssetGroupType.cs" startTime="130191522640673618" executionTime="00:00:00.0020001" />
+    <File name="AssetGroupTypeService.cs" startTime="130191522640783624" executionTime="00:00:00.0020001" />
+    <File name="AssetGroupTypeServiceBase.generated.cs" startTime="130191522640883630" executionTime="00:00:00.0120007" />
+    <File name="AssetGroupTypeProviderBase.generatedCore.cs" startTime="130191522641043639" executionTime="00:00:00.0070004" />
+    <File name="AssetGroupTypeProviderBase.generated.cs" startTime="130191522641183647" executionTime="00:00:00.0030002" />
+    <File name="SqlClient\SqlAssetGroupTypeProviderBase.generated.cs" startTime="130191522641243651" executionTime="00:00:00.0040002" />
+    <File name="SqlClient\AssetGroupTypeTest.cs" startTime="130191522641313655" executionTime="00:00:00.0020001" />
+  </Table>
+  <Table name="AssetLiquidation" startTime="130191522641343656" executionTime="00:00:00.3480199">
+    <File name="AssetLiquidation.generated.cs" startTime="130191522641373658" executionTime="00:00:00.0320018" />
+    <File name="IAssetLiquidation.cs" startTime="130191522641763680" executionTime="00:00:00.0020002" />
+    <File name="AssetLiquidation.cs" startTime="130191522641823684" executionTime="00:00:00.0020001" />
+    <File name="AssetLiquidationService.cs" startTime="130191522641883687" executionTime="00:00:00.0580033" />
+    <File name="AssetLiquidationServiceBase.generated.cs" startTime="130191522642483722" executionTime="00:00:00.1650094" />
+    <File name="AssetLiquidationProviderBase.generatedCore.cs" startTime="130191522644143817" executionTime="00:00:00.0540030" />
+    <File name="AssetLiquidationProviderBase.generated.cs" startTime="130191522644703849" executionTime="00:00:00.0020001" />
+    <File name="SqlClient\SqlAssetLiquidationProviderBase.generated.cs" startTime="130191522644733850" executionTime="00:00:00.0060004" />
+    <File name="SqlClient\AssetLiquidationTest.cs" startTime="130191522644813855" executionTime="00:00:00.0010000" />
+  </Table>
+  <Table name="Capital" startTime="130191522644833856" executionTime="00:00:00.0790045">
+    <File name="Capital.generated.cs" startTime="130191522644833856" executionTime="00:00:00.0130007" />
+    <File name="ICapital.cs" startTime="130191522644983865" executionTime="00:00:00.0020001" />
+    <File name="Capital.cs" startTime="130191522645003866" executionTime="00:00:00.0020001" />
+    <File name="CapitalService.cs" startTime="130191522645033867" executionTime="00:00:00.0020002" />
+    <File name="CapitalServiceBase.generated.cs" startTime="130191522645053869" executionTime="00:00:00.0170009" />
+    <File name="CapitalProviderBase.generatedCore.cs" startTime="130191522645253880" executionTime="00:00:00.0050003" />
+    <File name="CapitalProviderBase.generated.cs" startTime="130191522645313883" executionTime="00:00:00.0020002" />
+    <File name="SqlClient\SqlCapitalProviderBase.generated.cs" startTime="130191522645343885" executionTime="00:00:00.0240014" />
+    <File name="SqlClient\CapitalTest.cs" startTime="130191522645583899" executionTime="00:00:00.0040002" />
+  </Table>
+  <Table name="DepartmentUsed" startTime="130191522645623901" executionTime="00:00:00.0820047">
+    <File name="DepartmentUsed.generated.cs" startTime="130191522645643902" executionTime="00:00:00.0230013" />
+    <File name="IDepartmentUsed.cs" startTime="130191522645893917" executionTime="00:00:00.0060003" />
+    <File name="DepartmentUsed.cs" startTime="130191522645973921" executionTime="00:00:00.0020001" />
+    <File name="DepartmentUsedService.cs" startTime="130191522646003923" executionTime="00:00:00.0030002" />
+    <File name="DepartmentUsedServiceBase.generated.cs" startTime="130191522646043925" executionTime="00:00:00.0140008" />
+    <File name="DepartmentUsedProviderBase.generatedCore.cs" startTime="130191522646193934" executionTime="00:00:00.0110006" />
+    <File name="DepartmentUsedProviderBase.generated.cs" startTime="130191522646303940" executionTime="00:00:00.0030002" />
+    <File name="SqlClient\SqlDepartmentUsedProviderBase.generated.cs" startTime="130191522646343942" executionTime="00:00:00.0060004" />
+    <File name="SqlClient\DepartmentUsedTest.cs" startTime="130191522646413946" executionTime="00:00:00.0030002" />
+  </Table>
+  <Table name="Partner" startTime="130191522646443948" executionTime="00:00:00.0840048">
+    <File name="Partner.generated.cs" startTime="130191522646453949" executionTime="00:00:00.0190011" />
+    <File name="IPartner.cs" startTime="130191522646653960" executionTime="00:00:00.0030002" />
+    <File name="Partner.cs" startTime="130191522646703963" executionTime="00:00:00.0010001" />
+    <File name="PartnerService.cs" startTime="130191522646733965" executionTime="00:00:00.0020001" />
+    <File name="PartnerServiceBase.generated.cs" startTime="130191522646803969" executionTime="00:00:00.0170009" />
+    <File name="PartnerProviderBase.generatedCore.cs" startTime="130191522647023981" executionTime="00:00:00.0130008" />
+    <File name="PartnerProviderBase.generated.cs" startTime="130191522647163989" executionTime="00:00:00.0020001" />
+    <File name="SqlClient\SqlPartnerProviderBase.generated.cs" startTime="130191522647193991" executionTime="00:00:00.0060003" />
+    <File name="SqlClient\PartnerTest.cs" startTime="130191522647263995" executionTime="00:00:00.0020001" />
+  </Table>
+  <Table name="RepairAsset" startTime="130191522647283996" executionTime="00:00:00.9400538">
+    <File name="RepairAsset.generated.cs" startTime="130191522647293997" executionTime="00:00:00.0430024" />
+    <File name="IRepairAsset.cs" startTime="130191522647734022" executionTime="00:00:00.0030002" />
+    <File name="RepairAsset.cs" startTime="130191522647804026" executionTime="00:00:00.0020001" />
+    <File name="RepairAssetService.cs" startTime="130191522647894031" executionTime="00:00:00.0020001" />
+    <File name="RepairAssetServiceBase.generated.cs" startTime="130191522647914032" executionTime="00:00:00.8520488" />
+    <File name="RepairAssetProviderBase.generatedCore.cs" startTime="130191522656444520" executionTime="00:00:00.0110006" />
+    <File name="RepairAssetProviderBase.generated.cs" startTime="130191522656564527" executionTime="00:00:00.0020001" />
+    <File name="SqlClient\SqlRepairAssetProviderBase.generated.cs" startTime="130191522656594529" executionTime="00:00:00.0060003" />
+    <File name="SqlClient\RepairAssetTest.cs" startTime="130191522656664533" executionTime="00:00:00.0020001" />
+  </Table>
+  <Table name="Unit" startTime="130191522656684534" executionTime="00:00:00.0560032">
+    <File name="Unit.generated.cs" startTime="130191522656694534" executionTime="00:00:00.0150009" />
+    <File name="IUnit.cs" startTime="130191522656854544" executionTime="00:00:00.0030001" />
+    <File name="Unit.cs" startTime="130191522656894546" executionTime="00:00:00.0010000" />
+    <File name="UnitService.cs" startTime="130191522656914547" executionTime="00:00:00.0020001" />
+    <File name="UnitServiceBase.generated.cs" startTime="130191522656944549" executionTime="00:00:00.0110006" />
+    <File name="UnitProviderBase.generatedCore.cs" startTime="130191522657054555" executionTime="00:00:00.0070004" />
+    <File name="UnitProviderBase.generated.cs" startTime="130191522657134560" executionTime="00:00:00.0020001" />
+    <File name="SqlClient\SqlUnitProviderBase.generated.cs" startTime="130191522657154561" executionTime="00:00:00.0060003" />
+    <File name="SqlClient\UnitTest.cs" startTime="130191522657224565" executionTime="00:00:00.0020001" />
+  </Table>
+  <Table name="UpDownReason" startTime="130191522657244566" executionTime="00:00:00.1040059">
+    <File name="UpDownReason.generated.cs" startTime="130191522657254566" executionTime="00:00:00.0130008" />
+    <File name="IUpDownReason.cs" startTime="130191522657394574" executionTime="00:00:00.0020002" />
+    <File name="UpDownReason.cs" startTime="130191522657424576" executionTime="00:00:00.0010001" />
+    <File name="UpDownReasonService.cs" startTime="130191522657444577" executionTime="00:00:00.0020001" />
+    <File name="UpDownReasonServiceBase.generated.cs" startTime="130191522657474579" executionTime="00:00:00.0130007" />
+    <File name="UpDownReasonProviderBase.generatedCore.cs" startTime="130191522657614587" executionTime="00:00:00.0050003" />
+    <File name="UpDownReasonProviderBase.generated.cs" startTime="130191522657674590" executionTime="00:00:00.0010001" />
+    <File name="SqlClient\SqlUpDownReasonProviderBase.generated.cs" startTime="130191522657694592" executionTime="00:00:00.0080004" />
+    <File name="SqlClient\UpDownReasonTest.cs" startTime="130191522657784597" executionTime="00:00:00.0500028" />
+  </Table>
+  <Table name="WarrantyAsset" startTime="130191522658294626" executionTime="00:00:00.3230185">
+    <File name="WarrantyAsset.generated.cs" startTime="130191522658294626" executionTime="00:00:00.0410023" />
+    <File name="IWarrantyAsset.cs" startTime="130191522658714650" executionTime="00:00:00.0040002" />
+    <File name="WarrantyAsset.cs" startTime="130191522658764653" executionTime="00:00:00.0100006" />
+    <File name="WarrantyAssetService.cs" startTime="130191522658874659" executionTime="00:00:00.0020001" />
+    <File name="WarrantyAssetServiceBase.generated.cs" startTime="130191522658904661" executionTime="00:00:00.2300131" />
+    <File name="WarrantyAssetProviderBase.generatedCore.cs" startTime="130191522661214793" executionTime="00:00:00.0120007" />
+    <File name="WarrantyAssetProviderBase.generated.cs" startTime="130191522661344800" executionTime="00:00:00.0020002" />
+    <File name="SqlClient\SqlWarrantyAssetProviderBase.generated.cs" startTime="130191522661384803" executionTime="00:00:00.0080004" />
+    <File name="SqlClient\WarrantyAssetTest.cs" startTime="130191522661504810" executionTime="00:00:00.0020001" />
+  </Table>
+  <summary>
+    <objectCount>236</objectCount>
+    <messageCount>0</messageCount>
+  </summary>
+</NetTiersReport>
