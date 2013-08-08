@@ -54,7 +54,7 @@ namespace cunghoc3_AssetManager
             db.Delete(item);
             return "Delete item successful";
         }
-
+        /*
         [WebMethod]
         public string UpdateAssetGroupType(string id, string name)
         {
@@ -63,7 +63,7 @@ namespace cunghoc3_AssetManager
             item.Name = name;
             db.Update(item);
             return "Update new successful";
-        }
+        }*/
 
         [WebMethod]
         public string NewAssetGroup(string Name, string AssetGroupTypeId)
