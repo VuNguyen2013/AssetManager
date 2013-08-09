@@ -348,6 +348,26 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
+        public List<Asset> GetAssetByAssetGroupTypeId(string AssetGroupTypeId)
+        {
+            cunghoc3_AssetManager.Services.AssetService db = new Services.AssetService();
+            cunghoc3_AssetManager.Services.AssetGroupService dbAssetGroup = new Services.AssetGroupService();
+            List<AssetGroup> assetGroupList = dbAssetGroup.GetByAssetGroupTypeId(AssetGroupTypeId).ToList();
+            List<Asset> assetList = new List<Asset>();
+            foreach(AssetGroup ag in assetGroupList){
+                assetList.AddRange(db.GetByAssetGroupId(ag.Id).ToList());
+            }
+            return assetList;
+        }
+
+        [WebMethod]
+        public List<Asset> GetAssetByDepartmentUsedId(string DepartmentUsedId)
+        {
+            cunghoc3_AssetManager.Services.AssetService db = new Services.AssetService();
+            return db.GetByDepartmentUsedId(DepartmentUsedId).ToList();
+        }
+
+        [WebMethod]
         public string DelAssetById(string id)
         {
             cunghoc3_AssetManager.Services.AssetService db = new Services.AssetService();
