@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using AssetManagerClient.WebService;
-using DevExpress.Skins;
-using DevExpress.LookAndFeel;
-using DevExpress.UserSkins;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraBars.Helpers;
@@ -19,14 +12,15 @@ namespace AssetManagerClient
 {
     public partial class Form1 : RibbonForm
     {
-        public AssetManagerService ws=new AssetManagerService();
+        public AssetManagerService WebServices=new AssetManagerService();
      
         public Form1()
         {
-            
+            Enabled = false;
             InitializeComponent();
             InitSkinGallery();
-            InitContent ();
+            var threadOnLoadPage = new Thread(InitContent);
+            threadOnLoadPage.Start();
         }
         void InitSkinGallery()
         {
@@ -35,7 +29,7 @@ namespace AssetManagerClient
         void InitContent()
         {
             //init assets tab
-            var assetGroupTypes = ws.GetAllAssetGroupType();
+            var assetGroupTypes = WebServices.GetAllAssetGroupType();
             foreach (var assetGroupType in assetGroupTypes)
             {
                 var item=new NavBarItem {Caption = assetGroupType.Name,CanDrag = true,Name = assetGroupType.Id};
@@ -46,7 +40,7 @@ namespace AssetManagerClient
             }
             //init department
 
-            var departmentUseds = ws.GetDepartmentUsed();
+            var departmentUseds = WebServices.GetDepartmentUsed();
             foreach (var departmentUsed in departmentUseds)
             {
                 var item = new NavBarItem {Caption = departmentUsed.Name, CanDrag = true, Name = departmentUsed.Id};
@@ -55,7 +49,22 @@ namespace AssetManagerClient
             }
 
             //init all asset
-            var assets = ws.GetAllAsset();
+
+            var assets = WebServices.GetAllAsset();
+            if (assets.RetCode == (int) AssetManagerCommon.CommonEnums.RetCode.SUCCESS)
+            {
+                BindData(assets.RetObject);                
+            }
+            else
+            {
+                lblStatusAlert.Text = AssetManagerCommon.CommonFunction.GetMassageReturn(assets.RetCode);
+            }
+            Invoke(new Action(() =>
+            {
+                gpLoading.Hide();
+                Enabled = true;
+            }));
+            
         }
 
         private void navBarControl1_Click(object sender, EventArgs e)
@@ -73,7 +82,7 @@ namespace AssetManagerClient
                 contextMenu.MenuItems.Add("Xóa");
                 //int currentMouseOverRow = nbAssets. dataGridView1.HitTest(e.X, e.Y).RowIndex;
                 nbAssets.ContextMenu = contextMenu;
-                this.ContextMenu = contextMenu;
+                ContextMenu = contextMenu;
             }
         }
 
@@ -82,29 +91,30 @@ namespace AssetManagerClient
             //if click on nbAssetType
             if (e.Link.Group.Name == nbAssetsType.Name)
             {
-                var assets = ws.GetAssetByAssetGroupTypeId(e.Link.NavBar.Name);
-                BindData(assets);
+                var assets = WebServices.GetAssetByAssetGroupTypeId(e.Link.NavBar.Name);
+                //BindData(assets);
             }
             else
             {
                 //if click on nbDepartmentUsed
                 if (e.Link.Group.Name==nbDepartmentUsed.Name)
                 {
-                    var assets = ws.GetAssetByDepartmentUsedId(e.Link.Item.Name);
-                    BindData(assets);
+                    var assets = WebServices.GetAssetByDepartmentUsedId(e.Link.Item.Name);
+                    //BindData(assets);
                 }
             }
             
         }
-        private void BindData(Asset[] asset)
+        private void BindData(AssetData[] asset)
         {
-            var assetList = new List<Asset>(asset);
-            var bindingList=new BindingList<Asset>();
-            foreach (var assets in assetList)
-            {
-                bindingList.Add(assets);
-            }
-            gcAsset.DataSource = bindingList;
+            gcAsset.DataSource = asset;
+    
+        }
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var newAssetForm = new NewAsset();
+            newAssetForm.Show();
         }
     }
 }

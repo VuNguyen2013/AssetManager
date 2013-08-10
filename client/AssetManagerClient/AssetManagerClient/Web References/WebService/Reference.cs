@@ -1406,9 +1406,9 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllAsset", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Asset[] GetAllAsset() {
+        public ResultObjectOfListOfAssetData GetAllAsset() {
             object[] results = this.Invoke("GetAllAsset", new object[0]);
-            return ((Asset[])(results[0]));
+            return ((ResultObjectOfListOfAssetData)(results[0]));
         }
         
         /// <remarks/>
@@ -3044,6 +3044,360 @@ namespace AssetManagerClient.WebService {
     }
     
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class AssetData {
+        
+        private string idField;
+        
+        private string nameField;
+        
+        private string assetGroupField;
+        
+        private string unitField;
+        
+        private long amountField;
+        
+        private string counProField;
+        
+        private long yearProField;
+        
+        private string departmentUsedField;
+        
+        private long totalPriceField;
+        
+        private long bugetPriceField;
+        
+        private long ownPriceField;
+        
+        private long venturePriceField;
+        
+        private long anotherPriceField;
+        
+        private long totalDepreciationField;
+        
+        private long bugetDepreciationField;
+        
+        private long ownDepreciationField;
+        
+        private long ventureDepreciationField;
+        
+        private long anotherDepreciationField;
+        
+        private long bugeRemainField;
+        
+        private long ownRemainField;
+        
+        private long ventureRemainField;
+        
+        private long anotherRemainField;
+        
+        private long totalRemainField;
+        
+        private string upDownCodeField;
+        
+        private System.DateTime inputDateTimeField;
+        
+        /// <remarks/>
+        public string Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string AssetGroup {
+            get {
+                return this.assetGroupField;
+            }
+            set {
+                this.assetGroupField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Unit {
+            get {
+                return this.unitField;
+            }
+            set {
+                this.unitField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long Amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                this.amountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CounPro {
+            get {
+                return this.counProField;
+            }
+            set {
+                this.counProField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long YearPro {
+            get {
+                return this.yearProField;
+            }
+            set {
+                this.yearProField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DepartmentUsed {
+            get {
+                return this.departmentUsedField;
+            }
+            set {
+                this.departmentUsedField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long TotalPrice {
+            get {
+                return this.totalPriceField;
+            }
+            set {
+                this.totalPriceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long BugetPrice {
+            get {
+                return this.bugetPriceField;
+            }
+            set {
+                this.bugetPriceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long OwnPrice {
+            get {
+                return this.ownPriceField;
+            }
+            set {
+                this.ownPriceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long VenturePrice {
+            get {
+                return this.venturePriceField;
+            }
+            set {
+                this.venturePriceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long AnotherPrice {
+            get {
+                return this.anotherPriceField;
+            }
+            set {
+                this.anotherPriceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long TotalDepreciation {
+            get {
+                return this.totalDepreciationField;
+            }
+            set {
+                this.totalDepreciationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long BugetDepreciation {
+            get {
+                return this.bugetDepreciationField;
+            }
+            set {
+                this.bugetDepreciationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long OwnDepreciation {
+            get {
+                return this.ownDepreciationField;
+            }
+            set {
+                this.ownDepreciationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long VentureDepreciation {
+            get {
+                return this.ventureDepreciationField;
+            }
+            set {
+                this.ventureDepreciationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long AnotherDepreciation {
+            get {
+                return this.anotherDepreciationField;
+            }
+            set {
+                this.anotherDepreciationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long BugeRemain {
+            get {
+                return this.bugeRemainField;
+            }
+            set {
+                this.bugeRemainField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long OwnRemain {
+            get {
+                return this.ownRemainField;
+            }
+            set {
+                this.ownRemainField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long VentureRemain {
+            get {
+                return this.ventureRemainField;
+            }
+            set {
+                this.ventureRemainField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long AnotherRemain {
+            get {
+                return this.anotherRemainField;
+            }
+            set {
+                this.anotherRemainField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long TotalRemain {
+            get {
+                return this.totalRemainField;
+            }
+            set {
+                this.totalRemainField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string UpDownCode {
+            get {
+                return this.upDownCodeField;
+            }
+            set {
+                this.upDownCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime InputDateTime {
+            get {
+                return this.inputDateTimeField;
+            }
+            set {
+                this.inputDateTimeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ResultObjectOfListOfAssetData {
+        
+        private string messageField;
+        
+        private int retCodeField;
+        
+        private AssetData[] retObjectField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public AssetData[] RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(UpDownReason))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
     [System.SerializableAttribute()]
@@ -4376,10 +4730,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public Asset[] Result {
+        public ResultObjectOfListOfAssetData Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Asset[])(this.results[0]));
+                return ((ResultObjectOfListOfAssetData)(this.results[0]));
             }
         }
     }

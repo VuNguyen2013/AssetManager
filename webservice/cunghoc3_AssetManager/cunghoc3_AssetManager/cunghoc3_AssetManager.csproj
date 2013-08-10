@@ -48,12 +48,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssetManagerService.asmx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -61,12 +64,17 @@
       <DependentUpon>AssetManagerService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DataContract\AssetData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\client\AssetManagerClient\AssetManagerCommon\AssetManagerCommon.csproj">
+      <Project>{7D46656F-B201-4D08-991C-B7DB6BCBA190}</Project>
+      <Name>AssetManagerCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\cunghoc3_AssetManager.Data.SqlClient\cunghoc3_AssetManager.Data.SqlClient.csproj">
       <Project>{8996A7B4-57D3-440B-A545-A701844B8C4A}</Project>
       <Name>cunghoc3_AssetManager.Data.SqlClient</Name>

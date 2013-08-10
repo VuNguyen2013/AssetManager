@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AssetManagerCommon
 {
-    class CommonEnums
+    public class CommonEnums
     {
         public enum RetCode
         {

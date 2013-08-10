@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using AssetManagerCommon;
+using cunghoc3_AssetManager.DataContract;
 using cunghoc3_AssetManager.Entities;
 
 namespace cunghoc3_AssetManager
@@ -17,7 +19,7 @@ namespace cunghoc3_AssetManager
     [System.Web.Script.Services.ScriptService]
     public class AssetManagerService : System.Web.Services.WebService
     {
-        private Random randomId = new Random();
+        public Random randomId = new Random();
         [WebMethod]
         public string NewAssetGroupType(string Name)
         {
@@ -268,38 +270,50 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string NewAsset(string Name, string AssetGroupId, string UnitId, string Amount, string CounPro, string YearPro, string DepartmentUsedId, string TotalPrice, string BugetPrice, string OwnPrice, string VenturePrice, string AnotherPrice, string TotalDepreciation, string BugetDepreciation, string OwnDepreciation, string VentureDepreciation, string AnotherDepreciation, string BugeRemain, string OwnRemain, string VentureRemain, string AnotherRemain, string TotalRemain, string UpDownCode, string InputDateTime)
+        public int NewAsset(string name, string assetGroupId, string unitId, int amount, string counPro, int yearPro, string departmentUsedId, long totalPrice, long bugetPrice, long ownPrice, long venturePrice, long anotherPrice, long totalDepreciation, long bugetDepreciation, long ownDepreciation, long ventureDepreciation, long anotherDepreciation, long bugeRemain, long ownRemain, long ventureRemain, long anotherRemain, long totalRemain, long upDownCode, DateTime inputDateTime)
         {
-            cunghoc3_AssetManager.Services.AssetService db = new Services.AssetService();
-            Asset item = new Asset();
-            do
+            try
             {
-                int numbID = randomId.Next(111111, 9999999);
-                item.Id = "AS_" + numbID;
-                item.Name = Name;
-                item.AssetGroupId = AssetGroupId;
-                item.UnitId = UnitId;
-                item.Amount = Convert.ToInt32(Amount);
-                item.CounPro = CounPro;
-                item.YearPro = Convert.ToInt32(YearPro);
-                item.DepartmentUsedId = DepartmentUsedId;
-                item.TotalPrice = Convert.ToInt64(TotalPrice);
-                item.BudgetPrice = Convert.ToInt64(BugetPrice);
-                item.OwnPrice = Convert.ToInt64(OwnPrice);
-                item.VenturePrice = Convert.ToInt64(VenturePrice);
-                item.AnotherPrice = Convert.ToInt64(AnotherPrice);
-                item.TotalDepreciation = Convert.ToInt64(TotalDepreciation);
-                item.BudgetDepreciation = Convert.ToInt64(BugetDepreciation);
-                item.OwnDepreciation = Convert.ToInt64(OwnDepreciation);
-                item.VentureDepreciation = Convert.ToInt64(VentureDepreciation);
-                item.AnotherDepreciation = Convert.ToInt64(AnotherDepreciation);
-                item.BudgetRemain = Convert.ToInt64(BugeRemain);
-                item.OwnRemain = Convert.ToInt64(OwnRemain);
-                item.VentureRemain = Convert.ToInt64(VentureRemain);
-                item.AnotherRemain = Convert.ToInt64(AnotherRemain);
-                item.TotalReamain = Convert.ToInt64(TotalRemain);
-            } while (!db.Insert(item));
-            return "Add new Asset successful";
+                var db = new Services.AssetService();
+                var numbId = randomId.Next(111111, 9999999);
+                var item = new Asset
+                    {
+                        Id = "AS_" + numbId,
+                        Name = name,
+                        AssetGroupId = assetGroupId,
+                        UnitId = unitId,
+                        Amount = amount,
+                        CounPro = counPro,
+                        YearPro = yearPro,
+                        DepartmentUsedId = departmentUsedId,
+                        TotalPrice = totalPrice,
+                        BudgetPrice = bugetPrice,
+                        OwnPrice = ownPrice,
+                        VenturePrice = venturePrice,
+                        AnotherPrice = anotherPrice,
+                        TotalDepreciation = totalDepreciation,
+                        BudgetDepreciation = bugetDepreciation,
+                        OwnDepreciation = ownDepreciation,
+                        VentureDepreciation = ventureDepreciation,
+                        AnotherDepreciation = anotherDepreciation,
+                        BudgetRemain = bugeRemain,
+                        OwnRemain = ownRemain,
+                        VentureRemain = ventureRemain,
+                        AnotherRemain = anotherRemain,
+                        TotalReamain = totalRemain
+                    };
+
+                if (db.Insert(item))
+                {
+                    return (int) CommonEnums.RetCode.SUCCESS;
+                }
+                return (int) CommonEnums.RetCode.OTHER;
+            }
+            catch (Exception ex)
+            {
+                return (int) CommonEnums.RetCode.SYSTEM_ERROR;
+            }
+            
         }
 
         [WebMethod]
@@ -334,10 +348,33 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public List<Asset> GetAllAsset()
+        public ResultObject<List<AssetData>> GetAllAsset()
         {
-            cunghoc3_AssetManager.Services.AssetService db = new Services.AssetService();
-            return db.GetAll().ToList();
+            var resultObject = new ResultObject<List<AssetData>> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+            try
+            {
+                var db = new Services.AssetService();
+                var assets = db.GetAll();
+                var assetsList= (from asset in assets
+                                 let unit = GetUnitById(asset.UnitId)
+                                 let departmentUsed = GetDepartmentUsedById(asset.DepartmentUsedId)
+                                 let assetGroup = GetAssetGroupById(asset.AssetGroupId)
+                                 select new AssetData
+                                     {
+                                         Amount = asset.Amount, AnotherDepreciation = asset.AnotherDepreciation, AnotherPrice = asset.AnotherPrice, AnotherRemain = asset.AnotherRemain, BugeRemain = asset.BudgetRemain, BugetDepreciation = asset.BudgetDepreciation, BugetPrice = asset.BudgetPrice, CounPro = asset.CounPro, Id = asset.Id, InputDateTime = asset.InputDateTime, Name = asset.Name, OwnDepreciation = asset.OwnDepreciation, OwnPrice = asset.OwnPrice, OwnRemain = asset.OwnRemain, TotalDepreciation = asset.TotalDepreciation, TotalPrice = asset.TotalPrice, TotalRemain = asset.TotalReamain, UpDownCode = asset.UpDownCode, VentureDepreciation = asset.VentureDepreciation, VenturePrice = asset.VenturePrice, VentureRemain = asset.VentureRemain, YearPro = asset.YearPro,
+                                         //refer
+                                         Unit = unit.Name, DepartmentUsed = departmentUsed.Name, AssetGroup = assetGroup.Name
+                                     }).ToList();
+                resultObject.RetObject = assetsList;
+                resultObject.Message = "Get asset list success";
+                return resultObject;
+            }
+            catch (Exception ex)
+            {
+                resultObject.RetCode = (int) CommonEnums.RetCode.SYSTEM_ERROR;
+                return resultObject;
+            }
+            
         }
 
         [WebMethod]
@@ -392,8 +429,8 @@ namespace cunghoc3_AssetManager
             } while (db.Insert(item));
             return "Add new Partner successful";
         }
-
-        [WebMethod]
+        
+       [WebMethod]
         public string UpdatePartner(string id, string Name, string Phone, string TaxCode, string Address)
         {
             cunghoc3_AssetManager.Services.PartnerService db = new Services.PartnerService();
