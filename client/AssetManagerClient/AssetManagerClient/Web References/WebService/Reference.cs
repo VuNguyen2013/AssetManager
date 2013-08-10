@@ -39,6 +39,8 @@ namespace AssetManagerClient.WebService {
         
         private System.Threading.SendOrPostCallback DelAssetGroupTypeByIdOperationCompleted;
         
+        private System.Threading.SendOrPostCallback UpdateAssetGroupTypeOperationCompleted;
+        
         private System.Threading.SendOrPostCallback NewAssetGroupOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetAllAssetGroupOperationCompleted;
@@ -47,7 +49,7 @@ namespace AssetManagerClient.WebService {
         
         private System.Threading.SendOrPostCallback DelAssetGroupByIdOperationCompleted;
         
-        private System.Threading.SendOrPostCallback UpdateAssetGroupTypeOperationCompleted;
+        private System.Threading.SendOrPostCallback UpdateAssetGroupOperationCompleted;
         
         private System.Threading.SendOrPostCallback NewCapitalOperationCompleted;
         
@@ -57,23 +59,91 @@ namespace AssetManagerClient.WebService {
         
         private System.Threading.SendOrPostCallback DelCapitalByIdOperationCompleted;
         
-        private System.Threading.SendOrPostCallback UpdateCapitalTypeOperationCompleted;
+        private System.Threading.SendOrPostCallback UpdateCapitalOperationCompleted;
         
         private System.Threading.SendOrPostCallback NewDepartmentUsedOperationCompleted;
         
+        private System.Threading.SendOrPostCallback UpdateDepartmentUsedOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetDepartmentUsedOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetDepartmentUsedByIdOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DelDepartmentUsedByIdOperationCompleted;
+        
         private System.Threading.SendOrPostCallback NewUnitOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UpdateUnitOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetAllUnitOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetUnitByIdOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DelUnitByIdOperationCompleted;
         
         private System.Threading.SendOrPostCallback NewAssetOperationCompleted;
         
+        private System.Threading.SendOrPostCallback UpdateAssetOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetAllAssetOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetAssetByIdOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetAssetByAssetGroupTypeIdOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetAssetByDepartmentUsedIdOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DelAssetByIdOperationCompleted;
+        
         private System.Threading.SendOrPostCallback NewPartnerOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UpdatePartnerOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetAllPartnerOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetPartnerByIdOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DelPartnerByIdOperationCompleted;
         
         private System.Threading.SendOrPostCallback NewUpDownReasonOperationCompleted;
         
+        private System.Threading.SendOrPostCallback UpdateUpDownReasonOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetAllUpDownReasonOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetUpDownReasonByIdOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DelUpDownReasonByIdOperationCompleted;
+        
         private System.Threading.SendOrPostCallback NewAssetLiquidationOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UpdateAssetLiquidationOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetAllAssetLiquidationOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetAssetLiquidationByIdOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DelAssetLiquidationByIdOperationCompleted;
         
         private System.Threading.SendOrPostCallback NewRepairAssetOperationCompleted;
         
+        private System.Threading.SendOrPostCallback UpdateRepairAssetOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetAllRepairAssetOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetRepairAssetByIdOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DelRepairAssetByIdOperationCompleted;
+        
         private System.Threading.SendOrPostCallback NewWarrantyAssetOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UpdateWarrantyAssetOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetAllWarrantyAssetOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetWarrantyAssetByIdOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DelWarrantyAssetByIdOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -126,6 +196,9 @@ namespace AssetManagerClient.WebService {
         public event DelAssetGroupTypeByIdCompletedEventHandler DelAssetGroupTypeByIdCompleted;
         
         /// <remarks/>
+        public event UpdateAssetGroupTypeCompletedEventHandler UpdateAssetGroupTypeCompleted;
+        
+        /// <remarks/>
         public event NewAssetGroupCompletedEventHandler NewAssetGroupCompleted;
         
         /// <remarks/>
@@ -138,7 +211,7 @@ namespace AssetManagerClient.WebService {
         public event DelAssetGroupByIdCompletedEventHandler DelAssetGroupByIdCompleted;
         
         /// <remarks/>
-        public event UpdateAssetGroupTypeCompletedEventHandler UpdateAssetGroupTypeCompleted;
+        public event UpdateAssetGroupCompletedEventHandler UpdateAssetGroupCompleted;
         
         /// <remarks/>
         public event NewCapitalCompletedEventHandler NewCapitalCompleted;
@@ -153,31 +226,133 @@ namespace AssetManagerClient.WebService {
         public event DelCapitalByIdCompletedEventHandler DelCapitalByIdCompleted;
         
         /// <remarks/>
-        public event UpdateCapitalTypeCompletedEventHandler UpdateCapitalTypeCompleted;
+        public event UpdateCapitalCompletedEventHandler UpdateCapitalCompleted;
         
         /// <remarks/>
         public event NewDepartmentUsedCompletedEventHandler NewDepartmentUsedCompleted;
         
         /// <remarks/>
+        public event UpdateDepartmentUsedCompletedEventHandler UpdateDepartmentUsedCompleted;
+        
+        /// <remarks/>
+        public event GetDepartmentUsedCompletedEventHandler GetDepartmentUsedCompleted;
+        
+        /// <remarks/>
+        public event GetDepartmentUsedByIdCompletedEventHandler GetDepartmentUsedByIdCompleted;
+        
+        /// <remarks/>
+        public event DelDepartmentUsedByIdCompletedEventHandler DelDepartmentUsedByIdCompleted;
+        
+        /// <remarks/>
         public event NewUnitCompletedEventHandler NewUnitCompleted;
+        
+        /// <remarks/>
+        public event UpdateUnitCompletedEventHandler UpdateUnitCompleted;
+        
+        /// <remarks/>
+        public event GetAllUnitCompletedEventHandler GetAllUnitCompleted;
+        
+        /// <remarks/>
+        public event GetUnitByIdCompletedEventHandler GetUnitByIdCompleted;
+        
+        /// <remarks/>
+        public event DelUnitByIdCompletedEventHandler DelUnitByIdCompleted;
         
         /// <remarks/>
         public event NewAssetCompletedEventHandler NewAssetCompleted;
         
         /// <remarks/>
+        public event UpdateAssetCompletedEventHandler UpdateAssetCompleted;
+        
+        /// <remarks/>
+        public event GetAllAssetCompletedEventHandler GetAllAssetCompleted;
+        
+        /// <remarks/>
+        public event GetAssetByIdCompletedEventHandler GetAssetByIdCompleted;
+        
+        /// <remarks/>
+        public event GetAssetByAssetGroupTypeIdCompletedEventHandler GetAssetByAssetGroupTypeIdCompleted;
+        
+        /// <remarks/>
+        public event GetAssetByDepartmentUsedIdCompletedEventHandler GetAssetByDepartmentUsedIdCompleted;
+        
+        /// <remarks/>
+        public event DelAssetByIdCompletedEventHandler DelAssetByIdCompleted;
+        
+        /// <remarks/>
         public event NewPartnerCompletedEventHandler NewPartnerCompleted;
+        
+        /// <remarks/>
+        public event UpdatePartnerCompletedEventHandler UpdatePartnerCompleted;
+        
+        /// <remarks/>
+        public event GetAllPartnerCompletedEventHandler GetAllPartnerCompleted;
+        
+        /// <remarks/>
+        public event GetPartnerByIdCompletedEventHandler GetPartnerByIdCompleted;
+        
+        /// <remarks/>
+        public event DelPartnerByIdCompletedEventHandler DelPartnerByIdCompleted;
         
         /// <remarks/>
         public event NewUpDownReasonCompletedEventHandler NewUpDownReasonCompleted;
         
         /// <remarks/>
+        public event UpdateUpDownReasonCompletedEventHandler UpdateUpDownReasonCompleted;
+        
+        /// <remarks/>
+        public event GetAllUpDownReasonCompletedEventHandler GetAllUpDownReasonCompleted;
+        
+        /// <remarks/>
+        public event GetUpDownReasonByIdCompletedEventHandler GetUpDownReasonByIdCompleted;
+        
+        /// <remarks/>
+        public event DelUpDownReasonByIdCompletedEventHandler DelUpDownReasonByIdCompleted;
+        
+        /// <remarks/>
         public event NewAssetLiquidationCompletedEventHandler NewAssetLiquidationCompleted;
+        
+        /// <remarks/>
+        public event UpdateAssetLiquidationCompletedEventHandler UpdateAssetLiquidationCompleted;
+        
+        /// <remarks/>
+        public event GetAllAssetLiquidationCompletedEventHandler GetAllAssetLiquidationCompleted;
+        
+        /// <remarks/>
+        public event GetAssetLiquidationByIdCompletedEventHandler GetAssetLiquidationByIdCompleted;
+        
+        /// <remarks/>
+        public event DelAssetLiquidationByIdCompletedEventHandler DelAssetLiquidationByIdCompleted;
         
         /// <remarks/>
         public event NewRepairAssetCompletedEventHandler NewRepairAssetCompleted;
         
         /// <remarks/>
+        public event UpdateRepairAssetCompletedEventHandler UpdateRepairAssetCompleted;
+        
+        /// <remarks/>
+        public event GetAllRepairAssetCompletedEventHandler GetAllRepairAssetCompleted;
+        
+        /// <remarks/>
+        public event GetRepairAssetByIdCompletedEventHandler GetRepairAssetByIdCompleted;
+        
+        /// <remarks/>
+        public event DelRepairAssetByIdCompletedEventHandler DelRepairAssetByIdCompleted;
+        
+        /// <remarks/>
         public event NewWarrantyAssetCompletedEventHandler NewWarrantyAssetCompleted;
+        
+        /// <remarks/>
+        public event UpdateWarrantyAssetCompletedEventHandler UpdateWarrantyAssetCompleted;
+        
+        /// <remarks/>
+        public event GetAllWarrantyAssetCompletedEventHandler GetAllWarrantyAssetCompleted;
+        
+        /// <remarks/>
+        public event GetWarrantyAssetByIdCompletedEventHandler GetWarrantyAssetByIdCompleted;
+        
+        /// <remarks/>
+        public event DelWarrantyAssetByIdCompletedEventHandler DelWarrantyAssetByIdCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/NewAssetGroupType", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -290,6 +465,37 @@ namespace AssetManagerClient.WebService {
             if ((this.DelAssetGroupTypeByIdCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.DelAssetGroupTypeByIdCompleted(this, new DelAssetGroupTypeByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateAssetGroupType", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string UpdateAssetGroupType(string id, string name) {
+            object[] results = this.Invoke("UpdateAssetGroupType", new object[] {
+                        id,
+                        name});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateAssetGroupTypeAsync(string id, string name) {
+            this.UpdateAssetGroupTypeAsync(id, name, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateAssetGroupTypeAsync(string id, string name, object userState) {
+            if ((this.UpdateAssetGroupTypeOperationCompleted == null)) {
+                this.UpdateAssetGroupTypeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateAssetGroupTypeOperationCompleted);
+            }
+            this.InvokeAsync("UpdateAssetGroupType", new object[] {
+                        id,
+                        name}, this.UpdateAssetGroupTypeOperationCompleted, userState);
+        }
+        
+        private void OnUpdateAssetGroupTypeOperationCompleted(object arg) {
+            if ((this.UpdateAssetGroupTypeCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateAssetGroupTypeCompleted(this, new UpdateAssetGroupTypeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -410,9 +616,9 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateAssetGroupType", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string UpdateAssetGroupType(string id, string Name, string AssetGroupTypeId) {
-            object[] results = this.Invoke("UpdateAssetGroupType", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateAssetGroup", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string UpdateAssetGroup(string id, string Name, string AssetGroupTypeId) {
+            object[] results = this.Invoke("UpdateAssetGroup", new object[] {
                         id,
                         Name,
                         AssetGroupTypeId});
@@ -420,25 +626,25 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public void UpdateAssetGroupTypeAsync(string id, string Name, string AssetGroupTypeId) {
-            this.UpdateAssetGroupTypeAsync(id, Name, AssetGroupTypeId, null);
+        public void UpdateAssetGroupAsync(string id, string Name, string AssetGroupTypeId) {
+            this.UpdateAssetGroupAsync(id, Name, AssetGroupTypeId, null);
         }
         
         /// <remarks/>
-        public void UpdateAssetGroupTypeAsync(string id, string Name, string AssetGroupTypeId, object userState) {
-            if ((this.UpdateAssetGroupTypeOperationCompleted == null)) {
-                this.UpdateAssetGroupTypeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateAssetGroupTypeOperationCompleted);
+        public void UpdateAssetGroupAsync(string id, string Name, string AssetGroupTypeId, object userState) {
+            if ((this.UpdateAssetGroupOperationCompleted == null)) {
+                this.UpdateAssetGroupOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateAssetGroupOperationCompleted);
             }
-            this.InvokeAsync("UpdateAssetGroupType", new object[] {
+            this.InvokeAsync("UpdateAssetGroup", new object[] {
                         id,
                         Name,
-                        AssetGroupTypeId}, this.UpdateAssetGroupTypeOperationCompleted, userState);
+                        AssetGroupTypeId}, this.UpdateAssetGroupOperationCompleted, userState);
         }
         
-        private void OnUpdateAssetGroupTypeOperationCompleted(object arg) {
-            if ((this.UpdateAssetGroupTypeCompleted != null)) {
+        private void OnUpdateAssetGroupOperationCompleted(object arg) {
+            if ((this.UpdateAssetGroupCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.UpdateAssetGroupTypeCompleted(this, new UpdateAssetGroupTypeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.UpdateAssetGroupCompleted(this, new UpdateAssetGroupCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -559,9 +765,9 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateCapitalType", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string UpdateCapitalType(string id, string Name, string Note) {
-            object[] results = this.Invoke("UpdateCapitalType", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateCapital", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string UpdateCapital(string id, string Name, string Note) {
+            object[] results = this.Invoke("UpdateCapital", new object[] {
                         id,
                         Name,
                         Note});
@@ -569,25 +775,25 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public void UpdateCapitalTypeAsync(string id, string Name, string Note) {
-            this.UpdateCapitalTypeAsync(id, Name, Note, null);
+        public void UpdateCapitalAsync(string id, string Name, string Note) {
+            this.UpdateCapitalAsync(id, Name, Note, null);
         }
         
         /// <remarks/>
-        public void UpdateCapitalTypeAsync(string id, string Name, string Note, object userState) {
-            if ((this.UpdateCapitalTypeOperationCompleted == null)) {
-                this.UpdateCapitalTypeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateCapitalTypeOperationCompleted);
+        public void UpdateCapitalAsync(string id, string Name, string Note, object userState) {
+            if ((this.UpdateCapitalOperationCompleted == null)) {
+                this.UpdateCapitalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateCapitalOperationCompleted);
             }
-            this.InvokeAsync("UpdateCapitalType", new object[] {
+            this.InvokeAsync("UpdateCapital", new object[] {
                         id,
                         Name,
-                        Note}, this.UpdateCapitalTypeOperationCompleted, userState);
+                        Note}, this.UpdateCapitalOperationCompleted, userState);
         }
         
-        private void OnUpdateCapitalTypeOperationCompleted(object arg) {
-            if ((this.UpdateCapitalTypeCompleted != null)) {
+        private void OnUpdateCapitalOperationCompleted(object arg) {
+            if ((this.UpdateCapitalCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.UpdateCapitalTypeCompleted(this, new UpdateCapitalTypeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.UpdateCapitalCompleted(this, new UpdateCapitalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -627,6 +833,128 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateDepartmentUsed", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string UpdateDepartmentUsed(string id, string Name, string Phone, string Representative, string Address) {
+            object[] results = this.Invoke("UpdateDepartmentUsed", new object[] {
+                        id,
+                        Name,
+                        Phone,
+                        Representative,
+                        Address});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateDepartmentUsedAsync(string id, string Name, string Phone, string Representative, string Address) {
+            this.UpdateDepartmentUsedAsync(id, Name, Phone, Representative, Address, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateDepartmentUsedAsync(string id, string Name, string Phone, string Representative, string Address, object userState) {
+            if ((this.UpdateDepartmentUsedOperationCompleted == null)) {
+                this.UpdateDepartmentUsedOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateDepartmentUsedOperationCompleted);
+            }
+            this.InvokeAsync("UpdateDepartmentUsed", new object[] {
+                        id,
+                        Name,
+                        Phone,
+                        Representative,
+                        Address}, this.UpdateDepartmentUsedOperationCompleted, userState);
+        }
+        
+        private void OnUpdateDepartmentUsedOperationCompleted(object arg) {
+            if ((this.UpdateDepartmentUsedCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateDepartmentUsedCompleted(this, new UpdateDepartmentUsedCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetDepartmentUsed", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public DepartmentUsed[] GetDepartmentUsed() {
+            object[] results = this.Invoke("GetDepartmentUsed", new object[0]);
+            return ((DepartmentUsed[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetDepartmentUsedAsync() {
+            this.GetDepartmentUsedAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetDepartmentUsedAsync(object userState) {
+            if ((this.GetDepartmentUsedOperationCompleted == null)) {
+                this.GetDepartmentUsedOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetDepartmentUsedOperationCompleted);
+            }
+            this.InvokeAsync("GetDepartmentUsed", new object[0], this.GetDepartmentUsedOperationCompleted, userState);
+        }
+        
+        private void OnGetDepartmentUsedOperationCompleted(object arg) {
+            if ((this.GetDepartmentUsedCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetDepartmentUsedCompleted(this, new GetDepartmentUsedCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetDepartmentUsedById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public DepartmentUsed GetDepartmentUsedById(string id) {
+            object[] results = this.Invoke("GetDepartmentUsedById", new object[] {
+                        id});
+            return ((DepartmentUsed)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetDepartmentUsedByIdAsync(string id) {
+            this.GetDepartmentUsedByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void GetDepartmentUsedByIdAsync(string id, object userState) {
+            if ((this.GetDepartmentUsedByIdOperationCompleted == null)) {
+                this.GetDepartmentUsedByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetDepartmentUsedByIdOperationCompleted);
+            }
+            this.InvokeAsync("GetDepartmentUsedById", new object[] {
+                        id}, this.GetDepartmentUsedByIdOperationCompleted, userState);
+        }
+        
+        private void OnGetDepartmentUsedByIdOperationCompleted(object arg) {
+            if ((this.GetDepartmentUsedByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetDepartmentUsedByIdCompleted(this, new GetDepartmentUsedByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DelDepartmentUsedById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string DelDepartmentUsedById(string id) {
+            object[] results = this.Invoke("DelDepartmentUsedById", new object[] {
+                        id});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DelDepartmentUsedByIdAsync(string id) {
+            this.DelDepartmentUsedByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void DelDepartmentUsedByIdAsync(string id, object userState) {
+            if ((this.DelDepartmentUsedByIdOperationCompleted == null)) {
+                this.DelDepartmentUsedByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDelDepartmentUsedByIdOperationCompleted);
+            }
+            this.InvokeAsync("DelDepartmentUsedById", new object[] {
+                        id}, this.DelDepartmentUsedByIdOperationCompleted, userState);
+        }
+        
+        private void OnDelDepartmentUsedByIdOperationCompleted(object arg) {
+            if ((this.DelDepartmentUsedByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DelDepartmentUsedByIdCompleted(this, new DelDepartmentUsedByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/NewUnit", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string NewUnit(string Name, string Note) {
             object[] results = this.Invoke("NewUnit", new object[] {
@@ -654,6 +982,124 @@ namespace AssetManagerClient.WebService {
             if ((this.NewUnitCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.NewUnitCompleted(this, new NewUnitCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateUnit", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string UpdateUnit(string id, string Name, string Note) {
+            object[] results = this.Invoke("UpdateUnit", new object[] {
+                        id,
+                        Name,
+                        Note});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateUnitAsync(string id, string Name, string Note) {
+            this.UpdateUnitAsync(id, Name, Note, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateUnitAsync(string id, string Name, string Note, object userState) {
+            if ((this.UpdateUnitOperationCompleted == null)) {
+                this.UpdateUnitOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateUnitOperationCompleted);
+            }
+            this.InvokeAsync("UpdateUnit", new object[] {
+                        id,
+                        Name,
+                        Note}, this.UpdateUnitOperationCompleted, userState);
+        }
+        
+        private void OnUpdateUnitOperationCompleted(object arg) {
+            if ((this.UpdateUnitCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateUnitCompleted(this, new UpdateUnitCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllUnit", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Unit[] GetAllUnit() {
+            object[] results = this.Invoke("GetAllUnit", new object[0]);
+            return ((Unit[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAllUnitAsync() {
+            this.GetAllUnitAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetAllUnitAsync(object userState) {
+            if ((this.GetAllUnitOperationCompleted == null)) {
+                this.GetAllUnitOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAllUnitOperationCompleted);
+            }
+            this.InvokeAsync("GetAllUnit", new object[0], this.GetAllUnitOperationCompleted, userState);
+        }
+        
+        private void OnGetAllUnitOperationCompleted(object arg) {
+            if ((this.GetAllUnitCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAllUnitCompleted(this, new GetAllUnitCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetUnitById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Unit GetUnitById(string id) {
+            object[] results = this.Invoke("GetUnitById", new object[] {
+                        id});
+            return ((Unit)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetUnitByIdAsync(string id) {
+            this.GetUnitByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void GetUnitByIdAsync(string id, object userState) {
+            if ((this.GetUnitByIdOperationCompleted == null)) {
+                this.GetUnitByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetUnitByIdOperationCompleted);
+            }
+            this.InvokeAsync("GetUnitById", new object[] {
+                        id}, this.GetUnitByIdOperationCompleted, userState);
+        }
+        
+        private void OnGetUnitByIdOperationCompleted(object arg) {
+            if ((this.GetUnitByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetUnitByIdCompleted(this, new GetUnitByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DelUnitById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string DelUnitById(string id) {
+            object[] results = this.Invoke("DelUnitById", new object[] {
+                        id});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DelUnitByIdAsync(string id) {
+            this.DelUnitByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void DelUnitByIdAsync(string id, object userState) {
+            if ((this.DelUnitByIdOperationCompleted == null)) {
+                this.DelUnitByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDelUnitByIdOperationCompleted);
+            }
+            this.InvokeAsync("DelUnitById", new object[] {
+                        id}, this.DelUnitByIdOperationCompleted, userState);
+        }
+        
+        private void OnDelUnitByIdOperationCompleted(object arg) {
+            if ((this.DelUnitByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DelUnitByIdCompleted(this, new DelUnitByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -806,6 +1252,302 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateAsset", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string UpdateAsset(
+                    string id, 
+                    string Name, 
+                    string AssetGroupId, 
+                    string UnitId, 
+                    string Amount, 
+                    string CounPro, 
+                    string YearPro, 
+                    string DepartmentUsedId, 
+                    string TotalPrice, 
+                    string BugetPrice, 
+                    string OwnPrice, 
+                    string VenturePrice, 
+                    string AnotherPrice, 
+                    string TotalDepreciation, 
+                    string BugetDepreciation, 
+                    string OwnDepreciation, 
+                    string VentureDepreciation, 
+                    string AnotherDepreciation, 
+                    string BugeRemain, 
+                    string OwnRemain, 
+                    string VentureRemain, 
+                    string AnotherRemain, 
+                    string TotalRemain, 
+                    string UpDownCode, 
+                    string InputDateTime) {
+            object[] results = this.Invoke("UpdateAsset", new object[] {
+                        id,
+                        Name,
+                        AssetGroupId,
+                        UnitId,
+                        Amount,
+                        CounPro,
+                        YearPro,
+                        DepartmentUsedId,
+                        TotalPrice,
+                        BugetPrice,
+                        OwnPrice,
+                        VenturePrice,
+                        AnotherPrice,
+                        TotalDepreciation,
+                        BugetDepreciation,
+                        OwnDepreciation,
+                        VentureDepreciation,
+                        AnotherDepreciation,
+                        BugeRemain,
+                        OwnRemain,
+                        VentureRemain,
+                        AnotherRemain,
+                        TotalRemain,
+                        UpDownCode,
+                        InputDateTime});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateAssetAsync(
+                    string id, 
+                    string Name, 
+                    string AssetGroupId, 
+                    string UnitId, 
+                    string Amount, 
+                    string CounPro, 
+                    string YearPro, 
+                    string DepartmentUsedId, 
+                    string TotalPrice, 
+                    string BugetPrice, 
+                    string OwnPrice, 
+                    string VenturePrice, 
+                    string AnotherPrice, 
+                    string TotalDepreciation, 
+                    string BugetDepreciation, 
+                    string OwnDepreciation, 
+                    string VentureDepreciation, 
+                    string AnotherDepreciation, 
+                    string BugeRemain, 
+                    string OwnRemain, 
+                    string VentureRemain, 
+                    string AnotherRemain, 
+                    string TotalRemain, 
+                    string UpDownCode, 
+                    string InputDateTime) {
+            this.UpdateAssetAsync(id, Name, AssetGroupId, UnitId, Amount, CounPro, YearPro, DepartmentUsedId, TotalPrice, BugetPrice, OwnPrice, VenturePrice, AnotherPrice, TotalDepreciation, BugetDepreciation, OwnDepreciation, VentureDepreciation, AnotherDepreciation, BugeRemain, OwnRemain, VentureRemain, AnotherRemain, TotalRemain, UpDownCode, InputDateTime, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateAssetAsync(
+                    string id, 
+                    string Name, 
+                    string AssetGroupId, 
+                    string UnitId, 
+                    string Amount, 
+                    string CounPro, 
+                    string YearPro, 
+                    string DepartmentUsedId, 
+                    string TotalPrice, 
+                    string BugetPrice, 
+                    string OwnPrice, 
+                    string VenturePrice, 
+                    string AnotherPrice, 
+                    string TotalDepreciation, 
+                    string BugetDepreciation, 
+                    string OwnDepreciation, 
+                    string VentureDepreciation, 
+                    string AnotherDepreciation, 
+                    string BugeRemain, 
+                    string OwnRemain, 
+                    string VentureRemain, 
+                    string AnotherRemain, 
+                    string TotalRemain, 
+                    string UpDownCode, 
+                    string InputDateTime, 
+                    object userState) {
+            if ((this.UpdateAssetOperationCompleted == null)) {
+                this.UpdateAssetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateAssetOperationCompleted);
+            }
+            this.InvokeAsync("UpdateAsset", new object[] {
+                        id,
+                        Name,
+                        AssetGroupId,
+                        UnitId,
+                        Amount,
+                        CounPro,
+                        YearPro,
+                        DepartmentUsedId,
+                        TotalPrice,
+                        BugetPrice,
+                        OwnPrice,
+                        VenturePrice,
+                        AnotherPrice,
+                        TotalDepreciation,
+                        BugetDepreciation,
+                        OwnDepreciation,
+                        VentureDepreciation,
+                        AnotherDepreciation,
+                        BugeRemain,
+                        OwnRemain,
+                        VentureRemain,
+                        AnotherRemain,
+                        TotalRemain,
+                        UpDownCode,
+                        InputDateTime}, this.UpdateAssetOperationCompleted, userState);
+        }
+        
+        private void OnUpdateAssetOperationCompleted(object arg) {
+            if ((this.UpdateAssetCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateAssetCompleted(this, new UpdateAssetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllAsset", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Asset[] GetAllAsset() {
+            object[] results = this.Invoke("GetAllAsset", new object[0]);
+            return ((Asset[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAllAssetAsync() {
+            this.GetAllAssetAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetAllAssetAsync(object userState) {
+            if ((this.GetAllAssetOperationCompleted == null)) {
+                this.GetAllAssetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAllAssetOperationCompleted);
+            }
+            this.InvokeAsync("GetAllAsset", new object[0], this.GetAllAssetOperationCompleted, userState);
+        }
+        
+        private void OnGetAllAssetOperationCompleted(object arg) {
+            if ((this.GetAllAssetCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAllAssetCompleted(this, new GetAllAssetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAssetById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Asset GetAssetById(string id) {
+            object[] results = this.Invoke("GetAssetById", new object[] {
+                        id});
+            return ((Asset)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAssetByIdAsync(string id) {
+            this.GetAssetByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void GetAssetByIdAsync(string id, object userState) {
+            if ((this.GetAssetByIdOperationCompleted == null)) {
+                this.GetAssetByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAssetByIdOperationCompleted);
+            }
+            this.InvokeAsync("GetAssetById", new object[] {
+                        id}, this.GetAssetByIdOperationCompleted, userState);
+        }
+        
+        private void OnGetAssetByIdOperationCompleted(object arg) {
+            if ((this.GetAssetByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAssetByIdCompleted(this, new GetAssetByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAssetByAssetGroupTypeId", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Asset[] GetAssetByAssetGroupTypeId(string AssetGroupTypeId) {
+            object[] results = this.Invoke("GetAssetByAssetGroupTypeId", new object[] {
+                        AssetGroupTypeId});
+            return ((Asset[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAssetByAssetGroupTypeIdAsync(string AssetGroupTypeId) {
+            this.GetAssetByAssetGroupTypeIdAsync(AssetGroupTypeId, null);
+        }
+        
+        /// <remarks/>
+        public void GetAssetByAssetGroupTypeIdAsync(string AssetGroupTypeId, object userState) {
+            if ((this.GetAssetByAssetGroupTypeIdOperationCompleted == null)) {
+                this.GetAssetByAssetGroupTypeIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAssetByAssetGroupTypeIdOperationCompleted);
+            }
+            this.InvokeAsync("GetAssetByAssetGroupTypeId", new object[] {
+                        AssetGroupTypeId}, this.GetAssetByAssetGroupTypeIdOperationCompleted, userState);
+        }
+        
+        private void OnGetAssetByAssetGroupTypeIdOperationCompleted(object arg) {
+            if ((this.GetAssetByAssetGroupTypeIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAssetByAssetGroupTypeIdCompleted(this, new GetAssetByAssetGroupTypeIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAssetByDepartmentUsedId", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Asset[] GetAssetByDepartmentUsedId(string DepartmentUsedId) {
+            object[] results = this.Invoke("GetAssetByDepartmentUsedId", new object[] {
+                        DepartmentUsedId});
+            return ((Asset[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAssetByDepartmentUsedIdAsync(string DepartmentUsedId) {
+            this.GetAssetByDepartmentUsedIdAsync(DepartmentUsedId, null);
+        }
+        
+        /// <remarks/>
+        public void GetAssetByDepartmentUsedIdAsync(string DepartmentUsedId, object userState) {
+            if ((this.GetAssetByDepartmentUsedIdOperationCompleted == null)) {
+                this.GetAssetByDepartmentUsedIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAssetByDepartmentUsedIdOperationCompleted);
+            }
+            this.InvokeAsync("GetAssetByDepartmentUsedId", new object[] {
+                        DepartmentUsedId}, this.GetAssetByDepartmentUsedIdOperationCompleted, userState);
+        }
+        
+        private void OnGetAssetByDepartmentUsedIdOperationCompleted(object arg) {
+            if ((this.GetAssetByDepartmentUsedIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAssetByDepartmentUsedIdCompleted(this, new GetAssetByDepartmentUsedIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DelAssetById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string DelAssetById(string id) {
+            object[] results = this.Invoke("DelAssetById", new object[] {
+                        id});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DelAssetByIdAsync(string id) {
+            this.DelAssetByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void DelAssetByIdAsync(string id, object userState) {
+            if ((this.DelAssetByIdOperationCompleted == null)) {
+                this.DelAssetByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDelAssetByIdOperationCompleted);
+            }
+            this.InvokeAsync("DelAssetById", new object[] {
+                        id}, this.DelAssetByIdOperationCompleted, userState);
+        }
+        
+        private void OnDelAssetByIdOperationCompleted(object arg) {
+            if ((this.DelAssetByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DelAssetByIdCompleted(this, new DelAssetByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/NewPartner", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string NewPartner(string Name, string Phone, string TaxCode, string Address) {
             object[] results = this.Invoke("NewPartner", new object[] {
@@ -841,6 +1583,128 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdatePartner", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string UpdatePartner(string id, string Name, string Phone, string TaxCode, string Address) {
+            object[] results = this.Invoke("UpdatePartner", new object[] {
+                        id,
+                        Name,
+                        Phone,
+                        TaxCode,
+                        Address});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdatePartnerAsync(string id, string Name, string Phone, string TaxCode, string Address) {
+            this.UpdatePartnerAsync(id, Name, Phone, TaxCode, Address, null);
+        }
+        
+        /// <remarks/>
+        public void UpdatePartnerAsync(string id, string Name, string Phone, string TaxCode, string Address, object userState) {
+            if ((this.UpdatePartnerOperationCompleted == null)) {
+                this.UpdatePartnerOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdatePartnerOperationCompleted);
+            }
+            this.InvokeAsync("UpdatePartner", new object[] {
+                        id,
+                        Name,
+                        Phone,
+                        TaxCode,
+                        Address}, this.UpdatePartnerOperationCompleted, userState);
+        }
+        
+        private void OnUpdatePartnerOperationCompleted(object arg) {
+            if ((this.UpdatePartnerCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdatePartnerCompleted(this, new UpdatePartnerCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllPartner", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Partner[] GetAllPartner() {
+            object[] results = this.Invoke("GetAllPartner", new object[0]);
+            return ((Partner[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAllPartnerAsync() {
+            this.GetAllPartnerAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetAllPartnerAsync(object userState) {
+            if ((this.GetAllPartnerOperationCompleted == null)) {
+                this.GetAllPartnerOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAllPartnerOperationCompleted);
+            }
+            this.InvokeAsync("GetAllPartner", new object[0], this.GetAllPartnerOperationCompleted, userState);
+        }
+        
+        private void OnGetAllPartnerOperationCompleted(object arg) {
+            if ((this.GetAllPartnerCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAllPartnerCompleted(this, new GetAllPartnerCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetPartnerById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Partner GetPartnerById(string id) {
+            object[] results = this.Invoke("GetPartnerById", new object[] {
+                        id});
+            return ((Partner)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetPartnerByIdAsync(string id) {
+            this.GetPartnerByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void GetPartnerByIdAsync(string id, object userState) {
+            if ((this.GetPartnerByIdOperationCompleted == null)) {
+                this.GetPartnerByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetPartnerByIdOperationCompleted);
+            }
+            this.InvokeAsync("GetPartnerById", new object[] {
+                        id}, this.GetPartnerByIdOperationCompleted, userState);
+        }
+        
+        private void OnGetPartnerByIdOperationCompleted(object arg) {
+            if ((this.GetPartnerByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetPartnerByIdCompleted(this, new GetPartnerByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DelPartnerById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string DelPartnerById(string id) {
+            object[] results = this.Invoke("DelPartnerById", new object[] {
+                        id});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DelPartnerByIdAsync(string id) {
+            this.DelPartnerByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void DelPartnerByIdAsync(string id, object userState) {
+            if ((this.DelPartnerByIdOperationCompleted == null)) {
+                this.DelPartnerByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDelPartnerByIdOperationCompleted);
+            }
+            this.InvokeAsync("DelPartnerById", new object[] {
+                        id}, this.DelPartnerByIdOperationCompleted, userState);
+        }
+        
+        private void OnDelPartnerByIdOperationCompleted(object arg) {
+            if ((this.DelPartnerByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DelPartnerByIdCompleted(this, new DelPartnerByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/NewUpDownReason", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string NewUpDownReason(string Name, string Type) {
             object[] results = this.Invoke("NewUpDownReason", new object[] {
@@ -868,6 +1732,124 @@ namespace AssetManagerClient.WebService {
             if ((this.NewUpDownReasonCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.NewUpDownReasonCompleted(this, new NewUpDownReasonCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateUpDownReason", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string UpdateUpDownReason(string id, string Name, string Type) {
+            object[] results = this.Invoke("UpdateUpDownReason", new object[] {
+                        id,
+                        Name,
+                        Type});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateUpDownReasonAsync(string id, string Name, string Type) {
+            this.UpdateUpDownReasonAsync(id, Name, Type, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateUpDownReasonAsync(string id, string Name, string Type, object userState) {
+            if ((this.UpdateUpDownReasonOperationCompleted == null)) {
+                this.UpdateUpDownReasonOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateUpDownReasonOperationCompleted);
+            }
+            this.InvokeAsync("UpdateUpDownReason", new object[] {
+                        id,
+                        Name,
+                        Type}, this.UpdateUpDownReasonOperationCompleted, userState);
+        }
+        
+        private void OnUpdateUpDownReasonOperationCompleted(object arg) {
+            if ((this.UpdateUpDownReasonCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateUpDownReasonCompleted(this, new UpdateUpDownReasonCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllUpDownReason", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public UpDownReason[] GetAllUpDownReason() {
+            object[] results = this.Invoke("GetAllUpDownReason", new object[0]);
+            return ((UpDownReason[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAllUpDownReasonAsync() {
+            this.GetAllUpDownReasonAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetAllUpDownReasonAsync(object userState) {
+            if ((this.GetAllUpDownReasonOperationCompleted == null)) {
+                this.GetAllUpDownReasonOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAllUpDownReasonOperationCompleted);
+            }
+            this.InvokeAsync("GetAllUpDownReason", new object[0], this.GetAllUpDownReasonOperationCompleted, userState);
+        }
+        
+        private void OnGetAllUpDownReasonOperationCompleted(object arg) {
+            if ((this.GetAllUpDownReasonCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAllUpDownReasonCompleted(this, new GetAllUpDownReasonCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetUpDownReasonById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public UpDownReason GetUpDownReasonById(string id) {
+            object[] results = this.Invoke("GetUpDownReasonById", new object[] {
+                        id});
+            return ((UpDownReason)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetUpDownReasonByIdAsync(string id) {
+            this.GetUpDownReasonByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void GetUpDownReasonByIdAsync(string id, object userState) {
+            if ((this.GetUpDownReasonByIdOperationCompleted == null)) {
+                this.GetUpDownReasonByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetUpDownReasonByIdOperationCompleted);
+            }
+            this.InvokeAsync("GetUpDownReasonById", new object[] {
+                        id}, this.GetUpDownReasonByIdOperationCompleted, userState);
+        }
+        
+        private void OnGetUpDownReasonByIdOperationCompleted(object arg) {
+            if ((this.GetUpDownReasonByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetUpDownReasonByIdCompleted(this, new GetUpDownReasonByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DelUpDownReasonById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string DelUpDownReasonById(string id) {
+            object[] results = this.Invoke("DelUpDownReasonById", new object[] {
+                        id});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DelUpDownReasonByIdAsync(string id) {
+            this.DelUpDownReasonByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void DelUpDownReasonByIdAsync(string id, object userState) {
+            if ((this.DelUpDownReasonByIdOperationCompleted == null)) {
+                this.DelUpDownReasonByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDelUpDownReasonByIdOperationCompleted);
+            }
+            this.InvokeAsync("DelUpDownReasonById", new object[] {
+                        id}, this.DelUpDownReasonByIdOperationCompleted, userState);
+        }
+        
+        private void OnDelUpDownReasonByIdOperationCompleted(object arg) {
+            if ((this.DelUpDownReasonByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DelUpDownReasonByIdCompleted(this, new DelUpDownReasonByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -903,6 +1885,128 @@ namespace AssetManagerClient.WebService {
             if ((this.NewAssetLiquidationCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.NewAssetLiquidationCompleted(this, new NewAssetLiquidationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateAssetLiquidation", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string UpdateAssetLiquidation(string id, string AssetId, string DepartmentUsedId, string LiDateTime, string LiPrice) {
+            object[] results = this.Invoke("UpdateAssetLiquidation", new object[] {
+                        id,
+                        AssetId,
+                        DepartmentUsedId,
+                        LiDateTime,
+                        LiPrice});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateAssetLiquidationAsync(string id, string AssetId, string DepartmentUsedId, string LiDateTime, string LiPrice) {
+            this.UpdateAssetLiquidationAsync(id, AssetId, DepartmentUsedId, LiDateTime, LiPrice, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateAssetLiquidationAsync(string id, string AssetId, string DepartmentUsedId, string LiDateTime, string LiPrice, object userState) {
+            if ((this.UpdateAssetLiquidationOperationCompleted == null)) {
+                this.UpdateAssetLiquidationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateAssetLiquidationOperationCompleted);
+            }
+            this.InvokeAsync("UpdateAssetLiquidation", new object[] {
+                        id,
+                        AssetId,
+                        DepartmentUsedId,
+                        LiDateTime,
+                        LiPrice}, this.UpdateAssetLiquidationOperationCompleted, userState);
+        }
+        
+        private void OnUpdateAssetLiquidationOperationCompleted(object arg) {
+            if ((this.UpdateAssetLiquidationCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateAssetLiquidationCompleted(this, new UpdateAssetLiquidationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllAssetLiquidation", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public AssetLiquidation[] GetAllAssetLiquidation() {
+            object[] results = this.Invoke("GetAllAssetLiquidation", new object[0]);
+            return ((AssetLiquidation[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAllAssetLiquidationAsync() {
+            this.GetAllAssetLiquidationAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetAllAssetLiquidationAsync(object userState) {
+            if ((this.GetAllAssetLiquidationOperationCompleted == null)) {
+                this.GetAllAssetLiquidationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAllAssetLiquidationOperationCompleted);
+            }
+            this.InvokeAsync("GetAllAssetLiquidation", new object[0], this.GetAllAssetLiquidationOperationCompleted, userState);
+        }
+        
+        private void OnGetAllAssetLiquidationOperationCompleted(object arg) {
+            if ((this.GetAllAssetLiquidationCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAllAssetLiquidationCompleted(this, new GetAllAssetLiquidationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAssetLiquidationById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public AssetLiquidation GetAssetLiquidationById(string id) {
+            object[] results = this.Invoke("GetAssetLiquidationById", new object[] {
+                        id});
+            return ((AssetLiquidation)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAssetLiquidationByIdAsync(string id) {
+            this.GetAssetLiquidationByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void GetAssetLiquidationByIdAsync(string id, object userState) {
+            if ((this.GetAssetLiquidationByIdOperationCompleted == null)) {
+                this.GetAssetLiquidationByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAssetLiquidationByIdOperationCompleted);
+            }
+            this.InvokeAsync("GetAssetLiquidationById", new object[] {
+                        id}, this.GetAssetLiquidationByIdOperationCompleted, userState);
+        }
+        
+        private void OnGetAssetLiquidationByIdOperationCompleted(object arg) {
+            if ((this.GetAssetLiquidationByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAssetLiquidationByIdCompleted(this, new GetAssetLiquidationByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DelAssetLiquidationById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string DelAssetLiquidationById(string id) {
+            object[] results = this.Invoke("DelAssetLiquidationById", new object[] {
+                        id});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DelAssetLiquidationByIdAsync(string id) {
+            this.DelAssetLiquidationByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void DelAssetLiquidationByIdAsync(string id, object userState) {
+            if ((this.DelAssetLiquidationByIdOperationCompleted == null)) {
+                this.DelAssetLiquidationByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDelAssetLiquidationByIdOperationCompleted);
+            }
+            this.InvokeAsync("DelAssetLiquidationById", new object[] {
+                        id}, this.DelAssetLiquidationByIdOperationCompleted, userState);
+        }
+        
+        private void OnDelAssetLiquidationByIdOperationCompleted(object arg) {
+            if ((this.DelAssetLiquidationByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DelAssetLiquidationByIdCompleted(this, new DelAssetLiquidationByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -946,6 +2050,132 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateRepairAsset", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string UpdateRepairAsset(string id, string AssetId, string DepartmentUsedId, string PartnerId, string Address, string RepairDate, string Fee) {
+            object[] results = this.Invoke("UpdateRepairAsset", new object[] {
+                        id,
+                        AssetId,
+                        DepartmentUsedId,
+                        PartnerId,
+                        Address,
+                        RepairDate,
+                        Fee});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateRepairAssetAsync(string id, string AssetId, string DepartmentUsedId, string PartnerId, string Address, string RepairDate, string Fee) {
+            this.UpdateRepairAssetAsync(id, AssetId, DepartmentUsedId, PartnerId, Address, RepairDate, Fee, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateRepairAssetAsync(string id, string AssetId, string DepartmentUsedId, string PartnerId, string Address, string RepairDate, string Fee, object userState) {
+            if ((this.UpdateRepairAssetOperationCompleted == null)) {
+                this.UpdateRepairAssetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateRepairAssetOperationCompleted);
+            }
+            this.InvokeAsync("UpdateRepairAsset", new object[] {
+                        id,
+                        AssetId,
+                        DepartmentUsedId,
+                        PartnerId,
+                        Address,
+                        RepairDate,
+                        Fee}, this.UpdateRepairAssetOperationCompleted, userState);
+        }
+        
+        private void OnUpdateRepairAssetOperationCompleted(object arg) {
+            if ((this.UpdateRepairAssetCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateRepairAssetCompleted(this, new UpdateRepairAssetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllRepairAsset", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public RepairAsset[] GetAllRepairAsset() {
+            object[] results = this.Invoke("GetAllRepairAsset", new object[0]);
+            return ((RepairAsset[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAllRepairAssetAsync() {
+            this.GetAllRepairAssetAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetAllRepairAssetAsync(object userState) {
+            if ((this.GetAllRepairAssetOperationCompleted == null)) {
+                this.GetAllRepairAssetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAllRepairAssetOperationCompleted);
+            }
+            this.InvokeAsync("GetAllRepairAsset", new object[0], this.GetAllRepairAssetOperationCompleted, userState);
+        }
+        
+        private void OnGetAllRepairAssetOperationCompleted(object arg) {
+            if ((this.GetAllRepairAssetCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAllRepairAssetCompleted(this, new GetAllRepairAssetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetRepairAssetById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public RepairAsset GetRepairAssetById(string id) {
+            object[] results = this.Invoke("GetRepairAssetById", new object[] {
+                        id});
+            return ((RepairAsset)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetRepairAssetByIdAsync(string id) {
+            this.GetRepairAssetByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void GetRepairAssetByIdAsync(string id, object userState) {
+            if ((this.GetRepairAssetByIdOperationCompleted == null)) {
+                this.GetRepairAssetByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetRepairAssetByIdOperationCompleted);
+            }
+            this.InvokeAsync("GetRepairAssetById", new object[] {
+                        id}, this.GetRepairAssetByIdOperationCompleted, userState);
+        }
+        
+        private void OnGetRepairAssetByIdOperationCompleted(object arg) {
+            if ((this.GetRepairAssetByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetRepairAssetByIdCompleted(this, new GetRepairAssetByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DelRepairAssetById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string DelRepairAssetById(string id) {
+            object[] results = this.Invoke("DelRepairAssetById", new object[] {
+                        id});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DelRepairAssetByIdAsync(string id) {
+            this.DelRepairAssetByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void DelRepairAssetByIdAsync(string id, object userState) {
+            if ((this.DelRepairAssetByIdOperationCompleted == null)) {
+                this.DelRepairAssetByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDelRepairAssetByIdOperationCompleted);
+            }
+            this.InvokeAsync("DelRepairAssetById", new object[] {
+                        id}, this.DelRepairAssetByIdOperationCompleted, userState);
+        }
+        
+        private void OnDelRepairAssetByIdOperationCompleted(object arg) {
+            if ((this.DelRepairAssetByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DelRepairAssetByIdCompleted(this, new DelRepairAssetByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/NewWarrantyAsset", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string NewWarrantyAsset(string AssetId, string DepartmentUsedId, string PartnerId, string WarDateTime, string DeadlineWar, string Address, string PersonWar) {
             object[] results = this.Invoke("NewWarrantyAsset", new object[] {
@@ -983,6 +2213,134 @@ namespace AssetManagerClient.WebService {
             if ((this.NewWarrantyAssetCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.NewWarrantyAssetCompleted(this, new NewWarrantyAssetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateWarrantyAsset", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string UpdateWarrantyAsset(string id, string AssetId, string DepartmentUsedId, string PartnerId, string WarDateTime, string DeadlineWar, string Address, string PersonWar) {
+            object[] results = this.Invoke("UpdateWarrantyAsset", new object[] {
+                        id,
+                        AssetId,
+                        DepartmentUsedId,
+                        PartnerId,
+                        WarDateTime,
+                        DeadlineWar,
+                        Address,
+                        PersonWar});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateWarrantyAssetAsync(string id, string AssetId, string DepartmentUsedId, string PartnerId, string WarDateTime, string DeadlineWar, string Address, string PersonWar) {
+            this.UpdateWarrantyAssetAsync(id, AssetId, DepartmentUsedId, PartnerId, WarDateTime, DeadlineWar, Address, PersonWar, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateWarrantyAssetAsync(string id, string AssetId, string DepartmentUsedId, string PartnerId, string WarDateTime, string DeadlineWar, string Address, string PersonWar, object userState) {
+            if ((this.UpdateWarrantyAssetOperationCompleted == null)) {
+                this.UpdateWarrantyAssetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateWarrantyAssetOperationCompleted);
+            }
+            this.InvokeAsync("UpdateWarrantyAsset", new object[] {
+                        id,
+                        AssetId,
+                        DepartmentUsedId,
+                        PartnerId,
+                        WarDateTime,
+                        DeadlineWar,
+                        Address,
+                        PersonWar}, this.UpdateWarrantyAssetOperationCompleted, userState);
+        }
+        
+        private void OnUpdateWarrantyAssetOperationCompleted(object arg) {
+            if ((this.UpdateWarrantyAssetCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateWarrantyAssetCompleted(this, new UpdateWarrantyAssetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllWarrantyAsset", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public WarrantyAsset[] GetAllWarrantyAsset() {
+            object[] results = this.Invoke("GetAllWarrantyAsset", new object[0]);
+            return ((WarrantyAsset[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAllWarrantyAssetAsync() {
+            this.GetAllWarrantyAssetAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetAllWarrantyAssetAsync(object userState) {
+            if ((this.GetAllWarrantyAssetOperationCompleted == null)) {
+                this.GetAllWarrantyAssetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAllWarrantyAssetOperationCompleted);
+            }
+            this.InvokeAsync("GetAllWarrantyAsset", new object[0], this.GetAllWarrantyAssetOperationCompleted, userState);
+        }
+        
+        private void OnGetAllWarrantyAssetOperationCompleted(object arg) {
+            if ((this.GetAllWarrantyAssetCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAllWarrantyAssetCompleted(this, new GetAllWarrantyAssetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetWarrantyAssetById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public WarrantyAsset GetWarrantyAssetById(string id) {
+            object[] results = this.Invoke("GetWarrantyAssetById", new object[] {
+                        id});
+            return ((WarrantyAsset)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetWarrantyAssetByIdAsync(string id) {
+            this.GetWarrantyAssetByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void GetWarrantyAssetByIdAsync(string id, object userState) {
+            if ((this.GetWarrantyAssetByIdOperationCompleted == null)) {
+                this.GetWarrantyAssetByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetWarrantyAssetByIdOperationCompleted);
+            }
+            this.InvokeAsync("GetWarrantyAssetById", new object[] {
+                        id}, this.GetWarrantyAssetByIdOperationCompleted, userState);
+        }
+        
+        private void OnGetWarrantyAssetByIdOperationCompleted(object arg) {
+            if ((this.GetWarrantyAssetByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetWarrantyAssetByIdCompleted(this, new GetWarrantyAssetByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DelWarrantyAssetById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string DelWarrantyAssetById(string id) {
+            object[] results = this.Invoke("DelWarrantyAssetById", new object[] {
+                        id});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DelWarrantyAssetByIdAsync(string id) {
+            this.DelWarrantyAssetByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void DelWarrantyAssetByIdAsync(string id, object userState) {
+            if ((this.DelWarrantyAssetByIdOperationCompleted == null)) {
+                this.DelWarrantyAssetByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDelWarrantyAssetByIdOperationCompleted);
+            }
+            this.InvokeAsync("DelWarrantyAssetById", new object[] {
+                        id}, this.DelWarrantyAssetByIdOperationCompleted, userState);
+        }
+        
+        private void OnDelWarrantyAssetByIdOperationCompleted(object arg) {
+            if ((this.DelWarrantyAssetByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DelWarrantyAssetByIdCompleted(this, new DelWarrantyAssetByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1599,6 +2957,14 @@ namespace AssetManagerClient.WebService {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UpDownReasonBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UpDownReason))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartnerBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Partner))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UnitBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Unit))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DepartmentUsedBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DepartmentUsed))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CapitalBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Capital))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RepairAssetBase))]
@@ -1623,6 +2989,14 @@ namespace AssetManagerClient.WebService {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EntityBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UpDownReasonBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UpDownReason))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartnerBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Partner))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UnitBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Unit))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DepartmentUsedBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DepartmentUsed))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CapitalBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Capital))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RepairAssetBase))]
@@ -1670,19 +3044,19 @@ namespace AssetManagerClient.WebService {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Capital))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UpDownReason))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public abstract partial class CapitalBase : EntityBase {
+    public abstract partial class UpDownReasonBase : EntityBase {
         
         private string originalIdField;
         
         private string nameField;
         
-        private string noteField;
+        private string typeField;
         
         /// <remarks/>
         public string OriginalId {
@@ -1705,12 +3079,12 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public string Note {
+        public string Type {
             get {
-                return this.noteField;
+                return this.typeField;
             }
             set {
-                this.noteField = value;
+                this.typeField = value;
             }
         }
     }
@@ -1721,7 +3095,110 @@ namespace AssetManagerClient.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Capital : CapitalBase {
+    public partial class UpDownReason : UpDownReasonBase {
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Partner))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public abstract partial class PartnerBase : EntityBase {
+        
+        private string originalIdField;
+        
+        private string nameField;
+        
+        private string addressField;
+        
+        private string phoneField;
+        
+        private string taxCodeField;
+        
+        private WarrantyAsset[] warrantyAssetCollectionField;
+        
+        private RepairAsset[] repairAssetCollectionField;
+        
+        /// <remarks/>
+        public string OriginalId {
+            get {
+                return this.originalIdField;
+            }
+            set {
+                this.originalIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Address {
+            get {
+                return this.addressField;
+            }
+            set {
+                this.addressField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Phone {
+            get {
+                return this.phoneField;
+            }
+            set {
+                this.phoneField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string TaxCode {
+            get {
+                return this.taxCodeField;
+            }
+            set {
+                this.taxCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public WarrantyAsset[] WarrantyAssetCollection {
+            get {
+                return this.warrantyAssetCollectionField;
+            }
+            set {
+                this.warrantyAssetCollectionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public RepairAsset[] RepairAssetCollection {
+            get {
+                return this.repairAssetCollectionField;
+            }
+            set {
+                this.repairAssetCollectionField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class RepairAsset : RepairAssetBase {
     }
     
     /// <remarks/>
@@ -1836,7 +3313,201 @@ namespace AssetManagerClient.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class RepairAsset : RepairAssetBase {
+    public partial class Partner : PartnerBase {
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Unit))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public abstract partial class UnitBase : EntityBase {
+        
+        private string originalIdField;
+        
+        private string nameField;
+        
+        private string noteField;
+        
+        private Asset[] assetCollectionField;
+        
+        /// <remarks/>
+        public string OriginalId {
+            get {
+                return this.originalIdField;
+            }
+            set {
+                this.originalIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note {
+            get {
+                return this.noteField;
+            }
+            set {
+                this.noteField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Asset[] AssetCollection {
+            get {
+                return this.assetCollectionField;
+            }
+            set {
+                this.assetCollectionField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Unit : UnitBase {
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DepartmentUsed))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public abstract partial class DepartmentUsedBase : EntityBase {
+        
+        private string originalIdField;
+        
+        private string nameField;
+        
+        private string phoneField;
+        
+        private string representativeField;
+        
+        private string addressField;
+        
+        private Asset[] assetCollectionField;
+        
+        private WarrantyAsset[] warrantyAssetCollectionField;
+        
+        private AssetLiquidation[] assetLiquidationCollectionField;
+        
+        private RepairAsset[] repairAssetCollectionField;
+        
+        /// <remarks/>
+        public string OriginalId {
+            get {
+                return this.originalIdField;
+            }
+            set {
+                this.originalIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Phone {
+            get {
+                return this.phoneField;
+            }
+            set {
+                this.phoneField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Representative {
+            get {
+                return this.representativeField;
+            }
+            set {
+                this.representativeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Address {
+            get {
+                return this.addressField;
+            }
+            set {
+                this.addressField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Asset[] AssetCollection {
+            get {
+                return this.assetCollectionField;
+            }
+            set {
+                this.assetCollectionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public WarrantyAsset[] WarrantyAssetCollection {
+            get {
+                return this.warrantyAssetCollectionField;
+            }
+            set {
+                this.warrantyAssetCollectionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public AssetLiquidation[] AssetLiquidationCollection {
+            get {
+                return this.assetLiquidationCollectionField;
+            }
+            set {
+                this.assetLiquidationCollectionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public RepairAsset[] RepairAssetCollection {
+            get {
+                return this.repairAssetCollectionField;
+            }
+            set {
+                this.repairAssetCollectionField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class AssetLiquidation : AssetLiquidationBase {
     }
     
     /// <remarks/>
@@ -1927,7 +3598,62 @@ namespace AssetManagerClient.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class AssetLiquidation : AssetLiquidationBase {
+    public partial class DepartmentUsed : DepartmentUsedBase {
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Capital))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public abstract partial class CapitalBase : EntityBase {
+        
+        private string originalIdField;
+        
+        private string nameField;
+        
+        private string noteField;
+        
+        /// <remarks/>
+        public string OriginalId {
+            get {
+                return this.originalIdField;
+            }
+            set {
+                this.originalIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note {
+            get {
+                return this.noteField;
+            }
+            set {
+                this.noteField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Capital : CapitalBase {
     }
     
     /// <remarks/>
@@ -2021,6 +3747,32 @@ namespace AssetManagerClient.WebService {
         private object[] results;
         
         internal DelAssetGroupTypeByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void UpdateAssetGroupTypeCompletedEventHandler(object sender, UpdateAssetGroupTypeCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateAssetGroupTypeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateAssetGroupTypeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2140,17 +3892,17 @@ namespace AssetManagerClient.WebService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
-    public delegate void UpdateAssetGroupTypeCompletedEventHandler(object sender, UpdateAssetGroupTypeCompletedEventArgs e);
+    public delegate void UpdateAssetGroupCompletedEventHandler(object sender, UpdateAssetGroupCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class UpdateAssetGroupTypeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class UpdateAssetGroupCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal UpdateAssetGroupTypeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal UpdateAssetGroupCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2270,17 +4022,17 @@ namespace AssetManagerClient.WebService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
-    public delegate void UpdateCapitalTypeCompletedEventHandler(object sender, UpdateCapitalTypeCompletedEventArgs e);
+    public delegate void UpdateCapitalCompletedEventHandler(object sender, UpdateCapitalCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class UpdateCapitalTypeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class UpdateCapitalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal UpdateCapitalTypeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal UpdateCapitalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2322,6 +4074,110 @@ namespace AssetManagerClient.WebService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void UpdateDepartmentUsedCompletedEventHandler(object sender, UpdateDepartmentUsedCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateDepartmentUsedCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateDepartmentUsedCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetDepartmentUsedCompletedEventHandler(object sender, GetDepartmentUsedCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetDepartmentUsedCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetDepartmentUsedCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public DepartmentUsed[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((DepartmentUsed[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetDepartmentUsedByIdCompletedEventHandler(object sender, GetDepartmentUsedByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetDepartmentUsedByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetDepartmentUsedByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public DepartmentUsed Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((DepartmentUsed)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void DelDepartmentUsedByIdCompletedEventHandler(object sender, DelDepartmentUsedByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DelDepartmentUsedByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DelDepartmentUsedByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
     public delegate void NewUnitCompletedEventHandler(object sender, NewUnitCompletedEventArgs e);
     
     /// <remarks/>
@@ -2333,6 +4189,110 @@ namespace AssetManagerClient.WebService {
         private object[] results;
         
         internal NewUnitCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void UpdateUnitCompletedEventHandler(object sender, UpdateUnitCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateUnitCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateUnitCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetAllUnitCompletedEventHandler(object sender, GetAllUnitCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAllUnitCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAllUnitCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Unit[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Unit[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetUnitByIdCompletedEventHandler(object sender, GetUnitByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetUnitByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetUnitByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Unit Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Unit)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void DelUnitByIdCompletedEventHandler(object sender, DelUnitByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DelUnitByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DelUnitByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2374,6 +4334,162 @@ namespace AssetManagerClient.WebService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void UpdateAssetCompletedEventHandler(object sender, UpdateAssetCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateAssetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateAssetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetAllAssetCompletedEventHandler(object sender, GetAllAssetCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAllAssetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAllAssetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Asset[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Asset[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetAssetByIdCompletedEventHandler(object sender, GetAssetByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAssetByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAssetByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Asset Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Asset)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetAssetByAssetGroupTypeIdCompletedEventHandler(object sender, GetAssetByAssetGroupTypeIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAssetByAssetGroupTypeIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAssetByAssetGroupTypeIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Asset[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Asset[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetAssetByDepartmentUsedIdCompletedEventHandler(object sender, GetAssetByDepartmentUsedIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAssetByDepartmentUsedIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAssetByDepartmentUsedIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Asset[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Asset[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void DelAssetByIdCompletedEventHandler(object sender, DelAssetByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DelAssetByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DelAssetByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
     public delegate void NewPartnerCompletedEventHandler(object sender, NewPartnerCompletedEventArgs e);
     
     /// <remarks/>
@@ -2385,6 +4501,110 @@ namespace AssetManagerClient.WebService {
         private object[] results;
         
         internal NewPartnerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void UpdatePartnerCompletedEventHandler(object sender, UpdatePartnerCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdatePartnerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdatePartnerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetAllPartnerCompletedEventHandler(object sender, GetAllPartnerCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAllPartnerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAllPartnerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Partner[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Partner[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetPartnerByIdCompletedEventHandler(object sender, GetPartnerByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetPartnerByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetPartnerByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Partner Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Partner)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void DelPartnerByIdCompletedEventHandler(object sender, DelPartnerByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DelPartnerByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DelPartnerByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2426,6 +4646,110 @@ namespace AssetManagerClient.WebService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void UpdateUpDownReasonCompletedEventHandler(object sender, UpdateUpDownReasonCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateUpDownReasonCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateUpDownReasonCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetAllUpDownReasonCompletedEventHandler(object sender, GetAllUpDownReasonCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAllUpDownReasonCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAllUpDownReasonCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public UpDownReason[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((UpDownReason[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetUpDownReasonByIdCompletedEventHandler(object sender, GetUpDownReasonByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetUpDownReasonByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetUpDownReasonByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public UpDownReason Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((UpDownReason)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void DelUpDownReasonByIdCompletedEventHandler(object sender, DelUpDownReasonByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DelUpDownReasonByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DelUpDownReasonByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
     public delegate void NewAssetLiquidationCompletedEventHandler(object sender, NewAssetLiquidationCompletedEventArgs e);
     
     /// <remarks/>
@@ -2437,6 +4761,110 @@ namespace AssetManagerClient.WebService {
         private object[] results;
         
         internal NewAssetLiquidationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void UpdateAssetLiquidationCompletedEventHandler(object sender, UpdateAssetLiquidationCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateAssetLiquidationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateAssetLiquidationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetAllAssetLiquidationCompletedEventHandler(object sender, GetAllAssetLiquidationCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAllAssetLiquidationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAllAssetLiquidationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public AssetLiquidation[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((AssetLiquidation[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetAssetLiquidationByIdCompletedEventHandler(object sender, GetAssetLiquidationByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAssetLiquidationByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAssetLiquidationByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public AssetLiquidation Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((AssetLiquidation)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void DelAssetLiquidationByIdCompletedEventHandler(object sender, DelAssetLiquidationByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DelAssetLiquidationByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DelAssetLiquidationByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2478,6 +4906,110 @@ namespace AssetManagerClient.WebService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void UpdateRepairAssetCompletedEventHandler(object sender, UpdateRepairAssetCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateRepairAssetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateRepairAssetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetAllRepairAssetCompletedEventHandler(object sender, GetAllRepairAssetCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAllRepairAssetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAllRepairAssetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public RepairAsset[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((RepairAsset[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetRepairAssetByIdCompletedEventHandler(object sender, GetRepairAssetByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetRepairAssetByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetRepairAssetByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public RepairAsset Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((RepairAsset)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void DelRepairAssetByIdCompletedEventHandler(object sender, DelRepairAssetByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DelRepairAssetByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DelRepairAssetByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
     public delegate void NewWarrantyAssetCompletedEventHandler(object sender, NewWarrantyAssetCompletedEventArgs e);
     
     /// <remarks/>
@@ -2489,6 +5021,110 @@ namespace AssetManagerClient.WebService {
         private object[] results;
         
         internal NewWarrantyAssetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void UpdateWarrantyAssetCompletedEventHandler(object sender, UpdateWarrantyAssetCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateWarrantyAssetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateWarrantyAssetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetAllWarrantyAssetCompletedEventHandler(object sender, GetAllWarrantyAssetCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAllWarrantyAssetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAllWarrantyAssetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public WarrantyAsset[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((WarrantyAsset[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetWarrantyAssetByIdCompletedEventHandler(object sender, GetWarrantyAssetByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetWarrantyAssetByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetWarrantyAssetByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public WarrantyAsset Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((WarrantyAsset)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void DelWarrantyAssetByIdCompletedEventHandler(object sender, DelWarrantyAssetByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DelWarrantyAssetByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DelWarrantyAssetByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

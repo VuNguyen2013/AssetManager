@@ -230,6 +230,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="UpdateAssetGroupType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAssetGroupTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAssetGroupTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="NewAssetGroup">
         <s:complexType>
           <s:sequence>
@@ -283,7 +298,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="UpdateAssetGroupType">
+      <s:element name="UpdateAssetGroup">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
@@ -292,10 +307,10 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="UpdateAssetGroupTypeResponse">
+      <s:element name="UpdateAssetGroupResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UpdateAssetGroupTypeResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAssetGroupResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -373,7 +388,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="UpdateCapitalType">
+      <s:element name="UpdateCapital">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
@@ -382,10 +397,10 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="UpdateCapitalTypeResponse">
+      <s:element name="UpdateCapitalResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UpdateCapitalTypeResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCapitalResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -406,6 +421,89 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="UpdateDepartmentUsed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Representative" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDepartmentUsedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateDepartmentUsedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDepartmentUsed">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfDepartmentUsed">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DepartmentUsed" nillable="true" type="tns:DepartmentUsed" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DepartmentUsed">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DepartmentUsedBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DepartmentUsedBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Representative" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssetCollection" type="tns:ArrayOfAsset" />
+              <s:element minOccurs="0" maxOccurs="1" name="WarrantyAssetCollection" type="tns:ArrayOfWarrantyAsset" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssetLiquidationCollection" type="tns:ArrayOfAssetLiquidation" />
+              <s:element minOccurs="0" maxOccurs="1" name="RepairAssetCollection" type="tns:ArrayOfRepairAsset" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetDepartmentUsedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDepartmentUsedResult" type="tns:ArrayOfDepartmentUsed" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDepartmentUsedById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDepartmentUsedByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDepartmentUsedByIdResult" type="tns:DepartmentUsed" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelDepartmentUsedById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelDepartmentUsedByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelDepartmentUsedByIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="NewUnit">
         <s:complexType>
           <s:sequence>
@@ -418,6 +516,82 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="NewUnitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUnit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUnitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateUnitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllUnit">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfUnit">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Unit" nillable="true" type="tns:Unit" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Unit">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:UnitBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="UnitBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssetCollection" type="tns:ArrayOfAsset" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetAllUnitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllUnitResult" type="tns:ArrayOfUnit" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUnitById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUnitByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUnitByIdResult" type="tns:Unit" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelUnitById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelUnitByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelUnitByIdResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -458,6 +632,110 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="UpdateAsset">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AssetGroupId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UnitId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CounPro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="YearPro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TotalPrice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BugetPrice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OwnPrice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VenturePrice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AnotherPrice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TotalDepreciation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BugetDepreciation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OwnDepreciation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VentureDepreciation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AnotherDepreciation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BugeRemain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OwnRemain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VentureRemain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AnotherRemain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TotalRemain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UpDownCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InputDateTime" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAssetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAssetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllAsset">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllAssetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllAssetResult" type="tns:ArrayOfAsset" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssetById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssetByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssetByIdResult" type="tns:Asset" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssetByAssetGroupTypeId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AssetGroupTypeId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssetByAssetGroupTypeIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssetByAssetGroupTypeIdResult" type="tns:ArrayOfAsset" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssetByDepartmentUsedId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssetByDepartmentUsedIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssetByDepartmentUsedIdResult" type="tns:ArrayOfAsset" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelAssetById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelAssetByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelAssetByIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="NewPartner">
         <s:complexType>
           <s:sequence>
@@ -475,6 +753,87 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="UpdatePartner">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TaxCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePartnerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePartnerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllPartner">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfPartner">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Partner" nillable="true" type="tns:Partner" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Partner">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:PartnerBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PartnerBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TaxCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="WarrantyAssetCollection" type="tns:ArrayOfWarrantyAsset" />
+              <s:element minOccurs="0" maxOccurs="1" name="RepairAssetCollection" type="tns:ArrayOfRepairAsset" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetAllPartnerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllPartnerResult" type="tns:ArrayOfPartner" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPartnerById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPartnerByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPartnerByIdResult" type="tns:Partner" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelPartnerById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelPartnerByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelPartnerByIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="NewUpDownReason">
         <s:complexType>
           <s:sequence>
@@ -487,6 +846,81 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="NewUpDownReasonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUpDownReason">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUpDownReasonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateUpDownReasonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllUpDownReason">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfUpDownReason">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UpDownReason" nillable="true" type="tns:UpDownReason" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UpDownReason">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:UpDownReasonBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="UpDownReasonBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetAllUpDownReasonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllUpDownReasonResult" type="tns:ArrayOfUpDownReason" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUpDownReasonById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUpDownReasonByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUpDownReasonByIdResult" type="tns:UpDownReason" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelUpDownReasonById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelUpDownReasonByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelUpDownReasonByIdResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -507,6 +941,62 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="UpdateAssetLiquidation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LiDateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LiPrice" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAssetLiquidationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAssetLiquidationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllAssetLiquidation">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllAssetLiquidationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllAssetLiquidationResult" type="tns:ArrayOfAssetLiquidation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssetLiquidationById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssetLiquidationByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssetLiquidationByIdResult" type="tns:AssetLiquidation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelAssetLiquidationById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelAssetLiquidationByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelAssetLiquidationByIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="NewRepairAsset">
         <s:complexType>
           <s:sequence>
@@ -523,6 +1013,64 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="NewRepairAssetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRepairAsset">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RepairDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Fee" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRepairAssetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateRepairAssetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllRepairAsset">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllRepairAssetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllRepairAssetResult" type="tns:ArrayOfRepairAsset" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRepairAssetById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRepairAssetByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRepairAssetByIdResult" type="tns:RepairAsset" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelRepairAssetById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelRepairAssetByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelRepairAssetByIdResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -546,6 +1094,65 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="UpdateWarrantyAsset">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PartnerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WarDateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeadlineWar" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PersonWar" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWarrantyAssetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateWarrantyAssetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllWarrantyAsset">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllWarrantyAssetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllWarrantyAssetResult" type="tns:ArrayOfWarrantyAsset" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWarrantyAssetById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWarrantyAssetByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWarrantyAssetByIdResult" type="tns:WarrantyAsset" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelWarrantyAssetById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelWarrantyAssetByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelWarrantyAssetByIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="string" nillable="true" type="s:string" />
       <s:element name="ArrayOfAssetGroupType" nillable="true" type="tns:ArrayOfAssetGroupType" />
       <s:element name="AssetGroupType" nillable="true" type="tns:AssetGroupType" />
@@ -553,6 +1160,22 @@
       <s:element name="AssetGroup" nillable="true" type="tns:AssetGroup" />
       <s:element name="ArrayOfCapital" nillable="true" type="tns:ArrayOfCapital" />
       <s:element name="Capital" nillable="true" type="tns:Capital" />
+      <s:element name="ArrayOfDepartmentUsed" nillable="true" type="tns:ArrayOfDepartmentUsed" />
+      <s:element name="DepartmentUsed" nillable="true" type="tns:DepartmentUsed" />
+      <s:element name="ArrayOfUnit" nillable="true" type="tns:ArrayOfUnit" />
+      <s:element name="Unit" nillable="true" type="tns:Unit" />
+      <s:element name="ArrayOfAsset" nillable="true" type="tns:ArrayOfAsset" />
+      <s:element name="Asset" nillable="true" type="tns:Asset" />
+      <s:element name="ArrayOfPartner" nillable="true" type="tns:ArrayOfPartner" />
+      <s:element name="Partner" nillable="true" type="tns:Partner" />
+      <s:element name="ArrayOfUpDownReason" nillable="true" type="tns:ArrayOfUpDownReason" />
+      <s:element name="UpDownReason" nillable="true" type="tns:UpDownReason" />
+      <s:element name="ArrayOfAssetLiquidation" nillable="true" type="tns:ArrayOfAssetLiquidation" />
+      <s:element name="AssetLiquidation" nillable="true" type="tns:AssetLiquidation" />
+      <s:element name="ArrayOfRepairAsset" nillable="true" type="tns:ArrayOfRepairAsset" />
+      <s:element name="RepairAsset" nillable="true" type="tns:RepairAsset" />
+      <s:element name="ArrayOfWarrantyAsset" nillable="true" type="tns:ArrayOfWarrantyAsset" />
+      <s:element name="WarrantyAsset" nillable="true" type="tns:WarrantyAsset" />
     </s:schema>
   </wsdl:types>
   <wsdl:message name="NewAssetGroupTypeSoapIn">
@@ -579,6 +1202,12 @@
   <wsdl:message name="DelAssetGroupTypeByIdSoapOut">
     <wsdl:part name="parameters" element="tns:DelAssetGroupTypeByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="UpdateAssetGroupTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAssetGroupType" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssetGroupTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAssetGroupTypeResponse" />
+  </wsdl:message>
   <wsdl:message name="NewAssetGroupSoapIn">
     <wsdl:part name="parameters" element="tns:NewAssetGroup" />
   </wsdl:message>
@@ -603,11 +1232,11 @@
   <wsdl:message name="DelAssetGroupByIdSoapOut">
     <wsdl:part name="parameters" element="tns:DelAssetGroupByIdResponse" />
   </wsdl:message>
-  <wsdl:message name="UpdateAssetGroupTypeSoapIn">
-    <wsdl:part name="parameters" element="tns:UpdateAssetGroupType" />
+  <wsdl:message name="UpdateAssetGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAssetGroup" />
   </wsdl:message>
-  <wsdl:message name="UpdateAssetGroupTypeSoapOut">
-    <wsdl:part name="parameters" element="tns:UpdateAssetGroupTypeResponse" />
+  <wsdl:message name="UpdateAssetGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAssetGroupResponse" />
   </wsdl:message>
   <wsdl:message name="NewCapitalSoapIn">
     <wsdl:part name="parameters" element="tns:NewCapital" />
@@ -633,11 +1262,11 @@
   <wsdl:message name="DelCapitalByIdSoapOut">
     <wsdl:part name="parameters" element="tns:DelCapitalByIdResponse" />
   </wsdl:message>
-  <wsdl:message name="UpdateCapitalTypeSoapIn">
-    <wsdl:part name="parameters" element="tns:UpdateCapitalType" />
+  <wsdl:message name="UpdateCapitalSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCapital" />
   </wsdl:message>
-  <wsdl:message name="UpdateCapitalTypeSoapOut">
-    <wsdl:part name="parameters" element="tns:UpdateCapitalTypeResponse" />
+  <wsdl:message name="UpdateCapitalSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCapitalResponse" />
   </wsdl:message>
   <wsdl:message name="NewDepartmentUsedSoapIn">
     <wsdl:part name="parameters" element="tns:NewDepartmentUsed" />
@@ -645,11 +1274,59 @@
   <wsdl:message name="NewDepartmentUsedSoapOut">
     <wsdl:part name="parameters" element="tns:NewDepartmentUsedResponse" />
   </wsdl:message>
+  <wsdl:message name="UpdateDepartmentUsedSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDepartmentUsed" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDepartmentUsedSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDepartmentUsedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentUsedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDepartmentUsed" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentUsedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDepartmentUsedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentUsedByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDepartmentUsedById" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentUsedByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDepartmentUsedByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelDepartmentUsedByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DelDepartmentUsedById" />
+  </wsdl:message>
+  <wsdl:message name="DelDepartmentUsedByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DelDepartmentUsedByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="NewUnitSoapIn">
     <wsdl:part name="parameters" element="tns:NewUnit" />
   </wsdl:message>
   <wsdl:message name="NewUnitSoapOut">
     <wsdl:part name="parameters" element="tns:NewUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUnitSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUnit" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUnitSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUnitSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllUnit" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUnitSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUnitById" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUnitByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelUnitByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DelUnitById" />
+  </wsdl:message>
+  <wsdl:message name="DelUnitByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DelUnitByIdResponse" />
   </wsdl:message>
   <wsdl:message name="NewAssetSoapIn">
     <wsdl:part name="parameters" element="tns:NewAsset" />
@@ -657,11 +1334,71 @@
   <wsdl:message name="NewAssetSoapOut">
     <wsdl:part name="parameters" element="tns:NewAssetResponse" />
   </wsdl:message>
+  <wsdl:message name="UpdateAssetSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAsset" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssetSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAssetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllAssetSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllAsset" />
+  </wsdl:message>
+  <wsdl:message name="GetAllAssetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllAssetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssetById" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssetByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByAssetGroupTypeIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssetByAssetGroupTypeId" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByAssetGroupTypeIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssetByAssetGroupTypeIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByDepartmentUsedIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssetByDepartmentUsedId" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByDepartmentUsedIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssetByDepartmentUsedIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelAssetByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DelAssetById" />
+  </wsdl:message>
+  <wsdl:message name="DelAssetByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DelAssetByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="NewPartnerSoapIn">
     <wsdl:part name="parameters" element="tns:NewPartner" />
   </wsdl:message>
   <wsdl:message name="NewPartnerSoapOut">
     <wsdl:part name="parameters" element="tns:NewPartnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePartnerSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePartner" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePartnerSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePartnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPartnerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllPartner" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPartnerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllPartnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPartnerByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPartnerById" />
+  </wsdl:message>
+  <wsdl:message name="GetPartnerByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPartnerByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelPartnerByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DelPartnerById" />
+  </wsdl:message>
+  <wsdl:message name="DelPartnerByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DelPartnerByIdResponse" />
   </wsdl:message>
   <wsdl:message name="NewUpDownReasonSoapIn">
     <wsdl:part name="parameters" element="tns:NewUpDownReason" />
@@ -669,11 +1406,59 @@
   <wsdl:message name="NewUpDownReasonSoapOut">
     <wsdl:part name="parameters" element="tns:NewUpDownReasonResponse" />
   </wsdl:message>
+  <wsdl:message name="UpdateUpDownReasonSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUpDownReason" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUpDownReasonSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUpDownReasonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUpDownReasonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllUpDownReason" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUpDownReasonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllUpDownReasonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUpDownReasonByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUpDownReasonById" />
+  </wsdl:message>
+  <wsdl:message name="GetUpDownReasonByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUpDownReasonByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelUpDownReasonByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DelUpDownReasonById" />
+  </wsdl:message>
+  <wsdl:message name="DelUpDownReasonByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DelUpDownReasonByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="NewAssetLiquidationSoapIn">
     <wsdl:part name="parameters" element="tns:NewAssetLiquidation" />
   </wsdl:message>
   <wsdl:message name="NewAssetLiquidationSoapOut">
     <wsdl:part name="parameters" element="tns:NewAssetLiquidationResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssetLiquidationSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAssetLiquidation" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssetLiquidationSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAssetLiquidationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllAssetLiquidationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllAssetLiquidation" />
+  </wsdl:message>
+  <wsdl:message name="GetAllAssetLiquidationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllAssetLiquidationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetLiquidationByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssetLiquidationById" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetLiquidationByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssetLiquidationByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelAssetLiquidationByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DelAssetLiquidationById" />
+  </wsdl:message>
+  <wsdl:message name="DelAssetLiquidationByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DelAssetLiquidationByIdResponse" />
   </wsdl:message>
   <wsdl:message name="NewRepairAssetSoapIn">
     <wsdl:part name="parameters" element="tns:NewRepairAsset" />
@@ -681,11 +1466,59 @@
   <wsdl:message name="NewRepairAssetSoapOut">
     <wsdl:part name="parameters" element="tns:NewRepairAssetResponse" />
   </wsdl:message>
+  <wsdl:message name="UpdateRepairAssetSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateRepairAsset" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRepairAssetSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateRepairAssetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllRepairAssetSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllRepairAsset" />
+  </wsdl:message>
+  <wsdl:message name="GetAllRepairAssetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllRepairAssetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRepairAssetByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRepairAssetById" />
+  </wsdl:message>
+  <wsdl:message name="GetRepairAssetByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRepairAssetByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelRepairAssetByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DelRepairAssetById" />
+  </wsdl:message>
+  <wsdl:message name="DelRepairAssetByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DelRepairAssetByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="NewWarrantyAssetSoapIn">
     <wsdl:part name="parameters" element="tns:NewWarrantyAsset" />
   </wsdl:message>
   <wsdl:message name="NewWarrantyAssetSoapOut">
     <wsdl:part name="parameters" element="tns:NewWarrantyAssetResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWarrantyAssetSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateWarrantyAsset" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWarrantyAssetSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateWarrantyAssetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWarrantyAssetSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllWarrantyAsset" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWarrantyAssetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllWarrantyAssetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWarrantyAssetByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWarrantyAssetById" />
+  </wsdl:message>
+  <wsdl:message name="GetWarrantyAssetByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWarrantyAssetByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelWarrantyAssetByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DelWarrantyAssetById" />
+  </wsdl:message>
+  <wsdl:message name="DelWarrantyAssetByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DelWarrantyAssetByIdResponse" />
   </wsdl:message>
   <wsdl:message name="NewAssetGroupTypeHttpGetIn">
     <wsdl:part name="Name" type="s:string" />
@@ -707,6 +1540,13 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelAssetGroupTypeByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssetGroupTypeHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssetGroupTypeHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetGroupHttpGetIn">
@@ -732,12 +1572,12 @@
   <wsdl:message name="DelAssetGroupByIdHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
-  <wsdl:message name="UpdateAssetGroupTypeHttpGetIn">
+  <wsdl:message name="UpdateAssetGroupHttpGetIn">
     <wsdl:part name="id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="AssetGroupTypeId" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="UpdateAssetGroupTypeHttpGetOut">
+  <wsdl:message name="UpdateAssetGroupHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewCapitalHttpGetIn">
@@ -763,12 +1603,12 @@
   <wsdl:message name="DelCapitalByIdHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
-  <wsdl:message name="UpdateCapitalTypeHttpGetIn">
+  <wsdl:message name="UpdateCapitalHttpGetIn">
     <wsdl:part name="id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Note" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="UpdateCapitalTypeHttpGetOut">
+  <wsdl:message name="UpdateCapitalHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewDepartmentUsedHttpGetIn">
@@ -780,11 +1620,61 @@
   <wsdl:message name="NewDepartmentUsedHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  <wsdl:message name="UpdateDepartmentUsedHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Phone" type="s:string" />
+    <wsdl:part name="Representative" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDepartmentUsedHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentUsedHttpGetIn" />
+  <wsdl:message name="GetDepartmentUsedHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDepartmentUsed" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentUsedByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentUsedByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:DepartmentUsed" />
+  </wsdl:message>
+  <wsdl:message name="DelDepartmentUsedByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelDepartmentUsedByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="NewUnitHttpGetIn">
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Note" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewUnitHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUnitHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Note" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUnitHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUnitHttpGetIn" />
+  <wsdl:message name="GetAllUnitHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfUnit" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:Unit" />
+  </wsdl:message>
+  <wsdl:message name="DelUnitByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelUnitByIdHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetHttpGetIn">
@@ -816,6 +1706,64 @@
   <wsdl:message name="NewAssetHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  <wsdl:message name="UpdateAssetHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="AssetGroupId" type="s:string" />
+    <wsdl:part name="UnitId" type="s:string" />
+    <wsdl:part name="Amount" type="s:string" />
+    <wsdl:part name="CounPro" type="s:string" />
+    <wsdl:part name="YearPro" type="s:string" />
+    <wsdl:part name="DepartmentUsedId" type="s:string" />
+    <wsdl:part name="TotalPrice" type="s:string" />
+    <wsdl:part name="BugetPrice" type="s:string" />
+    <wsdl:part name="OwnPrice" type="s:string" />
+    <wsdl:part name="VenturePrice" type="s:string" />
+    <wsdl:part name="AnotherPrice" type="s:string" />
+    <wsdl:part name="TotalDepreciation" type="s:string" />
+    <wsdl:part name="BugetDepreciation" type="s:string" />
+    <wsdl:part name="OwnDepreciation" type="s:string" />
+    <wsdl:part name="VentureDepreciation" type="s:string" />
+    <wsdl:part name="AnotherDepreciation" type="s:string" />
+    <wsdl:part name="BugeRemain" type="s:string" />
+    <wsdl:part name="OwnRemain" type="s:string" />
+    <wsdl:part name="VentureRemain" type="s:string" />
+    <wsdl:part name="AnotherRemain" type="s:string" />
+    <wsdl:part name="TotalRemain" type="s:string" />
+    <wsdl:part name="UpDownCode" type="s:string" />
+    <wsdl:part name="InputDateTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssetHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllAssetHttpGetIn" />
+  <wsdl:message name="GetAllAssetHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAsset" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:Asset" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByAssetGroupTypeIdHttpGetIn">
+    <wsdl:part name="AssetGroupTypeId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByAssetGroupTypeIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAsset" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByDepartmentUsedIdHttpGetIn">
+    <wsdl:part name="DepartmentUsedId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByDepartmentUsedIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAsset" />
+  </wsdl:message>
+  <wsdl:message name="DelAssetByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelAssetByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="NewPartnerHttpGetIn">
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Phone" type="s:string" />
@@ -825,11 +1773,61 @@
   <wsdl:message name="NewPartnerHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  <wsdl:message name="UpdatePartnerHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Phone" type="s:string" />
+    <wsdl:part name="TaxCode" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePartnerHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPartnerHttpGetIn" />
+  <wsdl:message name="GetAllPartnerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPartner" />
+  </wsdl:message>
+  <wsdl:message name="GetPartnerByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPartnerByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:Partner" />
+  </wsdl:message>
+  <wsdl:message name="DelPartnerByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelPartnerByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="NewUpDownReasonHttpGetIn">
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Type" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewUpDownReasonHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUpDownReasonHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Type" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUpDownReasonHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUpDownReasonHttpGetIn" />
+  <wsdl:message name="GetAllUpDownReasonHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfUpDownReason" />
+  </wsdl:message>
+  <wsdl:message name="GetUpDownReasonByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUpDownReasonByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:UpDownReason" />
+  </wsdl:message>
+  <wsdl:message name="DelUpDownReasonByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelUpDownReasonByIdHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetLiquidationHttpGetIn">
@@ -839,6 +1837,32 @@
     <wsdl:part name="LiPrice" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetLiquidationHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssetLiquidationHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="DepartmentUsedId" type="s:string" />
+    <wsdl:part name="LiDateTime" type="s:string" />
+    <wsdl:part name="LiPrice" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssetLiquidationHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllAssetLiquidationHttpGetIn" />
+  <wsdl:message name="GetAllAssetLiquidationHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAssetLiquidation" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetLiquidationByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetLiquidationByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:AssetLiquidation" />
+  </wsdl:message>
+  <wsdl:message name="DelAssetLiquidationByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelAssetLiquidationByIdHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewRepairAssetHttpGetIn">
@@ -852,6 +1876,34 @@
   <wsdl:message name="NewRepairAssetHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  <wsdl:message name="UpdateRepairAssetHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="DepartmentUsedId" type="s:string" />
+    <wsdl:part name="PartnerId" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+    <wsdl:part name="RepairDate" type="s:string" />
+    <wsdl:part name="Fee" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRepairAssetHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllRepairAssetHttpGetIn" />
+  <wsdl:message name="GetAllRepairAssetHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfRepairAsset" />
+  </wsdl:message>
+  <wsdl:message name="GetRepairAssetByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRepairAssetByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:RepairAsset" />
+  </wsdl:message>
+  <wsdl:message name="DelRepairAssetByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelRepairAssetByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="NewWarrantyAssetHttpGetIn">
     <wsdl:part name="AssetId" type="s:string" />
     <wsdl:part name="DepartmentUsedId" type="s:string" />
@@ -862,6 +1914,35 @@
     <wsdl:part name="PersonWar" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewWarrantyAssetHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWarrantyAssetHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="DepartmentUsedId" type="s:string" />
+    <wsdl:part name="PartnerId" type="s:string" />
+    <wsdl:part name="WarDateTime" type="s:string" />
+    <wsdl:part name="DeadlineWar" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+    <wsdl:part name="PersonWar" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWarrantyAssetHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWarrantyAssetHttpGetIn" />
+  <wsdl:message name="GetAllWarrantyAssetHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfWarrantyAsset" />
+  </wsdl:message>
+  <wsdl:message name="GetWarrantyAssetByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetWarrantyAssetByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:WarrantyAsset" />
+  </wsdl:message>
+  <wsdl:message name="DelWarrantyAssetByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelWarrantyAssetByIdHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetGroupTypeHttpPostIn">
@@ -884,6 +1965,13 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelAssetGroupTypeByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssetGroupTypeHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssetGroupTypeHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetGroupHttpPostIn">
@@ -909,12 +1997,12 @@
   <wsdl:message name="DelAssetGroupByIdHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
-  <wsdl:message name="UpdateAssetGroupTypeHttpPostIn">
+  <wsdl:message name="UpdateAssetGroupHttpPostIn">
     <wsdl:part name="id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="AssetGroupTypeId" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="UpdateAssetGroupTypeHttpPostOut">
+  <wsdl:message name="UpdateAssetGroupHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewCapitalHttpPostIn">
@@ -940,12 +2028,12 @@
   <wsdl:message name="DelCapitalByIdHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
-  <wsdl:message name="UpdateCapitalTypeHttpPostIn">
+  <wsdl:message name="UpdateCapitalHttpPostIn">
     <wsdl:part name="id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Note" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="UpdateCapitalTypeHttpPostOut">
+  <wsdl:message name="UpdateCapitalHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewDepartmentUsedHttpPostIn">
@@ -957,11 +2045,61 @@
   <wsdl:message name="NewDepartmentUsedHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  <wsdl:message name="UpdateDepartmentUsedHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Phone" type="s:string" />
+    <wsdl:part name="Representative" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDepartmentUsedHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentUsedHttpPostIn" />
+  <wsdl:message name="GetDepartmentUsedHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDepartmentUsed" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentUsedByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentUsedByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:DepartmentUsed" />
+  </wsdl:message>
+  <wsdl:message name="DelDepartmentUsedByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelDepartmentUsedByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="NewUnitHttpPostIn">
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Note" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewUnitHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUnitHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Note" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUnitHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUnitHttpPostIn" />
+  <wsdl:message name="GetAllUnitHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfUnit" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:Unit" />
+  </wsdl:message>
+  <wsdl:message name="DelUnitByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelUnitByIdHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetHttpPostIn">
@@ -993,6 +2131,64 @@
   <wsdl:message name="NewAssetHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  <wsdl:message name="UpdateAssetHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="AssetGroupId" type="s:string" />
+    <wsdl:part name="UnitId" type="s:string" />
+    <wsdl:part name="Amount" type="s:string" />
+    <wsdl:part name="CounPro" type="s:string" />
+    <wsdl:part name="YearPro" type="s:string" />
+    <wsdl:part name="DepartmentUsedId" type="s:string" />
+    <wsdl:part name="TotalPrice" type="s:string" />
+    <wsdl:part name="BugetPrice" type="s:string" />
+    <wsdl:part name="OwnPrice" type="s:string" />
+    <wsdl:part name="VenturePrice" type="s:string" />
+    <wsdl:part name="AnotherPrice" type="s:string" />
+    <wsdl:part name="TotalDepreciation" type="s:string" />
+    <wsdl:part name="BugetDepreciation" type="s:string" />
+    <wsdl:part name="OwnDepreciation" type="s:string" />
+    <wsdl:part name="VentureDepreciation" type="s:string" />
+    <wsdl:part name="AnotherDepreciation" type="s:string" />
+    <wsdl:part name="BugeRemain" type="s:string" />
+    <wsdl:part name="OwnRemain" type="s:string" />
+    <wsdl:part name="VentureRemain" type="s:string" />
+    <wsdl:part name="AnotherRemain" type="s:string" />
+    <wsdl:part name="TotalRemain" type="s:string" />
+    <wsdl:part name="UpDownCode" type="s:string" />
+    <wsdl:part name="InputDateTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssetHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllAssetHttpPostIn" />
+  <wsdl:message name="GetAllAssetHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAsset" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:Asset" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByAssetGroupTypeIdHttpPostIn">
+    <wsdl:part name="AssetGroupTypeId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByAssetGroupTypeIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAsset" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByDepartmentUsedIdHttpPostIn">
+    <wsdl:part name="DepartmentUsedId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByDepartmentUsedIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAsset" />
+  </wsdl:message>
+  <wsdl:message name="DelAssetByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelAssetByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="NewPartnerHttpPostIn">
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Phone" type="s:string" />
@@ -1002,11 +2198,61 @@
   <wsdl:message name="NewPartnerHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  <wsdl:message name="UpdatePartnerHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Phone" type="s:string" />
+    <wsdl:part name="TaxCode" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePartnerHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPartnerHttpPostIn" />
+  <wsdl:message name="GetAllPartnerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPartner" />
+  </wsdl:message>
+  <wsdl:message name="GetPartnerByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPartnerByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:Partner" />
+  </wsdl:message>
+  <wsdl:message name="DelPartnerByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelPartnerByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="NewUpDownReasonHttpPostIn">
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Type" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewUpDownReasonHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUpDownReasonHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="Name" type="s:string" />
+    <wsdl:part name="Type" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUpDownReasonHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUpDownReasonHttpPostIn" />
+  <wsdl:message name="GetAllUpDownReasonHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfUpDownReason" />
+  </wsdl:message>
+  <wsdl:message name="GetUpDownReasonByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUpDownReasonByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:UpDownReason" />
+  </wsdl:message>
+  <wsdl:message name="DelUpDownReasonByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelUpDownReasonByIdHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetLiquidationHttpPostIn">
@@ -1016,6 +2262,32 @@
     <wsdl:part name="LiPrice" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetLiquidationHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssetLiquidationHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="DepartmentUsedId" type="s:string" />
+    <wsdl:part name="LiDateTime" type="s:string" />
+    <wsdl:part name="LiPrice" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssetLiquidationHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllAssetLiquidationHttpPostIn" />
+  <wsdl:message name="GetAllAssetLiquidationHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAssetLiquidation" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetLiquidationByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetLiquidationByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:AssetLiquidation" />
+  </wsdl:message>
+  <wsdl:message name="DelAssetLiquidationByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelAssetLiquidationByIdHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewRepairAssetHttpPostIn">
@@ -1029,6 +2301,34 @@
   <wsdl:message name="NewRepairAssetHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  <wsdl:message name="UpdateRepairAssetHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="DepartmentUsedId" type="s:string" />
+    <wsdl:part name="PartnerId" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+    <wsdl:part name="RepairDate" type="s:string" />
+    <wsdl:part name="Fee" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRepairAssetHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllRepairAssetHttpPostIn" />
+  <wsdl:message name="GetAllRepairAssetHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfRepairAsset" />
+  </wsdl:message>
+  <wsdl:message name="GetRepairAssetByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRepairAssetByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:RepairAsset" />
+  </wsdl:message>
+  <wsdl:message name="DelRepairAssetByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelRepairAssetByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="NewWarrantyAssetHttpPostIn">
     <wsdl:part name="AssetId" type="s:string" />
     <wsdl:part name="DepartmentUsedId" type="s:string" />
@@ -1039,6 +2339,35 @@
     <wsdl:part name="PersonWar" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewWarrantyAssetHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWarrantyAssetHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="DepartmentUsedId" type="s:string" />
+    <wsdl:part name="PartnerId" type="s:string" />
+    <wsdl:part name="WarDateTime" type="s:string" />
+    <wsdl:part name="DeadlineWar" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+    <wsdl:part name="PersonWar" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWarrantyAssetHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWarrantyAssetHttpPostIn" />
+  <wsdl:message name="GetAllWarrantyAssetHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfWarrantyAsset" />
+  </wsdl:message>
+  <wsdl:message name="GetWarrantyAssetByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetWarrantyAssetByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:WarrantyAsset" />
+  </wsdl:message>
+  <wsdl:message name="DelWarrantyAssetByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelWarrantyAssetByIdHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:portType name="AssetManagerServiceSoap">
@@ -1058,6 +2387,10 @@
       <wsdl:input message="tns:DelAssetGroupTypeByIdSoapIn" />
       <wsdl:output message="tns:DelAssetGroupTypeByIdSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateAssetGroupType">
+      <wsdl:input message="tns:UpdateAssetGroupTypeSoapIn" />
+      <wsdl:output message="tns:UpdateAssetGroupTypeSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewAssetGroup">
       <wsdl:input message="tns:NewAssetGroupSoapIn" />
       <wsdl:output message="tns:NewAssetGroupSoapOut" />
@@ -1074,9 +2407,9 @@
       <wsdl:input message="tns:DelAssetGroupByIdSoapIn" />
       <wsdl:output message="tns:DelAssetGroupByIdSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateAssetGroupType">
-      <wsdl:input message="tns:UpdateAssetGroupTypeSoapIn" />
-      <wsdl:output message="tns:UpdateAssetGroupTypeSoapOut" />
+    <wsdl:operation name="UpdateAssetGroup">
+      <wsdl:input message="tns:UpdateAssetGroupSoapIn" />
+      <wsdl:output message="tns:UpdateAssetGroupSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="NewCapital">
       <wsdl:input message="tns:NewCapitalSoapIn" />
@@ -1094,41 +2427,177 @@
       <wsdl:input message="tns:DelCapitalByIdSoapIn" />
       <wsdl:output message="tns:DelCapitalByIdSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateCapitalType">
-      <wsdl:input message="tns:UpdateCapitalTypeSoapIn" />
-      <wsdl:output message="tns:UpdateCapitalTypeSoapOut" />
+    <wsdl:operation name="UpdateCapital">
+      <wsdl:input message="tns:UpdateCapitalSoapIn" />
+      <wsdl:output message="tns:UpdateCapitalSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="NewDepartmentUsed">
       <wsdl:input message="tns:NewDepartmentUsedSoapIn" />
       <wsdl:output message="tns:NewDepartmentUsedSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateDepartmentUsed">
+      <wsdl:input message="tns:UpdateDepartmentUsedSoapIn" />
+      <wsdl:output message="tns:UpdateDepartmentUsedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentUsed">
+      <wsdl:input message="tns:GetDepartmentUsedSoapIn" />
+      <wsdl:output message="tns:GetDepartmentUsedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentUsedById">
+      <wsdl:input message="tns:GetDepartmentUsedByIdSoapIn" />
+      <wsdl:output message="tns:GetDepartmentUsedByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelDepartmentUsedById">
+      <wsdl:input message="tns:DelDepartmentUsedByIdSoapIn" />
+      <wsdl:output message="tns:DelDepartmentUsedByIdSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewUnit">
       <wsdl:input message="tns:NewUnitSoapIn" />
       <wsdl:output message="tns:NewUnitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUnit">
+      <wsdl:input message="tns:UpdateUnitSoapIn" />
+      <wsdl:output message="tns:UpdateUnitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnit">
+      <wsdl:input message="tns:GetAllUnitSoapIn" />
+      <wsdl:output message="tns:GetAllUnitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitById">
+      <wsdl:input message="tns:GetUnitByIdSoapIn" />
+      <wsdl:output message="tns:GetUnitByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelUnitById">
+      <wsdl:input message="tns:DelUnitByIdSoapIn" />
+      <wsdl:output message="tns:DelUnitByIdSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="NewAsset">
       <wsdl:input message="tns:NewAssetSoapIn" />
       <wsdl:output message="tns:NewAssetSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateAsset">
+      <wsdl:input message="tns:UpdateAssetSoapIn" />
+      <wsdl:output message="tns:UpdateAssetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAsset">
+      <wsdl:input message="tns:GetAllAssetSoapIn" />
+      <wsdl:output message="tns:GetAllAssetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetById">
+      <wsdl:input message="tns:GetAssetByIdSoapIn" />
+      <wsdl:output message="tns:GetAssetByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetByAssetGroupTypeId">
+      <wsdl:input message="tns:GetAssetByAssetGroupTypeIdSoapIn" />
+      <wsdl:output message="tns:GetAssetByAssetGroupTypeIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetByDepartmentUsedId">
+      <wsdl:input message="tns:GetAssetByDepartmentUsedIdSoapIn" />
+      <wsdl:output message="tns:GetAssetByDepartmentUsedIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelAssetById">
+      <wsdl:input message="tns:DelAssetByIdSoapIn" />
+      <wsdl:output message="tns:DelAssetByIdSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewPartner">
       <wsdl:input message="tns:NewPartnerSoapIn" />
       <wsdl:output message="tns:NewPartnerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePartner">
+      <wsdl:input message="tns:UpdatePartnerSoapIn" />
+      <wsdl:output message="tns:UpdatePartnerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPartner">
+      <wsdl:input message="tns:GetAllPartnerSoapIn" />
+      <wsdl:output message="tns:GetAllPartnerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartnerById">
+      <wsdl:input message="tns:GetPartnerByIdSoapIn" />
+      <wsdl:output message="tns:GetPartnerByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelPartnerById">
+      <wsdl:input message="tns:DelPartnerByIdSoapIn" />
+      <wsdl:output message="tns:DelPartnerByIdSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="NewUpDownReason">
       <wsdl:input message="tns:NewUpDownReasonSoapIn" />
       <wsdl:output message="tns:NewUpDownReasonSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateUpDownReason">
+      <wsdl:input message="tns:UpdateUpDownReasonSoapIn" />
+      <wsdl:output message="tns:UpdateUpDownReasonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUpDownReason">
+      <wsdl:input message="tns:GetAllUpDownReasonSoapIn" />
+      <wsdl:output message="tns:GetAllUpDownReasonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpDownReasonById">
+      <wsdl:input message="tns:GetUpDownReasonByIdSoapIn" />
+      <wsdl:output message="tns:GetUpDownReasonByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelUpDownReasonById">
+      <wsdl:input message="tns:DelUpDownReasonByIdSoapIn" />
+      <wsdl:output message="tns:DelUpDownReasonByIdSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewAssetLiquidation">
       <wsdl:input message="tns:NewAssetLiquidationSoapIn" />
       <wsdl:output message="tns:NewAssetLiquidationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssetLiquidation">
+      <wsdl:input message="tns:UpdateAssetLiquidationSoapIn" />
+      <wsdl:output message="tns:UpdateAssetLiquidationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAssetLiquidation">
+      <wsdl:input message="tns:GetAllAssetLiquidationSoapIn" />
+      <wsdl:output message="tns:GetAllAssetLiquidationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetLiquidationById">
+      <wsdl:input message="tns:GetAssetLiquidationByIdSoapIn" />
+      <wsdl:output message="tns:GetAssetLiquidationByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelAssetLiquidationById">
+      <wsdl:input message="tns:DelAssetLiquidationByIdSoapIn" />
+      <wsdl:output message="tns:DelAssetLiquidationByIdSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="NewRepairAsset">
       <wsdl:input message="tns:NewRepairAssetSoapIn" />
       <wsdl:output message="tns:NewRepairAssetSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateRepairAsset">
+      <wsdl:input message="tns:UpdateRepairAssetSoapIn" />
+      <wsdl:output message="tns:UpdateRepairAssetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRepairAsset">
+      <wsdl:input message="tns:GetAllRepairAssetSoapIn" />
+      <wsdl:output message="tns:GetAllRepairAssetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepairAssetById">
+      <wsdl:input message="tns:GetRepairAssetByIdSoapIn" />
+      <wsdl:output message="tns:GetRepairAssetByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelRepairAssetById">
+      <wsdl:input message="tns:DelRepairAssetByIdSoapIn" />
+      <wsdl:output message="tns:DelRepairAssetByIdSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewWarrantyAsset">
       <wsdl:input message="tns:NewWarrantyAssetSoapIn" />
       <wsdl:output message="tns:NewWarrantyAssetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWarrantyAsset">
+      <wsdl:input message="tns:UpdateWarrantyAssetSoapIn" />
+      <wsdl:output message="tns:UpdateWarrantyAssetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWarrantyAsset">
+      <wsdl:input message="tns:GetAllWarrantyAssetSoapIn" />
+      <wsdl:output message="tns:GetAllWarrantyAssetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarrantyAssetById">
+      <wsdl:input message="tns:GetWarrantyAssetByIdSoapIn" />
+      <wsdl:output message="tns:GetWarrantyAssetByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelWarrantyAssetById">
+      <wsdl:input message="tns:DelWarrantyAssetByIdSoapIn" />
+      <wsdl:output message="tns:DelWarrantyAssetByIdSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="AssetManagerServiceHttpGet">
@@ -1148,6 +2617,10 @@
       <wsdl:input message="tns:DelAssetGroupTypeByIdHttpGetIn" />
       <wsdl:output message="tns:DelAssetGroupTypeByIdHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateAssetGroupType">
+      <wsdl:input message="tns:UpdateAssetGroupTypeHttpGetIn" />
+      <wsdl:output message="tns:UpdateAssetGroupTypeHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewAssetGroup">
       <wsdl:input message="tns:NewAssetGroupHttpGetIn" />
       <wsdl:output message="tns:NewAssetGroupHttpGetOut" />
@@ -1164,9 +2637,9 @@
       <wsdl:input message="tns:DelAssetGroupByIdHttpGetIn" />
       <wsdl:output message="tns:DelAssetGroupByIdHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateAssetGroupType">
-      <wsdl:input message="tns:UpdateAssetGroupTypeHttpGetIn" />
-      <wsdl:output message="tns:UpdateAssetGroupTypeHttpGetOut" />
+    <wsdl:operation name="UpdateAssetGroup">
+      <wsdl:input message="tns:UpdateAssetGroupHttpGetIn" />
+      <wsdl:output message="tns:UpdateAssetGroupHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="NewCapital">
       <wsdl:input message="tns:NewCapitalHttpGetIn" />
@@ -1184,41 +2657,177 @@
       <wsdl:input message="tns:DelCapitalByIdHttpGetIn" />
       <wsdl:output message="tns:DelCapitalByIdHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateCapitalType">
-      <wsdl:input message="tns:UpdateCapitalTypeHttpGetIn" />
-      <wsdl:output message="tns:UpdateCapitalTypeHttpGetOut" />
+    <wsdl:operation name="UpdateCapital">
+      <wsdl:input message="tns:UpdateCapitalHttpGetIn" />
+      <wsdl:output message="tns:UpdateCapitalHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="NewDepartmentUsed">
       <wsdl:input message="tns:NewDepartmentUsedHttpGetIn" />
       <wsdl:output message="tns:NewDepartmentUsedHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateDepartmentUsed">
+      <wsdl:input message="tns:UpdateDepartmentUsedHttpGetIn" />
+      <wsdl:output message="tns:UpdateDepartmentUsedHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentUsed">
+      <wsdl:input message="tns:GetDepartmentUsedHttpGetIn" />
+      <wsdl:output message="tns:GetDepartmentUsedHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentUsedById">
+      <wsdl:input message="tns:GetDepartmentUsedByIdHttpGetIn" />
+      <wsdl:output message="tns:GetDepartmentUsedByIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelDepartmentUsedById">
+      <wsdl:input message="tns:DelDepartmentUsedByIdHttpGetIn" />
+      <wsdl:output message="tns:DelDepartmentUsedByIdHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewUnit">
       <wsdl:input message="tns:NewUnitHttpGetIn" />
       <wsdl:output message="tns:NewUnitHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUnit">
+      <wsdl:input message="tns:UpdateUnitHttpGetIn" />
+      <wsdl:output message="tns:UpdateUnitHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnit">
+      <wsdl:input message="tns:GetAllUnitHttpGetIn" />
+      <wsdl:output message="tns:GetAllUnitHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitById">
+      <wsdl:input message="tns:GetUnitByIdHttpGetIn" />
+      <wsdl:output message="tns:GetUnitByIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelUnitById">
+      <wsdl:input message="tns:DelUnitByIdHttpGetIn" />
+      <wsdl:output message="tns:DelUnitByIdHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="NewAsset">
       <wsdl:input message="tns:NewAssetHttpGetIn" />
       <wsdl:output message="tns:NewAssetHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateAsset">
+      <wsdl:input message="tns:UpdateAssetHttpGetIn" />
+      <wsdl:output message="tns:UpdateAssetHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAsset">
+      <wsdl:input message="tns:GetAllAssetHttpGetIn" />
+      <wsdl:output message="tns:GetAllAssetHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetById">
+      <wsdl:input message="tns:GetAssetByIdHttpGetIn" />
+      <wsdl:output message="tns:GetAssetByIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetByAssetGroupTypeId">
+      <wsdl:input message="tns:GetAssetByAssetGroupTypeIdHttpGetIn" />
+      <wsdl:output message="tns:GetAssetByAssetGroupTypeIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetByDepartmentUsedId">
+      <wsdl:input message="tns:GetAssetByDepartmentUsedIdHttpGetIn" />
+      <wsdl:output message="tns:GetAssetByDepartmentUsedIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelAssetById">
+      <wsdl:input message="tns:DelAssetByIdHttpGetIn" />
+      <wsdl:output message="tns:DelAssetByIdHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewPartner">
       <wsdl:input message="tns:NewPartnerHttpGetIn" />
       <wsdl:output message="tns:NewPartnerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePartner">
+      <wsdl:input message="tns:UpdatePartnerHttpGetIn" />
+      <wsdl:output message="tns:UpdatePartnerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPartner">
+      <wsdl:input message="tns:GetAllPartnerHttpGetIn" />
+      <wsdl:output message="tns:GetAllPartnerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartnerById">
+      <wsdl:input message="tns:GetPartnerByIdHttpGetIn" />
+      <wsdl:output message="tns:GetPartnerByIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelPartnerById">
+      <wsdl:input message="tns:DelPartnerByIdHttpGetIn" />
+      <wsdl:output message="tns:DelPartnerByIdHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="NewUpDownReason">
       <wsdl:input message="tns:NewUpDownReasonHttpGetIn" />
       <wsdl:output message="tns:NewUpDownReasonHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateUpDownReason">
+      <wsdl:input message="tns:UpdateUpDownReasonHttpGetIn" />
+      <wsdl:output message="tns:UpdateUpDownReasonHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUpDownReason">
+      <wsdl:input message="tns:GetAllUpDownReasonHttpGetIn" />
+      <wsdl:output message="tns:GetAllUpDownReasonHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpDownReasonById">
+      <wsdl:input message="tns:GetUpDownReasonByIdHttpGetIn" />
+      <wsdl:output message="tns:GetUpDownReasonByIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelUpDownReasonById">
+      <wsdl:input message="tns:DelUpDownReasonByIdHttpGetIn" />
+      <wsdl:output message="tns:DelUpDownReasonByIdHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewAssetLiquidation">
       <wsdl:input message="tns:NewAssetLiquidationHttpGetIn" />
       <wsdl:output message="tns:NewAssetLiquidationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssetLiquidation">
+      <wsdl:input message="tns:UpdateAssetLiquidationHttpGetIn" />
+      <wsdl:output message="tns:UpdateAssetLiquidationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAssetLiquidation">
+      <wsdl:input message="tns:GetAllAssetLiquidationHttpGetIn" />
+      <wsdl:output message="tns:GetAllAssetLiquidationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetLiquidationById">
+      <wsdl:input message="tns:GetAssetLiquidationByIdHttpGetIn" />
+      <wsdl:output message="tns:GetAssetLiquidationByIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelAssetLiquidationById">
+      <wsdl:input message="tns:DelAssetLiquidationByIdHttpGetIn" />
+      <wsdl:output message="tns:DelAssetLiquidationByIdHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="NewRepairAsset">
       <wsdl:input message="tns:NewRepairAssetHttpGetIn" />
       <wsdl:output message="tns:NewRepairAssetHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateRepairAsset">
+      <wsdl:input message="tns:UpdateRepairAssetHttpGetIn" />
+      <wsdl:output message="tns:UpdateRepairAssetHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRepairAsset">
+      <wsdl:input message="tns:GetAllRepairAssetHttpGetIn" />
+      <wsdl:output message="tns:GetAllRepairAssetHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepairAssetById">
+      <wsdl:input message="tns:GetRepairAssetByIdHttpGetIn" />
+      <wsdl:output message="tns:GetRepairAssetByIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelRepairAssetById">
+      <wsdl:input message="tns:DelRepairAssetByIdHttpGetIn" />
+      <wsdl:output message="tns:DelRepairAssetByIdHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewWarrantyAsset">
       <wsdl:input message="tns:NewWarrantyAssetHttpGetIn" />
       <wsdl:output message="tns:NewWarrantyAssetHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWarrantyAsset">
+      <wsdl:input message="tns:UpdateWarrantyAssetHttpGetIn" />
+      <wsdl:output message="tns:UpdateWarrantyAssetHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWarrantyAsset">
+      <wsdl:input message="tns:GetAllWarrantyAssetHttpGetIn" />
+      <wsdl:output message="tns:GetAllWarrantyAssetHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarrantyAssetById">
+      <wsdl:input message="tns:GetWarrantyAssetByIdHttpGetIn" />
+      <wsdl:output message="tns:GetWarrantyAssetByIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelWarrantyAssetById">
+      <wsdl:input message="tns:DelWarrantyAssetByIdHttpGetIn" />
+      <wsdl:output message="tns:DelWarrantyAssetByIdHttpGetOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="AssetManagerServiceHttpPost">
@@ -1238,6 +2847,10 @@
       <wsdl:input message="tns:DelAssetGroupTypeByIdHttpPostIn" />
       <wsdl:output message="tns:DelAssetGroupTypeByIdHttpPostOut" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateAssetGroupType">
+      <wsdl:input message="tns:UpdateAssetGroupTypeHttpPostIn" />
+      <wsdl:output message="tns:UpdateAssetGroupTypeHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewAssetGroup">
       <wsdl:input message="tns:NewAssetGroupHttpPostIn" />
       <wsdl:output message="tns:NewAssetGroupHttpPostOut" />
@@ -1254,9 +2867,9 @@
       <wsdl:input message="tns:DelAssetGroupByIdHttpPostIn" />
       <wsdl:output message="tns:DelAssetGroupByIdHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateAssetGroupType">
-      <wsdl:input message="tns:UpdateAssetGroupTypeHttpPostIn" />
-      <wsdl:output message="tns:UpdateAssetGroupTypeHttpPostOut" />
+    <wsdl:operation name="UpdateAssetGroup">
+      <wsdl:input message="tns:UpdateAssetGroupHttpPostIn" />
+      <wsdl:output message="tns:UpdateAssetGroupHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="NewCapital">
       <wsdl:input message="tns:NewCapitalHttpPostIn" />
@@ -1274,41 +2887,177 @@
       <wsdl:input message="tns:DelCapitalByIdHttpPostIn" />
       <wsdl:output message="tns:DelCapitalByIdHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateCapitalType">
-      <wsdl:input message="tns:UpdateCapitalTypeHttpPostIn" />
-      <wsdl:output message="tns:UpdateCapitalTypeHttpPostOut" />
+    <wsdl:operation name="UpdateCapital">
+      <wsdl:input message="tns:UpdateCapitalHttpPostIn" />
+      <wsdl:output message="tns:UpdateCapitalHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="NewDepartmentUsed">
       <wsdl:input message="tns:NewDepartmentUsedHttpPostIn" />
       <wsdl:output message="tns:NewDepartmentUsedHttpPostOut" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateDepartmentUsed">
+      <wsdl:input message="tns:UpdateDepartmentUsedHttpPostIn" />
+      <wsdl:output message="tns:UpdateDepartmentUsedHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentUsed">
+      <wsdl:input message="tns:GetDepartmentUsedHttpPostIn" />
+      <wsdl:output message="tns:GetDepartmentUsedHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentUsedById">
+      <wsdl:input message="tns:GetDepartmentUsedByIdHttpPostIn" />
+      <wsdl:output message="tns:GetDepartmentUsedByIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelDepartmentUsedById">
+      <wsdl:input message="tns:DelDepartmentUsedByIdHttpPostIn" />
+      <wsdl:output message="tns:DelDepartmentUsedByIdHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewUnit">
       <wsdl:input message="tns:NewUnitHttpPostIn" />
       <wsdl:output message="tns:NewUnitHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUnit">
+      <wsdl:input message="tns:UpdateUnitHttpPostIn" />
+      <wsdl:output message="tns:UpdateUnitHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnit">
+      <wsdl:input message="tns:GetAllUnitHttpPostIn" />
+      <wsdl:output message="tns:GetAllUnitHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitById">
+      <wsdl:input message="tns:GetUnitByIdHttpPostIn" />
+      <wsdl:output message="tns:GetUnitByIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelUnitById">
+      <wsdl:input message="tns:DelUnitByIdHttpPostIn" />
+      <wsdl:output message="tns:DelUnitByIdHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="NewAsset">
       <wsdl:input message="tns:NewAssetHttpPostIn" />
       <wsdl:output message="tns:NewAssetHttpPostOut" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateAsset">
+      <wsdl:input message="tns:UpdateAssetHttpPostIn" />
+      <wsdl:output message="tns:UpdateAssetHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAsset">
+      <wsdl:input message="tns:GetAllAssetHttpPostIn" />
+      <wsdl:output message="tns:GetAllAssetHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetById">
+      <wsdl:input message="tns:GetAssetByIdHttpPostIn" />
+      <wsdl:output message="tns:GetAssetByIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetByAssetGroupTypeId">
+      <wsdl:input message="tns:GetAssetByAssetGroupTypeIdHttpPostIn" />
+      <wsdl:output message="tns:GetAssetByAssetGroupTypeIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetByDepartmentUsedId">
+      <wsdl:input message="tns:GetAssetByDepartmentUsedIdHttpPostIn" />
+      <wsdl:output message="tns:GetAssetByDepartmentUsedIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelAssetById">
+      <wsdl:input message="tns:DelAssetByIdHttpPostIn" />
+      <wsdl:output message="tns:DelAssetByIdHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewPartner">
       <wsdl:input message="tns:NewPartnerHttpPostIn" />
       <wsdl:output message="tns:NewPartnerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePartner">
+      <wsdl:input message="tns:UpdatePartnerHttpPostIn" />
+      <wsdl:output message="tns:UpdatePartnerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPartner">
+      <wsdl:input message="tns:GetAllPartnerHttpPostIn" />
+      <wsdl:output message="tns:GetAllPartnerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartnerById">
+      <wsdl:input message="tns:GetPartnerByIdHttpPostIn" />
+      <wsdl:output message="tns:GetPartnerByIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelPartnerById">
+      <wsdl:input message="tns:DelPartnerByIdHttpPostIn" />
+      <wsdl:output message="tns:DelPartnerByIdHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="NewUpDownReason">
       <wsdl:input message="tns:NewUpDownReasonHttpPostIn" />
       <wsdl:output message="tns:NewUpDownReasonHttpPostOut" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateUpDownReason">
+      <wsdl:input message="tns:UpdateUpDownReasonHttpPostIn" />
+      <wsdl:output message="tns:UpdateUpDownReasonHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUpDownReason">
+      <wsdl:input message="tns:GetAllUpDownReasonHttpPostIn" />
+      <wsdl:output message="tns:GetAllUpDownReasonHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpDownReasonById">
+      <wsdl:input message="tns:GetUpDownReasonByIdHttpPostIn" />
+      <wsdl:output message="tns:GetUpDownReasonByIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelUpDownReasonById">
+      <wsdl:input message="tns:DelUpDownReasonByIdHttpPostIn" />
+      <wsdl:output message="tns:DelUpDownReasonByIdHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewAssetLiquidation">
       <wsdl:input message="tns:NewAssetLiquidationHttpPostIn" />
       <wsdl:output message="tns:NewAssetLiquidationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssetLiquidation">
+      <wsdl:input message="tns:UpdateAssetLiquidationHttpPostIn" />
+      <wsdl:output message="tns:UpdateAssetLiquidationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAssetLiquidation">
+      <wsdl:input message="tns:GetAllAssetLiquidationHttpPostIn" />
+      <wsdl:output message="tns:GetAllAssetLiquidationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetLiquidationById">
+      <wsdl:input message="tns:GetAssetLiquidationByIdHttpPostIn" />
+      <wsdl:output message="tns:GetAssetLiquidationByIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelAssetLiquidationById">
+      <wsdl:input message="tns:DelAssetLiquidationByIdHttpPostIn" />
+      <wsdl:output message="tns:DelAssetLiquidationByIdHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="NewRepairAsset">
       <wsdl:input message="tns:NewRepairAssetHttpPostIn" />
       <wsdl:output message="tns:NewRepairAssetHttpPostOut" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateRepairAsset">
+      <wsdl:input message="tns:UpdateRepairAssetHttpPostIn" />
+      <wsdl:output message="tns:UpdateRepairAssetHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRepairAsset">
+      <wsdl:input message="tns:GetAllRepairAssetHttpPostIn" />
+      <wsdl:output message="tns:GetAllRepairAssetHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepairAssetById">
+      <wsdl:input message="tns:GetRepairAssetByIdHttpPostIn" />
+      <wsdl:output message="tns:GetRepairAssetByIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelRepairAssetById">
+      <wsdl:input message="tns:DelRepairAssetByIdHttpPostIn" />
+      <wsdl:output message="tns:DelRepairAssetByIdHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewWarrantyAsset">
       <wsdl:input message="tns:NewWarrantyAssetHttpPostIn" />
       <wsdl:output message="tns:NewWarrantyAssetHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWarrantyAsset">
+      <wsdl:input message="tns:UpdateWarrantyAssetHttpPostIn" />
+      <wsdl:output message="tns:UpdateWarrantyAssetHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWarrantyAsset">
+      <wsdl:input message="tns:GetAllWarrantyAssetHttpPostIn" />
+      <wsdl:output message="tns:GetAllWarrantyAssetHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarrantyAssetById">
+      <wsdl:input message="tns:GetWarrantyAssetByIdHttpPostIn" />
+      <wsdl:output message="tns:GetWarrantyAssetByIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelWarrantyAssetById">
+      <wsdl:input message="tns:DelWarrantyAssetByIdHttpPostIn" />
+      <wsdl:output message="tns:DelWarrantyAssetByIdHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="AssetManagerServiceSoap" type="tns:AssetManagerServiceSoap">
@@ -1342,6 +3091,15 @@
     </wsdl:operation>
     <wsdl:operation name="DelAssetGroupTypeById">
       <soap:operation soapAction="http://tempuri.org/DelAssetGroupTypeById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssetGroupType">
+      <soap:operation soapAction="http://tempuri.org/UpdateAssetGroupType" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1385,8 +3143,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateAssetGroupType">
-      <soap:operation soapAction="http://tempuri.org/UpdateAssetGroupType" style="document" />
+    <wsdl:operation name="UpdateAssetGroup">
+      <soap:operation soapAction="http://tempuri.org/UpdateAssetGroup" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1430,8 +3188,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateCapitalType">
-      <soap:operation soapAction="http://tempuri.org/UpdateCapitalType" style="document" />
+    <wsdl:operation name="UpdateCapital">
+      <soap:operation soapAction="http://tempuri.org/UpdateCapital" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1448,8 +3206,80 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateDepartmentUsed">
+      <soap:operation soapAction="http://tempuri.org/UpdateDepartmentUsed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentUsed">
+      <soap:operation soapAction="http://tempuri.org/GetDepartmentUsed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentUsedById">
+      <soap:operation soapAction="http://tempuri.org/GetDepartmentUsedById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDepartmentUsedById">
+      <soap:operation soapAction="http://tempuri.org/DelDepartmentUsedById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewUnit">
       <soap:operation soapAction="http://tempuri.org/NewUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUnit">
+      <soap:operation soapAction="http://tempuri.org/UpdateUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnit">
+      <soap:operation soapAction="http://tempuri.org/GetAllUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitById">
+      <soap:operation soapAction="http://tempuri.org/GetUnitById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelUnitById">
+      <soap:operation soapAction="http://tempuri.org/DelUnitById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1466,8 +3296,98 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateAsset">
+      <soap:operation soapAction="http://tempuri.org/UpdateAsset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAsset">
+      <soap:operation soapAction="http://tempuri.org/GetAllAsset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetById">
+      <soap:operation soapAction="http://tempuri.org/GetAssetById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetByAssetGroupTypeId">
+      <soap:operation soapAction="http://tempuri.org/GetAssetByAssetGroupTypeId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetByDepartmentUsedId">
+      <soap:operation soapAction="http://tempuri.org/GetAssetByDepartmentUsedId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelAssetById">
+      <soap:operation soapAction="http://tempuri.org/DelAssetById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewPartner">
       <soap:operation soapAction="http://tempuri.org/NewPartner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePartner">
+      <soap:operation soapAction="http://tempuri.org/UpdatePartner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPartner">
+      <soap:operation soapAction="http://tempuri.org/GetAllPartner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartnerById">
+      <soap:operation soapAction="http://tempuri.org/GetPartnerById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelPartnerById">
+      <soap:operation soapAction="http://tempuri.org/DelPartnerById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1484,8 +3404,80 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateUpDownReason">
+      <soap:operation soapAction="http://tempuri.org/UpdateUpDownReason" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUpDownReason">
+      <soap:operation soapAction="http://tempuri.org/GetAllUpDownReason" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpDownReasonById">
+      <soap:operation soapAction="http://tempuri.org/GetUpDownReasonById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelUpDownReasonById">
+      <soap:operation soapAction="http://tempuri.org/DelUpDownReasonById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewAssetLiquidation">
       <soap:operation soapAction="http://tempuri.org/NewAssetLiquidation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssetLiquidation">
+      <soap:operation soapAction="http://tempuri.org/UpdateAssetLiquidation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAssetLiquidation">
+      <soap:operation soapAction="http://tempuri.org/GetAllAssetLiquidation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetLiquidationById">
+      <soap:operation soapAction="http://tempuri.org/GetAssetLiquidationById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelAssetLiquidationById">
+      <soap:operation soapAction="http://tempuri.org/DelAssetLiquidationById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1502,8 +3494,80 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateRepairAsset">
+      <soap:operation soapAction="http://tempuri.org/UpdateRepairAsset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRepairAsset">
+      <soap:operation soapAction="http://tempuri.org/GetAllRepairAsset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRepairAssetById">
+      <soap:operation soapAction="http://tempuri.org/GetRepairAssetById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelRepairAssetById">
+      <soap:operation soapAction="http://tempuri.org/DelRepairAssetById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewWarrantyAsset">
       <soap:operation soapAction="http://tempuri.org/NewWarrantyAsset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWarrantyAsset">
+      <soap:operation soapAction="http://tempuri.org/UpdateWarrantyAsset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWarrantyAsset">
+      <soap:operation soapAction="http://tempuri.org/GetAllWarrantyAsset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarrantyAssetById">
+      <soap:operation soapAction="http://tempuri.org/GetWarrantyAssetById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelWarrantyAssetById">
+      <soap:operation soapAction="http://tempuri.org/DelWarrantyAssetById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1550,6 +3614,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateAssetGroupType">
+      <soap12:operation soapAction="http://tempuri.org/UpdateAssetGroupType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewAssetGroup">
       <soap12:operation soapAction="http://tempuri.org/NewAssetGroup" style="document" />
       <wsdl:input>
@@ -1586,8 +3659,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateAssetGroupType">
-      <soap12:operation soapAction="http://tempuri.org/UpdateAssetGroupType" style="document" />
+    <wsdl:operation name="UpdateAssetGroup">
+      <soap12:operation soapAction="http://tempuri.org/UpdateAssetGroup" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1631,8 +3704,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateCapitalType">
-      <soap12:operation soapAction="http://tempuri.org/UpdateCapitalType" style="document" />
+    <wsdl:operation name="UpdateCapital">
+      <soap12:operation soapAction="http://tempuri.org/UpdateCapital" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1649,8 +3722,80 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateDepartmentUsed">
+      <soap12:operation soapAction="http://tempuri.org/UpdateDepartmentUsed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentUsed">
+      <soap12:operation soapAction="http://tempuri.org/GetDepartmentUsed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentUsedById">
+      <soap12:operation soapAction="http://tempuri.org/GetDepartmentUsedById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDepartmentUsedById">
+      <soap12:operation soapAction="http://tempuri.org/DelDepartmentUsedById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewUnit">
       <soap12:operation soapAction="http://tempuri.org/NewUnit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUnit">
+      <soap12:operation soapAction="http://tempuri.org/UpdateUnit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnit">
+      <soap12:operation soapAction="http://tempuri.org/GetAllUnit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitById">
+      <soap12:operation soapAction="http://tempuri.org/GetUnitById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelUnitById">
+      <soap12:operation soapAction="http://tempuri.org/DelUnitById" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1667,8 +3812,98 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateAsset">
+      <soap12:operation soapAction="http://tempuri.org/UpdateAsset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAsset">
+      <soap12:operation soapAction="http://tempuri.org/GetAllAsset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetById">
+      <soap12:operation soapAction="http://tempuri.org/GetAssetById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetByAssetGroupTypeId">
+      <soap12:operation soapAction="http://tempuri.org/GetAssetByAssetGroupTypeId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetByDepartmentUsedId">
+      <soap12:operation soapAction="http://tempuri.org/GetAssetByDepartmentUsedId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelAssetById">
+      <soap12:operation soapAction="http://tempuri.org/DelAssetById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewPartner">
       <soap12:operation soapAction="http://tempuri.org/NewPartner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePartner">
+      <soap12:operation soapAction="http://tempuri.org/UpdatePartner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPartner">
+      <soap12:operation soapAction="http://tempuri.org/GetAllPartner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartnerById">
+      <soap12:operation soapAction="http://tempuri.org/GetPartnerById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelPartnerById">
+      <soap12:operation soapAction="http://tempuri.org/DelPartnerById" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1685,8 +3920,80 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateUpDownReason">
+      <soap12:operation soapAction="http://tempuri.org/UpdateUpDownReason" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUpDownReason">
+      <soap12:operation soapAction="http://tempuri.org/GetAllUpDownReason" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpDownReasonById">
+      <soap12:operation soapAction="http://tempuri.org/GetUpDownReasonById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelUpDownReasonById">
+      <soap12:operation soapAction="http://tempuri.org/DelUpDownReasonById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewAssetLiquidation">
       <soap12:operation soapAction="http://tempuri.org/NewAssetLiquidation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssetLiquidation">
+      <soap12:operation soapAction="http://tempuri.org/UpdateAssetLiquidation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAssetLiquidation">
+      <soap12:operation soapAction="http://tempuri.org/GetAllAssetLiquidation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetLiquidationById">
+      <soap12:operation soapAction="http://tempuri.org/GetAssetLiquidationById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelAssetLiquidationById">
+      <soap12:operation soapAction="http://tempuri.org/DelAssetLiquidationById" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1703,8 +4010,80 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateRepairAsset">
+      <soap12:operation soapAction="http://tempuri.org/UpdateRepairAsset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRepairAsset">
+      <soap12:operation soapAction="http://tempuri.org/GetAllRepairAsset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRepairAssetById">
+      <soap12:operation soapAction="http://tempuri.org/GetRepairAssetById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelRepairAssetById">
+      <soap12:operation soapAction="http://tempuri.org/DelRepairAssetById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewWarrantyAsset">
       <soap12:operation soapAction="http://tempuri.org/NewWarrantyAsset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWarrantyAsset">
+      <soap12:operation soapAction="http://tempuri.org/UpdateWarrantyAsset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWarrantyAsset">
+      <soap12:operation soapAction="http://tempuri.org/GetAllWarrantyAsset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarrantyAssetById">
+      <soap12:operation soapAction="http://tempuri.org/GetWarrantyAssetById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelWarrantyAssetById">
+      <soap12:operation soapAction="http://tempuri.org/DelWarrantyAssetById" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1751,6 +4130,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateAssetGroupType">
+      <http:operation location="/UpdateAssetGroupType" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewAssetGroup">
       <http:operation location="/NewAssetGroup" />
       <wsdl:input>
@@ -1787,8 +4175,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateAssetGroupType">
-      <http:operation location="/UpdateAssetGroupType" />
+    <wsdl:operation name="UpdateAssetGroup">
+      <http:operation location="/UpdateAssetGroup" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -1832,8 +4220,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateCapitalType">
-      <http:operation location="/UpdateCapitalType" />
+    <wsdl:operation name="UpdateCapital">
+      <http:operation location="/UpdateCapital" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -1850,8 +4238,80 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateDepartmentUsed">
+      <http:operation location="/UpdateDepartmentUsed" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentUsed">
+      <http:operation location="/GetDepartmentUsed" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentUsedById">
+      <http:operation location="/GetDepartmentUsedById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDepartmentUsedById">
+      <http:operation location="/DelDepartmentUsedById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewUnit">
       <http:operation location="/NewUnit" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUnit">
+      <http:operation location="/UpdateUnit" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnit">
+      <http:operation location="/GetAllUnit" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitById">
+      <http:operation location="/GetUnitById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelUnitById">
+      <http:operation location="/DelUnitById" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -1868,8 +4328,98 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateAsset">
+      <http:operation location="/UpdateAsset" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAsset">
+      <http:operation location="/GetAllAsset" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetById">
+      <http:operation location="/GetAssetById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetByAssetGroupTypeId">
+      <http:operation location="/GetAssetByAssetGroupTypeId" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetByDepartmentUsedId">
+      <http:operation location="/GetAssetByDepartmentUsedId" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelAssetById">
+      <http:operation location="/DelAssetById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewPartner">
       <http:operation location="/NewPartner" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePartner">
+      <http:operation location="/UpdatePartner" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPartner">
+      <http:operation location="/GetAllPartner" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartnerById">
+      <http:operation location="/GetPartnerById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelPartnerById">
+      <http:operation location="/DelPartnerById" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -1886,8 +4436,80 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateUpDownReason">
+      <http:operation location="/UpdateUpDownReason" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUpDownReason">
+      <http:operation location="/GetAllUpDownReason" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpDownReasonById">
+      <http:operation location="/GetUpDownReasonById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelUpDownReasonById">
+      <http:operation location="/DelUpDownReasonById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewAssetLiquidation">
       <http:operation location="/NewAssetLiquidation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssetLiquidation">
+      <http:operation location="/UpdateAssetLiquidation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAssetLiquidation">
+      <http:operation location="/GetAllAssetLiquidation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetLiquidationById">
+      <http:operation location="/GetAssetLiquidationById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelAssetLiquidationById">
+      <http:operation location="/DelAssetLiquidationById" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -1904,8 +4526,80 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateRepairAsset">
+      <http:operation location="/UpdateRepairAsset" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRepairAsset">
+      <http:operation location="/GetAllRepairAsset" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRepairAssetById">
+      <http:operation location="/GetRepairAssetById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelRepairAssetById">
+      <http:operation location="/DelRepairAssetById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewWarrantyAsset">
       <http:operation location="/NewWarrantyAsset" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWarrantyAsset">
+      <http:operation location="/UpdateWarrantyAsset" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWarrantyAsset">
+      <http:operation location="/GetAllWarrantyAsset" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarrantyAssetById">
+      <http:operation location="/GetWarrantyAssetById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelWarrantyAssetById">
+      <http:operation location="/DelWarrantyAssetById" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -1952,6 +4646,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateAssetGroupType">
+      <http:operation location="/UpdateAssetGroupType" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewAssetGroup">
       <http:operation location="/NewAssetGroup" />
       <wsdl:input>
@@ -1988,8 +4691,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateAssetGroupType">
-      <http:operation location="/UpdateAssetGroupType" />
+    <wsdl:operation name="UpdateAssetGroup">
+      <http:operation location="/UpdateAssetGroup" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -2033,8 +4736,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateCapitalType">
-      <http:operation location="/UpdateCapitalType" />
+    <wsdl:operation name="UpdateCapital">
+      <http:operation location="/UpdateCapital" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -2051,8 +4754,80 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateDepartmentUsed">
+      <http:operation location="/UpdateDepartmentUsed" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentUsed">
+      <http:operation location="/GetDepartmentUsed" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentUsedById">
+      <http:operation location="/GetDepartmentUsedById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDepartmentUsedById">
+      <http:operation location="/DelDepartmentUsedById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewUnit">
       <http:operation location="/NewUnit" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUnit">
+      <http:operation location="/UpdateUnit" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnit">
+      <http:operation location="/GetAllUnit" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitById">
+      <http:operation location="/GetUnitById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelUnitById">
+      <http:operation location="/DelUnitById" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -2069,8 +4844,98 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateAsset">
+      <http:operation location="/UpdateAsset" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAsset">
+      <http:operation location="/GetAllAsset" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetById">
+      <http:operation location="/GetAssetById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetByAssetGroupTypeId">
+      <http:operation location="/GetAssetByAssetGroupTypeId" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetByDepartmentUsedId">
+      <http:operation location="/GetAssetByDepartmentUsedId" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelAssetById">
+      <http:operation location="/DelAssetById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewPartner">
       <http:operation location="/NewPartner" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePartner">
+      <http:operation location="/UpdatePartner" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPartner">
+      <http:operation location="/GetAllPartner" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartnerById">
+      <http:operation location="/GetPartnerById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelPartnerById">
+      <http:operation location="/DelPartnerById" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -2087,8 +4952,80 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateUpDownReason">
+      <http:operation location="/UpdateUpDownReason" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUpDownReason">
+      <http:operation location="/GetAllUpDownReason" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpDownReasonById">
+      <http:operation location="/GetUpDownReasonById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelUpDownReasonById">
+      <http:operation location="/DelUpDownReasonById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewAssetLiquidation">
       <http:operation location="/NewAssetLiquidation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssetLiquidation">
+      <http:operation location="/UpdateAssetLiquidation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAssetLiquidation">
+      <http:operation location="/GetAllAssetLiquidation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetLiquidationById">
+      <http:operation location="/GetAssetLiquidationById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelAssetLiquidationById">
+      <http:operation location="/DelAssetLiquidationById" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -2105,8 +5042,80 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateRepairAsset">
+      <http:operation location="/UpdateRepairAsset" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRepairAsset">
+      <http:operation location="/GetAllRepairAsset" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRepairAssetById">
+      <http:operation location="/GetRepairAssetById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelRepairAssetById">
+      <http:operation location="/DelRepairAssetById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewWarrantyAsset">
       <http:operation location="/NewWarrantyAsset" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWarrantyAsset">
+      <http:operation location="/UpdateWarrantyAsset" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWarrantyAsset">
+      <http:operation location="/GetAllWarrantyAsset" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarrantyAssetById">
+      <http:operation location="/GetWarrantyAssetById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelWarrantyAssetById">
+      <http:operation location="/DelWarrantyAssetById" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
