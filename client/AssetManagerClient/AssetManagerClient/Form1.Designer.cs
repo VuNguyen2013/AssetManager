@@ -75,6 +75,7 @@
             this.siInfo = new DevExpress.XtraBars.BarStaticItem();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.ControlTab2 = new DevExpress.XtraTab.XtraTabPage();
+            this.gpLoading = new DevExpress.XtraWaitForm.ProgressPanel();
             this.ControlTab1 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
@@ -119,7 +120,6 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.gpLoading = new DevExpress.XtraWaitForm.ProgressPanel();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).BeginInit();
@@ -605,6 +605,22 @@
             this.ControlTab2.Size = new System.Drawing.Size(1077, 485);
             this.ControlTab2.Text = "Bảo hành";
             // 
+            // gpLoading
+            // 
+            this.gpLoading.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.gpLoading.Appearance.Options.UseBackColor = true;
+            this.gpLoading.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.gpLoading.AppearanceCaption.Options.UseFont = true;
+            this.gpLoading.AppearanceDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.gpLoading.AppearanceDescription.Options.UseFont = true;
+            this.gpLoading.Caption = "Vui lòng chờ";
+            this.gpLoading.Description = "đang tải dữ liệu ...";
+            this.gpLoading.Location = new System.Drawing.Point(458, 62);
+            this.gpLoading.Name = "gpLoading";
+            this.gpLoading.Size = new System.Drawing.Size(246, 66);
+            this.gpLoading.TabIndex = 0;
+            this.gpLoading.Text = "progressPanel1";
+            // 
             // ControlTab1
             // 
             this.ControlTab1.Controls.Add(this.groupControl1);
@@ -1009,22 +1025,6 @@
             this.barDockControlRight.Location = new System.Drawing.Point(1100, 0);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 700);
             // 
-            // gpLoading
-            // 
-            this.gpLoading.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.gpLoading.Appearance.Options.UseBackColor = true;
-            this.gpLoading.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.gpLoading.AppearanceCaption.Options.UseFont = true;
-            this.gpLoading.AppearanceDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.gpLoading.AppearanceDescription.Options.UseFont = true;
-            this.gpLoading.Caption = "Vui lòng chờ";
-            this.gpLoading.Description = "đang tải dữ liệu ...";
-            this.gpLoading.Location = new System.Drawing.Point(458, 62);
-            this.gpLoading.Name = "gpLoading";
-            this.gpLoading.Size = new System.Drawing.Size(246, 66);
-            this.gpLoading.TabIndex = 0;
-            this.gpLoading.Text = "progressPanel1";
-            // 
             // Form1
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -1044,6 +1044,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "Form1";
             this.Ribbon = this.ribbonControl;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();

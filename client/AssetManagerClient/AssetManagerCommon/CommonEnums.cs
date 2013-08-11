@@ -31,6 +31,20 @@ namespace AssetManagerCommon
             ERROR_SENDING_SMS,
             OTHER = 99,
             SYSTEM_ERROR = 100,
+        } 
+        public enum STATUS
+        {
+            IN_USE=0,
+            IN_STORAGE,
+            LOANED_OUT,
+            OUT_FOR_REPAIR,
+        }
+        public enum CONDITION
+        {
+            NEW=1,
+            GOOD,
+            FAIL,
+            POOR,
         }
     }
 }

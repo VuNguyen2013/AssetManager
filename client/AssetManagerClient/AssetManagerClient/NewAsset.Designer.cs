@@ -40,15 +40,15 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.cbCondition = new System.Windows.Forms.ComboBox();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
+            this.isImage = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.monthEdit1 = new DevExpress.XtraScheduler.UI.MonthEdit();
-            this.dropDownButton4 = new DevExpress.XtraEditors.DropDownButton();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.dropDownButton3 = new DevExpress.XtraEditors.DropDownButton();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
@@ -58,6 +58,7 @@
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cbDepartmentUsed = new System.Windows.Forms.ComboBox();
             this.cbAssetGroup = new System.Windows.Forms.ComboBox();
             this.gpLoading = new DevExpress.XtraWaitForm.ProgressPanel();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -70,12 +71,12 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.cbDepartmentUsed = new System.Windows.Forms.ComboBox();
+            this.odImage = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.isImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.monthEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
@@ -182,21 +183,37 @@
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.cbCondition);
+            this.xtraTabPage1.Controls.Add(this.cbStatus);
             this.xtraTabPage1.Controls.Add(this.simpleButton2);
             this.xtraTabPage1.Controls.Add(this.simpleButton1);
-            this.xtraTabPage1.Controls.Add(this.imageSlider1);
+            this.xtraTabPage1.Controls.Add(this.isImage);
             this.xtraTabPage1.Controls.Add(this.checkEdit1);
             this.xtraTabPage1.Controls.Add(this.monthEdit1);
-            this.xtraTabPage1.Controls.Add(this.dropDownButton4);
             this.xtraTabPage1.Controls.Add(this.labelControl10);
             this.xtraTabPage1.Controls.Add(this.labelControl9);
-            this.xtraTabPage1.Controls.Add(this.dropDownButton3);
             this.xtraTabPage1.Controls.Add(this.labelControl8);
             this.xtraTabPage1.Controls.Add(this.labelControl7);
             this.xtraTabPage1.Controls.Add(this.textEdit5);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(626, 251);
             this.xtraTabPage1.Text = "Thông thường";
+            // 
+            // cbCondition
+            // 
+            this.cbCondition.FormattingEnabled = true;
+            this.cbCondition.Location = new System.Drawing.Point(107, 95);
+            this.cbCondition.Name = "cbCondition";
+            this.cbCondition.Size = new System.Drawing.Size(216, 21);
+            this.cbCondition.TabIndex = 7;
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Location = new System.Drawing.Point(108, 56);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(216, 21);
+            this.cbStatus.TabIndex = 7;
             // 
             // simpleButton2
             // 
@@ -205,6 +222,7 @@
             this.simpleButton2.Size = new System.Drawing.Size(75, 23);
             this.simpleButton2.TabIndex = 6;
             this.simpleButton2.Text = "Duyệt ảnh";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // simpleButton1
             // 
@@ -214,14 +232,15 @@
             this.simpleButton1.TabIndex = 6;
             this.simpleButton1.Text = "Xóa hết";
             // 
-            // imageSlider1
+            // isImage
             // 
-            this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
-            this.imageSlider1.Location = new System.Drawing.Point(357, 14);
-            this.imageSlider1.Name = "imageSlider1";
-            this.imageSlider1.Size = new System.Drawing.Size(249, 175);
-            this.imageSlider1.TabIndex = 5;
-            this.imageSlider1.Text = "imageSlider1";
+            this.isImage.AllowLooping = true;
+            this.isImage.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Stretch;
+            this.isImage.Location = new System.Drawing.Point(357, 14);
+            this.isImage.Name = "isImage";
+            this.isImage.Size = new System.Drawing.Size(249, 175);
+            this.isImage.TabIndex = 5;
+            this.isImage.Text = "isImage";
             // 
             // checkEdit1
             // 
@@ -242,14 +261,6 @@
             this.monthEdit1.Size = new System.Drawing.Size(109, 20);
             this.monthEdit1.TabIndex = 3;
             // 
-            // dropDownButton4
-            // 
-            this.dropDownButton4.Location = new System.Drawing.Point(107, 88);
-            this.dropDownButton4.Name = "dropDownButton4";
-            this.dropDownButton4.Size = new System.Drawing.Size(216, 23);
-            this.dropDownButton4.TabIndex = 2;
-            this.dropDownButton4.Text = "dropDownButton1";
-            // 
             // labelControl10
             // 
             this.labelControl10.Location = new System.Drawing.Point(18, 133);
@@ -265,14 +276,6 @@
             this.labelControl9.Size = new System.Drawing.Size(49, 13);
             this.labelControl9.TabIndex = 1;
             this.labelControl9.Text = "Tình trạng";
-            // 
-            // dropDownButton3
-            // 
-            this.dropDownButton3.Location = new System.Drawing.Point(107, 49);
-            this.dropDownButton3.Name = "dropDownButton3";
-            this.dropDownButton3.Size = new System.Drawing.Size(216, 23);
-            this.dropDownButton3.TabIndex = 2;
-            this.dropDownButton3.Text = "dropDownButton1";
             // 
             // labelControl8
             // 
@@ -350,6 +353,14 @@
             this.groupControl1.TabIndex = 6;
             this.groupControl1.Text = "Thông tin";
             this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
+            // 
+            // cbDepartmentUsed
+            // 
+            this.cbDepartmentUsed.FormattingEnabled = true;
+            this.cbDepartmentUsed.Location = new System.Drawing.Point(109, 102);
+            this.cbDepartmentUsed.Name = "cbDepartmentUsed";
+            this.cbDepartmentUsed.Size = new System.Drawing.Size(230, 21);
+            this.cbDepartmentUsed.TabIndex = 10;
             // 
             // cbAssetGroup
             // 
@@ -454,13 +465,9 @@
             this.textEdit1.Size = new System.Drawing.Size(231, 20);
             this.textEdit1.TabIndex = 0;
             // 
-            // cbDepartmentUsed
+            // odImage
             // 
-            this.cbDepartmentUsed.FormattingEnabled = true;
-            this.cbDepartmentUsed.Location = new System.Drawing.Point(109, 102);
-            this.cbDepartmentUsed.Name = "cbDepartmentUsed";
-            this.cbDepartmentUsed.Size = new System.Drawing.Size(230, 21);
-            this.cbDepartmentUsed.TabIndex = 10;
+            this.odImage.FileName = "openFileDialog";
             // 
             // NewAsset
             // 
@@ -475,13 +482,14 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "NewAsset";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewAsset";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.isImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.monthEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
@@ -528,17 +536,18 @@
         private DevExpress.XtraEditors.TextEdit textEdit3;
         private DevExpress.XtraEditors.CheckEdit checkEdit1;
         private DevExpress.XtraScheduler.UI.MonthEdit monthEdit1;
-        private DevExpress.XtraEditors.DropDownButton dropDownButton4;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl labelControl9;
-        private DevExpress.XtraEditors.DropDownButton dropDownButton3;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.TextEdit textEdit5;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.Controls.ImageSlider imageSlider1;
+        private DevExpress.XtraEditors.Controls.ImageSlider isImage;
         private System.Windows.Forms.ComboBox cbAssetGroup;
         private System.Windows.Forms.ComboBox cbDepartmentUsed;
+        private System.Windows.Forms.ComboBox cbCondition;
+        private System.Windows.Forms.ComboBox cbStatus;
+        private System.Windows.Forms.OpenFileDialog odImage;
     }
 }

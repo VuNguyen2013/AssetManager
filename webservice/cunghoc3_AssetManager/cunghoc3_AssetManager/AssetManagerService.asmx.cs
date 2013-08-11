@@ -276,36 +276,15 @@ namespace cunghoc3_AssetManager
             {
                 var db = new Services.AssetService();
                 var numbId = randomId.Next(111111, 9999999);
-                var item = new Asset
+                using (var item = new Asset
                     {
-                        Id = "AS_" + numbId,
-                        Name = name,
-                        AssetGroupId = assetGroupId,
-                        UnitId = unitId,
-                        Amount = amount,
-                        CounPro = counPro,
-                        YearPro = yearPro,
-                        DepartmentUsedId = departmentUsedId,
-                        TotalPrice = totalPrice,
-                        BudgetPrice = bugetPrice,
-                        OwnPrice = ownPrice,
-                        VenturePrice = venturePrice,
-                        AnotherPrice = anotherPrice,
-                        TotalDepreciation = totalDepreciation,
-                        BudgetDepreciation = bugetDepreciation,
-                        OwnDepreciation = ownDepreciation,
-                        VentureDepreciation = ventureDepreciation,
-                        AnotherDepreciation = anotherDepreciation,
-                        BudgetRemain = bugeRemain,
-                        OwnRemain = ownRemain,
-                        VentureRemain = ventureRemain,
-                        AnotherRemain = anotherRemain,
-                        TotalReamain = totalRemain
-                    };
-
-                if (db.Insert(item))
+                        Id = "AS_" + numbId, Name = name, AssetGroupId = assetGroupId, UnitId = unitId, Amount = amount, CounPro = counPro, YearPro = yearPro, DepartmentUsedId = departmentUsedId, TotalPrice = totalPrice, BudgetPrice = bugetPrice, OwnPrice = ownPrice, VenturePrice = venturePrice, AnotherPrice = anotherPrice, TotalDepreciation = totalDepreciation, BudgetDepreciation = bugetDepreciation, OwnDepreciation = ownDepreciation, VentureDepreciation = ventureDepreciation, AnotherDepreciation = anotherDepreciation, BudgetRemain = bugeRemain, OwnRemain = ownRemain, VentureRemain = ventureRemain, AnotherRemain = anotherRemain, TotalReamain = totalRemain
+                    })
                 {
-                    return (int) CommonEnums.RetCode.SUCCESS;
+                    if (db.Insert(item))
+                    {
+                        return (int) CommonEnums.RetCode.SUCCESS;
+                    }
                 }
                 return (int) CommonEnums.RetCode.OTHER;
             }
