@@ -51,7 +51,7 @@
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
+            this.txtSeries = new DevExpress.XtraEditors.TextEdit();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
@@ -65,12 +65,12 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
+            this.txtModel = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.txtBrand = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtFactory = new DevExpress.XtraEditors.TextEdit();
+            this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.odImage = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -79,13 +79,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.isImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.monthEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSeries.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtModel.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFactory.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // standaloneBarDockControl1
@@ -130,6 +130,7 @@
             this.barButtonItem1.Caption = "Lưu và đóng";
             this.barButtonItem1.Id = 0;
             this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // barButtonItem2
             // 
@@ -194,7 +195,7 @@
             this.xtraTabPage1.Controls.Add(this.labelControl9);
             this.xtraTabPage1.Controls.Add(this.labelControl8);
             this.xtraTabPage1.Controls.Add(this.labelControl7);
-            this.xtraTabPage1.Controls.Add(this.textEdit5);
+            this.xtraTabPage1.Controls.Add(this.txtSeries);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(626, 251);
             this.xtraTabPage1.Text = "Thông thường";
@@ -293,13 +294,13 @@
             this.labelControl7.TabIndex = 1;
             this.labelControl7.Text = "Số sê-ri";
             // 
-            // textEdit5
+            // txtSeries
             // 
-            this.textEdit5.Location = new System.Drawing.Point(107, 21);
-            this.textEdit5.MenuManager = this.barManager1;
-            this.textEdit5.Name = "textEdit5";
-            this.textEdit5.Size = new System.Drawing.Size(216, 20);
-            this.textEdit5.TabIndex = 0;
+            this.txtSeries.Location = new System.Drawing.Point(107, 21);
+            this.txtSeries.MenuManager = this.barManager1;
+            this.txtSeries.Name = "txtSeries";
+            this.txtSeries.Size = new System.Drawing.Size(216, 20);
+            this.txtSeries.TabIndex = 0;
             // 
             // xtraTabPage2
             // 
@@ -340,12 +341,12 @@
             this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.labelControl3);
-            this.groupControl1.Controls.Add(this.textEdit4);
+            this.groupControl1.Controls.Add(this.txtModel);
             this.groupControl1.Controls.Add(this.labelControl2);
-            this.groupControl1.Controls.Add(this.textEdit3);
+            this.groupControl1.Controls.Add(this.txtBrand);
             this.groupControl1.Controls.Add(this.labelControl1);
-            this.groupControl1.Controls.Add(this.textEdit2);
-            this.groupControl1.Controls.Add(this.textEdit1);
+            this.groupControl1.Controls.Add(this.txtFactory);
+            this.groupControl1.Controls.Add(this.txtName);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 23);
             this.groupControl1.Name = "groupControl1";
@@ -420,12 +421,12 @@
             this.labelControl3.TabIndex = 1;
             this.labelControl3.Text = "Bộ phận sữ dụng";
             // 
-            // textEdit4
+            // txtModel
             // 
-            this.textEdit4.Location = new System.Drawing.Point(108, 214);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Size = new System.Drawing.Size(231, 20);
-            this.textEdit4.TabIndex = 0;
+            this.txtModel.Location = new System.Drawing.Point(108, 214);
+            this.txtModel.Name = "txtModel";
+            this.txtModel.Size = new System.Drawing.Size(231, 20);
+            this.txtModel.TabIndex = 0;
             // 
             // labelControl2
             // 
@@ -435,12 +436,12 @@
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "Loại";
             // 
-            // textEdit3
+            // txtBrand
             // 
-            this.textEdit3.Location = new System.Drawing.Point(108, 177);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(231, 20);
-            this.textEdit3.TabIndex = 0;
+            this.txtBrand.Location = new System.Drawing.Point(108, 177);
+            this.txtBrand.Name = "txtBrand";
+            this.txtBrand.Size = new System.Drawing.Size(231, 20);
+            this.txtBrand.TabIndex = 0;
             // 
             // labelControl1
             // 
@@ -450,20 +451,20 @@
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "Tên tài sản";
             // 
-            // textEdit2
+            // txtFactory
             // 
-            this.textEdit2.Location = new System.Drawing.Point(108, 138);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(231, 20);
-            this.textEdit2.TabIndex = 0;
+            this.txtFactory.Location = new System.Drawing.Point(108, 138);
+            this.txtFactory.Name = "txtFactory";
+            this.txtFactory.Size = new System.Drawing.Size(231, 20);
+            this.txtFactory.TabIndex = 0;
             // 
-            // textEdit1
+            // txtName
             // 
-            this.textEdit1.Location = new System.Drawing.Point(108, 35);
-            this.textEdit1.MenuManager = this.barManager1;
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(231, 20);
-            this.textEdit1.TabIndex = 0;
+            this.txtName.Location = new System.Drawing.Point(108, 35);
+            this.txtName.MenuManager = this.barManager1;
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(231, 20);
+            this.txtName.TabIndex = 0;
             // 
             // odImage
             // 
@@ -492,14 +493,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.isImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.monthEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSeries.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtModel.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFactory.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -520,8 +521,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtFactory;
+        private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
@@ -532,15 +533,15 @@
         private DevExpress.XtraWaitForm.ProgressPanel gpLoading;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.TextEdit txtModel;
+        private DevExpress.XtraEditors.TextEdit txtBrand;
         private DevExpress.XtraEditors.CheckEdit checkEdit1;
         private DevExpress.XtraScheduler.UI.MonthEdit monthEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.TextEdit textEdit5;
+        private DevExpress.XtraEditors.TextEdit txtSeries;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.Controls.ImageSlider isImage;
