@@ -270,15 +270,43 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public int NewAsset(string name, string assetGroupId, string unitId, int amount, string counPro, int yearPro, string departmentUsedId, long totalPrice, long bugetPrice, long ownPrice, long venturePrice, long anotherPrice, long totalDepreciation, long bugetDepreciation, long ownDepreciation, long ventureDepreciation, long anotherDepreciation, long bugeRemain, long ownRemain, long ventureRemain, long anotherRemain, long totalRemain, long upDownCode, DateTime inputDateTime)
+        public int NewAsset(string assetNumber,string name, string assetGroupId, string unitId, int amount, string counPro, int yearPro, string departmentUsedId, long totalPrice, long bugetPrice, long ownPrice, long venturePrice, long anotherPrice, long totalDepreciation, long bugetDepreciation, long ownDepreciation, long ventureDepreciation, long anotherDepreciation, long bugeRemain, long ownRemain, long ventureRemain, long anotherRemain, long totalRemain, string upDownCode)
         {
+            var inputDateTime = DateTime.Today;
             try
             {
                 var db = new Services.AssetService();
-                var numbId = randomId.Next(111111, 9999999);
+                if (GetAssetById(assetNumber) != null)
+                {
+                    return (int) CommonEnums.RetCode.DATA_ALREADY_EXIST;
+                }
                 using (var item = new Asset
                     {
-                        Id = "AS_" + numbId, Name = name, AssetGroupId = assetGroupId, UnitId = unitId, Amount = amount, CounPro = counPro, YearPro = yearPro, DepartmentUsedId = departmentUsedId, TotalPrice = totalPrice, BudgetPrice = bugetPrice, OwnPrice = ownPrice, VenturePrice = venturePrice, AnotherPrice = anotherPrice, TotalDepreciation = totalDepreciation, BudgetDepreciation = bugetDepreciation, OwnDepreciation = ownDepreciation, VentureDepreciation = ventureDepreciation, AnotherDepreciation = anotherDepreciation, BudgetRemain = bugeRemain, OwnRemain = ownRemain, VentureRemain = ventureRemain, AnotherRemain = anotherRemain, TotalReamain = totalRemain
+                        Id = assetNumber,
+                        Name = name,
+                        AssetGroupId = assetGroupId,
+                        UnitId = unitId,
+                        Amount = amount,
+                        CounPro = counPro,
+                        YearPro = yearPro,
+                        DepartmentUsedId = departmentUsedId,
+                        TotalPrice = totalPrice,
+                        BudgetPrice = bugetPrice,
+                        OwnPrice = ownPrice,
+                        VenturePrice = venturePrice,
+                        AnotherPrice = anotherPrice,
+                        TotalDepreciation = totalDepreciation,
+                        BudgetDepreciation = bugetDepreciation,
+                        OwnDepreciation = ownDepreciation,
+                        VentureDepreciation = ventureDepreciation,
+                        AnotherDepreciation = anotherDepreciation,
+                        BudgetRemain = bugeRemain,
+                        OwnRemain = ownRemain,
+                        VentureRemain = ventureRemain,
+                        AnotherRemain = anotherRemain,
+                        TotalReamain = totalRemain,
+                        UpDownCode = upDownCode,
+                        InputDateTime = inputDateTime
                     })
                 {
                     if (db.Insert(item))

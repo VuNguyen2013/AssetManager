@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="CommonEnums.cs" />
     <Compile Include="CommonFunction.cs" />
+    <Compile Include="ftp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultObject.cs" />

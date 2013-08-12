@@ -32,5 +32,32 @@ namespace AssetManagerClient.Properties {
                 return ((string)(this["AssetManagerClient_WebService_AssetManagerService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("thietkewebnet")]
+        public string UsernameFtp {
+            get {
+                return ((string)(this["UsernameFtp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("12345679")]
+        public string PasswordFtp {
+            get {
+                return ((string)(this["PasswordFtp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("123.30.174.116")]
+        public string hostIP {
+            get {
+                return ((string)(this["hostIP"]));
+            }
+        }
     }
 }
