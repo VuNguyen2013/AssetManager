@@ -59,5 +59,17 @@ namespace AssetManagerClient.Properties {
                 return ((string)(this["hostIP"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/httpdocs/AssetManage/")]
+        public string remoteUrl {
+            get {
+                return ((string)(this["remoteUrl"]));
+            }
+            set {
+                this["remoteUrl"] = value;
+            }
+        }
     }
 }
