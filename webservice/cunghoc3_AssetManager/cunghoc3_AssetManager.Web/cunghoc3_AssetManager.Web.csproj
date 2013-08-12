@@ -124,7 +124,7 @@
 	</ItemGroup>
 	
 		
-	<!-- Custom code folder: C:\Users\Phong\Documents\CodeSmith Generator\Templates\NetTiers\cunghoc3_AssetManager\cunghoc3_AssetManager.Web\App_Code -->
+	<!-- Custom code folder: C:\Users\Phong\Documents\CodeSmith Generator\Templates\NetTiers\New\cunghoc3_AssetManager\cunghoc3_AssetManager.Web\App_Code -->
 	<ItemGroup>	
 		<Folder Include="App_Code\" />
         <Compile Include="App_Code\**\*.cs">
