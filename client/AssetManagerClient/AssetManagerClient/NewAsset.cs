@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
 using AssetManagerClient.WebService;
+using AssetManagerCommon;
 using DevExpress.XtraPrinting.Native;
 
 namespace AssetManagerClient
@@ -142,10 +143,13 @@ namespace AssetManagerClient
                 {
                     //if success,upload image
                     gpLoading.Description = "Đang tải hình ảnh lên";
-                    var ftp1 = AssetManagerCommon.ftp();
-                    var ftp=AssetManagerCommon.ftp(Properties.Settings.Default.hostIP, Properties.Settings.Default.UsernameFtp,
-                                           Properties.Settings.Default.PasswordFtp);
-
+                    var ftpClient = new ftp(@Properties.Settings.Default.hostIP, Properties.Settings.Default.UsernameFtp, Properties.Settings.Default.PasswordFtp);
+                    foreach (var imagePath in _imagePathList)
+                    {
+                        var remoteUrl = @Properties.Settings.Default.remoteUrl + txtAssetNumber.Text;
+                        ftpClient.upload(remoteUrl,imagePath);
+                    }
+                    
                     gpLoading.Hide();
                 }
                 else if (result == (int) AssetManagerCommon.CommonEnums.RetCode.SYSTEM_ERROR)

@@ -14,5 +14,8 @@
     <Setting Name="hostIP" Type="System.String" Scope="Application">
       <Value Profile="(Default)">123.30.174.116</Value>
     </Setting>
+    <Setting Name="remoteUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/httpdocs/AssetManage/</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
