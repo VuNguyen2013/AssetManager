@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraPrinting.BarCode.Code128Generator code128Generator2 = new DevExpress.XtraPrinting.BarCode.Code128Generator();
             this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
@@ -58,12 +59,14 @@
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cbUnit = new System.Windows.Forms.ComboBox();
             this.cbDepartmentUsed = new System.Windows.Forms.ComboBox();
             this.cbAssetGroup = new System.Windows.Forms.ComboBox();
             this.gpLoading = new DevExpress.XtraWaitForm.ProgressPanel();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtModel = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -72,6 +75,12 @@
             this.txtFactory = new DevExpress.XtraEditors.TextEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.odImage = new System.Windows.Forms.OpenFileDialog();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.barCodeControl1 = new DevExpress.XtraEditors.BarCodeControl();
+            this.txtAssetNumber = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.rbAuto = new System.Windows.Forms.RadioButton();
+            this.rbManual = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -86,6 +95,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFactory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAssetNumber.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // standaloneBarDockControl1
@@ -169,10 +181,10 @@
             // xtraTabControl1
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 282);
+            this.xtraTabControl1.Location = new System.Drawing.Point(0, 308);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(632, 279);
+            this.xtraTabControl1.Size = new System.Drawing.Size(632, 253);
             this.xtraTabControl1.TabIndex = 5;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -197,7 +209,7 @@
             this.xtraTabPage1.Controls.Add(this.labelControl7);
             this.xtraTabPage1.Controls.Add(this.txtSeries);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(626, 251);
+            this.xtraTabPage1.Size = new System.Drawing.Size(626, 225);
             this.xtraTabPage1.Text = "Thông thường";
             // 
             // cbCondition
@@ -206,7 +218,7 @@
             this.cbCondition.Location = new System.Drawing.Point(107, 95);
             this.cbCondition.Name = "cbCondition";
             this.cbCondition.Size = new System.Drawing.Size(216, 21);
-            this.cbCondition.TabIndex = 7;
+            this.cbCondition.TabIndex = 10;
             // 
             // cbStatus
             // 
@@ -214,7 +226,7 @@
             this.cbStatus.Location = new System.Drawing.Point(108, 56);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(216, 21);
-            this.cbStatus.TabIndex = 7;
+            this.cbStatus.TabIndex = 9;
             // 
             // simpleButton2
             // 
@@ -300,46 +312,49 @@
             this.txtSeries.MenuManager = this.barManager1;
             this.txtSeries.Name = "txtSeries";
             this.txtSeries.Size = new System.Drawing.Size(216, 20);
-            this.txtSeries.TabIndex = 0;
+            this.txtSeries.TabIndex = 8;
             // 
             // xtraTabPage2
             // 
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(626, 251);
+            this.xtraTabPage2.Size = new System.Drawing.Size(626, 225);
             this.xtraTabPage2.Text = "Tài chính";
             // 
             // xtraTabPage3
             // 
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(626, 251);
+            this.xtraTabPage3.Size = new System.Drawing.Size(626, 225);
             this.xtraTabPage3.Text = "Dịch vụ";
             // 
             // xtraTabPage4
             // 
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(626, 251);
+            this.xtraTabPage4.Size = new System.Drawing.Size(626, 225);
             this.xtraTabPage4.Text = "Ghi chú";
             // 
             // xtraTabPage5
             // 
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(626, 251);
+            this.xtraTabPage5.Size = new System.Drawing.Size(626, 225);
             this.xtraTabPage5.Text = "Đính kèm";
             // 
             // xtraTabPage6
             // 
             this.xtraTabPage6.Name = "xtraTabPage6";
-            this.xtraTabPage6.Size = new System.Drawing.Size(626, 251);
+            this.xtraTabPage6.Size = new System.Drawing.Size(626, 225);
             this.xtraTabPage6.Text = "Lịch sử";
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.groupControl2);
+            this.groupControl1.Controls.Add(this.cbUnit);
             this.groupControl1.Controls.Add(this.cbDepartmentUsed);
             this.groupControl1.Controls.Add(this.cbAssetGroup);
             this.groupControl1.Controls.Add(this.gpLoading);
             this.groupControl1.Controls.Add(this.labelControl6);
             this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.labelControl4);
+            this.groupControl1.Controls.Add(this.labelControl11);
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.txtModel);
             this.groupControl1.Controls.Add(this.labelControl2);
@@ -350,10 +365,18 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 23);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(632, 259);
+            this.groupControl1.Size = new System.Drawing.Size(632, 285);
             this.groupControl1.TabIndex = 6;
             this.groupControl1.Text = "Thông tin";
             this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
+            // 
+            // cbUnit
+            // 
+            this.cbUnit.FormattingEnabled = true;
+            this.cbUnit.Location = new System.Drawing.Point(109, 250);
+            this.cbUnit.Name = "cbUnit";
+            this.cbUnit.Size = new System.Drawing.Size(230, 21);
+            this.cbUnit.TabIndex = 7;
             // 
             // cbDepartmentUsed
             // 
@@ -361,7 +384,7 @@
             this.cbDepartmentUsed.Location = new System.Drawing.Point(109, 102);
             this.cbDepartmentUsed.Name = "cbDepartmentUsed";
             this.cbDepartmentUsed.Size = new System.Drawing.Size(230, 21);
-            this.cbDepartmentUsed.TabIndex = 10;
+            this.cbDepartmentUsed.TabIndex = 3;
             // 
             // cbAssetGroup
             // 
@@ -369,7 +392,7 @@
             this.cbAssetGroup.Location = new System.Drawing.Point(108, 70);
             this.cbAssetGroup.Name = "cbAssetGroup";
             this.cbAssetGroup.Size = new System.Drawing.Size(231, 21);
-            this.cbAssetGroup.TabIndex = 9;
+            this.cbAssetGroup.TabIndex = 2;
             // 
             // gpLoading
             // 
@@ -413,6 +436,14 @@
             this.labelControl4.TabIndex = 1;
             this.labelControl4.Text = "Nhà sản xuất";
             // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(21, 253);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(31, 13);
+            this.labelControl11.TabIndex = 1;
+            this.labelControl11.Text = "Đơn vị";
+            // 
             // labelControl3
             // 
             this.labelControl3.Location = new System.Drawing.Point(21, 105);
@@ -426,7 +457,7 @@
             this.txtModel.Location = new System.Drawing.Point(108, 214);
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(231, 20);
-            this.txtModel.TabIndex = 0;
+            this.txtModel.TabIndex = 6;
             // 
             // labelControl2
             // 
@@ -441,7 +472,7 @@
             this.txtBrand.Location = new System.Drawing.Point(108, 177);
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Size = new System.Drawing.Size(231, 20);
-            this.txtBrand.TabIndex = 0;
+            this.txtBrand.TabIndex = 5;
             // 
             // labelControl1
             // 
@@ -456,7 +487,7 @@
             this.txtFactory.Location = new System.Drawing.Point(108, 138);
             this.txtFactory.Name = "txtFactory";
             this.txtFactory.Size = new System.Drawing.Size(231, 20);
-            this.txtFactory.TabIndex = 0;
+            this.txtFactory.TabIndex = 4;
             // 
             // txtName
             // 
@@ -469,6 +500,68 @@
             // odImage
             // 
             this.odImage.FileName = "openFileDialog";
+            // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.rbManual);
+            this.groupControl2.Controls.Add(this.rbAuto);
+            this.groupControl2.Controls.Add(this.labelControl12);
+            this.groupControl2.Controls.Add(this.txtAssetNumber);
+            this.groupControl2.Controls.Add(this.barCodeControl1);
+            this.groupControl2.Location = new System.Drawing.Point(395, 38);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(200, 98);
+            this.groupControl2.TabIndex = 8;
+            this.groupControl2.Text = "Mã tài sản";
+            // 
+            // barCodeControl1
+            // 
+            this.barCodeControl1.Location = new System.Drawing.Point(49, 24);
+            this.barCodeControl1.Name = "barCodeControl1";
+            this.barCodeControl1.Padding = new System.Windows.Forms.Padding(10, 2, 10, 0);
+            this.barCodeControl1.Size = new System.Drawing.Size(100, 23);
+            this.barCodeControl1.Symbology = code128Generator2;
+            this.barCodeControl1.TabIndex = 0;
+            // 
+            // txtAssetNumber
+            // 
+            this.txtAssetNumber.Enabled = false;
+            this.txtAssetNumber.Location = new System.Drawing.Point(49, 53);
+            this.txtAssetNumber.MenuManager = this.barManager1;
+            this.txtAssetNumber.Name = "txtAssetNumber";
+            this.txtAssetNumber.Size = new System.Drawing.Size(100, 20);
+            this.txtAssetNumber.TabIndex = 1;
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Location = new System.Drawing.Point(23, 56);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(20, 13);
+            this.labelControl12.TabIndex = 2;
+            this.labelControl12.Text = "AS_";
+            // 
+            // rbAuto
+            // 
+            this.rbAuto.AutoSize = true;
+            this.rbAuto.Checked = true;
+            this.rbAuto.Location = new System.Drawing.Point(23, 76);
+            this.rbAuto.Name = "rbAuto";
+            this.rbAuto.Size = new System.Drawing.Size(65, 17);
+            this.rbAuto.TabIndex = 3;
+            this.rbAuto.TabStop = true;
+            this.rbAuto.Text = "Tự động";
+            this.rbAuto.UseVisualStyleBackColor = true;
+            // 
+            // rbManual
+            // 
+            this.rbManual.AutoSize = true;
+            this.rbManual.Location = new System.Drawing.Point(117, 76);
+            this.rbManual.Name = "rbManual";
+            this.rbManual.Size = new System.Drawing.Size(68, 17);
+            this.rbManual.TabIndex = 3;
+            this.rbManual.Text = "Bằng tay";
+            this.rbManual.UseVisualStyleBackColor = true;
+            this.rbManual.CheckedChanged += new System.EventHandler(this.rbManual_CheckedChanged);
             // 
             // NewAsset
             // 
@@ -501,6 +594,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFactory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
+            this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAssetNumber.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -550,5 +647,13 @@
         private System.Windows.Forms.ComboBox cbCondition;
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.OpenFileDialog odImage;
+        private System.Windows.Forms.ComboBox cbUnit;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
+        private System.Windows.Forms.RadioButton rbManual;
+        private System.Windows.Forms.RadioButton rbAuto;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraEditors.TextEdit txtAssetNumber;
+        private DevExpress.XtraEditors.BarCodeControl barCodeControl1;
     }
 }

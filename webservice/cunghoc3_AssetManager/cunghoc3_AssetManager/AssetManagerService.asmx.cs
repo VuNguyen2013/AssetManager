@@ -346,7 +346,11 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
+<<<<<<< HEAD
         public int NewAsset(string assetNumber, string name, string assetGroupId, string unitId, int amount, string counPro, int yearPro, string departmentUsedId, long totalPrice, long bugetPrice, long ownPrice, long venturePrice, long anotherPrice, long totalDepreciation, long bugetDepreciation, long ownDepreciation, long ventureDepreciation, long anotherDepreciation, long bugeRemain, long ownRemain, long ventureRemain, long anotherRemain, long totalRemain, string upDownCode)
+=======
+        public int NewAsset(string assetNumber,string name, string assetGroupId, string unitId, int amount, string counPro, int yearPro, string departmentUsedId, long totalPrice, long bugetPrice, long ownPrice, long venturePrice, long anotherPrice, long totalDepreciation, long bugetDepreciation, long ownDepreciation, long ventureDepreciation, long anotherDepreciation, long bugeRemain, long ownRemain, long ventureRemain, long anotherRemain, long totalRemain, string upDownCode)
+>>>>>>> 7916baf4e085fd206f1f7920a5dce0a7fc03a890
         {
             var inputDateTime = DateTime.Today;
             try
@@ -354,6 +358,7 @@ namespace cunghoc3_AssetManager
                 var db = new Services.AssetService();
                 if (GetAssetById(assetNumber) != null)
                 {
+<<<<<<< HEAD
                     return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
                 }
                 using (var item = new Asset
@@ -384,6 +389,38 @@ namespace cunghoc3_AssetManager
                     UpDownCode = upDownCode,
                     InputDateTime = inputDateTime
                 })
+=======
+                    return (int) CommonEnums.RetCode.DATA_ALREADY_EXIST;
+                }
+                using (var item = new Asset
+                    {
+                        Id = assetNumber,
+                        Name = name,
+                        AssetGroupId = assetGroupId,
+                        UnitId = unitId,
+                        Amount = amount,
+                        CounPro = counPro,
+                        YearPro = yearPro,
+                        DepartmentUsedId = departmentUsedId,
+                        TotalPrice = totalPrice,
+                        BudgetPrice = bugetPrice,
+                        OwnPrice = ownPrice,
+                        VenturePrice = venturePrice,
+                        AnotherPrice = anotherPrice,
+                        TotalDepreciation = totalDepreciation,
+                        BudgetDepreciation = bugetDepreciation,
+                        OwnDepreciation = ownDepreciation,
+                        VentureDepreciation = ventureDepreciation,
+                        AnotherDepreciation = anotherDepreciation,
+                        BudgetRemain = bugeRemain,
+                        OwnRemain = ownRemain,
+                        VentureRemain = ventureRemain,
+                        AnotherRemain = anotherRemain,
+                        TotalReamain = totalRemain,
+                        UpDownCode = upDownCode,
+                        InputDateTime = inputDateTime
+                    })
+>>>>>>> 7916baf4e085fd206f1f7920a5dce0a7fc03a890
                 {
                     if (db.Insert(item))
                     {

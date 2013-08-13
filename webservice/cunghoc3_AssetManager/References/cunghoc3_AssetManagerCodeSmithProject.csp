@@ -67,8 +67,8 @@
       <property name="FindSuffix">_Find</property>
       <property name="GenerateWinLibrary">False</property>
       <property name="RootNameSpace">cunghoc3_AssetManager</property>
-      <property name="OutputDirectory">C:\Users\Phong\Documents\CodeSmith Generator\Templates\NetTiers\New\cunghoc3_AssetManager</property>
-      <property name="MappingFile">C:\Users\Phong\Documents\CodeSmith Generator\Templates\NetTiers\New\cunghoc3_AssetManager\cunghoc3_AssetManagerMapping.config</property>
+      <property name="OutputDirectory">C:\Users\Phong\Documents\CodeSmith Generator\Templates\NetTiers\cunghoc3_AssetManager</property>
+      <property name="MappingFile">C:\Users\Phong\Documents\CodeSmith Generator\Templates\NetTiers\cunghoc3_AssetManager\cunghoc3_AssetManagerMapping.config</property>
       <property name="ComponentLayerNameSpace">Services</property>
       <property name="SourceTables">
         <connectionString>$(ConnectionString1)</connectionString>
@@ -120,7 +120,7 @@
       </table>
     </tableList>
       </property>
-      <property name="WebServiceOutputPath">C:\Users\Phong\Documents\CodeSmith Generator\Templates\NetTiers\New\cunghoc3_EWE\WebServices</property>
+      <property name="WebServiceOutputPath">C:\Users\Phong\Documents\CodeSmith Generator\Templates\NetTiers\cunghoc3_AssetManager\WebServices</property>
       <property name="WebServiceUrl">http://localhost/</property>
       <property name="WebAdminSiteName">cunghoc3_AssetManager Application</property>
       <property name="ValidationType">NetTiers</property>

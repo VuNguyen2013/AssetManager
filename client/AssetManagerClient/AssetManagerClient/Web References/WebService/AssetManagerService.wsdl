@@ -598,37 +598,37 @@
       <s:element name="NewAsset">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="AssetGroupId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="UnitId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="CounPro" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="YearPro" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="TotalPrice" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="BugetPrice" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="OwnPrice" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="VenturePrice" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="AnotherPrice" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="TotalDepreciation" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="BugetDepreciation" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="OwnDepreciation" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="VentureDepreciation" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="AnotherDepreciation" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="BugeRemain" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="OwnRemain" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="VentureRemain" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="AnotherRemain" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="TotalRemain" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="UpDownCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="InputDateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="assetNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="assetGroupId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="unitId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="counPro" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="yearPro" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="departmentUsedId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="totalPrice" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="bugetPrice" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ownPrice" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="venturePrice" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="anotherPrice" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="totalDepreciation" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="bugetDepreciation" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ownDepreciation" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ventureDepreciation" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="anotherDepreciation" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="bugeRemain" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ownRemain" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ventureRemain" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="anotherRemain" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="totalRemain" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="upDownCode" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
       <s:element name="NewAssetResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="NewAssetResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewAssetResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1205,6 +1205,7 @@
       <s:element name="DepartmentUsed" nillable="true" type="tns:DepartmentUsed" />
       <s:element name="ArrayOfUnit" nillable="true" type="tns:ArrayOfUnit" />
       <s:element name="Unit" nillable="true" type="tns:Unit" />
+      <s:element name="int" type="s:int" />
       <s:element name="ResultObjectOfListOfAssetData" nillable="true" type="tns:ResultObjectOfListOfAssetData" />
       <s:element name="Asset" nillable="true" type="tns:Asset" />
       <s:element name="ArrayOfAsset" nillable="true" type="tns:ArrayOfAsset" />
@@ -1720,33 +1721,33 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetHttpGetIn">
-    <wsdl:part name="Name" type="s:string" />
-    <wsdl:part name="AssetGroupId" type="s:string" />
-    <wsdl:part name="UnitId" type="s:string" />
-    <wsdl:part name="Amount" type="s:string" />
-    <wsdl:part name="CounPro" type="s:string" />
-    <wsdl:part name="YearPro" type="s:string" />
-    <wsdl:part name="DepartmentUsedId" type="s:string" />
-    <wsdl:part name="TotalPrice" type="s:string" />
-    <wsdl:part name="BugetPrice" type="s:string" />
-    <wsdl:part name="OwnPrice" type="s:string" />
-    <wsdl:part name="VenturePrice" type="s:string" />
-    <wsdl:part name="AnotherPrice" type="s:string" />
-    <wsdl:part name="TotalDepreciation" type="s:string" />
-    <wsdl:part name="BugetDepreciation" type="s:string" />
-    <wsdl:part name="OwnDepreciation" type="s:string" />
-    <wsdl:part name="VentureDepreciation" type="s:string" />
-    <wsdl:part name="AnotherDepreciation" type="s:string" />
-    <wsdl:part name="BugeRemain" type="s:string" />
-    <wsdl:part name="OwnRemain" type="s:string" />
-    <wsdl:part name="VentureRemain" type="s:string" />
-    <wsdl:part name="AnotherRemain" type="s:string" />
-    <wsdl:part name="TotalRemain" type="s:string" />
-    <wsdl:part name="UpDownCode" type="s:string" />
-    <wsdl:part name="InputDateTime" type="s:string" />
+    <wsdl:part name="assetNumber" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="assetGroupId" type="s:string" />
+    <wsdl:part name="unitId" type="s:string" />
+    <wsdl:part name="amount" type="s:string" />
+    <wsdl:part name="counPro" type="s:string" />
+    <wsdl:part name="yearPro" type="s:string" />
+    <wsdl:part name="departmentUsedId" type="s:string" />
+    <wsdl:part name="totalPrice" type="s:string" />
+    <wsdl:part name="bugetPrice" type="s:string" />
+    <wsdl:part name="ownPrice" type="s:string" />
+    <wsdl:part name="venturePrice" type="s:string" />
+    <wsdl:part name="anotherPrice" type="s:string" />
+    <wsdl:part name="totalDepreciation" type="s:string" />
+    <wsdl:part name="bugetDepreciation" type="s:string" />
+    <wsdl:part name="ownDepreciation" type="s:string" />
+    <wsdl:part name="ventureDepreciation" type="s:string" />
+    <wsdl:part name="anotherDepreciation" type="s:string" />
+    <wsdl:part name="bugeRemain" type="s:string" />
+    <wsdl:part name="ownRemain" type="s:string" />
+    <wsdl:part name="ventureRemain" type="s:string" />
+    <wsdl:part name="anotherRemain" type="s:string" />
+    <wsdl:part name="totalRemain" type="s:string" />
+    <wsdl:part name="upDownCode" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateAssetHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -2145,33 +2146,33 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetHttpPostIn">
-    <wsdl:part name="Name" type="s:string" />
-    <wsdl:part name="AssetGroupId" type="s:string" />
-    <wsdl:part name="UnitId" type="s:string" />
-    <wsdl:part name="Amount" type="s:string" />
-    <wsdl:part name="CounPro" type="s:string" />
-    <wsdl:part name="YearPro" type="s:string" />
-    <wsdl:part name="DepartmentUsedId" type="s:string" />
-    <wsdl:part name="TotalPrice" type="s:string" />
-    <wsdl:part name="BugetPrice" type="s:string" />
-    <wsdl:part name="OwnPrice" type="s:string" />
-    <wsdl:part name="VenturePrice" type="s:string" />
-    <wsdl:part name="AnotherPrice" type="s:string" />
-    <wsdl:part name="TotalDepreciation" type="s:string" />
-    <wsdl:part name="BugetDepreciation" type="s:string" />
-    <wsdl:part name="OwnDepreciation" type="s:string" />
-    <wsdl:part name="VentureDepreciation" type="s:string" />
-    <wsdl:part name="AnotherDepreciation" type="s:string" />
-    <wsdl:part name="BugeRemain" type="s:string" />
-    <wsdl:part name="OwnRemain" type="s:string" />
-    <wsdl:part name="VentureRemain" type="s:string" />
-    <wsdl:part name="AnotherRemain" type="s:string" />
-    <wsdl:part name="TotalRemain" type="s:string" />
-    <wsdl:part name="UpDownCode" type="s:string" />
-    <wsdl:part name="InputDateTime" type="s:string" />
+    <wsdl:part name="assetNumber" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="assetGroupId" type="s:string" />
+    <wsdl:part name="unitId" type="s:string" />
+    <wsdl:part name="amount" type="s:string" />
+    <wsdl:part name="counPro" type="s:string" />
+    <wsdl:part name="yearPro" type="s:string" />
+    <wsdl:part name="departmentUsedId" type="s:string" />
+    <wsdl:part name="totalPrice" type="s:string" />
+    <wsdl:part name="bugetPrice" type="s:string" />
+    <wsdl:part name="ownPrice" type="s:string" />
+    <wsdl:part name="venturePrice" type="s:string" />
+    <wsdl:part name="anotherPrice" type="s:string" />
+    <wsdl:part name="totalDepreciation" type="s:string" />
+    <wsdl:part name="bugetDepreciation" type="s:string" />
+    <wsdl:part name="ownDepreciation" type="s:string" />
+    <wsdl:part name="ventureDepreciation" type="s:string" />
+    <wsdl:part name="anotherDepreciation" type="s:string" />
+    <wsdl:part name="bugeRemain" type="s:string" />
+    <wsdl:part name="ownRemain" type="s:string" />
+    <wsdl:part name="ventureRemain" type="s:string" />
+    <wsdl:part name="anotherRemain" type="s:string" />
+    <wsdl:part name="totalRemain" type="s:string" />
+    <wsdl:part name="upDownCode" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateAssetHttpPostIn">
     <wsdl:part name="id" type="s:string" />
