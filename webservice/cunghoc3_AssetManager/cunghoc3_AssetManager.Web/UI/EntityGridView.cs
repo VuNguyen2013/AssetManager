@@ -542,7 +542,7 @@ namespace cunghoc3_AssetManager.Web.UI
             pagerTableRow.Cells.Add(cell);
 
             cell = new TableCell();
-            cell.Width = Unit.Percentage(100);
+            cell.Width = System.Web.UI.WebControls.Unit.Percentage(100);
             cell.ApplyStyle(this.PagerStyle);
             pagerTableRow.Cells.Add(cell);
 
