@@ -21,17 +21,33 @@ namespace cunghoc3_AssetManager
     {
         public Random randomId = new Random();
         [WebMethod]
-        public string NewAssetGroupType(string Name)
+        public int NewAssetGroupType(string Id, string Name)
         {
-            cunghoc3_AssetManager.Services.AssetGroupTypeService db = new Services.AssetGroupTypeService();
-            AssetGroupType item = new AssetGroupType();
-            do
+            try
             {
-                int numbID = randomId.Next(111111, 999999);
-                item.Id = "AGT_"+numbID;
-                item.Name = Name;
-            } while (!db.Insert(item));
-            return "Add new AssetGroupType successful";
+                var db = new Services.AssetGroupTypeService();
+                if (GetAssetGroupTypeById(Id) != null)
+                {
+                    return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
+                }
+                using (var item = new AssetGroupType
+                {
+                    Id = Id,
+                    Name = Name,
+                })
+                {
+                    if (db.Insert(item))
+                    {
+                        return (int)CommonEnums.RetCode.SUCCESS;
+                    }
+                }
+                return (int)CommonEnums.RetCode.OTHER;
+            }
+            catch (Exception ex)
+            {
+                return (int)CommonEnums.RetCode.SYSTEM_ERROR;
+            }
+
         }
 
         [WebMethod]
@@ -68,18 +84,33 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string NewAssetGroup(string Name, string AssetGroupTypeId)
+        public int NewAssetGroup(string Id, string Name, string AssetGroupTypeId)
         {
-            cunghoc3_AssetManager.Services.AssetGroupService db = new Services.AssetGroupService();
-            AssetGroup item = new AssetGroup();
-            do
+            try
             {
-                int numbID = randomId.Next(111111, 9999999);
-                item.Id = "AG_" + numbID;
-                item.Name = Name;
-                item.AssetGroupTypeId = AssetGroupTypeId;
-            } while (!db.Insert(item));
-            return "Add new AssetGroup successful";
+                var db = new Services.AssetGroupService();
+                if (GetAssetGroupById(Id) != null)
+                {
+                    return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
+                }
+                using (var item = new AssetGroup
+                {
+                    Id = Id,
+                    Name = Name,
+                    AssetGroupTypeId = AssetGroupTypeId
+                })
+                {
+                    if (db.Insert(item))
+                    {
+                        return (int)CommonEnums.RetCode.SUCCESS;
+                    }
+                }
+                return (int)CommonEnums.RetCode.OTHER;
+            }
+            catch (Exception ex)
+            {
+                return (int)CommonEnums.RetCode.SYSTEM_ERROR;
+            }
         }
 
         [WebMethod]
@@ -117,18 +148,33 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string NewCapital(string Name, string Note)
+        public int NewCapital(string Id, string Name, string Note)
         {
-            cunghoc3_AssetManager.Services.CapitalService db = new Services.CapitalService();
-            Capital item = new Capital();
-            do
+            try
             {
-                int numbID = randomId.Next(111111, 9999999);
-                item.Id = "CP_" + numbID;
-                item.Name = Name;
-                item.Note = Note;
-            } while (!db.Insert(item));
-            return "Add new Capital successful";
+                var db = new Services.CapitalService();
+                if (GetCapitalById(Id) != null)
+                {
+                    return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
+                }
+                using (var item = new Capital
+                {
+                    Id = Id,
+                    Name = Name,
+                    Note = Note
+                })
+                {
+                    if (db.Insert(item))
+                    {
+                        return (int)CommonEnums.RetCode.SUCCESS;
+                    }
+                }
+                return (int)CommonEnums.RetCode.OTHER;
+            }
+            catch (Exception ex)
+            {
+                return (int)CommonEnums.RetCode.SYSTEM_ERROR;
+            }
         }
 
 
@@ -168,20 +214,35 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string NewDepartmentUsed(string Name, string Phone, string Representative, string Address)
+        public int NewDepartmentUsed(string Id, string Name, string Phone, string Representative, string Address)
         {
-            cunghoc3_AssetManager.Services.DepartmentUsedService db = new Services.DepartmentUsedService();
-            DepartmentUsed item = new DepartmentUsed();
-            do
+            try
             {
-                int numbID = randomId.Next(111111, 9999999);
-                item.Id = "DU_" + numbID;
-                item.Name = Name;
-                item.Phone = Phone;
-                item.Representative = Representative;
-                item.Address = Address;
-            } while (db.Insert(item));
-            return "Add new DepartmentUsed successful";
+                var db = new Services.DepartmentUsedService();
+                if (GetDepartmentUsedById(Id) != null)
+                {
+                    return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
+                }
+                using (var item = new DepartmentUsed
+                {
+                    Id = Id,
+                    Name = Name,
+                    Phone = Phone,
+                    Representative = Representative,
+                    Address = Address
+                })
+                {
+                    if (db.Insert(item))
+                    {
+                        return (int)CommonEnums.RetCode.SUCCESS;
+                    }
+                }
+                return (int)CommonEnums.RetCode.OTHER;
+            }
+            catch (Exception ex)
+            {
+                return (int)CommonEnums.RetCode.SYSTEM_ERROR;
+            }
         }
 
         [WebMethod]
@@ -221,18 +282,33 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string NewUnit(string Name, string Note)
+        public int NewUnit(string Id, string Name, string Note)
         {
-            cunghoc3_AssetManager.Services.UnitService db = new Services.UnitService();
-            Unit item = new Unit();
-            do
+            try
             {
-                int numbID = randomId.Next(111111, 9999999);
-                item.Id = "UN_" + numbID;
-                item.Name = Name;
-                item.Note = Note;
-            } while (!db.Insert(item));
-            return "Add new Unit successful";
+                var db = new Services.UnitService();
+                if (GetUnitById(Id) != null)
+                {
+                    return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
+                }
+                using (var item = new Unit
+                {
+                    Id = Id,
+                    Name = Name,
+                    Note = Note
+                })
+                {
+                    if (db.Insert(item))
+                    {
+                        return (int)CommonEnums.RetCode.SUCCESS;
+                    }
+                }
+                return (int)CommonEnums.RetCode.OTHER;
+            }
+            catch (Exception ex)
+            {
+                return (int)CommonEnums.RetCode.SYSTEM_ERROR;
+            }
         }
 
         [WebMethod]
@@ -270,7 +346,11 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
+<<<<<<< HEAD
+        public int NewAsset(string assetNumber, string name, string assetGroupId, string unitId, int amount, string counPro, int yearPro, string departmentUsedId, long totalPrice, long bugetPrice, long ownPrice, long venturePrice, long anotherPrice, long totalDepreciation, long bugetDepreciation, long ownDepreciation, long ventureDepreciation, long anotherDepreciation, long bugeRemain, long ownRemain, long ventureRemain, long anotherRemain, long totalRemain, string upDownCode)
+=======
         public int NewAsset(string assetNumber,string name, string assetGroupId, string unitId, int amount, string counPro, int yearPro, string departmentUsedId, long totalPrice, long bugetPrice, long ownPrice, long venturePrice, long anotherPrice, long totalDepreciation, long bugetDepreciation, long ownDepreciation, long ventureDepreciation, long anotherDepreciation, long bugeRemain, long ownRemain, long ventureRemain, long anotherRemain, long totalRemain, string upDownCode)
+>>>>>>> 7916baf4e085fd206f1f7920a5dce0a7fc03a890
         {
             var inputDateTime = DateTime.Today;
             try
@@ -278,6 +358,38 @@ namespace cunghoc3_AssetManager
                 var db = new Services.AssetService();
                 if (GetAssetById(assetNumber) != null)
                 {
+<<<<<<< HEAD
+                    return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
+                }
+                using (var item = new Asset
+                {
+                    Id = assetNumber,
+                    Name = name,
+                    AssetGroupId = assetGroupId,
+                    UnitId = unitId,
+                    Amount = amount,
+                    CounPro = counPro,
+                    YearPro = yearPro,
+                    DepartmentUsedId = departmentUsedId,
+                    TotalPrice = totalPrice,
+                    BudgetPrice = bugetPrice,
+                    OwnPrice = ownPrice,
+                    VenturePrice = venturePrice,
+                    AnotherPrice = anotherPrice,
+                    TotalDepreciation = totalDepreciation,
+                    BudgetDepreciation = bugetDepreciation,
+                    OwnDepreciation = ownDepreciation,
+                    VentureDepreciation = ventureDepreciation,
+                    AnotherDepreciation = anotherDepreciation,
+                    BudgetRemain = bugeRemain,
+                    OwnRemain = ownRemain,
+                    VentureRemain = ventureRemain,
+                    AnotherRemain = anotherRemain,
+                    TotalReamain = totalRemain,
+                    UpDownCode = upDownCode,
+                    InputDateTime = inputDateTime
+                })
+=======
                     return (int) CommonEnums.RetCode.DATA_ALREADY_EXIST;
                 }
                 using (var item = new Asset
@@ -308,19 +420,20 @@ namespace cunghoc3_AssetManager
                         UpDownCode = upDownCode,
                         InputDateTime = inputDateTime
                     })
+>>>>>>> 7916baf4e085fd206f1f7920a5dce0a7fc03a890
                 {
                     if (db.Insert(item))
                     {
-                        return (int) CommonEnums.RetCode.SUCCESS;
+                        return (int)CommonEnums.RetCode.SUCCESS;
                     }
                 }
-                return (int) CommonEnums.RetCode.OTHER;
+                return (int)CommonEnums.RetCode.OTHER;
             }
             catch (Exception ex)
             {
-                return (int) CommonEnums.RetCode.SYSTEM_ERROR;
+                return (int)CommonEnums.RetCode.SYSTEM_ERROR;
             }
-            
+
         }
 
         [WebMethod]
@@ -421,20 +534,35 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string NewPartner(string Name, string Phone, string TaxCode, string Address)
+        public int NewPartner(string Id, string Name, string Phone, string TaxCode, string Address)
         {
-            cunghoc3_AssetManager.Services.PartnerService db = new Services.PartnerService();
-            Partner item = new Partner();
-            do
+            try
             {
-                int numbID = randomId.Next(111111, 9999999);
-                item.Id = "PN_" + numbID;
-                item.Name = Name;
-                item.Phone = Phone;
-                item.Address = Address;
-                item.TaxCode = TaxCode;
-            } while (db.Insert(item));
-            return "Add new Partner successful";
+                var db = new Services.PartnerService();
+                if (GetPartnerById(Id) != null)
+                {
+                    return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
+                }
+                using (var item = new Partner
+                {
+                    Id = Id,
+                    Name = Name,
+                    Phone = Phone,
+                    Address = Address,
+                    TaxCode = TaxCode
+                })
+                {
+                    if (db.Insert(item))
+                    {
+                        return (int)CommonEnums.RetCode.SUCCESS;
+                    }
+                }
+                return (int)CommonEnums.RetCode.OTHER;
+            }
+            catch (Exception ex)
+            {
+                return (int)CommonEnums.RetCode.SYSTEM_ERROR;
+            }
         }
         
        [WebMethod]
@@ -474,18 +602,33 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string NewUpDownReason(string Name, string Type)
+        public int NewUpDownReason(string Id, string Name, string Type)
         {
-            cunghoc3_AssetManager.Services.UpDownReasonService db = new Services.UpDownReasonService();
-            UpDownReason item = new UpDownReason();
-            do
+            try
             {
-                int numbID = randomId.Next(111111, 9999999);
-                item.Id = "UDR_" + numbID;
-                item.Name = Name;
-                item.Type = Type;
-            } while (!db.Insert(item));
-            return "Add new UpDownReason successful";
+                var db = new Services.UpDownReasonService();
+                if (GetUpDownReasonById(Id) != null)
+                {
+                    return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
+                }
+                using (var item = new UpDownReason
+                {
+                    Id = Id,
+                    Name = Name,
+                    Type = Type
+                })
+                {
+                    if (db.Insert(item))
+                    {
+                        return (int)CommonEnums.RetCode.SUCCESS;
+                    }
+                }
+                return (int)CommonEnums.RetCode.OTHER;
+            }
+            catch (Exception ex)
+            {
+                return (int)CommonEnums.RetCode.SYSTEM_ERROR;
+            }
         }
 
         [WebMethod]
@@ -523,20 +666,35 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string NewAssetLiquidation(string AssetId, string DepartmentUsedId, string LiDateTime, string LiPrice)
+        public int NewAssetLiquidation(string Id, string AssetId, string DepartmentUsedId, string LiDateTime, string LiPrice)
         {
-            cunghoc3_AssetManager.Services.AssetLiquidationService db = new Services.AssetLiquidationService();
-            AssetLiquidation item = new AssetLiquidation();
-            do
+            try
             {
-                int numbID = randomId.Next(111111, 9999999);
-                item.Id = "ALQ_" + numbID;
-                item.AssetId = AssetId;
-                item.DepartmentUsedId = DepartmentUsedId;
-                item.LiDateTime = DateTime.Parse(LiDateTime);
-                item.LiPrice = Convert.ToInt64(LiPrice);
-            } while (!db.Insert(item));
-            return "Add new AssetLiquidation successful";
+                var db = new Services.AssetLiquidationService();
+                if (GetAssetLiquidationById(Id) != null)
+                {
+                    return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
+                }
+                using (var item = new AssetLiquidation
+                {
+                    Id = Id,
+                    AssetId = AssetId,
+                    DepartmentUsedId = DepartmentUsedId,
+                    LiDateTime = DateTime.Parse(LiDateTime),
+                    LiPrice = Convert.ToInt64(LiPrice)
+                })
+                {
+                    if (db.Insert(item))
+                    {
+                        return (int)CommonEnums.RetCode.SUCCESS;
+                    }
+                }
+                return (int)CommonEnums.RetCode.OTHER;
+            }
+            catch (Exception ex)
+            {
+                return (int)CommonEnums.RetCode.SYSTEM_ERROR;
+            }
         }
 
         [WebMethod]
@@ -576,22 +734,38 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string NewRepairAsset(string AssetId, string DepartmentUsedId, string PartnerId, string Address, string RepairDate, string Fee)
+        public int NewRepairAsset(string Id, string AssetId, string DepartmentUsedId, string PartnerId, string Address, string RepairDate, string Fee)
         {
-            cunghoc3_AssetManager.Services.RepairAssetService db = new Services.RepairAssetService();
-            RepairAsset item = new RepairAsset();
-            do
+            try
             {
-                int numbID = randomId.Next(111111, 9999999);
-                item.Id = "RPA_" + numbID;
-                item.AssetId = AssetId;
-                item.DepartmentUsedId = DepartmentUsedId;
-                item.PartnerId = PartnerId;
-                item.Address = Address;
-                item.RepairDate = DateTime.Parse(RepairDate);
-                item.Fee = Convert.ToInt64(Fee);
-            } while (!db.Insert(item));
-            return "Add new RepairAsset successful";
+                var db = new Services.RepairAssetService();
+                if (GetRepairAssetById(Id) != null)
+                {
+                    return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
+                }
+                using (var item = new RepairAsset
+                {
+                    Id = Id,
+                    AssetId = AssetId,
+                    DepartmentUsedId = DepartmentUsedId,
+                    PartnerId = PartnerId,
+                    Address = Address,
+                    RepairDate = DateTime.Parse(RepairDate),
+                    Fee = Convert.ToInt64(Fee)
+                })
+                {
+                    if (db.Insert(item))
+                    {
+                        return (int)CommonEnums.RetCode.SUCCESS;
+                    }
+                }
+                return (int)CommonEnums.RetCode.OTHER;
+            }
+            catch (Exception ex)
+            {
+                return (int)CommonEnums.RetCode.SYSTEM_ERROR;
+            }
+
         }
 
         [WebMethod]
@@ -633,23 +807,38 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string NewWarrantyAsset(string AssetId, string DepartmentUsedId, string PartnerId, string WarDateTime, string DeadlineWar, string Address, string PersonWar)
+        public int NewWarrantyAsset(string Id, string AssetId, string DepartmentUsedId, string PartnerId, string WarDateTime, string DeadlineWar, string Address, string PersonWar)
         {
-            cunghoc3_AssetManager.Services.WarrantyAssetService db = new Services.WarrantyAssetService();
-            WarrantyAsset item = new WarrantyAsset();
-            do
+            try
             {
-                int numbID = randomId.Next(111111, 9999999);
-                item.Id = "WRA_" + numbID;
-                item.AsssetId= AssetId;
-                item.DepartmentUsedId = DepartmentUsedId;
-                item.PartnerId = PartnerId;
-                item.WarDateTime = DateTime.Parse(WarDateTime); ;
-                item.DeadlineWar = DateTime.Parse(DeadlineWar);
-                item.Address = Address;
-                item.PersonWar = PersonWar;
-            } while (!db.Insert(item));
-            return "Add new WarrantyAsset successful";
+                var db = new Services.WarrantyAssetService();
+                if (GetWarrantyAssetById(Id) != null)
+                {
+                    return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
+                }
+                using (var item = new WarrantyAsset
+                {
+                    Id = Id,
+                    AssetId = AssetId,
+                    DepartmentUsedId = DepartmentUsedId,
+                    PartnerId = PartnerId,
+                    WarDateTime = DateTime.Parse(WarDateTime),
+                    DeadlineWar = DateTime.Parse(DeadlineWar),
+                    Address = Address,
+                    PersonWar = PersonWar
+                })
+                {
+                    if (db.Insert(item))
+                    {
+                        return (int)CommonEnums.RetCode.SUCCESS;
+                    }
+                }
+                return (int)CommonEnums.RetCode.OTHER;
+            }
+            catch (Exception ex)
+            {
+                return (int)CommonEnums.RetCode.SYSTEM_ERROR;
+            }
         }
 
         [WebMethod]
