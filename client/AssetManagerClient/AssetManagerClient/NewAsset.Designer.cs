@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraPrinting.BarCode.Code128Generator code128Generator2 = new DevExpress.XtraPrinting.BarCode.Code128Generator();
+            DevExpress.XtraPrinting.BarCode.Code128Generator code128Generator1 = new DevExpress.XtraPrinting.BarCode.Code128Generator();
             this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -59,6 +59,12 @@
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.rbManual = new System.Windows.Forms.RadioButton();
+            this.rbAuto = new System.Windows.Forms.RadioButton();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.txtAssetNumber = new DevExpress.XtraEditors.TextEdit();
+            this.barCodeControl1 = new DevExpress.XtraEditors.BarCodeControl();
             this.cbUnit = new System.Windows.Forms.ComboBox();
             this.cbDepartmentUsed = new System.Windows.Forms.ComboBox();
             this.cbAssetGroup = new System.Windows.Forms.ComboBox();
@@ -75,12 +81,6 @@
             this.txtFactory = new DevExpress.XtraEditors.TextEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.odImage = new System.Windows.Forms.OpenFileDialog();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.barCodeControl1 = new DevExpress.XtraEditors.BarCodeControl();
-            this.txtAssetNumber = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.rbAuto = new System.Windows.Forms.RadioButton();
-            this.rbManual = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -91,13 +91,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSeries.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAssetNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtModel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFactory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAssetNumber.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // standaloneBarDockControl1
@@ -120,7 +120,7 @@
             this.barManager1.DockControls.Add(this.standaloneBarDockControl1);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barButtonItem1,
+            this.btnSave,
             this.barButtonItem2});
             this.barManager1.MaxItemId = 2;
             // 
@@ -131,18 +131,18 @@
             this.bar1.DockRow = 0;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Standalone;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnSave),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2)});
             this.bar1.OptionsBar.AllowRename = true;
             this.bar1.StandaloneBarDockControl = this.standaloneBarDockControl1;
             this.bar1.Text = "Custom 1";
             // 
-            // barButtonItem1
+            // btnSave
             // 
-            this.barButtonItem1.Caption = "Lưu và đóng";
-            this.barButtonItem1.Id = 0;
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            this.btnSave.Caption = "Lưu và đóng";
+            this.btnSave.Id = 0;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // barButtonItem2
             // 
@@ -370,6 +370,68 @@
             this.groupControl1.Text = "Thông tin";
             this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
             // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.rbManual);
+            this.groupControl2.Controls.Add(this.rbAuto);
+            this.groupControl2.Controls.Add(this.labelControl12);
+            this.groupControl2.Controls.Add(this.txtAssetNumber);
+            this.groupControl2.Controls.Add(this.barCodeControl1);
+            this.groupControl2.Location = new System.Drawing.Point(395, 38);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(200, 98);
+            this.groupControl2.TabIndex = 8;
+            this.groupControl2.Text = "Mã tài sản";
+            // 
+            // rbManual
+            // 
+            this.rbManual.AutoSize = true;
+            this.rbManual.Location = new System.Drawing.Point(117, 76);
+            this.rbManual.Name = "rbManual";
+            this.rbManual.Size = new System.Drawing.Size(68, 17);
+            this.rbManual.TabIndex = 3;
+            this.rbManual.Text = "Bằng tay";
+            this.rbManual.UseVisualStyleBackColor = true;
+            this.rbManual.CheckedChanged += new System.EventHandler(this.rbManual_CheckedChanged);
+            // 
+            // rbAuto
+            // 
+            this.rbAuto.AutoSize = true;
+            this.rbAuto.Checked = true;
+            this.rbAuto.Location = new System.Drawing.Point(23, 76);
+            this.rbAuto.Name = "rbAuto";
+            this.rbAuto.Size = new System.Drawing.Size(65, 17);
+            this.rbAuto.TabIndex = 3;
+            this.rbAuto.TabStop = true;
+            this.rbAuto.Text = "Tự động";
+            this.rbAuto.UseVisualStyleBackColor = true;
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Location = new System.Drawing.Point(23, 56);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(20, 13);
+            this.labelControl12.TabIndex = 2;
+            this.labelControl12.Text = "AS_";
+            // 
+            // txtAssetNumber
+            // 
+            this.txtAssetNumber.Enabled = false;
+            this.txtAssetNumber.Location = new System.Drawing.Point(49, 53);
+            this.txtAssetNumber.MenuManager = this.barManager1;
+            this.txtAssetNumber.Name = "txtAssetNumber";
+            this.txtAssetNumber.Size = new System.Drawing.Size(100, 20);
+            this.txtAssetNumber.TabIndex = 1;
+            // 
+            // barCodeControl1
+            // 
+            this.barCodeControl1.Location = new System.Drawing.Point(49, 24);
+            this.barCodeControl1.Name = "barCodeControl1";
+            this.barCodeControl1.Padding = new System.Windows.Forms.Padding(10, 2, 10, 0);
+            this.barCodeControl1.Size = new System.Drawing.Size(100, 23);
+            this.barCodeControl1.Symbology = code128Generator1;
+            this.barCodeControl1.TabIndex = 0;
+            // 
             // cbUnit
             // 
             this.cbUnit.FormattingEnabled = true;
@@ -501,68 +563,6 @@
             // 
             this.odImage.FileName = "openFileDialog";
             // 
-            // groupControl2
-            // 
-            this.groupControl2.Controls.Add(this.rbManual);
-            this.groupControl2.Controls.Add(this.rbAuto);
-            this.groupControl2.Controls.Add(this.labelControl12);
-            this.groupControl2.Controls.Add(this.txtAssetNumber);
-            this.groupControl2.Controls.Add(this.barCodeControl1);
-            this.groupControl2.Location = new System.Drawing.Point(395, 38);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(200, 98);
-            this.groupControl2.TabIndex = 8;
-            this.groupControl2.Text = "Mã tài sản";
-            // 
-            // barCodeControl1
-            // 
-            this.barCodeControl1.Location = new System.Drawing.Point(49, 24);
-            this.barCodeControl1.Name = "barCodeControl1";
-            this.barCodeControl1.Padding = new System.Windows.Forms.Padding(10, 2, 10, 0);
-            this.barCodeControl1.Size = new System.Drawing.Size(100, 23);
-            this.barCodeControl1.Symbology = code128Generator2;
-            this.barCodeControl1.TabIndex = 0;
-            // 
-            // txtAssetNumber
-            // 
-            this.txtAssetNumber.Enabled = false;
-            this.txtAssetNumber.Location = new System.Drawing.Point(49, 53);
-            this.txtAssetNumber.MenuManager = this.barManager1;
-            this.txtAssetNumber.Name = "txtAssetNumber";
-            this.txtAssetNumber.Size = new System.Drawing.Size(100, 20);
-            this.txtAssetNumber.TabIndex = 1;
-            // 
-            // labelControl12
-            // 
-            this.labelControl12.Location = new System.Drawing.Point(23, 56);
-            this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(20, 13);
-            this.labelControl12.TabIndex = 2;
-            this.labelControl12.Text = "AS_";
-            // 
-            // rbAuto
-            // 
-            this.rbAuto.AutoSize = true;
-            this.rbAuto.Checked = true;
-            this.rbAuto.Location = new System.Drawing.Point(23, 76);
-            this.rbAuto.Name = "rbAuto";
-            this.rbAuto.Size = new System.Drawing.Size(65, 17);
-            this.rbAuto.TabIndex = 3;
-            this.rbAuto.TabStop = true;
-            this.rbAuto.Text = "Tự động";
-            this.rbAuto.UseVisualStyleBackColor = true;
-            // 
-            // rbManual
-            // 
-            this.rbManual.AutoSize = true;
-            this.rbManual.Location = new System.Drawing.Point(117, 76);
-            this.rbManual.Name = "rbManual";
-            this.rbManual.Size = new System.Drawing.Size(68, 17);
-            this.rbManual.TabIndex = 3;
-            this.rbManual.Text = "Bằng tay";
-            this.rbManual.UseVisualStyleBackColor = true;
-            this.rbManual.CheckedChanged += new System.EventHandler(this.rbManual_CheckedChanged);
-            // 
             // NewAsset
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -590,14 +590,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtModel.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFactory.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAssetNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtModel.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFactory.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -611,7 +611,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btnSave;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl labelControl4;

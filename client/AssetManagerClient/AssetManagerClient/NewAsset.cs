@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using AssetManagerClient.WebService;
 using AssetManagerCommon;
 using DevExpress.XtraPrinting.Native;
+using FtpLib;
 
 namespace AssetManagerClient
 {
@@ -15,9 +16,10 @@ namespace AssetManagerClient
         public AssetManagerService WebServices = new AssetManagerService();
         private List<string> _imagePathList=new List<string>();
         private string assetNumber = string.Empty;
+        private Random random = new Random();
         public NewAsset()
         {
-            var random = new Random();
+            
             assetNumber = random.Next(1000000, 9999999).ToString();
             InitializeComponent();
             var threadOnLoadPage = new Thread(InitContent);
@@ -25,7 +27,8 @@ namespace AssetManagerClient
         }
         void InitContent()
         {
-            txtAssetNumber.Text = assetNumber;
+            
+            Invoke(new Action(() => txtAssetNumber.Text = assetNumber));
             //init Group
             var assetGroups = WebServices.GetAllAssetGroup();
             cbxItem cbxItem;
@@ -89,7 +92,7 @@ namespace AssetManagerClient
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             odImage.Multiselect = true;
-            odImage.Filter = "JPEG Images|*.jpg|GIF Images|*.gif|BITMAPS|*.bmp";
+            odImage.Filter = "JPEG Images|*.jpg";
             
             if (odImage.ShowDialog() == DialogResult.Cancel)
             {
@@ -98,7 +101,6 @@ namespace AssetManagerClient
             else
             {
                 var fileNames = odImage.FileNames;
-                //isImage.Images = fileNames;
                 foreach (var fileName in fileNames)
                 {
                     isImage.Images.Add(Image.FromFile(@fileName));
@@ -127,7 +129,7 @@ namespace AssetManagerClient
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
                 return;
             }
-            if (txtAssetNumber.Text.Length == 7)
+            if (txtAssetNumber.Text.Length != 7)
             {
                 MessageBox.Show("Mã tài sản bao gồm 7 chữ số");
                 return;
@@ -143,14 +145,31 @@ namespace AssetManagerClient
                 {
                     //if success,upload image
                     gpLoading.Description = "Đang tải hình ảnh lên";
-                    var ftpClient = new ftp(@Properties.Settings.Default.hostIP, Properties.Settings.Default.UsernameFtp, Properties.Settings.Default.PasswordFtp);
                     foreach (var imagePath in _imagePathList)
                     {
                         var remoteUrl = @Properties.Settings.Default.remoteUrl + txtAssetNumber.Text;
-                        ftpClient.upload(remoteUrl,imagePath);
+                        using (var ftp = new FtpConnection(@Properties.Settings.Default.hostIP, @Properties.Settings.Default.UsernameFtp, @Properties.Settings.Default.PasswordFtp))
+                        {
+                            try
+                            {
+                                var fileName = random.Next(10000000, 999999999);
+                                ftp.Open();
+                                ftp.Login();
+                                ftp.CreateDirectory(remoteUrl);
+                                ftp.SetCurrentDirectory(remoteUrl);
+                                ftp.PutFile(@imagePath, fileName+".jpg"); /* upload c:\localfile.txt to the current ftp directory as file.txt */
+                                ftp.Close();
+                                //insert table image
+                            }
+                            catch (FtpException ex)
+                            {
+                                MessageBox.Show("Qúa trình upload ảnh xảy ra lỗi,vui lòng kiểm tra lại.");
+                                Console.WriteLine(String.Format("FTP Error: {0} {1}", ex.ErrorCode, ex.Message));
+                            }
+                        }
                     }
-                    
                     gpLoading.Hide();
+                    MessageBox.Show("Thêm tài sản thành công");
                 }
                 else if (result == (int) AssetManagerCommon.CommonEnums.RetCode.SYSTEM_ERROR)
                 {
@@ -164,7 +183,17 @@ namespace AssetManagerClient
                 }
                 else if (result == (int) AssetManagerCommon.CommonEnums.RetCode.DATA_ALREADY_EXIST)
                 {
-                    MessageBox.Show("Mã tài sản đã tồn tại");
+                    if (rbAuto.Checked)
+                    {
+                        assetNumber = random.Next(1000000, 9999999).ToString();
+                        txtAssetNumber.Text = assetNumber.ToString();
+                        btnSave.PerformClick();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mã tài sản đã tồn tại");
+                        gpLoading.Hide();
+                    }
                 }
             }
             catch (Exception)
