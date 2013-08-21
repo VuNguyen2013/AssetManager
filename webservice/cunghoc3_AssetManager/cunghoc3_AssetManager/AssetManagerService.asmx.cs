@@ -346,11 +346,7 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-<<<<<<< HEAD
         public int NewAsset(string assetNumber, string name, string assetGroupId, string unitId, int amount, string counPro, int yearPro, string departmentUsedId, long totalPrice, long bugetPrice, long ownPrice, long venturePrice, long anotherPrice, long totalDepreciation, long bugetDepreciation, long ownDepreciation, long ventureDepreciation, long anotherDepreciation, long bugeRemain, long ownRemain, long ventureRemain, long anotherRemain, long totalRemain, string upDownCode)
-=======
-        public int NewAsset(string assetNumber,string name, string assetGroupId, string unitId, int amount, string counPro, int yearPro, string departmentUsedId, long totalPrice, long bugetPrice, long ownPrice, long venturePrice, long anotherPrice, long totalDepreciation, long bugetDepreciation, long ownDepreciation, long ventureDepreciation, long anotherDepreciation, long bugeRemain, long ownRemain, long ventureRemain, long anotherRemain, long totalRemain, string upDownCode)
->>>>>>> 7916baf4e085fd206f1f7920a5dce0a7fc03a890
         {
             var inputDateTime = DateTime.Today;
             try
@@ -358,7 +354,6 @@ namespace cunghoc3_AssetManager
                 var db = new Services.AssetService();
                 if (GetAssetById(assetNumber) != null)
                 {
-<<<<<<< HEAD
                     return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
                 }
                 using (var item = new Asset
@@ -389,38 +384,7 @@ namespace cunghoc3_AssetManager
                     UpDownCode = upDownCode,
                     InputDateTime = inputDateTime
                 })
-=======
-                    return (int) CommonEnums.RetCode.DATA_ALREADY_EXIST;
-                }
-                using (var item = new Asset
-                    {
-                        Id = assetNumber,
-                        Name = name,
-                        AssetGroupId = assetGroupId,
-                        UnitId = unitId,
-                        Amount = amount,
-                        CounPro = counPro,
-                        YearPro = yearPro,
-                        DepartmentUsedId = departmentUsedId,
-                        TotalPrice = totalPrice,
-                        BudgetPrice = bugetPrice,
-                        OwnPrice = ownPrice,
-                        VenturePrice = venturePrice,
-                        AnotherPrice = anotherPrice,
-                        TotalDepreciation = totalDepreciation,
-                        BudgetDepreciation = bugetDepreciation,
-                        OwnDepreciation = ownDepreciation,
-                        VentureDepreciation = ventureDepreciation,
-                        AnotherDepreciation = anotherDepreciation,
-                        BudgetRemain = bugeRemain,
-                        OwnRemain = ownRemain,
-                        VentureRemain = ventureRemain,
-                        AnotherRemain = anotherRemain,
-                        TotalReamain = totalRemain,
-                        UpDownCode = upDownCode,
-                        InputDateTime = inputDateTime
-                    })
->>>>>>> 7916baf4e085fd206f1f7920a5dce0a7fc03a890
+
                 {
                     if (db.Insert(item))
                     {
@@ -505,23 +469,86 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public List<Asset> GetAssetByAssetGroupTypeId(string AssetGroupTypeId)
+        public ResultObject<List<AssetData>> GetAssetByAssetGroupTypeId(string AssetGroupTypeId)
         {
-            cunghoc3_AssetManager.Services.AssetService db = new Services.AssetService();
-            cunghoc3_AssetManager.Services.AssetGroupService dbAssetGroup = new Services.AssetGroupService();
-            List<AssetGroup> assetGroupList = dbAssetGroup.GetByAssetGroupTypeId(AssetGroupTypeId).ToList();
-            List<Asset> assetList = new List<Asset>();
-            foreach(AssetGroup ag in assetGroupList){
-                assetList.AddRange(db.GetByAssetGroupId(ag.Id).ToList());
+              var resultObject = new ResultObject<List<AssetData>> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+            try
+            {
+                var db = new Services.AssetService();
+                
+                var assets = db.GetByAssetGroupId(AssetGroupTypeId);
+                var assetsList= (from asset in assets
+                                 let unit = GetUnitById(asset.UnitId)
+                                 let departmentUsed = GetDepartmentUsedById(asset.DepartmentUsedId)
+                                 let assetGroup = GetAssetGroupById(asset.AssetGroupId)
+                                 select new AssetData
+                                     {
+                                         Amount = asset.Amount, AnotherDepreciation = asset.AnotherDepreciation, AnotherPrice = asset.AnotherPrice, AnotherRemain = asset.AnotherRemain, BugeRemain = asset.BudgetRemain, BugetDepreciation = asset.BudgetDepreciation, BugetPrice = asset.BudgetPrice, CounPro = asset.CounPro, Id = asset.Id, InputDateTime = asset.InputDateTime, Name = asset.Name, OwnDepreciation = asset.OwnDepreciation, OwnPrice = asset.OwnPrice, OwnRemain = asset.OwnRemain, TotalDepreciation = asset.TotalDepreciation, TotalPrice = asset.TotalPrice, TotalRemain = asset.TotalReamain, UpDownCode = asset.UpDownCode, VentureDepreciation = asset.VentureDepreciation, VenturePrice = asset.VenturePrice, VentureRemain = asset.VentureRemain, YearPro = asset.YearPro,
+                                         //refer
+                                         Unit = unit.Name, DepartmentUsed = departmentUsed.Name, AssetGroup = assetGroup.Name
+                                     }).ToList();
+                resultObject.RetObject = assetsList;
+                resultObject.Message = "Get asset list success";
+                return resultObject;
             }
-            return assetList;
+            catch (Exception ex)
+            {
+                resultObject.RetCode = (int)CommonEnums.RetCode.SYSTEM_ERROR;
+                return resultObject;
+            }
         }
 
         [WebMethod]
-        public List<Asset> GetAssetByDepartmentUsedId(string DepartmentUsedId)
+        public ResultObject<List<AssetData>> GetAssetByDepartmentUsedId(string DepartmentUsedId)
         {
-            cunghoc3_AssetManager.Services.AssetService db = new Services.AssetService();
-            return db.GetByDepartmentUsedId(DepartmentUsedId).ToList();
+            var resultObject = new ResultObject<List<AssetData>> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+            try
+            {
+                var db = new Services.AssetService();
+
+                var assets = db.GetByDepartmentUsedId(DepartmentUsedId);
+                var assetsList = (from asset in assets
+                                  let unit = GetUnitById(asset.UnitId)
+                                  let departmentUsed = GetDepartmentUsedById(asset.DepartmentUsedId)
+                                  let assetGroup = GetAssetGroupById(asset.AssetGroupId)
+                                  select new AssetData
+                                  {
+                                      Amount = asset.Amount,
+                                      AnotherDepreciation = asset.AnotherDepreciation,
+                                      AnotherPrice = asset.AnotherPrice,
+                                      AnotherRemain = asset.AnotherRemain,
+                                      BugeRemain = asset.BudgetRemain,
+                                      BugetDepreciation = asset.BudgetDepreciation,
+                                      BugetPrice = asset.BudgetPrice,
+                                      CounPro = asset.CounPro,
+                                      Id = asset.Id,
+                                      InputDateTime = asset.InputDateTime,
+                                      Name = asset.Name,
+                                      OwnDepreciation = asset.OwnDepreciation,
+                                      OwnPrice = asset.OwnPrice,
+                                      OwnRemain = asset.OwnRemain,
+                                      TotalDepreciation = asset.TotalDepreciation,
+                                      TotalPrice = asset.TotalPrice,
+                                      TotalRemain = asset.TotalReamain,
+                                      UpDownCode = asset.UpDownCode,
+                                      VentureDepreciation = asset.VentureDepreciation,
+                                      VenturePrice = asset.VenturePrice,
+                                      VentureRemain = asset.VentureRemain,
+                                      YearPro = asset.YearPro,
+                                      //refer
+                                      Unit = unit.Name,
+                                      DepartmentUsed = departmentUsed.Name,
+                                      AssetGroup = assetGroup.Name
+                                  }).ToList();
+                resultObject.RetObject = assetsList;
+                resultObject.Message = "Get asset list success";
+                return resultObject;
+            }
+            catch (Exception ex)
+            {
+                resultObject.RetCode = (int)CommonEnums.RetCode.SYSTEM_ERROR;
+                return resultObject;
+            }
         }
 
         [WebMethod]
@@ -819,7 +846,7 @@ namespace cunghoc3_AssetManager
                 using (var item = new WarrantyAsset
                 {
                     Id = Id,
-                    AssetId = AssetId,
+                    AsssetId = AssetId,
                     DepartmentUsedId = DepartmentUsedId,
                     PartnerId = PartnerId,
                     WarDateTime = DateTime.Parse(WarDateTime),
