@@ -5,6 +5,7 @@
       <s:element name="NewAssetGroupType">
         <s:complexType>
           <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -12,7 +13,7 @@
       <s:element name="NewAssetGroupTypeResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="NewAssetGroupTypeResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewAssetGroupTypeResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -248,6 +249,7 @@
       <s:element name="NewAssetGroup">
         <s:complexType>
           <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="AssetGroupTypeId" type="s:string" />
           </s:sequence>
@@ -256,7 +258,7 @@
       <s:element name="NewAssetGroupResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="NewAssetGroupResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewAssetGroupResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -317,6 +319,7 @@
       <s:element name="NewCapital">
         <s:complexType>
           <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
           </s:sequence>
@@ -325,7 +328,7 @@
       <s:element name="NewCapitalResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="NewCapitalResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewCapitalResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -407,6 +410,7 @@
       <s:element name="NewDepartmentUsed">
         <s:complexType>
           <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Representative" type="s:string" />
@@ -417,7 +421,7 @@
       <s:element name="NewDepartmentUsedResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="NewDepartmentUsedResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewDepartmentUsedResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -507,6 +511,7 @@
       <s:element name="NewUnit">
         <s:complexType>
           <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
           </s:sequence>
@@ -515,7 +520,7 @@
       <s:element name="NewUnitResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="NewUnitResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewUnitResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -745,7 +750,7 @@
       <s:element name="GetAssetByAssetGroupTypeIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAssetByAssetGroupTypeIdResult" type="tns:ArrayOfAsset" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssetByAssetGroupTypeIdResult" type="tns:ResultObjectOfListOfAssetData" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -759,7 +764,7 @@
       <s:element name="GetAssetByDepartmentUsedIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAssetByDepartmentUsedIdResult" type="tns:ArrayOfAsset" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssetByDepartmentUsedIdResult" type="tns:ResultObjectOfListOfAssetData" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -780,6 +785,7 @@
       <s:element name="NewPartner">
         <s:complexType>
           <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="TaxCode" type="s:string" />
@@ -790,7 +796,7 @@
       <s:element name="NewPartnerResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="NewPartnerResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewPartnerResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -878,6 +884,7 @@
       <s:element name="NewUpDownReason">
         <s:complexType>
           <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
           </s:sequence>
@@ -886,7 +893,7 @@
       <s:element name="NewUpDownReasonResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="NewUpDownReasonResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewUpDownReasonResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -968,6 +975,7 @@
       <s:element name="NewAssetLiquidation">
         <s:complexType>
           <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedId" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="LiDateTime" type="s:string" />
@@ -978,7 +986,7 @@
       <s:element name="NewAssetLiquidationResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="NewAssetLiquidationResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewAssetLiquidationResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1041,6 +1049,7 @@
       <s:element name="NewRepairAsset">
         <s:complexType>
           <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedId" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="PartnerId" type="s:string" />
@@ -1053,7 +1062,7 @@
       <s:element name="NewRepairAssetResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="NewRepairAssetResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewRepairAssetResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1118,6 +1127,7 @@
       <s:element name="NewWarrantyAsset">
         <s:complexType>
           <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedId" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="PartnerId" type="s:string" />
@@ -1131,7 +1141,7 @@
       <s:element name="NewWarrantyAssetResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="NewWarrantyAssetResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NewWarrantyAssetResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1194,9 +1204,10 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="int" type="s:int" />
       <s:element name="ArrayOfAssetGroupType" nillable="true" type="tns:ArrayOfAssetGroupType" />
       <s:element name="AssetGroupType" nillable="true" type="tns:AssetGroupType" />
+      <s:element name="string" nillable="true" type="s:string" />
       <s:element name="ArrayOfAssetGroup" nillable="true" type="tns:ArrayOfAssetGroup" />
       <s:element name="AssetGroup" nillable="true" type="tns:AssetGroup" />
       <s:element name="ArrayOfCapital" nillable="true" type="tns:ArrayOfCapital" />
@@ -1205,10 +1216,8 @@
       <s:element name="DepartmentUsed" nillable="true" type="tns:DepartmentUsed" />
       <s:element name="ArrayOfUnit" nillable="true" type="tns:ArrayOfUnit" />
       <s:element name="Unit" nillable="true" type="tns:Unit" />
-      <s:element name="int" type="s:int" />
       <s:element name="ResultObjectOfListOfAssetData" nillable="true" type="tns:ResultObjectOfListOfAssetData" />
       <s:element name="Asset" nillable="true" type="tns:Asset" />
-      <s:element name="ArrayOfAsset" nillable="true" type="tns:ArrayOfAsset" />
       <s:element name="ArrayOfPartner" nillable="true" type="tns:ArrayOfPartner" />
       <s:element name="Partner" nillable="true" type="tns:Partner" />
       <s:element name="ArrayOfUpDownReason" nillable="true" type="tns:ArrayOfUpDownReason" />
@@ -1564,10 +1573,11 @@
     <wsdl:part name="parameters" element="tns:DelWarrantyAssetByIdResponse" />
   </wsdl:message>
   <wsdl:message name="NewAssetGroupTypeHttpGetIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetGroupTypeHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllAssetGroupTypeHttpGetIn" />
   <wsdl:message name="GetAllAssetGroupTypeHttpGetOut">
@@ -1593,11 +1603,12 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetGroupHttpGetIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="AssetGroupTypeId" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetGroupHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllAssetGroupHttpGetIn" />
   <wsdl:message name="GetAllAssetGroupHttpGetOut">
@@ -1624,11 +1635,12 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewCapitalHttpGetIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Note" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewCapitalHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllCapitalGroupHttpGetIn" />
   <wsdl:message name="GetAllCapitalGroupHttpGetOut">
@@ -1655,13 +1667,14 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewDepartmentUsedHttpGetIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Phone" type="s:string" />
     <wsdl:part name="Representative" type="s:string" />
     <wsdl:part name="Address" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewDepartmentUsedHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateDepartmentUsedHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -1690,11 +1703,12 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewUnitHttpGetIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Note" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewUnitHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateUnitHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -1793,13 +1807,13 @@
     <wsdl:part name="AssetGroupTypeId" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetAssetByAssetGroupTypeIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:ArrayOfAsset" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfAssetData" />
   </wsdl:message>
   <wsdl:message name="GetAssetByDepartmentUsedIdHttpGetIn">
     <wsdl:part name="DepartmentUsedId" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetAssetByDepartmentUsedIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:ArrayOfAsset" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfAssetData" />
   </wsdl:message>
   <wsdl:message name="DelAssetByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -1808,13 +1822,14 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewPartnerHttpGetIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Phone" type="s:string" />
     <wsdl:part name="TaxCode" type="s:string" />
     <wsdl:part name="Address" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewPartnerHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdatePartnerHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -1843,11 +1858,12 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewUpDownReasonHttpGetIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Type" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewUpDownReasonHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateUpDownReasonHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -1874,13 +1890,14 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetLiquidationHttpGetIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="AssetId" type="s:string" />
     <wsdl:part name="DepartmentUsedId" type="s:string" />
     <wsdl:part name="LiDateTime" type="s:string" />
     <wsdl:part name="LiPrice" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetLiquidationHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateAssetLiquidationHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -1909,6 +1926,7 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewRepairAssetHttpGetIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="AssetId" type="s:string" />
     <wsdl:part name="DepartmentUsedId" type="s:string" />
     <wsdl:part name="PartnerId" type="s:string" />
@@ -1917,7 +1935,7 @@
     <wsdl:part name="Fee" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewRepairAssetHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateRepairAssetHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -1948,6 +1966,7 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewWarrantyAssetHttpGetIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="AssetId" type="s:string" />
     <wsdl:part name="DepartmentUsedId" type="s:string" />
     <wsdl:part name="PartnerId" type="s:string" />
@@ -1957,7 +1976,7 @@
     <wsdl:part name="PersonWar" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewWarrantyAssetHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateWarrantyAssetHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -1989,10 +2008,11 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetGroupTypeHttpPostIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetGroupTypeHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllAssetGroupTypeHttpPostIn" />
   <wsdl:message name="GetAllAssetGroupTypeHttpPostOut">
@@ -2018,11 +2038,12 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetGroupHttpPostIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="AssetGroupTypeId" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetGroupHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllAssetGroupHttpPostIn" />
   <wsdl:message name="GetAllAssetGroupHttpPostOut">
@@ -2049,11 +2070,12 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewCapitalHttpPostIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Note" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewCapitalHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllCapitalGroupHttpPostIn" />
   <wsdl:message name="GetAllCapitalGroupHttpPostOut">
@@ -2080,13 +2102,14 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewDepartmentUsedHttpPostIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Phone" type="s:string" />
     <wsdl:part name="Representative" type="s:string" />
     <wsdl:part name="Address" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewDepartmentUsedHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateDepartmentUsedHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -2115,11 +2138,12 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewUnitHttpPostIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Note" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewUnitHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateUnitHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -2218,13 +2242,13 @@
     <wsdl:part name="AssetGroupTypeId" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetAssetByAssetGroupTypeIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:ArrayOfAsset" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfAssetData" />
   </wsdl:message>
   <wsdl:message name="GetAssetByDepartmentUsedIdHttpPostIn">
     <wsdl:part name="DepartmentUsedId" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetAssetByDepartmentUsedIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:ArrayOfAsset" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfAssetData" />
   </wsdl:message>
   <wsdl:message name="DelAssetByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -2233,13 +2257,14 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewPartnerHttpPostIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Phone" type="s:string" />
     <wsdl:part name="TaxCode" type="s:string" />
     <wsdl:part name="Address" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewPartnerHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdatePartnerHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -2268,11 +2293,12 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewUpDownReasonHttpPostIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
     <wsdl:part name="Type" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewUpDownReasonHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateUpDownReasonHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -2299,13 +2325,14 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetLiquidationHttpPostIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="AssetId" type="s:string" />
     <wsdl:part name="DepartmentUsedId" type="s:string" />
     <wsdl:part name="LiDateTime" type="s:string" />
     <wsdl:part name="LiPrice" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetLiquidationHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateAssetLiquidationHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -2334,6 +2361,7 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewRepairAssetHttpPostIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="AssetId" type="s:string" />
     <wsdl:part name="DepartmentUsedId" type="s:string" />
     <wsdl:part name="PartnerId" type="s:string" />
@@ -2342,7 +2370,7 @@
     <wsdl:part name="Fee" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewRepairAssetHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateRepairAssetHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -2373,6 +2401,7 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="NewWarrantyAssetHttpPostIn">
+    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="AssetId" type="s:string" />
     <wsdl:part name="DepartmentUsedId" type="s:string" />
     <wsdl:part name="PartnerId" type="s:string" />
@@ -2382,7 +2411,7 @@
     <wsdl:part name="PersonWar" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewWarrantyAssetHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateWarrantyAssetHttpPostIn">
     <wsdl:part name="id" type="s:string" />

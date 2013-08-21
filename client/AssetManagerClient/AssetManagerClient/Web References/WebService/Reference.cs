@@ -356,23 +356,25 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/NewAssetGroupType", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string NewAssetGroupType(string Name) {
+        public int NewAssetGroupType(string Id, string Name) {
             object[] results = this.Invoke("NewAssetGroupType", new object[] {
+                        Id,
                         Name});
-            return ((string)(results[0]));
+            return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void NewAssetGroupTypeAsync(string Name) {
-            this.NewAssetGroupTypeAsync(Name, null);
+        public void NewAssetGroupTypeAsync(string Id, string Name) {
+            this.NewAssetGroupTypeAsync(Id, Name, null);
         }
         
         /// <remarks/>
-        public void NewAssetGroupTypeAsync(string Name, object userState) {
+        public void NewAssetGroupTypeAsync(string Id, string Name, object userState) {
             if ((this.NewAssetGroupTypeOperationCompleted == null)) {
                 this.NewAssetGroupTypeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnNewAssetGroupTypeOperationCompleted);
             }
             this.InvokeAsync("NewAssetGroupType", new object[] {
+                        Id,
                         Name}, this.NewAssetGroupTypeOperationCompleted, userState);
         }
         
@@ -501,24 +503,26 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/NewAssetGroup", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string NewAssetGroup(string Name, string AssetGroupTypeId) {
+        public int NewAssetGroup(string Id, string Name, string AssetGroupTypeId) {
             object[] results = this.Invoke("NewAssetGroup", new object[] {
+                        Id,
                         Name,
                         AssetGroupTypeId});
-            return ((string)(results[0]));
+            return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void NewAssetGroupAsync(string Name, string AssetGroupTypeId) {
-            this.NewAssetGroupAsync(Name, AssetGroupTypeId, null);
+        public void NewAssetGroupAsync(string Id, string Name, string AssetGroupTypeId) {
+            this.NewAssetGroupAsync(Id, Name, AssetGroupTypeId, null);
         }
         
         /// <remarks/>
-        public void NewAssetGroupAsync(string Name, string AssetGroupTypeId, object userState) {
+        public void NewAssetGroupAsync(string Id, string Name, string AssetGroupTypeId, object userState) {
             if ((this.NewAssetGroupOperationCompleted == null)) {
                 this.NewAssetGroupOperationCompleted = new System.Threading.SendOrPostCallback(this.OnNewAssetGroupOperationCompleted);
             }
             this.InvokeAsync("NewAssetGroup", new object[] {
+                        Id,
                         Name,
                         AssetGroupTypeId}, this.NewAssetGroupOperationCompleted, userState);
         }
@@ -650,24 +654,26 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/NewCapital", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string NewCapital(string Name, string Note) {
+        public int NewCapital(string Id, string Name, string Note) {
             object[] results = this.Invoke("NewCapital", new object[] {
+                        Id,
                         Name,
                         Note});
-            return ((string)(results[0]));
+            return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void NewCapitalAsync(string Name, string Note) {
-            this.NewCapitalAsync(Name, Note, null);
+        public void NewCapitalAsync(string Id, string Name, string Note) {
+            this.NewCapitalAsync(Id, Name, Note, null);
         }
         
         /// <remarks/>
-        public void NewCapitalAsync(string Name, string Note, object userState) {
+        public void NewCapitalAsync(string Id, string Name, string Note, object userState) {
             if ((this.NewCapitalOperationCompleted == null)) {
                 this.NewCapitalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnNewCapitalOperationCompleted);
             }
             this.InvokeAsync("NewCapital", new object[] {
+                        Id,
                         Name,
                         Note}, this.NewCapitalOperationCompleted, userState);
         }
@@ -799,26 +805,28 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/NewDepartmentUsed", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string NewDepartmentUsed(string Name, string Phone, string Representative, string Address) {
+        public int NewDepartmentUsed(string Id, string Name, string Phone, string Representative, string Address) {
             object[] results = this.Invoke("NewDepartmentUsed", new object[] {
+                        Id,
                         Name,
                         Phone,
                         Representative,
                         Address});
-            return ((string)(results[0]));
+            return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void NewDepartmentUsedAsync(string Name, string Phone, string Representative, string Address) {
-            this.NewDepartmentUsedAsync(Name, Phone, Representative, Address, null);
+        public void NewDepartmentUsedAsync(string Id, string Name, string Phone, string Representative, string Address) {
+            this.NewDepartmentUsedAsync(Id, Name, Phone, Representative, Address, null);
         }
         
         /// <remarks/>
-        public void NewDepartmentUsedAsync(string Name, string Phone, string Representative, string Address, object userState) {
+        public void NewDepartmentUsedAsync(string Id, string Name, string Phone, string Representative, string Address, object userState) {
             if ((this.NewDepartmentUsedOperationCompleted == null)) {
                 this.NewDepartmentUsedOperationCompleted = new System.Threading.SendOrPostCallback(this.OnNewDepartmentUsedOperationCompleted);
             }
             this.InvokeAsync("NewDepartmentUsed", new object[] {
+                        Id,
                         Name,
                         Phone,
                         Representative,
@@ -956,24 +964,26 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/NewUnit", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string NewUnit(string Name, string Note) {
+        public int NewUnit(string Id, string Name, string Note) {
             object[] results = this.Invoke("NewUnit", new object[] {
+                        Id,
                         Name,
                         Note});
-            return ((string)(results[0]));
+            return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void NewUnitAsync(string Name, string Note) {
-            this.NewUnitAsync(Name, Note, null);
+        public void NewUnitAsync(string Id, string Name, string Note) {
+            this.NewUnitAsync(Id, Name, Note, null);
         }
         
         /// <remarks/>
-        public void NewUnitAsync(string Name, string Note, object userState) {
+        public void NewUnitAsync(string Id, string Name, string Note, object userState) {
             if ((this.NewUnitOperationCompleted == null)) {
                 this.NewUnitOperationCompleted = new System.Threading.SendOrPostCallback(this.OnNewUnitOperationCompleted);
             }
             this.InvokeAsync("NewUnit", new object[] {
+                        Id,
                         Name,
                         Note}, this.NewUnitOperationCompleted, userState);
         }
@@ -1462,10 +1472,10 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAssetByAssetGroupTypeId", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Asset[] GetAssetByAssetGroupTypeId(string AssetGroupTypeId) {
+        public ResultObjectOfListOfAssetData GetAssetByAssetGroupTypeId(string AssetGroupTypeId) {
             object[] results = this.Invoke("GetAssetByAssetGroupTypeId", new object[] {
                         AssetGroupTypeId});
-            return ((Asset[])(results[0]));
+            return ((ResultObjectOfListOfAssetData)(results[0]));
         }
         
         /// <remarks/>
@@ -1491,10 +1501,10 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAssetByDepartmentUsedId", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Asset[] GetAssetByDepartmentUsedId(string DepartmentUsedId) {
+        public ResultObjectOfListOfAssetData GetAssetByDepartmentUsedId(string DepartmentUsedId) {
             object[] results = this.Invoke("GetAssetByDepartmentUsedId", new object[] {
                         DepartmentUsedId});
-            return ((Asset[])(results[0]));
+            return ((ResultObjectOfListOfAssetData)(results[0]));
         }
         
         /// <remarks/>
@@ -1549,26 +1559,28 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/NewPartner", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string NewPartner(string Name, string Phone, string TaxCode, string Address) {
+        public int NewPartner(string Id, string Name, string Phone, string TaxCode, string Address) {
             object[] results = this.Invoke("NewPartner", new object[] {
+                        Id,
                         Name,
                         Phone,
                         TaxCode,
                         Address});
-            return ((string)(results[0]));
+            return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void NewPartnerAsync(string Name, string Phone, string TaxCode, string Address) {
-            this.NewPartnerAsync(Name, Phone, TaxCode, Address, null);
+        public void NewPartnerAsync(string Id, string Name, string Phone, string TaxCode, string Address) {
+            this.NewPartnerAsync(Id, Name, Phone, TaxCode, Address, null);
         }
         
         /// <remarks/>
-        public void NewPartnerAsync(string Name, string Phone, string TaxCode, string Address, object userState) {
+        public void NewPartnerAsync(string Id, string Name, string Phone, string TaxCode, string Address, object userState) {
             if ((this.NewPartnerOperationCompleted == null)) {
                 this.NewPartnerOperationCompleted = new System.Threading.SendOrPostCallback(this.OnNewPartnerOperationCompleted);
             }
             this.InvokeAsync("NewPartner", new object[] {
+                        Id,
                         Name,
                         Phone,
                         TaxCode,
@@ -1706,24 +1718,26 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/NewUpDownReason", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string NewUpDownReason(string Name, string Type) {
+        public int NewUpDownReason(string Id, string Name, string Type) {
             object[] results = this.Invoke("NewUpDownReason", new object[] {
+                        Id,
                         Name,
                         Type});
-            return ((string)(results[0]));
+            return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void NewUpDownReasonAsync(string Name, string Type) {
-            this.NewUpDownReasonAsync(Name, Type, null);
+        public void NewUpDownReasonAsync(string Id, string Name, string Type) {
+            this.NewUpDownReasonAsync(Id, Name, Type, null);
         }
         
         /// <remarks/>
-        public void NewUpDownReasonAsync(string Name, string Type, object userState) {
+        public void NewUpDownReasonAsync(string Id, string Name, string Type, object userState) {
             if ((this.NewUpDownReasonOperationCompleted == null)) {
                 this.NewUpDownReasonOperationCompleted = new System.Threading.SendOrPostCallback(this.OnNewUpDownReasonOperationCompleted);
             }
             this.InvokeAsync("NewUpDownReason", new object[] {
+                        Id,
                         Name,
                         Type}, this.NewUpDownReasonOperationCompleted, userState);
         }
@@ -1855,26 +1869,28 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/NewAssetLiquidation", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string NewAssetLiquidation(string AssetId, string DepartmentUsedId, string LiDateTime, string LiPrice) {
+        public int NewAssetLiquidation(string Id, string AssetId, string DepartmentUsedId, string LiDateTime, string LiPrice) {
             object[] results = this.Invoke("NewAssetLiquidation", new object[] {
+                        Id,
                         AssetId,
                         DepartmentUsedId,
                         LiDateTime,
                         LiPrice});
-            return ((string)(results[0]));
+            return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void NewAssetLiquidationAsync(string AssetId, string DepartmentUsedId, string LiDateTime, string LiPrice) {
-            this.NewAssetLiquidationAsync(AssetId, DepartmentUsedId, LiDateTime, LiPrice, null);
+        public void NewAssetLiquidationAsync(string Id, string AssetId, string DepartmentUsedId, string LiDateTime, string LiPrice) {
+            this.NewAssetLiquidationAsync(Id, AssetId, DepartmentUsedId, LiDateTime, LiPrice, null);
         }
         
         /// <remarks/>
-        public void NewAssetLiquidationAsync(string AssetId, string DepartmentUsedId, string LiDateTime, string LiPrice, object userState) {
+        public void NewAssetLiquidationAsync(string Id, string AssetId, string DepartmentUsedId, string LiDateTime, string LiPrice, object userState) {
             if ((this.NewAssetLiquidationOperationCompleted == null)) {
                 this.NewAssetLiquidationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnNewAssetLiquidationOperationCompleted);
             }
             this.InvokeAsync("NewAssetLiquidation", new object[] {
+                        Id,
                         AssetId,
                         DepartmentUsedId,
                         LiDateTime,
@@ -2012,28 +2028,30 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/NewRepairAsset", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string NewRepairAsset(string AssetId, string DepartmentUsedId, string PartnerId, string Address, string RepairDate, string Fee) {
+        public int NewRepairAsset(string Id, string AssetId, string DepartmentUsedId, string PartnerId, string Address, string RepairDate, string Fee) {
             object[] results = this.Invoke("NewRepairAsset", new object[] {
+                        Id,
                         AssetId,
                         DepartmentUsedId,
                         PartnerId,
                         Address,
                         RepairDate,
                         Fee});
-            return ((string)(results[0]));
+            return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void NewRepairAssetAsync(string AssetId, string DepartmentUsedId, string PartnerId, string Address, string RepairDate, string Fee) {
-            this.NewRepairAssetAsync(AssetId, DepartmentUsedId, PartnerId, Address, RepairDate, Fee, null);
+        public void NewRepairAssetAsync(string Id, string AssetId, string DepartmentUsedId, string PartnerId, string Address, string RepairDate, string Fee) {
+            this.NewRepairAssetAsync(Id, AssetId, DepartmentUsedId, PartnerId, Address, RepairDate, Fee, null);
         }
         
         /// <remarks/>
-        public void NewRepairAssetAsync(string AssetId, string DepartmentUsedId, string PartnerId, string Address, string RepairDate, string Fee, object userState) {
+        public void NewRepairAssetAsync(string Id, string AssetId, string DepartmentUsedId, string PartnerId, string Address, string RepairDate, string Fee, object userState) {
             if ((this.NewRepairAssetOperationCompleted == null)) {
                 this.NewRepairAssetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnNewRepairAssetOperationCompleted);
             }
             this.InvokeAsync("NewRepairAsset", new object[] {
+                        Id,
                         AssetId,
                         DepartmentUsedId,
                         PartnerId,
@@ -2177,8 +2195,9 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/NewWarrantyAsset", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string NewWarrantyAsset(string AssetId, string DepartmentUsedId, string PartnerId, string WarDateTime, string DeadlineWar, string Address, string PersonWar) {
+        public int NewWarrantyAsset(string Id, string AssetId, string DepartmentUsedId, string PartnerId, string WarDateTime, string DeadlineWar, string Address, string PersonWar) {
             object[] results = this.Invoke("NewWarrantyAsset", new object[] {
+                        Id,
                         AssetId,
                         DepartmentUsedId,
                         PartnerId,
@@ -2186,20 +2205,21 @@ namespace AssetManagerClient.WebService {
                         DeadlineWar,
                         Address,
                         PersonWar});
-            return ((string)(results[0]));
+            return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void NewWarrantyAssetAsync(string AssetId, string DepartmentUsedId, string PartnerId, string WarDateTime, string DeadlineWar, string Address, string PersonWar) {
-            this.NewWarrantyAssetAsync(AssetId, DepartmentUsedId, PartnerId, WarDateTime, DeadlineWar, Address, PersonWar, null);
+        public void NewWarrantyAssetAsync(string Id, string AssetId, string DepartmentUsedId, string PartnerId, string WarDateTime, string DeadlineWar, string Address, string PersonWar) {
+            this.NewWarrantyAssetAsync(Id, AssetId, DepartmentUsedId, PartnerId, WarDateTime, DeadlineWar, Address, PersonWar, null);
         }
         
         /// <remarks/>
-        public void NewWarrantyAssetAsync(string AssetId, string DepartmentUsedId, string PartnerId, string WarDateTime, string DeadlineWar, string Address, string PersonWar, object userState) {
+        public void NewWarrantyAssetAsync(string Id, string AssetId, string DepartmentUsedId, string PartnerId, string WarDateTime, string DeadlineWar, string Address, string PersonWar, object userState) {
             if ((this.NewWarrantyAssetOperationCompleted == null)) {
                 this.NewWarrantyAssetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnNewWarrantyAssetOperationCompleted);
             }
             this.InvokeAsync("NewWarrantyAsset", new object[] {
+                        Id,
                         AssetId,
                         DepartmentUsedId,
                         PartnerId,
@@ -4028,10 +4048,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public string Result {
+        public int Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((int)(this.results[0]));
             }
         }
     }
@@ -4158,10 +4178,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public string Result {
+        public int Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((int)(this.results[0]));
             }
         }
     }
@@ -4288,10 +4308,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public string Result {
+        public int Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((int)(this.results[0]));
             }
         }
     }
@@ -4418,10 +4438,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public string Result {
+        public int Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((int)(this.results[0]));
             }
         }
     }
@@ -4548,10 +4568,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public string Result {
+        public int Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((int)(this.results[0]));
             }
         }
     }
@@ -4782,10 +4802,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public Asset[] Result {
+        public ResultObjectOfListOfAssetData Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Asset[])(this.results[0]));
+                return ((ResultObjectOfListOfAssetData)(this.results[0]));
             }
         }
     }
@@ -4808,10 +4828,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public Asset[] Result {
+        public ResultObjectOfListOfAssetData Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Asset[])(this.results[0]));
+                return ((ResultObjectOfListOfAssetData)(this.results[0]));
             }
         }
     }
@@ -4860,10 +4880,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public string Result {
+        public int Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((int)(this.results[0]));
             }
         }
     }
@@ -4990,10 +5010,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public string Result {
+        public int Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((int)(this.results[0]));
             }
         }
     }
@@ -5120,10 +5140,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public string Result {
+        public int Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((int)(this.results[0]));
             }
         }
     }
@@ -5250,10 +5270,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public string Result {
+        public int Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((int)(this.results[0]));
             }
         }
     }
@@ -5380,10 +5400,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public string Result {
+        public int Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((int)(this.results[0]));
             }
         }
     }

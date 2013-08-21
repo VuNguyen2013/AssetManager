@@ -607,6 +607,9 @@
             // 
             // gpLoading
             // 
+            this.gpLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gpLoading.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.gpLoading.Appearance.Options.UseBackColor = true;
             this.gpLoading.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -615,10 +618,11 @@
             this.gpLoading.AppearanceDescription.Options.UseFont = true;
             this.gpLoading.Caption = "Vui lòng chờ";
             this.gpLoading.Description = "đang tải dữ liệu ...";
-            this.gpLoading.Location = new System.Drawing.Point(458, 62);
+            this.gpLoading.Location = new System.Drawing.Point(407, -20);
             this.gpLoading.Name = "gpLoading";
             this.gpLoading.Size = new System.Drawing.Size(246, 66);
             this.gpLoading.TabIndex = 0;
+            this.gpLoading.TabStop = false;
             this.gpLoading.Text = "progressPanel1";
             // 
             // ControlTab1
@@ -878,11 +882,14 @@
             this.nbAssets.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbAssets_LinkClicked);
             this.nbAssets.Click += new System.EventHandler(this.navBarControl1_Click);
             this.nbAssets.MouseClick += new System.Windows.Forms.MouseEventHandler(this.navBarControl1_MouseClick);
+            this.nbAssets.MouseDown += new System.Windows.Forms.MouseEventHandler(this.nbAssets_MouseDown);
             // 
             // nbAssetsType
             // 
             this.nbAssetsType.Caption = "Loại";
+            this.nbAssetsType.Expanded = true;
             this.nbAssetsType.Name = "nbAssetsType";
+            this.nbAssetsType.SelectedLinkIndex = 0;
             // 
             // nbDepartmentUsed
             // 

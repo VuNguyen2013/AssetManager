@@ -46,5 +46,17 @@ namespace AssetManagerCommon
             FAIL,
             POOR,
         }
+        public enum  FILTER
+        {
+            GROUP_TYPE=1,
+            DEPARTMENT_USED,
+            FILTER
+        }
+        public enum ACTION
+        {
+            ADD=1,
+            EDIT,
+            DELETE
+        }
     }
 }
