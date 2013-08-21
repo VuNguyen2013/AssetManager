@@ -418,23 +418,6 @@ namespace cunghoc3_AssetManager.Data
 
 		#region Static properties
 		
-		#region DepartmentUsedProvider
-
-		///<summary>
-		/// Gets the current instance of the Data Access Logic Component for the <see cref="DepartmentUsed"/> business entity.
-		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-		///</summary>
-		public static DepartmentUsedProviderBase DepartmentUsedProvider
-		{
-			get 
-			{
-				LoadProviders();
-				return _provider.DepartmentUsedProvider;
-			}
-		}
-		
-		#endregion
-		
 		#region UnitProvider
 
 		///<summary>
@@ -452,6 +435,74 @@ namespace cunghoc3_AssetManager.Data
 		
 		#endregion
 		
+		#region DepartmentUsedProvider
+
+		///<summary>
+		/// Gets the current instance of the Data Access Logic Component for the <see cref="DepartmentUsed"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		public static DepartmentUsedProviderBase DepartmentUsedProvider
+		{
+			get 
+			{
+				LoadProviders();
+				return _provider.DepartmentUsedProvider;
+			}
+		}
+		
+		#endregion
+		
+		#region PartnerProvider
+
+		///<summary>
+		/// Gets the current instance of the Data Access Logic Component for the <see cref="Partner"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		public static PartnerProviderBase PartnerProvider
+		{
+			get 
+			{
+				LoadProviders();
+				return _provider.PartnerProvider;
+			}
+		}
+		
+		#endregion
+		
+		#region ImageProvider
+
+		///<summary>
+		/// Gets the current instance of the Data Access Logic Component for the <see cref="Image"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		public static ImageProviderBase ImageProvider
+		{
+			get 
+			{
+				LoadProviders();
+				return _provider.ImageProvider;
+			}
+		}
+		
+		#endregion
+		
+		#region AssetProvider
+
+		///<summary>
+		/// Gets the current instance of the Data Access Logic Component for the <see cref="Asset"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		public static AssetProviderBase AssetProvider
+		{
+			get 
+			{
+				LoadProviders();
+				return _provider.AssetProvider;
+			}
+		}
+		
+		#endregion
+		
 		#region UpDownReasonProvider
 
 		///<summary>
@@ -464,6 +515,40 @@ namespace cunghoc3_AssetManager.Data
 			{
 				LoadProviders();
 				return _provider.UpDownReasonProvider;
+			}
+		}
+		
+		#endregion
+		
+		#region RepairAssetProvider
+
+		///<summary>
+		/// Gets the current instance of the Data Access Logic Component for the <see cref="RepairAsset"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		public static RepairAssetProviderBase RepairAssetProvider
+		{
+			get 
+			{
+				LoadProviders();
+				return _provider.RepairAssetProvider;
+			}
+		}
+		
+		#endregion
+		
+		#region CheckOutProvider
+
+		///<summary>
+		/// Gets the current instance of the Data Access Logic Component for the <see cref="CheckOut"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		public static CheckOutProviderBase CheckOutProvider
+		{
+			get 
+			{
+				LoadProviders();
+				return _provider.CheckOutProvider;
 			}
 		}
 		
@@ -503,40 +588,6 @@ namespace cunghoc3_AssetManager.Data
 		
 		#endregion
 		
-		#region PartnerProvider
-
-		///<summary>
-		/// Gets the current instance of the Data Access Logic Component for the <see cref="Partner"/> business entity.
-		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-		///</summary>
-		public static PartnerProviderBase PartnerProvider
-		{
-			get 
-			{
-				LoadProviders();
-				return _provider.PartnerProvider;
-			}
-		}
-		
-		#endregion
-		
-		#region AssetProvider
-
-		///<summary>
-		/// Gets the current instance of the Data Access Logic Component for the <see cref="Asset"/> business entity.
-		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-		///</summary>
-		public static AssetProviderBase AssetProvider
-		{
-			get 
-			{
-				LoadProviders();
-				return _provider.AssetProvider;
-			}
-		}
-		
-		#endregion
-		
 		#region AssetLiquidationProvider
 
 		///<summary>
@@ -549,6 +600,23 @@ namespace cunghoc3_AssetManager.Data
 			{
 				LoadProviders();
 				return _provider.AssetLiquidationProvider;
+			}
+		}
+		
+		#endregion
+		
+		#region AuditProvider
+
+		///<summary>
+		/// Gets the current instance of the Data Access Logic Component for the <see cref="Audit"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		public static AuditProviderBase AuditProvider
+		{
+			get 
+			{
+				LoadProviders();
+				return _provider.AuditProvider;
 			}
 		}
 		
@@ -588,96 +656,11 @@ namespace cunghoc3_AssetManager.Data
 		
 		#endregion
 		
-		#region RepairAssetProvider
-
-		///<summary>
-		/// Gets the current instance of the Data Access Logic Component for the <see cref="RepairAsset"/> business entity.
-		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-		///</summary>
-		public static RepairAssetProviderBase RepairAssetProvider
-		{
-			get 
-			{
-				LoadProviders();
-				return _provider.RepairAssetProvider;
-			}
-		}
-		
-		#endregion
-		
 		
 		#endregion
 	}
 	
 	#region Query/Filters
-		
-	#region DepartmentUsedFilters
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
-	/// that is used exclusively with a <see cref="DepartmentUsed"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class DepartmentUsedFilters : DepartmentUsedFilterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the DepartmentUsedFilters class.
-		/// </summary>
-		public DepartmentUsedFilters() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the DepartmentUsedFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public DepartmentUsedFilters(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the DepartmentUsedFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public DepartmentUsedFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion DepartmentUsedFilters
-	
-	#region DepartmentUsedQuery
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="DepartmentUsedParameterBuilder"/> class
-	/// that is used exclusively with a <see cref="DepartmentUsed"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class DepartmentUsedQuery : DepartmentUsedParameterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the DepartmentUsedQuery class.
-		/// </summary>
-		public DepartmentUsedQuery() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the DepartmentUsedQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public DepartmentUsedQuery(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the DepartmentUsedQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public DepartmentUsedQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion DepartmentUsedQuery
 		
 	#region UnitFilters
 	
@@ -747,6 +730,278 @@ namespace cunghoc3_AssetManager.Data
 
 	#endregion UnitQuery
 		
+	#region DepartmentUsedFilters
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
+	/// that is used exclusively with a <see cref="DepartmentUsed"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class DepartmentUsedFilters : DepartmentUsedFilterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the DepartmentUsedFilters class.
+		/// </summary>
+		public DepartmentUsedFilters() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the DepartmentUsedFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public DepartmentUsedFilters(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the DepartmentUsedFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public DepartmentUsedFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion DepartmentUsedFilters
+	
+	#region DepartmentUsedQuery
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="DepartmentUsedParameterBuilder"/> class
+	/// that is used exclusively with a <see cref="DepartmentUsed"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class DepartmentUsedQuery : DepartmentUsedParameterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the DepartmentUsedQuery class.
+		/// </summary>
+		public DepartmentUsedQuery() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the DepartmentUsedQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public DepartmentUsedQuery(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the DepartmentUsedQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public DepartmentUsedQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion DepartmentUsedQuery
+		
+	#region PartnerFilters
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
+	/// that is used exclusively with a <see cref="Partner"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class PartnerFilters : PartnerFilterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the PartnerFilters class.
+		/// </summary>
+		public PartnerFilters() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the PartnerFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public PartnerFilters(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the PartnerFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public PartnerFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion PartnerFilters
+	
+	#region PartnerQuery
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="PartnerParameterBuilder"/> class
+	/// that is used exclusively with a <see cref="Partner"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class PartnerQuery : PartnerParameterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the PartnerQuery class.
+		/// </summary>
+		public PartnerQuery() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the PartnerQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public PartnerQuery(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the PartnerQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public PartnerQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion PartnerQuery
+		
+	#region ImageFilters
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
+	/// that is used exclusively with a <see cref="Image"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class ImageFilters : ImageFilterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the ImageFilters class.
+		/// </summary>
+		public ImageFilters() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the ImageFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public ImageFilters(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the ImageFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public ImageFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion ImageFilters
+	
+	#region ImageQuery
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="ImageParameterBuilder"/> class
+	/// that is used exclusively with a <see cref="Image"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class ImageQuery : ImageParameterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the ImageQuery class.
+		/// </summary>
+		public ImageQuery() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the ImageQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public ImageQuery(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the ImageQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public ImageQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion ImageQuery
+		
+	#region AssetFilters
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
+	/// that is used exclusively with a <see cref="Asset"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class AssetFilters : AssetFilterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the AssetFilters class.
+		/// </summary>
+		public AssetFilters() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the AssetFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public AssetFilters(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the AssetFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public AssetFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion AssetFilters
+	
+	#region AssetQuery
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="AssetParameterBuilder"/> class
+	/// that is used exclusively with a <see cref="Asset"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class AssetQuery : AssetParameterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the AssetQuery class.
+		/// </summary>
+		public AssetQuery() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the AssetQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public AssetQuery(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the AssetQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public AssetQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion AssetQuery
+		
 	#region UpDownReasonFilters
 	
 	/// <summary>
@@ -814,6 +1069,142 @@ namespace cunghoc3_AssetManager.Data
 	}
 
 	#endregion UpDownReasonQuery
+		
+	#region RepairAssetFilters
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
+	/// that is used exclusively with a <see cref="RepairAsset"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class RepairAssetFilters : RepairAssetFilterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the RepairAssetFilters class.
+		/// </summary>
+		public RepairAssetFilters() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the RepairAssetFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public RepairAssetFilters(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the RepairAssetFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public RepairAssetFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion RepairAssetFilters
+	
+	#region RepairAssetQuery
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="RepairAssetParameterBuilder"/> class
+	/// that is used exclusively with a <see cref="RepairAsset"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class RepairAssetQuery : RepairAssetParameterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the RepairAssetQuery class.
+		/// </summary>
+		public RepairAssetQuery() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the RepairAssetQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public RepairAssetQuery(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the RepairAssetQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public RepairAssetQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion RepairAssetQuery
+		
+	#region CheckOutFilters
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
+	/// that is used exclusively with a <see cref="CheckOut"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class CheckOutFilters : CheckOutFilterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the CheckOutFilters class.
+		/// </summary>
+		public CheckOutFilters() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the CheckOutFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public CheckOutFilters(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the CheckOutFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public CheckOutFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion CheckOutFilters
+	
+	#region CheckOutQuery
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="CheckOutParameterBuilder"/> class
+	/// that is used exclusively with a <see cref="CheckOut"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class CheckOutQuery : CheckOutParameterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the CheckOutQuery class.
+		/// </summary>
+		public CheckOutQuery() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the CheckOutQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public CheckOutQuery(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the CheckOutQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public CheckOutQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion CheckOutQuery
 		
 	#region AssetGroupTypeFilters
 	
@@ -951,142 +1342,6 @@ namespace cunghoc3_AssetManager.Data
 
 	#endregion AssetGroupQuery
 		
-	#region PartnerFilters
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
-	/// that is used exclusively with a <see cref="Partner"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class PartnerFilters : PartnerFilterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the PartnerFilters class.
-		/// </summary>
-		public PartnerFilters() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the PartnerFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public PartnerFilters(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the PartnerFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public PartnerFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion PartnerFilters
-	
-	#region PartnerQuery
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="PartnerParameterBuilder"/> class
-	/// that is used exclusively with a <see cref="Partner"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class PartnerQuery : PartnerParameterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the PartnerQuery class.
-		/// </summary>
-		public PartnerQuery() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the PartnerQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public PartnerQuery(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the PartnerQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public PartnerQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion PartnerQuery
-		
-	#region AssetFilters
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
-	/// that is used exclusively with a <see cref="Asset"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class AssetFilters : AssetFilterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the AssetFilters class.
-		/// </summary>
-		public AssetFilters() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the AssetFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public AssetFilters(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the AssetFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public AssetFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion AssetFilters
-	
-	#region AssetQuery
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="AssetParameterBuilder"/> class
-	/// that is used exclusively with a <see cref="Asset"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class AssetQuery : AssetParameterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the AssetQuery class.
-		/// </summary>
-		public AssetQuery() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the AssetQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public AssetQuery(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the AssetQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public AssetQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion AssetQuery
-		
 	#region AssetLiquidationFilters
 	
 	/// <summary>
@@ -1154,6 +1409,74 @@ namespace cunghoc3_AssetManager.Data
 	}
 
 	#endregion AssetLiquidationQuery
+		
+	#region AuditFilters
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
+	/// that is used exclusively with a <see cref="Audit"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class AuditFilters : AuditFilterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the AuditFilters class.
+		/// </summary>
+		public AuditFilters() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the AuditFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public AuditFilters(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the AuditFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public AuditFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion AuditFilters
+	
+	#region AuditQuery
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="AuditParameterBuilder"/> class
+	/// that is used exclusively with a <see cref="Audit"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class AuditQuery : AuditParameterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the AuditQuery class.
+		/// </summary>
+		public AuditQuery() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the AuditQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public AuditQuery(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the AuditQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public AuditQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion AuditQuery
 		
 	#region CapitalFilters
 	
@@ -1290,74 +1613,6 @@ namespace cunghoc3_AssetManager.Data
 	}
 
 	#endregion WarrantyAssetQuery
-		
-	#region RepairAssetFilters
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
-	/// that is used exclusively with a <see cref="RepairAsset"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class RepairAssetFilters : RepairAssetFilterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the RepairAssetFilters class.
-		/// </summary>
-		public RepairAssetFilters() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the RepairAssetFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public RepairAssetFilters(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the RepairAssetFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public RepairAssetFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion RepairAssetFilters
-	
-	#region RepairAssetQuery
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="RepairAssetParameterBuilder"/> class
-	/// that is used exclusively with a <see cref="RepairAsset"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class RepairAssetQuery : RepairAssetParameterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the RepairAssetQuery class.
-		/// </summary>
-		public RepairAssetQuery() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the RepairAssetQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public RepairAssetQuery(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the RepairAssetQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public RepairAssetQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion RepairAssetQuery
 	#endregion
 
 	

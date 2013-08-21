@@ -77,7 +77,15 @@ namespace cunghoc3_AssetManager.Services
 		///<param name="_totalReamain"></param>
 		///<param name="_upDownCode"></param>
 		///<param name="_inputDateTime"></param>
-		public static Asset CreateAsset(System.String _id, System.String _name, System.String _assetGroupId, System.String _unitId, System.Int32 _amount, System.String _counPro, System.Int32 _yearPro, System.String _departmentUsedId, System.Int64 _totalPrice, System.Int64 _budgetPrice, System.Int64 _ownPrice, System.Int64 _venturePrice, System.Int64 _anotherPrice, System.Int64 _totalDepreciation, System.Int64 _budgetDepreciation, System.Int64 _ownDepreciation, System.Int64 _ventureDepreciation, System.Int64 _anotherDepreciation, System.Int64 _budgetRemain, System.Int64 _ownRemain, System.Int64 _ventureRemain, System.Int64 _anotherRemain, System.Int64 _totalReamain, System.String _upDownCode, System.DateTime _inputDateTime)
+		///<param name="_manufacturer"></param>
+		///<param name="_brand"></param>
+		///<param name="_model"></param>
+		///<param name="_status"></param>
+		///<param name="_dueDate"></param>
+		///<param name="_note"></param>
+		///<param name="_seriesNumber"></param>
+		///<param name="_condition"></param>
+		public static Asset CreateAsset(System.String _id, System.String _name, System.String _assetGroupId, System.String _unitId, System.Int32 _amount, System.String _counPro, System.Int32 _yearPro, System.String _departmentUsedId, System.Int64 _totalPrice, System.Int64 _budgetPrice, System.Int64 _ownPrice, System.Int64 _venturePrice, System.Int64 _anotherPrice, System.Int64 _totalDepreciation, System.Int64 _budgetDepreciation, System.Int64 _ownDepreciation, System.Int64 _ventureDepreciation, System.Int64 _anotherDepreciation, System.Int64 _budgetRemain, System.Int64 _ownRemain, System.Int64 _ventureRemain, System.Int64 _anotherRemain, System.Int64 _totalReamain, System.String _upDownCode, System.DateTime _inputDateTime, System.String _manufacturer, System.String _brand, System.String _model, System.Int16? _status, System.DateTime? _dueDate, System.String _note, System.String _seriesNumber, System.Int16? _condition)
 		{
 			Asset newEntityAsset = new Asset();
 			newEntityAsset.Id  = _id;
@@ -105,6 +113,14 @@ namespace cunghoc3_AssetManager.Services
 			newEntityAsset.TotalReamain  = _totalReamain;
 			newEntityAsset.UpDownCode  = _upDownCode;
 			newEntityAsset.InputDateTime  = _inputDateTime;
+			newEntityAsset.Manufacturer  = _manufacturer;
+			newEntityAsset.Brand  = _brand;
+			newEntityAsset.Model  = _model;
+			newEntityAsset.Status  = _status;
+			newEntityAsset.DueDate  = _dueDate;
+			newEntityAsset.Note  = _note;
+			newEntityAsset.SeriesNumber  = _seriesNumber;
+			newEntityAsset.Condition  = _condition;
 			return newEntityAsset;
 		}
 		#endregion Constructors

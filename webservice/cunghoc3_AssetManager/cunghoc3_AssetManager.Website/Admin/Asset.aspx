@@ -16,6 +16,7 @@
 			>
 			<Columns>
 				<asp:CommandField ShowSelectButton="True" ShowEditButton="True" />				
+				<asp:BoundField DataField="Condition" HeaderText="Condition" SortExpression="[Condition]"  />
 				<asp:BoundField DataField="Id" HeaderText="Id" SortExpression="[Id]" ReadOnly="True" />
 				<asp:BoundField DataField="Name" HeaderText="Name" SortExpression="[Name]"  />
 				<data:HyperLinkField HeaderText="Asset Group Id" DataNavigateUrlFormatString="AssetGroupEdit.aspx?Id={0}" DataNavigateUrlFields="Id" DataContainer="AssetGroupIdSource" DataTextField="Name" />
@@ -41,6 +42,13 @@
 				<asp:BoundField DataField="TotalReamain" HeaderText="Total Reamain" SortExpression="[TotalReamain]"  />
 				<asp:BoundField DataField="UpDownCode" HeaderText="Up Down Code" SortExpression="[UpDownCode]"  />
 				<asp:BoundField DataField="InputDateTime" DataFormatString="{0:d}" HtmlEncode="False" HeaderText="Input Date Time" SortExpression="[InputDateTime]"  />
+				<asp:BoundField DataField="Manufacturer" HeaderText="Manufacturer" SortExpression="[Manufacturer]"  />
+				<asp:BoundField DataField="Brand" HeaderText="Brand" SortExpression="[Brand]"  />
+				<asp:BoundField DataField="Model" HeaderText="Model" SortExpression="[Model]"  />
+				<asp:BoundField DataField="Status" HeaderText="Status" SortExpression="[Status]"  />
+				<asp:BoundField DataField="DueDate" DataFormatString="{0:d}" HtmlEncode="False" HeaderText="Due Date" SortExpression="[DueDate]"  />
+				<asp:BoundField DataField="Note" HeaderText="Note" SortExpression=""  />
+				<asp:BoundField DataField="SeriesNumber" HeaderText="Series Number" SortExpression="[SeriesNumber]"  />
 			</Columns>
 			<EmptyDataTemplate>
 				<b>No Asset Found!</b>

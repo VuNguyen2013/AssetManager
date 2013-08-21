@@ -169,11 +169,6 @@ namespace cunghoc3_AssetManager.Entities
 		public abstract object ParentCollection{get;set;}
 		
 		#region Common Columns
-		/// <summary>
-		/// 
-		/// </summary>
-		
-		public abstract System.String Id {get;set;}
 		#endregion		
 				
 		/// <summary>

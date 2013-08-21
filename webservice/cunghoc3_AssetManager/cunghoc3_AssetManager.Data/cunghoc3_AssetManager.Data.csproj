@@ -177,6 +177,14 @@
 			  <DependentUpon>AssetLiquidationProviderBase.cs</DependentUpon>
 			  <SubType>Code</SubType>
 			</Compile>
+			<Compile Include="Bases\AuditProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\AuditProviderBase.generatedCore.cs">
+			  <DependentUpon>AuditProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
 			<Compile Include="Bases\CapitalProviderBase.cs">
 			  <SubType>Code</SubType>
 			</Compile>
@@ -185,12 +193,28 @@
 			  <DependentUpon>CapitalProviderBase.cs</DependentUpon>
 			  <SubType>Code</SubType>
 			</Compile>
+			<Compile Include="Bases\CheckOutProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\CheckOutProviderBase.generatedCore.cs">
+			  <DependentUpon>CheckOutProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
 			<Compile Include="Bases\DepartmentUsedProviderBase.cs">
 			  <SubType>Code</SubType>
 			</Compile>
 			
 			<Compile Include="Bases\DepartmentUsedProviderBase.generatedCore.cs">
 			  <DependentUpon>DepartmentUsedProviderBase.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="Bases\ImageProviderBase.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="Bases\ImageProviderBase.generatedCore.cs">
+			  <DependentUpon>ImageProviderBase.cs</DependentUpon>
 			  <SubType>Code</SubType>
 			</Compile>
 			<Compile Include="Bases\PartnerProviderBase.cs">

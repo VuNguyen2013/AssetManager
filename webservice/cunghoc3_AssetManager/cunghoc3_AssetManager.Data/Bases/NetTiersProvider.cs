@@ -20,19 +20,44 @@ namespace cunghoc3_AssetManager.Data.Bases
 	{
 		
 		///<summary>
-		/// Current DepartmentUsedProviderBase instance.
-		///</summary>
-		public virtual DepartmentUsedProviderBase DepartmentUsedProvider{get {throw new NotImplementedException();}}
-		
-		///<summary>
 		/// Current UnitProviderBase instance.
 		///</summary>
 		public virtual UnitProviderBase UnitProvider{get {throw new NotImplementedException();}}
 		
 		///<summary>
+		/// Current DepartmentUsedProviderBase instance.
+		///</summary>
+		public virtual DepartmentUsedProviderBase DepartmentUsedProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
+		/// Current PartnerProviderBase instance.
+		///</summary>
+		public virtual PartnerProviderBase PartnerProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
+		/// Current ImageProviderBase instance.
+		///</summary>
+		public virtual ImageProviderBase ImageProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
+		/// Current AssetProviderBase instance.
+		///</summary>
+		public virtual AssetProviderBase AssetProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
 		/// Current UpDownReasonProviderBase instance.
 		///</summary>
 		public virtual UpDownReasonProviderBase UpDownReasonProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
+		/// Current RepairAssetProviderBase instance.
+		///</summary>
+		public virtual RepairAssetProviderBase RepairAssetProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
+		/// Current CheckOutProviderBase instance.
+		///</summary>
+		public virtual CheckOutProviderBase CheckOutProvider{get {throw new NotImplementedException();}}
 		
 		///<summary>
 		/// Current AssetGroupTypeProviderBase instance.
@@ -45,19 +70,14 @@ namespace cunghoc3_AssetManager.Data.Bases
 		public virtual AssetGroupProviderBase AssetGroupProvider{get {throw new NotImplementedException();}}
 		
 		///<summary>
-		/// Current PartnerProviderBase instance.
-		///</summary>
-		public virtual PartnerProviderBase PartnerProvider{get {throw new NotImplementedException();}}
-		
-		///<summary>
-		/// Current AssetProviderBase instance.
-		///</summary>
-		public virtual AssetProviderBase AssetProvider{get {throw new NotImplementedException();}}
-		
-		///<summary>
 		/// Current AssetLiquidationProviderBase instance.
 		///</summary>
 		public virtual AssetLiquidationProviderBase AssetLiquidationProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
+		/// Current AuditProviderBase instance.
+		///</summary>
+		public virtual AuditProviderBase AuditProvider{get {throw new NotImplementedException();}}
 		
 		///<summary>
 		/// Current CapitalProviderBase instance.
@@ -68,11 +88,6 @@ namespace cunghoc3_AssetManager.Data.Bases
 		/// Current WarrantyAssetProviderBase instance.
 		///</summary>
 		public virtual WarrantyAssetProviderBase WarrantyAssetProvider{get {throw new NotImplementedException();}}
-		
-		///<summary>
-		/// Current RepairAssetProviderBase instance.
-		///</summary>
-		public virtual RepairAssetProviderBase RepairAssetProvider{get {throw new NotImplementedException();}}
 		
 		
 	}

@@ -236,16 +236,34 @@
 			<Compile Include="UI\RepeaterControls\AssetLiquidationRepeater.cs">
 			  <SubType>Code</SubType>
 			</Compile>
+			<Compile Include="DataSourceControls\AuditDataSource.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="UI\RepeaterControls\AuditRepeater.cs">
+			  <SubType>Code</SubType>
+			</Compile>
 			<Compile Include="DataSourceControls\CapitalDataSource.cs">
 			  <SubType>Code</SubType>
 			</Compile>
 			<Compile Include="UI\RepeaterControls\CapitalRepeater.cs">
 			  <SubType>Code</SubType>
 			</Compile>
+			<Compile Include="DataSourceControls\CheckOutDataSource.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="UI\RepeaterControls\CheckOutRepeater.cs">
+			  <SubType>Code</SubType>
+			</Compile>
 			<Compile Include="DataSourceControls\DepartmentUsedDataSource.cs">
 			  <SubType>Code</SubType>
 			</Compile>
 			<Compile Include="UI\RepeaterControls\DepartmentUsedRepeater.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="DataSourceControls\ImageDataSource.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="UI\RepeaterControls\ImageRepeater.cs">
 			  <SubType>Code</SubType>
 			</Compile>
 			<Compile Include="DataSourceControls\PartnerDataSource.cs">

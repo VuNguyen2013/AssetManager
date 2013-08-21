@@ -65,22 +65,22 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string DelAssetGroupTypeById(string id)
+        public int DelAssetGroupTypeById(string id)
         {
             cunghoc3_AssetManager.Services.AssetGroupTypeService db = new Services.AssetGroupTypeService();
             AssetGroupType item = db.GetById(id);
             db.Delete(item);
-            return "Delete item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
-        public string UpdateAssetGroupType(string id, string name)
+        public int UpdateAssetGroupType(string id, string name)
         {
             cunghoc3_AssetManager.Services.AssetGroupTypeService db = new Services.AssetGroupTypeService();
             AssetGroupType item = db.GetById(id);
             item.Name = name;
             db.Update(item);
-            return "Update item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
@@ -128,23 +128,23 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string DelAssetGroupById(string id)
+        public int DelAssetGroupById(string id)
         {
             cunghoc3_AssetManager.Services.AssetGroupService db = new Services.AssetGroupService();
             AssetGroup item = db.GetById(id);
             db.Delete(item);
-            return "Delete item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
-        public string UpdateAssetGroup(string id, string Name, string AssetGroupTypeId)
+        public int UpdateAssetGroup(string id, string Name, string AssetGroupTypeId)
         {
             cunghoc3_AssetManager.Services.AssetGroupService db = new Services.AssetGroupService();
             AssetGroup item = db.GetById(id);
             item.Name = Name;
             item.AssetGroupTypeId = AssetGroupTypeId;
             db.Update(item);
-            return "Update item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
@@ -194,23 +194,23 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string DelCapitalById(string id)
+        public int DelCapitalById(string id)
         {
             cunghoc3_AssetManager.Services.CapitalService db = new Services.CapitalService();
             Capital item = db.GetById(id);
             db.Delete(item);
-            return "Delete item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
-        public string UpdateCapital(string id, string Name, string Note)
+        public int UpdateCapital(string id, string Name, string Note)
         {
             cunghoc3_AssetManager.Services.CapitalService db = new Services.CapitalService();
             Capital item = db.GetById(id);
             item.Name = Name;
             item.Note = Note;
             db.Update(item);
-            return "Update item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
@@ -246,7 +246,7 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string UpdateDepartmentUsed(string id, string Name, string Phone, string Representative, string Address)
+        public int UpdateDepartmentUsed(string id, string Name, string Phone, string Representative, string Address)
         {
             cunghoc3_AssetManager.Services.DepartmentUsedService db = new Services.DepartmentUsedService();
             DepartmentUsed item = db.GetById(id);
@@ -255,7 +255,7 @@ namespace cunghoc3_AssetManager
             item.Representative = Representative;
             item.Address = Address;
             db.Update(item);
-            return "Update item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
@@ -273,12 +273,12 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string DelDepartmentUsedById(string id)
+        public int DelDepartmentUsedById(string id)
         {
             cunghoc3_AssetManager.Services.DepartmentUsedService db = new Services.DepartmentUsedService();
             DepartmentUsed item = db.GetById(id);
             db.Delete(item);
-            return "Delete item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
@@ -312,14 +312,14 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string UpdateUnit(string id, string Name, string Note)
+        public int UpdateUnit(string id, string Name, string Note)
         {
             cunghoc3_AssetManager.Services.UnitService db = new Services.UnitService();
             Unit item = db.GetById(id);
             item.Name = Name;
             item.Note = Note;
             db.Update(item);
-            return "Update item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
@@ -337,20 +337,16 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string DelUnitById(string id)
+        public int DelUnitById(string id)
         {
             cunghoc3_AssetManager.Services.UnitService db = new Services.UnitService();
             Unit item = db.GetById(id);
             db.Delete(item);
-            return "Delete item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
-<<<<<<< HEAD
-        public int NewAsset(string assetNumber, string name, string assetGroupId, string unitId, int amount, string counPro, int yearPro, string departmentUsedId, long totalPrice, long bugetPrice, long ownPrice, long venturePrice, long anotherPrice, long totalDepreciation, long bugetDepreciation, long ownDepreciation, long ventureDepreciation, long anotherDepreciation, long bugeRemain, long ownRemain, long ventureRemain, long anotherRemain, long totalRemain, string upDownCode)
-=======
-        public int NewAsset(string assetNumber,string name, string assetGroupId, string unitId, int amount, string counPro, int yearPro, string departmentUsedId, long totalPrice, long bugetPrice, long ownPrice, long venturePrice, long anotherPrice, long totalDepreciation, long bugetDepreciation, long ownDepreciation, long ventureDepreciation, long anotherDepreciation, long bugeRemain, long ownRemain, long ventureRemain, long anotherRemain, long totalRemain, string upDownCode)
->>>>>>> 7916baf4e085fd206f1f7920a5dce0a7fc03a890
+        public int NewAsset(string assetNumber,string name, string assetGroupId, string unitId, int amount, string counPro, int yearPro, string departmentUsedId, long totalPrice, long bugetPrice, long ownPrice, long venturePrice, long anotherPrice, long totalDepreciation, long bugetDepreciation, long ownDepreciation, long ventureDepreciation, long anotherDepreciation, long bugeRemain, long ownRemain, long ventureRemain, long anotherRemain, long totalRemain, string upDownCode, string manufacturer, string brand, string model, short status, short condition, DateTime dueDate, string note, string seriesNumber)
         {
             var inputDateTime = DateTime.Today;
             try
@@ -358,7 +354,6 @@ namespace cunghoc3_AssetManager
                 var db = new Services.AssetService();
                 if (GetAssetById(assetNumber) != null)
                 {
-<<<<<<< HEAD
                     return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
                 }
                 using (var item = new Asset
@@ -387,41 +382,17 @@ namespace cunghoc3_AssetManager
                     AnotherRemain = anotherRemain,
                     TotalReamain = totalRemain,
                     UpDownCode = upDownCode,
-                    InputDateTime = inputDateTime
+                    InputDateTime = inputDateTime,
+                    Manufacturer = manufacturer,
+                    Brand = brand,
+                    Model = model,
+                    Status = status,
+                    Condition = condition,
+                    DueDate = dueDate,
+                    Note = note,
+                    SeriesNumber = seriesNumber
                 })
-=======
-                    return (int) CommonEnums.RetCode.DATA_ALREADY_EXIST;
-                }
-                using (var item = new Asset
-                    {
-                        Id = assetNumber,
-                        Name = name,
-                        AssetGroupId = assetGroupId,
-                        UnitId = unitId,
-                        Amount = amount,
-                        CounPro = counPro,
-                        YearPro = yearPro,
-                        DepartmentUsedId = departmentUsedId,
-                        TotalPrice = totalPrice,
-                        BudgetPrice = bugetPrice,
-                        OwnPrice = ownPrice,
-                        VenturePrice = venturePrice,
-                        AnotherPrice = anotherPrice,
-                        TotalDepreciation = totalDepreciation,
-                        BudgetDepreciation = bugetDepreciation,
-                        OwnDepreciation = ownDepreciation,
-                        VentureDepreciation = ventureDepreciation,
-                        AnotherDepreciation = anotherDepreciation,
-                        BudgetRemain = bugeRemain,
-                        OwnRemain = ownRemain,
-                        VentureRemain = ventureRemain,
-                        AnotherRemain = anotherRemain,
-                        TotalReamain = totalRemain,
-                        UpDownCode = upDownCode,
-                        InputDateTime = inputDateTime
-                    })
->>>>>>> 7916baf4e085fd206f1f7920a5dce0a7fc03a890
-                {
+                {    
                     if (db.Insert(item))
                     {
                         return (int)CommonEnums.RetCode.SUCCESS;
@@ -437,7 +408,7 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string UpdateAsset(string id, string Name, string AssetGroupId, string UnitId, string Amount, string CounPro, string YearPro, string DepartmentUsedId, string TotalPrice, string BugetPrice, string OwnPrice, string VenturePrice, string AnotherPrice, string TotalDepreciation, string BugetDepreciation, string OwnDepreciation, string VentureDepreciation, string AnotherDepreciation, string BugeRemain, string OwnRemain, string VentureRemain, string AnotherRemain, string TotalRemain, string UpDownCode, string InputDateTime)
+        public int UpdateAsset(string id, string Name, string AssetGroupId, string UnitId, string Amount, string CounPro, string YearPro, string DepartmentUsedId, string TotalPrice, string BugetPrice, string OwnPrice, string VenturePrice, string AnotherPrice, string TotalDepreciation, string BugetDepreciation, string OwnDepreciation, string VentureDepreciation, string AnotherDepreciation, string BugeRemain, string OwnRemain, string VentureRemain, string AnotherRemain, string TotalRemain, string UpDownCode, string InputDateTime)
         {
             cunghoc3_AssetManager.Services.AssetService db = new Services.AssetService();
             Asset item = db.GetById(id);
@@ -464,7 +435,7 @@ namespace cunghoc3_AssetManager
             item.AnotherRemain = Convert.ToInt64(AnotherRemain);
             item.TotalReamain = Convert.ToInt64(TotalRemain);
             db.Update(item);
-            return "Update item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
@@ -525,12 +496,12 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string DelAssetById(string id)
+        public int DelAssetById(string id)
         {
             cunghoc3_AssetManager.Services.AssetService db = new Services.AssetService();
             Asset item = db.GetById(id);
             db.Delete(item);
-            return "Delete item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
@@ -566,7 +537,7 @@ namespace cunghoc3_AssetManager
         }
         
        [WebMethod]
-        public string UpdatePartner(string id, string Name, string Phone, string TaxCode, string Address)
+        public int UpdatePartner(string id, string Name, string Phone, string TaxCode, string Address)
         {
             cunghoc3_AssetManager.Services.PartnerService db = new Services.PartnerService();
             Partner item = db.GetById(id);
@@ -575,7 +546,7 @@ namespace cunghoc3_AssetManager
             item.Address = Address;
             item.TaxCode = TaxCode;
             db.Update(item);
-            return "Update item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
@@ -593,12 +564,12 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string DelPartnerById(string id)
+        public int DelPartnerById(string id)
         {
             cunghoc3_AssetManager.Services.PartnerService db = new Services.PartnerService();
             Partner item = db.GetById(id);
             db.Delete(item);
-            return "Delete item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
@@ -632,14 +603,14 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string UpdateUpDownReason(string id, string Name, string Type)
+        public int UpdateUpDownReason(string id, string Name, string Type)
         {
             cunghoc3_AssetManager.Services.UpDownReasonService db = new Services.UpDownReasonService();
             UpDownReason item = db.GetById(id);
             item.Name = Name;
             item.Type = Type;
             db.Update(item);
-            return "Update item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
@@ -657,12 +628,12 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string DelUpDownReasonById(string id)
+        public int DelUpDownReasonById(string id)
         {
             cunghoc3_AssetManager.Services.UpDownReasonService db = new Services.UpDownReasonService();
             UpDownReason item = db.GetById(id);
             db.Delete(item);
-            return "Delete item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
@@ -698,7 +669,7 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string UpdateAssetLiquidation(string id, string AssetId, string DepartmentUsedId, string LiDateTime, string LiPrice)
+        public int UpdateAssetLiquidation(string id, string AssetId, string DepartmentUsedId, string LiDateTime, string LiPrice)
         {
             cunghoc3_AssetManager.Services.AssetLiquidationService db = new Services.AssetLiquidationService();
             AssetLiquidation item = db.GetById(id);
@@ -707,7 +678,7 @@ namespace cunghoc3_AssetManager
             item.LiDateTime = DateTime.Parse(LiDateTime);
             item.LiPrice = Convert.ToInt64(LiPrice);
             db.Update(item);
-            return "Update item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
@@ -725,12 +696,12 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string DelAssetLiquidationById(string id)
+        public int DelAssetLiquidationById(string id)
         {
             cunghoc3_AssetManager.Services.AssetLiquidationService db = new Services.AssetLiquidationService();
             AssetLiquidation item = db.GetById(id);
             db.Delete(item);
-            return "Delete item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
@@ -769,7 +740,7 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string UpdateRepairAsset(string id, string AssetId, string DepartmentUsedId, string PartnerId, string Address, string RepairDate, string Fee)
+        public int UpdateRepairAsset(string id, string AssetId, string DepartmentUsedId, string PartnerId, string Address, string RepairDate, string Fee)
         {
             cunghoc3_AssetManager.Services.RepairAssetService db = new Services.RepairAssetService();
             RepairAsset item = db.GetById(id);
@@ -780,7 +751,7 @@ namespace cunghoc3_AssetManager
             item.RepairDate = DateTime.Parse(RepairDate);
             item.Fee = Convert.ToInt64(Fee);
             db.Update(item);
-            return "Update item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
@@ -798,12 +769,12 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string DelRepairAssetById(string id)
+        public int DelRepairAssetById(string id)
         {
             cunghoc3_AssetManager.Services.RepairAssetService db = new Services.RepairAssetService();
             RepairAsset item = db.GetById(id);
             db.Delete(item);
-            return "Delete item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
@@ -819,7 +790,7 @@ namespace cunghoc3_AssetManager
                 using (var item = new WarrantyAsset
                 {
                     Id = Id,
-                    AssetId = AssetId,
+                    AsssetId = AssetId,
                     DepartmentUsedId = DepartmentUsedId,
                     PartnerId = PartnerId,
                     WarDateTime = DateTime.Parse(WarDateTime),
@@ -842,7 +813,7 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string UpdateWarrantyAsset(string id, string AssetId, string DepartmentUsedId, string PartnerId, string WarDateTime, string DeadlineWar, string Address, string PersonWar)
+        public int UpdateWarrantyAsset(string id, string AssetId, string DepartmentUsedId, string PartnerId, string WarDateTime, string DeadlineWar, string Address, string PersonWar)
         {
             cunghoc3_AssetManager.Services.WarrantyAssetService db = new Services.WarrantyAssetService();
             WarrantyAsset item = db.GetById(id);
@@ -853,7 +824,8 @@ namespace cunghoc3_AssetManager
             item.DeadlineWar = DateTime.Parse(DeadlineWar);
             item.Address = Address;
             item.PersonWar = PersonWar;
-            return "Update item successful";
+            db.Update(item);
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
         [WebMethod]
@@ -871,12 +843,203 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public string DelWarrantyAssetById(string id)
+        public int DelWarrantyAssetById(string id)
         {
             cunghoc3_AssetManager.Services.WarrantyAssetService db = new Services.WarrantyAssetService();
             WarrantyAsset item = db.GetById(id);
             db.Delete(item);
-            return "Delete item successful";
+            return (int)CommonEnums.RetCode.SUCCESS;
+        }
+
+        [WebMethod]
+        public int NewImage(long Id, string AssetId, string ImageURL)
+        {
+            try
+            {
+                var db = new Services.ImageService();
+                if (GetImageById(Id) != null)
+                {
+                    return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
+                }
+                using (var item = new Image
+                {
+                    Id = Id,
+                    AssetId = AssetId,
+                    ImageUrl = ImageURL
+
+                })
+                {
+                    if (db.Insert(item))
+                    {
+                        return (int)CommonEnums.RetCode.SUCCESS;
+                    }
+                }
+                return (int)CommonEnums.RetCode.OTHER;
+            }
+            catch (Exception ex)
+            {
+                return (int)CommonEnums.RetCode.SYSTEM_ERROR;
+            }
+        }
+
+        [WebMethod]
+        public int UpdateImage(long id, string AssetId, string ImageURL)
+        {
+            cunghoc3_AssetManager.Services.ImageService db = new Services.ImageService();
+            Image item = db.GetById(id);
+            item.AssetId = AssetId;
+            item.ImageUrl = ImageURL;
+            db.Update(item);
+            return (int)CommonEnums.RetCode.SUCCESS;
+        }
+
+        [WebMethod]
+        public Image GetImageById(long id)
+        {
+            cunghoc3_AssetManager.Services.ImageService db = new Services.ImageService();
+            return db.GetById(id);
+        }
+
+        [WebMethod]
+        public int DelImageById(long id)
+        {
+            cunghoc3_AssetManager.Services.ImageService db = new Services.ImageService();
+            Image item = db.GetById(id);
+            db.Delete(item);
+            return (int)CommonEnums.RetCode.SUCCESS;
+        }
+
+        [WebMethod]
+        public int NewAudit(long Id, string AssetId, DateTime AuditDate, string Comment, string User, string Computer)
+        {
+            try
+            {
+                var db = new Services.AuditService();
+                if (GetAuditById(Id) != null)
+                {
+                    return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
+                }
+                using (var item = new Audit
+                {
+                    Id = Id,
+                    AssetId = AssetId,
+                    AuditDate = AuditDate,
+                    Comment = Comment,
+                    User = User,
+                    Computer = Computer
+                })
+                {
+                    if (db.Insert(item))
+                    {
+                        return (int)CommonEnums.RetCode.SUCCESS;
+                    }
+                }
+                return (int)CommonEnums.RetCode.OTHER;
+            }
+            catch (Exception ex)
+            {
+                return (int)CommonEnums.RetCode.SYSTEM_ERROR;
+            }
+        }
+
+        [WebMethod]
+        public int UpdateAudit(long Id, string AssetId, DateTime AuditDate, string Comment, string User, string Computer)
+        {
+            cunghoc3_AssetManager.Services.AuditService db = new Services.AuditService();
+            Audit item = db.GetById(Id);
+            item.AssetId = AssetId;
+            item.AuditDate = AuditDate;
+            item.Comment = Comment;
+            item.User = User;
+            item.Computer = Computer;
+            db.Update(item);
+            return (int)CommonEnums.RetCode.SUCCESS;
+        }
+
+        [WebMethod]
+        public Audit GetAuditById(long id)
+        {
+            cunghoc3_AssetManager.Services.AuditService db = new Services.AuditService();
+            return db.GetById(id);
+        }
+
+        [WebMethod]
+        public int DelAuditById(long id)
+        {
+            cunghoc3_AssetManager.Services.AuditService db = new Services.AuditService();
+            Audit item = db.GetById(id);
+            db.Delete(item);
+            return (int)CommonEnums.RetCode.SUCCESS;
+        }
+
+        [WebMethod]
+        public int NewCheckOut(long Id, string AssetId, DateTime CheckOutDate, string Comment, string User, string Computer, short Status)
+        {
+            try
+            {
+                var db = new Services.CheckOutService();
+                if (GetCheckOutById(Id) != null)
+                {
+                    return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
+                }
+                using (var item = new CheckOut
+                {
+                    Id = Id,
+                    AssetId = AssetId,
+                    CheckOutDate = CheckOutDate,
+                    Comment = Comment,
+                    User = User,
+                    Computer = Computer
+                })
+                {
+                    if (db.Insert(item))
+                    {
+                        return (int)CommonEnums.RetCode.SUCCESS;
+                    }
+                }
+                return (int)CommonEnums.RetCode.OTHER;
+            }
+            catch (Exception ex)
+            {
+                return (int)CommonEnums.RetCode.SYSTEM_ERROR;
+            }
+        }
+
+        [WebMethod]
+        public int UpdateCheckOut(long Id, string AssetId, DateTime CheckOutDate, string Comment, string User, string Computer)
+        {
+            cunghoc3_AssetManager.Services.CheckOutService db = new Services.CheckOutService();
+            CheckOut item = db.GetById(Id);
+            item.AssetId = AssetId;
+            item.CheckOutDate = CheckOutDate;
+            item.Comment = Comment;
+            item.User = User;
+            item.Computer = Computer;
+            db.Update(item);
+            return (int)CommonEnums.RetCode.SUCCESS;
+        }
+
+        [WebMethod]
+        public List<CheckOut> GetAllCheckOut()
+        {
+            cunghoc3_AssetManager.Services.CheckOutService db = new Services.CheckOutService();
+            return db.GetAll().ToList();
+        }
+
+        [WebMethod]
+        public CheckOut GetCheckOutById(long id)
+        {
+            cunghoc3_AssetManager.Services.CheckOutService db = new Services.CheckOutService();
+            return db.GetById(id);
+        }
+
+        [WebMethod]
+        public int DelCheckOutById(long id)
+        {
+            cunghoc3_AssetManager.Services.CheckOutService db = new Services.CheckOutService();
+            CheckOut item = db.GetById(id);
+            db.Delete(item);
+            return (int)CommonEnums.RetCode.SUCCESS;
         }
 
     }

@@ -556,6 +556,78 @@ namespace cunghoc3_AssetManager.Web.UI
 		{
 			get { return _entity.InputDateTime; }
 		}
+        /// <summary>
+        /// Gets the Manufacturer
+        /// </summary>
+        /// <value>The Manufacturer.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String Manufacturer
+		{
+			get { return _entity.Manufacturer; }
+		}
+        /// <summary>
+        /// Gets the Brand
+        /// </summary>
+        /// <value>The Brand.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String Brand
+		{
+			get { return _entity.Brand; }
+		}
+        /// <summary>
+        /// Gets the Model
+        /// </summary>
+        /// <value>The Model.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String Model
+		{
+			get { return _entity.Model; }
+		}
+        /// <summary>
+        /// Gets the Status
+        /// </summary>
+        /// <value>The Status.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.Int16? Status
+		{
+			get { return _entity.Status; }
+		}
+        /// <summary>
+        /// Gets the DueDate
+        /// </summary>
+        /// <value>The DueDate.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.DateTime? DueDate
+		{
+			get { return _entity.DueDate; }
+		}
+        /// <summary>
+        /// Gets the Note
+        /// </summary>
+        /// <value>The Note.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String Note
+		{
+			get { return _entity.Note; }
+		}
+        /// <summary>
+        /// Gets the SeriesNumber
+        /// </summary>
+        /// <value>The SeriesNumber.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String SeriesNumber
+		{
+			get { return _entity.SeriesNumber; }
+		}
+        /// <summary>
+        /// Gets the Condition
+        /// </summary>
+        /// <value>The Condition.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.Int16? Condition
+		{
+			get { return _entity.Condition; }
+		}
 
         /// <summary>
         /// Gets a <see cref="T:cunghoc3_AssetManager.Entities.Asset"></see> object

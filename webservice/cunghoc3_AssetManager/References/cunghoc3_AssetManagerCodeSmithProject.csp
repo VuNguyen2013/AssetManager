@@ -91,12 +91,24 @@
         <name>AssetLiquidation</name>
       </table>
       <table>
+        <owner>cunghoc3_AssetManager</owner>
+        <name>Audit</name>
+      </table>
+      <table>
         <owner>dbo</owner>
         <name>Capital</name>
       </table>
       <table>
+        <owner>cunghoc3_AssetManager</owner>
+        <name>CheckOut</name>
+      </table>
+      <table>
         <owner>dbo</owner>
         <name>DepartmentUsed</name>
+      </table>
+      <table>
+        <owner>cunghoc3_AssetManager</owner>
+        <name>Image</name>
       </table>
       <table>
         <owner>dbo</owner>

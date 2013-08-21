@@ -191,45 +191,6 @@ namespace cunghoc3_AssetManager.Data.SqlClient
 		}
 
 		
-		#region "DepartmentUsedProvider"
-			
-		private SqlDepartmentUsedProvider innerSqlDepartmentUsedProvider;
-
-		///<summary>
-		/// This class is the Data Access Logic Component for the <see cref="DepartmentUsed"/> business entity.
-		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-		///</summary>
-		/// <value></value>
-		public override DepartmentUsedProviderBase DepartmentUsedProvider
-		{
-			get
-			{
-				if (innerSqlDepartmentUsedProvider == null) 
-				{
-					lock (syncRoot) 
-					{
-						if (innerSqlDepartmentUsedProvider == null)
-						{
-							this.innerSqlDepartmentUsedProvider = new SqlDepartmentUsedProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
-						}
-					}
-				}
-				return innerSqlDepartmentUsedProvider;
-			}
-		}
-		
-		/// <summary>
-		/// Gets the current <see cref="SqlDepartmentUsedProvider"/>.
-		/// </summary>
-		/// <value></value>
-		public SqlDepartmentUsedProvider SqlDepartmentUsedProvider
-		{
-			get {return DepartmentUsedProvider as SqlDepartmentUsedProvider;}
-		}
-		
-		#endregion
-		
-		
 		#region "UnitProvider"
 			
 		private SqlUnitProvider innerSqlUnitProvider;
@@ -269,6 +230,162 @@ namespace cunghoc3_AssetManager.Data.SqlClient
 		#endregion
 		
 		
+		#region "DepartmentUsedProvider"
+			
+		private SqlDepartmentUsedProvider innerSqlDepartmentUsedProvider;
+
+		///<summary>
+		/// This class is the Data Access Logic Component for the <see cref="DepartmentUsed"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		/// <value></value>
+		public override DepartmentUsedProviderBase DepartmentUsedProvider
+		{
+			get
+			{
+				if (innerSqlDepartmentUsedProvider == null) 
+				{
+					lock (syncRoot) 
+					{
+						if (innerSqlDepartmentUsedProvider == null)
+						{
+							this.innerSqlDepartmentUsedProvider = new SqlDepartmentUsedProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
+						}
+					}
+				}
+				return innerSqlDepartmentUsedProvider;
+			}
+		}
+		
+		/// <summary>
+		/// Gets the current <see cref="SqlDepartmentUsedProvider"/>.
+		/// </summary>
+		/// <value></value>
+		public SqlDepartmentUsedProvider SqlDepartmentUsedProvider
+		{
+			get {return DepartmentUsedProvider as SqlDepartmentUsedProvider;}
+		}
+		
+		#endregion
+		
+		
+		#region "PartnerProvider"
+			
+		private SqlPartnerProvider innerSqlPartnerProvider;
+
+		///<summary>
+		/// This class is the Data Access Logic Component for the <see cref="Partner"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		/// <value></value>
+		public override PartnerProviderBase PartnerProvider
+		{
+			get
+			{
+				if (innerSqlPartnerProvider == null) 
+				{
+					lock (syncRoot) 
+					{
+						if (innerSqlPartnerProvider == null)
+						{
+							this.innerSqlPartnerProvider = new SqlPartnerProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
+						}
+					}
+				}
+				return innerSqlPartnerProvider;
+			}
+		}
+		
+		/// <summary>
+		/// Gets the current <see cref="SqlPartnerProvider"/>.
+		/// </summary>
+		/// <value></value>
+		public SqlPartnerProvider SqlPartnerProvider
+		{
+			get {return PartnerProvider as SqlPartnerProvider;}
+		}
+		
+		#endregion
+		
+		
+		#region "ImageProvider"
+			
+		private SqlImageProvider innerSqlImageProvider;
+
+		///<summary>
+		/// This class is the Data Access Logic Component for the <see cref="Image"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		/// <value></value>
+		public override ImageProviderBase ImageProvider
+		{
+			get
+			{
+				if (innerSqlImageProvider == null) 
+				{
+					lock (syncRoot) 
+					{
+						if (innerSqlImageProvider == null)
+						{
+							this.innerSqlImageProvider = new SqlImageProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
+						}
+					}
+				}
+				return innerSqlImageProvider;
+			}
+		}
+		
+		/// <summary>
+		/// Gets the current <see cref="SqlImageProvider"/>.
+		/// </summary>
+		/// <value></value>
+		public SqlImageProvider SqlImageProvider
+		{
+			get {return ImageProvider as SqlImageProvider;}
+		}
+		
+		#endregion
+		
+		
+		#region "AssetProvider"
+			
+		private SqlAssetProvider innerSqlAssetProvider;
+
+		///<summary>
+		/// This class is the Data Access Logic Component for the <see cref="Asset"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		/// <value></value>
+		public override AssetProviderBase AssetProvider
+		{
+			get
+			{
+				if (innerSqlAssetProvider == null) 
+				{
+					lock (syncRoot) 
+					{
+						if (innerSqlAssetProvider == null)
+						{
+							this.innerSqlAssetProvider = new SqlAssetProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
+						}
+					}
+				}
+				return innerSqlAssetProvider;
+			}
+		}
+		
+		/// <summary>
+		/// Gets the current <see cref="SqlAssetProvider"/>.
+		/// </summary>
+		/// <value></value>
+		public SqlAssetProvider SqlAssetProvider
+		{
+			get {return AssetProvider as SqlAssetProvider;}
+		}
+		
+		#endregion
+		
+		
 		#region "UpDownReasonProvider"
 			
 		private SqlUpDownReasonProvider innerSqlUpDownReasonProvider;
@@ -303,6 +420,84 @@ namespace cunghoc3_AssetManager.Data.SqlClient
 		public SqlUpDownReasonProvider SqlUpDownReasonProvider
 		{
 			get {return UpDownReasonProvider as SqlUpDownReasonProvider;}
+		}
+		
+		#endregion
+		
+		
+		#region "RepairAssetProvider"
+			
+		private SqlRepairAssetProvider innerSqlRepairAssetProvider;
+
+		///<summary>
+		/// This class is the Data Access Logic Component for the <see cref="RepairAsset"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		/// <value></value>
+		public override RepairAssetProviderBase RepairAssetProvider
+		{
+			get
+			{
+				if (innerSqlRepairAssetProvider == null) 
+				{
+					lock (syncRoot) 
+					{
+						if (innerSqlRepairAssetProvider == null)
+						{
+							this.innerSqlRepairAssetProvider = new SqlRepairAssetProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
+						}
+					}
+				}
+				return innerSqlRepairAssetProvider;
+			}
+		}
+		
+		/// <summary>
+		/// Gets the current <see cref="SqlRepairAssetProvider"/>.
+		/// </summary>
+		/// <value></value>
+		public SqlRepairAssetProvider SqlRepairAssetProvider
+		{
+			get {return RepairAssetProvider as SqlRepairAssetProvider;}
+		}
+		
+		#endregion
+		
+		
+		#region "CheckOutProvider"
+			
+		private SqlCheckOutProvider innerSqlCheckOutProvider;
+
+		///<summary>
+		/// This class is the Data Access Logic Component for the <see cref="CheckOut"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		/// <value></value>
+		public override CheckOutProviderBase CheckOutProvider
+		{
+			get
+			{
+				if (innerSqlCheckOutProvider == null) 
+				{
+					lock (syncRoot) 
+					{
+						if (innerSqlCheckOutProvider == null)
+						{
+							this.innerSqlCheckOutProvider = new SqlCheckOutProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
+						}
+					}
+				}
+				return innerSqlCheckOutProvider;
+			}
+		}
+		
+		/// <summary>
+		/// Gets the current <see cref="SqlCheckOutProvider"/>.
+		/// </summary>
+		/// <value></value>
+		public SqlCheckOutProvider SqlCheckOutProvider
+		{
+			get {return CheckOutProvider as SqlCheckOutProvider;}
 		}
 		
 		#endregion
@@ -386,84 +581,6 @@ namespace cunghoc3_AssetManager.Data.SqlClient
 		#endregion
 		
 		
-		#region "PartnerProvider"
-			
-		private SqlPartnerProvider innerSqlPartnerProvider;
-
-		///<summary>
-		/// This class is the Data Access Logic Component for the <see cref="Partner"/> business entity.
-		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-		///</summary>
-		/// <value></value>
-		public override PartnerProviderBase PartnerProvider
-		{
-			get
-			{
-				if (innerSqlPartnerProvider == null) 
-				{
-					lock (syncRoot) 
-					{
-						if (innerSqlPartnerProvider == null)
-						{
-							this.innerSqlPartnerProvider = new SqlPartnerProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
-						}
-					}
-				}
-				return innerSqlPartnerProvider;
-			}
-		}
-		
-		/// <summary>
-		/// Gets the current <see cref="SqlPartnerProvider"/>.
-		/// </summary>
-		/// <value></value>
-		public SqlPartnerProvider SqlPartnerProvider
-		{
-			get {return PartnerProvider as SqlPartnerProvider;}
-		}
-		
-		#endregion
-		
-		
-		#region "AssetProvider"
-			
-		private SqlAssetProvider innerSqlAssetProvider;
-
-		///<summary>
-		/// This class is the Data Access Logic Component for the <see cref="Asset"/> business entity.
-		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-		///</summary>
-		/// <value></value>
-		public override AssetProviderBase AssetProvider
-		{
-			get
-			{
-				if (innerSqlAssetProvider == null) 
-				{
-					lock (syncRoot) 
-					{
-						if (innerSqlAssetProvider == null)
-						{
-							this.innerSqlAssetProvider = new SqlAssetProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
-						}
-					}
-				}
-				return innerSqlAssetProvider;
-			}
-		}
-		
-		/// <summary>
-		/// Gets the current <see cref="SqlAssetProvider"/>.
-		/// </summary>
-		/// <value></value>
-		public SqlAssetProvider SqlAssetProvider
-		{
-			get {return AssetProvider as SqlAssetProvider;}
-		}
-		
-		#endregion
-		
-		
 		#region "AssetLiquidationProvider"
 			
 		private SqlAssetLiquidationProvider innerSqlAssetLiquidationProvider;
@@ -498,6 +615,45 @@ namespace cunghoc3_AssetManager.Data.SqlClient
 		public SqlAssetLiquidationProvider SqlAssetLiquidationProvider
 		{
 			get {return AssetLiquidationProvider as SqlAssetLiquidationProvider;}
+		}
+		
+		#endregion
+		
+		
+		#region "AuditProvider"
+			
+		private SqlAuditProvider innerSqlAuditProvider;
+
+		///<summary>
+		/// This class is the Data Access Logic Component for the <see cref="Audit"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		/// <value></value>
+		public override AuditProviderBase AuditProvider
+		{
+			get
+			{
+				if (innerSqlAuditProvider == null) 
+				{
+					lock (syncRoot) 
+					{
+						if (innerSqlAuditProvider == null)
+						{
+							this.innerSqlAuditProvider = new SqlAuditProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
+						}
+					}
+				}
+				return innerSqlAuditProvider;
+			}
+		}
+		
+		/// <summary>
+		/// Gets the current <see cref="SqlAuditProvider"/>.
+		/// </summary>
+		/// <value></value>
+		public SqlAuditProvider SqlAuditProvider
+		{
+			get {return AuditProvider as SqlAuditProvider;}
 		}
 		
 		#endregion
@@ -576,45 +732,6 @@ namespace cunghoc3_AssetManager.Data.SqlClient
 		public SqlWarrantyAssetProvider SqlWarrantyAssetProvider
 		{
 			get {return WarrantyAssetProvider as SqlWarrantyAssetProvider;}
-		}
-		
-		#endregion
-		
-		
-		#region "RepairAssetProvider"
-			
-		private SqlRepairAssetProvider innerSqlRepairAssetProvider;
-
-		///<summary>
-		/// This class is the Data Access Logic Component for the <see cref="RepairAsset"/> business entity.
-		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-		///</summary>
-		/// <value></value>
-		public override RepairAssetProviderBase RepairAssetProvider
-		{
-			get
-			{
-				if (innerSqlRepairAssetProvider == null) 
-				{
-					lock (syncRoot) 
-					{
-						if (innerSqlRepairAssetProvider == null)
-						{
-							this.innerSqlRepairAssetProvider = new SqlRepairAssetProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
-						}
-					}
-				}
-				return innerSqlRepairAssetProvider;
-			}
-		}
-		
-		/// <summary>
-		/// Gets the current <see cref="SqlRepairAssetProvider"/>.
-		/// </summary>
-		/// <value></value>
-		public SqlRepairAssetProvider SqlRepairAssetProvider
-		{
-			get {return RepairAssetProvider as SqlRepairAssetProvider;}
 		}
 		
 		#endregion

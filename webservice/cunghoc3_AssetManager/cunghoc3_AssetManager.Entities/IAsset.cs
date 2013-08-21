@@ -143,6 +143,46 @@ namespace cunghoc3_AssetManager.Entities
 		/// InputDateTime : 
 		/// </summary>
 		System.DateTime  InputDateTime  { get; set; }
+		
+		/// <summary>
+		/// Manufacturer : 
+		/// </summary>
+		System.String  Manufacturer  { get; set; }
+		
+		/// <summary>
+		/// Brand : 
+		/// </summary>
+		System.String  Brand  { get; set; }
+		
+		/// <summary>
+		/// Model : 
+		/// </summary>
+		System.String  Model  { get; set; }
+		
+		/// <summary>
+		/// Status : 
+		/// </summary>
+		System.Int16?  Status  { get; set; }
+		
+		/// <summary>
+		/// DueDate : 
+		/// </summary>
+		System.DateTime?  DueDate  { get; set; }
+		
+		/// <summary>
+		/// Note : 
+		/// </summary>
+		System.String  Note  { get; set; }
+		
+		/// <summary>
+		/// SeriesNumber : 
+		/// </summary>
+		System.String  SeriesNumber  { get; set; }
+		
+		/// <summary>
+		/// Condition : 
+		/// </summary>
+		System.Int16?  Condition  { get; set; }
 			
 		/// <summary>
 		/// Creates a new object that is a copy of the current instance.

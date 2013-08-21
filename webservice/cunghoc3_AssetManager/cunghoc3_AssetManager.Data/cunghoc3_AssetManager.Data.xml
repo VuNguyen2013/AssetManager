@@ -1823,6 +1823,24 @@
             Gets or sets the Value property.
             </summary>
         </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.ImageProviderBaseCore">
+            <summary>
+             This class is the base class for any <see cref="T:cunghoc3_AssetManager.Data.Bases.ImageProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.EntityProviderBase`2">
+            <summary>
+            Serves as the base class for objects that provide data access functionality.
+            Provides a default implementation of the IEntityProvider&lt;Entity, EntityKey&gt; interface.
+            </summary>
+            <typeparam name="Entity">The class of the business object being accessed.</typeparam>
+            <typeparam name="EntityKey">The class of the EntityId
+            property of the specified business object class.</typeparam>
+            <remarks>
+            This file is generated once and will never be overwritten.
+            </remarks>
+        </member>
         <member name="T:cunghoc3_AssetManager.Data.Bases.EntityProviderBaseCore`2">
             <summary>
             Serves as the base class for objects that provide data access functionality.
@@ -2668,6 +2686,217 @@
                 event receivers must implement 
             </summary>
         </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageProviderBaseCore.Delete(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.ImageKey)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="transactionManager">A <see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object.</param>
+            <param name="key">The unique identifier of the row to delete.</param>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageProviderBaseCore.Delete(System.Int64)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="_id">. Primary Key.</param>
+            <remarks>Deletes based on primary key(s).</remarks>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageProviderBaseCore.Delete(cunghoc3_AssetManager.Data.TransactionManager,System.Int64)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="_id">. Primary Key.</param>
+            <remarks>Deletes based on primary key(s).</remarks>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageProviderBaseCore.Get(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.ImageKey,System.Int32,System.Int32)">
+            <summary>
+            	Gets a row from the DataSource based on its primary key.
+            </summary>
+            <param name="transactionManager">A <see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object.</param>
+            <param name="key">The unique identifier of the row to retrieve.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <returns>Returns an instance of the Entity class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageProviderBaseCore.GetById(System.Int64)">
+            <summary>
+            	Gets rows from the datasource based on the primary key PK__Image__3214EC075070F446 index.
+            </summary>
+            <param name="_id"></param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageProviderBaseCore.GetById(System.Int64,System.Int32,System.Int32)">
+            <summary>
+            	Gets rows from the datasource based on the PK__Image__3214EC075070F446 index.
+            </summary>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <remarks></remarks>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageProviderBaseCore.GetById(cunghoc3_AssetManager.Data.TransactionManager,System.Int64)">
+            <summary>
+            	Gets rows from the datasource based on the PK__Image__3214EC075070F446 index.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="_id"></param>
+            <remarks></remarks>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageProviderBaseCore.GetById(cunghoc3_AssetManager.Data.TransactionManager,System.Int64,System.Int32,System.Int32)">
+            <summary>
+            	Gets rows from the datasource based on the PK__Image__3214EC075070F446 index.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <remarks></remarks>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageProviderBaseCore.GetById(System.Int64,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets rows from the datasource based on the PK__Image__3214EC075070F446 index.
+            </summary>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out parameter to get total records for query</param>
+            <remarks></remarks>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageProviderBaseCore.GetById(cunghoc3_AssetManager.Data.TransactionManager,System.Int64,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets rows from the datasource based on the PK__Image__3214EC075070F446 index.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">The total number of records.</param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageProviderBaseCore.Fill(System.Data.IDataReader,cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Image},System.Int32,System.Int32)">
+            <summary>
+            Fill a TList&lt;Image&gt; From a DataReader.
+            </summary>
+            <param name="reader">Datareader</param>
+            <param name="rows">The collection to fill</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">number of rows.</param>
+            <returns>a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/></returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageProviderBaseCore.RefreshEntity(System.Data.IDataReader,cunghoc3_AssetManager.Entities.Image)">
+            <summary>
+            Refreshes the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> object from the <see cref="T:System.Data.IDataReader"/>.
+            </summary>
+            <param name="reader">The <see cref="T:System.Data.IDataReader"/> to read from.</param>
+            <param name="entity">The <see cref="T:cunghoc3_AssetManager.Entities.Image"/> object to refresh.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageProviderBaseCore.RefreshEntity(System.Data.DataSet,cunghoc3_AssetManager.Entities.Image)">
+            <summary>
+            Refreshes the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> object from the <see cref="T:System.Data.DataSet"/>.
+            </summary>
+            <param name="dataSet">The <see cref="T:System.Data.DataSet"/> to read from.</param>
+            <param name="entity">The <see cref="T:cunghoc3_AssetManager.Entities.Image"/> object.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageProviderBaseCore.DeepLoad(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.Image,System.Boolean,cunghoc3_AssetManager.Data.DeepLoadType,System.Type[],cunghoc3_AssetManager.Data.Bases.DeepSession)">
+            <summary>
+            Deep Loads the <see cref="T:cunghoc3_AssetManager.Entities.IEntity"/> object with criteria based of the child 
+            property collections only N Levels Deep based on the <see cref="T:cunghoc3_AssetManager.Data.DeepLoadType"/>.
+            </summary>
+            <remarks>
+            Use this method with caution as it is possible to DeepLoad with Recursion and traverse an entire object graph.
+            </remarks>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="entity">The <see cref="T:cunghoc3_AssetManager.Entities.Image"/> object to load.</param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively save all Property Collection that are descendants of this instance. If True, saves the complete object graph below this object. If False, saves this object only. </param>
+            <param name="deepLoadType">DeepLoadType Enumeration to Include/Exclude object property collections from Load.</param>
+            <param name="childTypes">cunghoc3_AssetManager.Entities.Image Property Collection Type Array To Include or Exclude from Load</param>
+            <param name="innerList">A collection of child types for easy access.</param>
+            <exception cref="T:System.ArgumentNullException">entity or childTypes is null.</exception>
+            <exception cref="T:System.ArgumentException">deepLoadType has invalid value.</exception>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageProviderBaseCore.DeepSave(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.Image,cunghoc3_AssetManager.Data.DeepSaveType,System.Type[],cunghoc3_AssetManager.Data.Bases.DeepSession)">
+            <summary>
+            Deep Save the entire object graph of the cunghoc3_AssetManager.Entities.Image object with criteria based of the child 
+            Type property array and DeepSaveType.
+            </summary>
+            <param name="transactionManager">The transaction manager.</param>
+            <param name="entity">cunghoc3_AssetManager.Entities.Image instance</param>
+            <param name="deepSaveType">DeepSaveType Enumeration to Include/Exclude object property collections from Save.</param>
+            <param name="childTypes">cunghoc3_AssetManager.Entities.Image Property Collection Type Array To Include or Exclude from Save</param>
+            <param name="innerList">A Hashtable of child types for easy access.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.ImageChildEntityTypes">
+            <summary>
+             Enumeration used to expose the different child entity types 
+             for child properties in <c>cunghoc3_AssetManager.Entities.Image</c>
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.ImageFilterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Image"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageFilterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the ImageFilterBuilder class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageFilterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the ImageFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageFilterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the ImageFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.ImageParameterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.ParameterizedSqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Image"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageParameterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the ImageParameterBuilder class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageParameterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the ImageParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageParameterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the ImageParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.ImageSortBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlSortBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Image"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.ImageSortBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the ImageSqlSortBuilder class.
+            </summary>
+        </member>
         <member name="T:cunghoc3_AssetManager.Data.Bases.DeepSessionEventArgs">
             <summary>
             Event Args used to transfer crucial information just before 
@@ -2989,18 +3218,6 @@
              This class is the base class for any <see cref="T:cunghoc3_AssetManager.Data.Bases.AssetGroupTypeProviderBase"/> implementation.
              It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
             </summary>
-        </member>
-        <member name="T:cunghoc3_AssetManager.Data.Bases.EntityProviderBase`2">
-            <summary>
-            Serves as the base class for objects that provide data access functionality.
-            Provides a default implementation of the IEntityProvider&lt;Entity, EntityKey&gt; interface.
-            </summary>
-            <typeparam name="Entity">The class of the business object being accessed.</typeparam>
-            <typeparam name="EntityKey">The class of the EntityId
-            property of the specified business object class.</typeparam>
-            <remarks>
-            This file is generated once and will never be overwritten.
-            </remarks>
         </member>
         <member name="M:cunghoc3_AssetManager.Data.Bases.AssetGroupTypeProviderBaseCore.Delete(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.AssetGroupTypeKey)">
             <summary>
@@ -3696,6 +3913,381 @@
             unsaved changes.
             </summary>
         </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBaseCore">
+            <summary>
+             This class is the base class for any <see cref="T:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBaseCore.Delete(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.CheckOutKey)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="transactionManager">A <see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object.</param>
+            <param name="key">The unique identifier of the row to delete.</param>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBaseCore.Delete(System.Int64)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="_id">. Primary Key.</param>
+            <remarks>Deletes based on primary key(s).</remarks>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBaseCore.Delete(cunghoc3_AssetManager.Data.TransactionManager,System.Int64)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="_id">. Primary Key.</param>
+            <remarks>Deletes based on primary key(s).</remarks>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBaseCore.Get(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.CheckOutKey,System.Int32,System.Int32)">
+            <summary>
+            	Gets a row from the DataSource based on its primary key.
+            </summary>
+            <param name="transactionManager">A <see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object.</param>
+            <param name="key">The unique identifier of the row to retrieve.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <returns>Returns an instance of the Entity class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBaseCore.GetById(System.Int64)">
+            <summary>
+            	Gets rows from the datasource based on the primary key PK__CheckOut__3214EC075812160E index.
+            </summary>
+            <param name="_id"></param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBaseCore.GetById(System.Int64,System.Int32,System.Int32)">
+            <summary>
+            	Gets rows from the datasource based on the PK__CheckOut__3214EC075812160E index.
+            </summary>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <remarks></remarks>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBaseCore.GetById(cunghoc3_AssetManager.Data.TransactionManager,System.Int64)">
+            <summary>
+            	Gets rows from the datasource based on the PK__CheckOut__3214EC075812160E index.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="_id"></param>
+            <remarks></remarks>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBaseCore.GetById(cunghoc3_AssetManager.Data.TransactionManager,System.Int64,System.Int32,System.Int32)">
+            <summary>
+            	Gets rows from the datasource based on the PK__CheckOut__3214EC075812160E index.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <remarks></remarks>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBaseCore.GetById(System.Int64,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets rows from the datasource based on the PK__CheckOut__3214EC075812160E index.
+            </summary>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out parameter to get total records for query</param>
+            <remarks></remarks>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBaseCore.GetById(cunghoc3_AssetManager.Data.TransactionManager,System.Int64,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets rows from the datasource based on the PK__CheckOut__3214EC075812160E index.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">The total number of records.</param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBaseCore.Fill(System.Data.IDataReader,cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.CheckOut},System.Int32,System.Int32)">
+            <summary>
+            Fill a TList&lt;CheckOut&gt; From a DataReader.
+            </summary>
+            <param name="reader">Datareader</param>
+            <param name="rows">The collection to fill</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">number of rows.</param>
+            <returns>a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/></returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBaseCore.RefreshEntity(System.Data.IDataReader,cunghoc3_AssetManager.Entities.CheckOut)">
+            <summary>
+            Refreshes the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> object from the <see cref="T:System.Data.IDataReader"/>.
+            </summary>
+            <param name="reader">The <see cref="T:System.Data.IDataReader"/> to read from.</param>
+            <param name="entity">The <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> object to refresh.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBaseCore.RefreshEntity(System.Data.DataSet,cunghoc3_AssetManager.Entities.CheckOut)">
+            <summary>
+            Refreshes the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> object from the <see cref="T:System.Data.DataSet"/>.
+            </summary>
+            <param name="dataSet">The <see cref="T:System.Data.DataSet"/> to read from.</param>
+            <param name="entity">The <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> object.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBaseCore.DeepLoad(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.CheckOut,System.Boolean,cunghoc3_AssetManager.Data.DeepLoadType,System.Type[],cunghoc3_AssetManager.Data.Bases.DeepSession)">
+            <summary>
+            Deep Loads the <see cref="T:cunghoc3_AssetManager.Entities.IEntity"/> object with criteria based of the child 
+            property collections only N Levels Deep based on the <see cref="T:cunghoc3_AssetManager.Data.DeepLoadType"/>.
+            </summary>
+            <remarks>
+            Use this method with caution as it is possible to DeepLoad with Recursion and traverse an entire object graph.
+            </remarks>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="entity">The <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> object to load.</param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively save all Property Collection that are descendants of this instance. If True, saves the complete object graph below this object. If False, saves this object only. </param>
+            <param name="deepLoadType">DeepLoadType Enumeration to Include/Exclude object property collections from Load.</param>
+            <param name="childTypes">cunghoc3_AssetManager.Entities.CheckOut Property Collection Type Array To Include or Exclude from Load</param>
+            <param name="innerList">A collection of child types for easy access.</param>
+            <exception cref="T:System.ArgumentNullException">entity or childTypes is null.</exception>
+            <exception cref="T:System.ArgumentException">deepLoadType has invalid value.</exception>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBaseCore.DeepSave(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.CheckOut,cunghoc3_AssetManager.Data.DeepSaveType,System.Type[],cunghoc3_AssetManager.Data.Bases.DeepSession)">
+            <summary>
+            Deep Save the entire object graph of the cunghoc3_AssetManager.Entities.CheckOut object with criteria based of the child 
+            Type property array and DeepSaveType.
+            </summary>
+            <param name="transactionManager">The transaction manager.</param>
+            <param name="entity">cunghoc3_AssetManager.Entities.CheckOut instance</param>
+            <param name="deepSaveType">DeepSaveType Enumeration to Include/Exclude object property collections from Save.</param>
+            <param name="childTypes">cunghoc3_AssetManager.Entities.CheckOut Property Collection Type Array To Include or Exclude from Save</param>
+            <param name="innerList">A Hashtable of child types for easy access.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.CheckOutChildEntityTypes">
+            <summary>
+             Enumeration used to expose the different child entity types 
+             for child properties in <c>cunghoc3_AssetManager.Entities.CheckOut</c>
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.CheckOutFilterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutFilterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the CheckOutFilterBuilder class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutFilterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the CheckOutFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutFilterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the CheckOutFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.CheckOutParameterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.ParameterizedSqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutParameterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the CheckOutParameterBuilder class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutParameterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the CheckOutParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutParameterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the CheckOutParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.CheckOutSortBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlSortBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.CheckOutSortBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the CheckOutSqlSortBuilder class.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.AuditProviderBase">
+            <summary>
+             This class is the base class for any <see cref="T:cunghoc3_AssetManager.Data.Bases.AuditProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.AuditProviderBaseCore">
+            <summary>
+             This class is the base class for any <see cref="T:cunghoc3_AssetManager.Data.Bases.AuditProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditProviderBaseCore.Delete(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.AuditKey)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="transactionManager">A <see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object.</param>
+            <param name="key">The unique identifier of the row to delete.</param>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditProviderBaseCore.Delete(System.Int64)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="_id">. Primary Key.</param>
+            <remarks>Deletes based on primary key(s).</remarks>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditProviderBaseCore.Delete(cunghoc3_AssetManager.Data.TransactionManager,System.Int64)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="_id">. Primary Key.</param>
+            <remarks>Deletes based on primary key(s).</remarks>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditProviderBaseCore.Get(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.AuditKey,System.Int32,System.Int32)">
+            <summary>
+            	Gets a row from the DataSource based on its primary key.
+            </summary>
+            <param name="transactionManager">A <see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object.</param>
+            <param name="key">The unique identifier of the row to retrieve.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <returns>Returns an instance of the Entity class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditProviderBaseCore.GetById(System.Int64)">
+            <summary>
+            	Gets rows from the datasource based on the primary key PK__Audit__3214EC075441852A index.
+            </summary>
+            <param name="_id"></param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditProviderBaseCore.GetById(System.Int64,System.Int32,System.Int32)">
+            <summary>
+            	Gets rows from the datasource based on the PK__Audit__3214EC075441852A index.
+            </summary>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <remarks></remarks>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditProviderBaseCore.GetById(cunghoc3_AssetManager.Data.TransactionManager,System.Int64)">
+            <summary>
+            	Gets rows from the datasource based on the PK__Audit__3214EC075441852A index.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="_id"></param>
+            <remarks></remarks>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditProviderBaseCore.GetById(cunghoc3_AssetManager.Data.TransactionManager,System.Int64,System.Int32,System.Int32)">
+            <summary>
+            	Gets rows from the datasource based on the PK__Audit__3214EC075441852A index.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <remarks></remarks>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditProviderBaseCore.GetById(System.Int64,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets rows from the datasource based on the PK__Audit__3214EC075441852A index.
+            </summary>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out parameter to get total records for query</param>
+            <remarks></remarks>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditProviderBaseCore.GetById(cunghoc3_AssetManager.Data.TransactionManager,System.Int64,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets rows from the datasource based on the PK__Audit__3214EC075441852A index.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">The total number of records.</param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditProviderBaseCore.Fill(System.Data.IDataReader,cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Audit},System.Int32,System.Int32)">
+            <summary>
+            Fill a TList&lt;Audit&gt; From a DataReader.
+            </summary>
+            <param name="reader">Datareader</param>
+            <param name="rows">The collection to fill</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">number of rows.</param>
+            <returns>a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/></returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditProviderBaseCore.RefreshEntity(System.Data.IDataReader,cunghoc3_AssetManager.Entities.Audit)">
+            <summary>
+            Refreshes the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> object from the <see cref="T:System.Data.IDataReader"/>.
+            </summary>
+            <param name="reader">The <see cref="T:System.Data.IDataReader"/> to read from.</param>
+            <param name="entity">The <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> object to refresh.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditProviderBaseCore.RefreshEntity(System.Data.DataSet,cunghoc3_AssetManager.Entities.Audit)">
+            <summary>
+            Refreshes the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> object from the <see cref="T:System.Data.DataSet"/>.
+            </summary>
+            <param name="dataSet">The <see cref="T:System.Data.DataSet"/> to read from.</param>
+            <param name="entity">The <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> object.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditProviderBaseCore.DeepLoad(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.Audit,System.Boolean,cunghoc3_AssetManager.Data.DeepLoadType,System.Type[],cunghoc3_AssetManager.Data.Bases.DeepSession)">
+            <summary>
+            Deep Loads the <see cref="T:cunghoc3_AssetManager.Entities.IEntity"/> object with criteria based of the child 
+            property collections only N Levels Deep based on the <see cref="T:cunghoc3_AssetManager.Data.DeepLoadType"/>.
+            </summary>
+            <remarks>
+            Use this method with caution as it is possible to DeepLoad with Recursion and traverse an entire object graph.
+            </remarks>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="entity">The <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> object to load.</param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively save all Property Collection that are descendants of this instance. If True, saves the complete object graph below this object. If False, saves this object only. </param>
+            <param name="deepLoadType">DeepLoadType Enumeration to Include/Exclude object property collections from Load.</param>
+            <param name="childTypes">cunghoc3_AssetManager.Entities.Audit Property Collection Type Array To Include or Exclude from Load</param>
+            <param name="innerList">A collection of child types for easy access.</param>
+            <exception cref="T:System.ArgumentNullException">entity or childTypes is null.</exception>
+            <exception cref="T:System.ArgumentException">deepLoadType has invalid value.</exception>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditProviderBaseCore.DeepSave(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.Audit,cunghoc3_AssetManager.Data.DeepSaveType,System.Type[],cunghoc3_AssetManager.Data.Bases.DeepSession)">
+            <summary>
+            Deep Save the entire object graph of the cunghoc3_AssetManager.Entities.Audit object with criteria based of the child 
+            Type property array and DeepSaveType.
+            </summary>
+            <param name="transactionManager">The transaction manager.</param>
+            <param name="entity">cunghoc3_AssetManager.Entities.Audit instance</param>
+            <param name="deepSaveType">DeepSaveType Enumeration to Include/Exclude object property collections from Save.</param>
+            <param name="childTypes">cunghoc3_AssetManager.Entities.Audit Property Collection Type Array To Include or Exclude from Save</param>
+            <param name="innerList">A Hashtable of child types for easy access.</param>
+        </member>
         <member name="T:cunghoc3_AssetManager.Data.DeepLoadType">
             <summary>
             DeepLoad options for deep loading entities
@@ -3982,6 +4574,71 @@
             Gets or sets the ComparisonType property.
             </summary>
         </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.AuditChildEntityTypes">
+            <summary>
+             Enumeration used to expose the different child entity types 
+             for child properties in <c>cunghoc3_AssetManager.Entities.Audit</c>
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.AuditFilterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditFilterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the AuditFilterBuilder class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditFilterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the AuditFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditFilterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the AuditFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.AuditParameterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.ParameterizedSqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditParameterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the AuditParameterBuilder class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditParameterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the AuditParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditParameterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the AuditParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.AuditSortBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlSortBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.AuditSortBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the AuditSqlSortBuilder class.
+            </summary>
+        </member>
         <member name="T:cunghoc3_AssetManager.Data.TransactionManager">
             <summary>
             TransactionManager is utility class that decorates a <see cref="T:System.Data.IDbTransaction"/> instance.
@@ -4069,6 +4726,12 @@
             Gets a value that indicates if a transaction is currently open and operating. 
             </summary>
             <value>Return true if a transaction session is currently open and operating; otherwise false.</value>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBase">
+            <summary>
+             This class is the base class for any <see cref="T:cunghoc3_AssetManager.Data.Bases.CheckOutProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
         </member>
         <member name="T:cunghoc3_AssetManager.Data.Bases.AssetProviderBase">
             <summary>
@@ -4445,19 +5108,44 @@
              The base class to implements to create a .NetTiers provider.
             </summary>
         </member>
-        <member name="P:cunghoc3_AssetManager.Data.Bases.NetTiersProvider.DepartmentUsedProvider">
-            <summary>
-             Current DepartmentUsedProviderBase instance.
-            </summary>
-        </member>
         <member name="P:cunghoc3_AssetManager.Data.Bases.NetTiersProvider.UnitProvider">
             <summary>
              Current UnitProviderBase instance.
             </summary>
         </member>
+        <member name="P:cunghoc3_AssetManager.Data.Bases.NetTiersProvider.DepartmentUsedProvider">
+            <summary>
+             Current DepartmentUsedProviderBase instance.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.Bases.NetTiersProvider.PartnerProvider">
+            <summary>
+             Current PartnerProviderBase instance.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.Bases.NetTiersProvider.ImageProvider">
+            <summary>
+             Current ImageProviderBase instance.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.Bases.NetTiersProvider.AssetProvider">
+            <summary>
+             Current AssetProviderBase instance.
+            </summary>
+        </member>
         <member name="P:cunghoc3_AssetManager.Data.Bases.NetTiersProvider.UpDownReasonProvider">
             <summary>
              Current UpDownReasonProviderBase instance.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.Bases.NetTiersProvider.RepairAssetProvider">
+            <summary>
+             Current RepairAssetProviderBase instance.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.Bases.NetTiersProvider.CheckOutProvider">
+            <summary>
+             Current CheckOutProviderBase instance.
             </summary>
         </member>
         <member name="P:cunghoc3_AssetManager.Data.Bases.NetTiersProvider.AssetGroupTypeProvider">
@@ -4470,19 +5158,14 @@
              Current AssetGroupProviderBase instance.
             </summary>
         </member>
-        <member name="P:cunghoc3_AssetManager.Data.Bases.NetTiersProvider.PartnerProvider">
-            <summary>
-             Current PartnerProviderBase instance.
-            </summary>
-        </member>
-        <member name="P:cunghoc3_AssetManager.Data.Bases.NetTiersProvider.AssetProvider">
-            <summary>
-             Current AssetProviderBase instance.
-            </summary>
-        </member>
         <member name="P:cunghoc3_AssetManager.Data.Bases.NetTiersProvider.AssetLiquidationProvider">
             <summary>
              Current AssetLiquidationProviderBase instance.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.Bases.NetTiersProvider.AuditProvider">
+            <summary>
+             Current AuditProviderBase instance.
             </summary>
         </member>
         <member name="P:cunghoc3_AssetManager.Data.Bases.NetTiersProvider.CapitalProvider">
@@ -4493,11 +5176,6 @@
         <member name="P:cunghoc3_AssetManager.Data.Bases.NetTiersProvider.WarrantyAssetProvider">
             <summary>
              Current WarrantyAssetProviderBase instance.
-            </summary>
-        </member>
-        <member name="P:cunghoc3_AssetManager.Data.Bases.NetTiersProvider.RepairAssetProvider">
-            <summary>
-             Current RepairAssetProviderBase instance.
             </summary>
         </member>
         <member name="T:cunghoc3_AssetManager.Data.Bases.AssetGroupProviderBase">
@@ -5316,6 +5994,12 @@
         <member name="M:cunghoc3_AssetManager.Data.Bases.UnitSortBuilder.#ctor">
             <summary>
             Initializes a new instance of the UnitSqlSortBuilder class.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.ImageProviderBase">
+            <summary>
+             This class is the base class for any <see cref="T:cunghoc3_AssetManager.Data.Bases.ImageProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
             </summary>
         </member>
         <member name="T:cunghoc3_AssetManager.Data.Bases.CapitalProviderBaseCore">
@@ -7529,21 +8213,51 @@
             Gets the dictionary of connection providers.
             </summary>
         </member>
-        <member name="P:cunghoc3_AssetManager.Data.DataRepository.DepartmentUsedProvider">
-            <summary>
-             Gets the current instance of the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.DepartmentUsed"/> business entity.
-             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-            </summary>
-        </member>
         <member name="P:cunghoc3_AssetManager.Data.DataRepository.UnitProvider">
             <summary>
              Gets the current instance of the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.Unit"/> business entity.
              It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
             </summary>
         </member>
+        <member name="P:cunghoc3_AssetManager.Data.DataRepository.DepartmentUsedProvider">
+            <summary>
+             Gets the current instance of the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.DepartmentUsed"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.DataRepository.PartnerProvider">
+            <summary>
+             Gets the current instance of the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.Partner"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.DataRepository.ImageProvider">
+            <summary>
+             Gets the current instance of the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.DataRepository.AssetProvider">
+            <summary>
+             Gets the current instance of the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.Asset"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
         <member name="P:cunghoc3_AssetManager.Data.DataRepository.UpDownReasonProvider">
             <summary>
              Gets the current instance of the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.UpDownReason"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.DataRepository.RepairAssetProvider">
+            <summary>
+             Gets the current instance of the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.RepairAsset"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.DataRepository.CheckOutProvider">
+            <summary>
+             Gets the current instance of the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> business entity.
              It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
             </summary>
         </member>
@@ -7559,21 +8273,15 @@
              It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
             </summary>
         </member>
-        <member name="P:cunghoc3_AssetManager.Data.DataRepository.PartnerProvider">
-            <summary>
-             Gets the current instance of the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.Partner"/> business entity.
-             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-            </summary>
-        </member>
-        <member name="P:cunghoc3_AssetManager.Data.DataRepository.AssetProvider">
-            <summary>
-             Gets the current instance of the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.Asset"/> business entity.
-             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-            </summary>
-        </member>
         <member name="P:cunghoc3_AssetManager.Data.DataRepository.AssetLiquidationProvider">
             <summary>
              Gets the current instance of the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.AssetLiquidation"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.DataRepository.AuditProvider">
+            <summary>
+             Gets the current instance of the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> business entity.
              It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
             </summary>
         </member>
@@ -7586,12 +8294,6 @@
         <member name="P:cunghoc3_AssetManager.Data.DataRepository.WarrantyAssetProvider">
             <summary>
              Gets the current instance of the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.WarrantyAsset"/> business entity.
-             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-            </summary>
-        </member>
-        <member name="P:cunghoc3_AssetManager.Data.DataRepository.RepairAssetProvider">
-            <summary>
-             Gets the current instance of the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.RepairAsset"/> business entity.
              It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
             </summary>
         </member>
@@ -7621,6 +8323,54 @@
             <summary>
             Gets the provider collection.
             </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.UnitFilters">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Unit"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.UnitFilters.#ctor">
+            <summary>
+            Initializes a new instance of the UnitFilters class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.UnitFilters.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the UnitFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.UnitFilters.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the UnitFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.UnitQuery">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.Bases.UnitParameterBuilder"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Unit"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.UnitQuery.#ctor">
+            <summary>
+            Initializes a new instance of the UnitQuery class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.UnitQuery.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the UnitQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.UnitQuery.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the UnitQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
         </member>
         <member name="T:cunghoc3_AssetManager.Data.DepartmentUsedFilters">
             <summary>
@@ -7718,50 +8468,194 @@
             <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
             <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
         </member>
-        <member name="T:cunghoc3_AssetManager.Data.UnitFilters">
+        <member name="T:cunghoc3_AssetManager.Data.PartnerFilters">
             <summary>
             A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlFilterBuilder`1"/> class
-            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Unit"/> object.
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Partner"/> object.
             </summary>
         </member>
-        <member name="M:cunghoc3_AssetManager.Data.UnitFilters.#ctor">
+        <member name="T:cunghoc3_AssetManager.Data.Bases.PartnerFilterBuilder">
             <summary>
-            Initializes a new instance of the UnitFilters class.
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Partner"/> object.
             </summary>
         </member>
-        <member name="M:cunghoc3_AssetManager.Data.UnitFilters.#ctor(System.Boolean)">
+        <member name="M:cunghoc3_AssetManager.Data.Bases.PartnerFilterBuilder.#ctor">
             <summary>
-            Initializes a new instance of the UnitFilters class.
+            Initializes a new instance of the PartnerFilterBuilder class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.PartnerFilterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the PartnerFilterBuilder class.
             </summary>
             <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
         </member>
-        <member name="M:cunghoc3_AssetManager.Data.UnitFilters.#ctor(System.Boolean,System.Boolean)">
+        <member name="M:cunghoc3_AssetManager.Data.Bases.PartnerFilterBuilder.#ctor(System.Boolean,System.Boolean)">
             <summary>
-            Initializes a new instance of the UnitFilters class.
+            Initializes a new instance of the PartnerFilterBuilder class.
             </summary>
             <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
             <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
         </member>
-        <member name="T:cunghoc3_AssetManager.Data.UnitQuery">
+        <member name="M:cunghoc3_AssetManager.Data.PartnerFilters.#ctor">
             <summary>
-            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.Bases.UnitParameterBuilder"/> class
-            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Unit"/> object.
+            Initializes a new instance of the PartnerFilters class.
             </summary>
         </member>
-        <member name="M:cunghoc3_AssetManager.Data.UnitQuery.#ctor">
+        <member name="M:cunghoc3_AssetManager.Data.PartnerFilters.#ctor(System.Boolean)">
             <summary>
-            Initializes a new instance of the UnitQuery class.
-            </summary>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.UnitQuery.#ctor(System.Boolean)">
-            <summary>
-            Initializes a new instance of the UnitQuery class.
+            Initializes a new instance of the PartnerFilters class.
             </summary>
             <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
         </member>
-        <member name="M:cunghoc3_AssetManager.Data.UnitQuery.#ctor(System.Boolean,System.Boolean)">
+        <member name="M:cunghoc3_AssetManager.Data.PartnerFilters.#ctor(System.Boolean,System.Boolean)">
             <summary>
-            Initializes a new instance of the UnitQuery class.
+            Initializes a new instance of the PartnerFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.PartnerQuery">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.Bases.PartnerParameterBuilder"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Partner"/> object.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.Bases.PartnerParameterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.ParameterizedSqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Partner"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.PartnerParameterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the PartnerParameterBuilder class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.PartnerParameterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the PartnerParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.Bases.PartnerParameterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the PartnerParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.PartnerQuery.#ctor">
+            <summary>
+            Initializes a new instance of the PartnerQuery class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.PartnerQuery.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the PartnerQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.PartnerQuery.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the PartnerQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.ImageFilters">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Image"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.ImageFilters.#ctor">
+            <summary>
+            Initializes a new instance of the ImageFilters class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.ImageFilters.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the ImageFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.ImageFilters.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the ImageFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.ImageQuery">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.Bases.ImageParameterBuilder"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Image"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.ImageQuery.#ctor">
+            <summary>
+            Initializes a new instance of the ImageQuery class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.ImageQuery.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the ImageQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.ImageQuery.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the ImageQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.AssetFilters">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Asset"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.AssetFilters.#ctor">
+            <summary>
+            Initializes a new instance of the AssetFilters class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.AssetFilters.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the AssetFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.AssetFilters.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the AssetFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.AssetQuery">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.Bases.AssetParameterBuilder"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Asset"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.AssetQuery.#ctor">
+            <summary>
+            Initializes a new instance of the AssetQuery class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.AssetQuery.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the AssetQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.AssetQuery.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the AssetQuery class.
             </summary>
             <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
             <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
@@ -7858,6 +8752,102 @@
         <member name="M:cunghoc3_AssetManager.Data.UpDownReasonQuery.#ctor(System.Boolean,System.Boolean)">
             <summary>
             Initializes a new instance of the UpDownReasonQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.RepairAssetFilters">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.RepairAsset"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.RepairAssetFilters.#ctor">
+            <summary>
+            Initializes a new instance of the RepairAssetFilters class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.RepairAssetFilters.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the RepairAssetFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.RepairAssetFilters.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the RepairAssetFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.RepairAssetQuery">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.Bases.RepairAssetParameterBuilder"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.RepairAsset"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.RepairAssetQuery.#ctor">
+            <summary>
+            Initializes a new instance of the RepairAssetQuery class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.RepairAssetQuery.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the RepairAssetQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.RepairAssetQuery.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the RepairAssetQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.CheckOutFilters">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.CheckOutFilters.#ctor">
+            <summary>
+            Initializes a new instance of the CheckOutFilters class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.CheckOutFilters.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the CheckOutFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.CheckOutFilters.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the CheckOutFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.CheckOutQuery">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.Bases.CheckOutParameterBuilder"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.CheckOutQuery.#ctor">
+            <summary>
+            Initializes a new instance of the CheckOutQuery class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.CheckOutQuery.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the CheckOutQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.CheckOutQuery.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the CheckOutQuery class.
             </summary>
             <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
             <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
@@ -8006,150 +8996,6 @@
             <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
             <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
         </member>
-        <member name="T:cunghoc3_AssetManager.Data.PartnerFilters">
-            <summary>
-            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlFilterBuilder`1"/> class
-            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Partner"/> object.
-            </summary>
-        </member>
-        <member name="T:cunghoc3_AssetManager.Data.Bases.PartnerFilterBuilder">
-            <summary>
-            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlFilterBuilder`1"/> class
-            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Partner"/> object.
-            </summary>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.Bases.PartnerFilterBuilder.#ctor">
-            <summary>
-            Initializes a new instance of the PartnerFilterBuilder class.
-            </summary>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.Bases.PartnerFilterBuilder.#ctor(System.Boolean)">
-            <summary>
-            Initializes a new instance of the PartnerFilterBuilder class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.Bases.PartnerFilterBuilder.#ctor(System.Boolean,System.Boolean)">
-            <summary>
-            Initializes a new instance of the PartnerFilterBuilder class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.PartnerFilters.#ctor">
-            <summary>
-            Initializes a new instance of the PartnerFilters class.
-            </summary>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.PartnerFilters.#ctor(System.Boolean)">
-            <summary>
-            Initializes a new instance of the PartnerFilters class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.PartnerFilters.#ctor(System.Boolean,System.Boolean)">
-            <summary>
-            Initializes a new instance of the PartnerFilters class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-        </member>
-        <member name="T:cunghoc3_AssetManager.Data.PartnerQuery">
-            <summary>
-            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.Bases.PartnerParameterBuilder"/> class
-            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Partner"/> object.
-            </summary>
-        </member>
-        <member name="T:cunghoc3_AssetManager.Data.Bases.PartnerParameterBuilder">
-            <summary>
-            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.ParameterizedSqlFilterBuilder`1"/> class
-            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Partner"/> object.
-            </summary>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.Bases.PartnerParameterBuilder.#ctor">
-            <summary>
-            Initializes a new instance of the PartnerParameterBuilder class.
-            </summary>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.Bases.PartnerParameterBuilder.#ctor(System.Boolean)">
-            <summary>
-            Initializes a new instance of the PartnerParameterBuilder class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.Bases.PartnerParameterBuilder.#ctor(System.Boolean,System.Boolean)">
-            <summary>
-            Initializes a new instance of the PartnerParameterBuilder class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.PartnerQuery.#ctor">
-            <summary>
-            Initializes a new instance of the PartnerQuery class.
-            </summary>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.PartnerQuery.#ctor(System.Boolean)">
-            <summary>
-            Initializes a new instance of the PartnerQuery class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.PartnerQuery.#ctor(System.Boolean,System.Boolean)">
-            <summary>
-            Initializes a new instance of the PartnerQuery class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-        </member>
-        <member name="T:cunghoc3_AssetManager.Data.AssetFilters">
-            <summary>
-            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlFilterBuilder`1"/> class
-            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Asset"/> object.
-            </summary>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.AssetFilters.#ctor">
-            <summary>
-            Initializes a new instance of the AssetFilters class.
-            </summary>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.AssetFilters.#ctor(System.Boolean)">
-            <summary>
-            Initializes a new instance of the AssetFilters class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.AssetFilters.#ctor(System.Boolean,System.Boolean)">
-            <summary>
-            Initializes a new instance of the AssetFilters class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-        </member>
-        <member name="T:cunghoc3_AssetManager.Data.AssetQuery">
-            <summary>
-            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.Bases.AssetParameterBuilder"/> class
-            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Asset"/> object.
-            </summary>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.AssetQuery.#ctor">
-            <summary>
-            Initializes a new instance of the AssetQuery class.
-            </summary>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.AssetQuery.#ctor(System.Boolean)">
-            <summary>
-            Initializes a new instance of the AssetQuery class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.AssetQuery.#ctor(System.Boolean,System.Boolean)">
-            <summary>
-            Initializes a new instance of the AssetQuery class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-        </member>
         <member name="T:cunghoc3_AssetManager.Data.AssetLiquidationFilters">
             <summary>
             A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlFilterBuilder`1"/> class
@@ -8194,6 +9040,54 @@
         <member name="M:cunghoc3_AssetManager.Data.AssetLiquidationQuery.#ctor(System.Boolean,System.Boolean)">
             <summary>
             Initializes a new instance of the AssetLiquidationQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.AuditFilters">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.AuditFilters.#ctor">
+            <summary>
+            Initializes a new instance of the AuditFilters class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.AuditFilters.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the AuditFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.AuditFilters.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the AuditFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.AuditQuery">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.Bases.AuditParameterBuilder"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> object.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.AuditQuery.#ctor">
+            <summary>
+            Initializes a new instance of the AuditQuery class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.AuditQuery.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the AuditQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.AuditQuery.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the AuditQuery class.
             </summary>
             <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
             <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
@@ -8290,54 +9184,6 @@
         <member name="M:cunghoc3_AssetManager.Data.WarrantyAssetQuery.#ctor(System.Boolean,System.Boolean)">
             <summary>
             Initializes a new instance of the WarrantyAssetQuery class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-        </member>
-        <member name="T:cunghoc3_AssetManager.Data.RepairAssetFilters">
-            <summary>
-            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.SqlFilterBuilder`1"/> class
-            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.RepairAsset"/> object.
-            </summary>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.RepairAssetFilters.#ctor">
-            <summary>
-            Initializes a new instance of the RepairAssetFilters class.
-            </summary>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.RepairAssetFilters.#ctor(System.Boolean)">
-            <summary>
-            Initializes a new instance of the RepairAssetFilters class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.RepairAssetFilters.#ctor(System.Boolean,System.Boolean)">
-            <summary>
-            Initializes a new instance of the RepairAssetFilters class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-        </member>
-        <member name="T:cunghoc3_AssetManager.Data.RepairAssetQuery">
-            <summary>
-            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.Bases.RepairAssetParameterBuilder"/> class
-            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.RepairAsset"/> object.
-            </summary>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.RepairAssetQuery.#ctor">
-            <summary>
-            Initializes a new instance of the RepairAssetQuery class.
-            </summary>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.RepairAssetQuery.#ctor(System.Boolean)">
-            <summary>
-            Initializes a new instance of the RepairAssetQuery class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-        </member>
-        <member name="M:cunghoc3_AssetManager.Data.RepairAssetQuery.#ctor(System.Boolean,System.Boolean)">
-            <summary>
-            Initializes a new instance of the RepairAssetQuery class.
             </summary>
             <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
             <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>

@@ -72,6 +72,14 @@
 				<asp:BoundField DataField="TotalReamain" HeaderText="Total Reamain" SortExpression="[TotalReamain]" />				
 				<asp:BoundField DataField="UpDownCode" HeaderText="Up Down Code" SortExpression="[UpDownCode]" />				
 				<asp:BoundField DataField="InputDateTime" HeaderText="Input Date Time" SortExpression="[InputDateTime]" />				
+				<asp:BoundField DataField="Manufacturer" HeaderText="Manufacturer" SortExpression="[Manufacturer]" />				
+				<asp:BoundField DataField="Brand" HeaderText="Brand" SortExpression="[Brand]" />				
+				<asp:BoundField DataField="Model" HeaderText="Model" SortExpression="[Model]" />				
+				<asp:BoundField DataField="Status" HeaderText="Status" SortExpression="[Status]" />				
+				<asp:BoundField DataField="DueDate" HeaderText="Due Date" SortExpression="[DueDate]" />				
+				<asp:BoundField DataField="Note" HeaderText="Note" SortExpression="[Note]" />				
+				<asp:BoundField DataField="SeriesNumber" HeaderText="Series Number" SortExpression="[SeriesNumber]" />				
+				<asp:BoundField DataField="Condition" HeaderText="Condition" SortExpression="[Condition]" />				
 			</Columns>
 			<EmptyDataTemplate>
 				<b>No Asset Found! </b>

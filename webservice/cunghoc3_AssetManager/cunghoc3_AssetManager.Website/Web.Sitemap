@@ -7,8 +7,11 @@
 	<siteMapNode url="~/Admin/AssetGroup.aspx" title="Asset Group"  description="" />
 	<siteMapNode url="~/Admin/AssetGroupType.aspx" title="Asset Group Type"  description="" />
 	<siteMapNode url="~/Admin/AssetLiquidation.aspx" title="Asset Liquidation"  description="" />
+	<siteMapNode url="~/Admin/Audit.aspx" title="Audit"  description="" />
 	<siteMapNode url="~/Admin/Capital.aspx" title="Capital"  description="" />
+	<siteMapNode url="~/Admin/CheckOut.aspx" title="Check Out"  description="" />
 	<siteMapNode url="~/Admin/DepartmentUsed.aspx" title="Department Used"  description="" />
+	<siteMapNode url="~/Admin/Image.aspx" title="Image"  description="" />
 	<siteMapNode url="~/Admin/Partner.aspx" title="Partner"  description="" />
 	<siteMapNode url="~/Admin/RepairAsset.aspx" title="Repair Asset"  description="" />
 	<siteMapNode url="~/Admin/Unit.aspx" title="Unit"  description="" />

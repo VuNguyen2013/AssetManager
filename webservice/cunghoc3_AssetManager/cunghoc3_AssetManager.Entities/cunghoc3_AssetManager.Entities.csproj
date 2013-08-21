@@ -193,6 +193,19 @@
 			</Compile>
 		
 		
+			<Compile Include="Audit.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="AuditBase.generated.cs">
+			  <DependentUpon>Audit.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="IAudit.cs">
+			  <DependentUpon>Audit.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+		
+		
 			<Compile Include="Capital.cs">
 			  <SubType>Code</SubType>
 			</Compile>
@@ -206,6 +219,19 @@
 			</Compile>
 		
 		
+			<Compile Include="CheckOut.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="CheckOutBase.generated.cs">
+			  <DependentUpon>CheckOut.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="ICheckOut.cs">
+			  <DependentUpon>CheckOut.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+		
+		
 			<Compile Include="DepartmentUsed.cs">
 			  <SubType>Code</SubType>
 			</Compile>
@@ -215,6 +241,19 @@
 			</Compile>
 			<Compile Include="IDepartmentUsed.cs">
 			  <DependentUpon>DepartmentUsed.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+		
+		
+			<Compile Include="Image.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="ImageBase.generated.cs">
+			  <DependentUpon>Image.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="IImage.cs">
+			  <DependentUpon>Image.cs</DependentUpon>
 			  <SubType>Code</SubType>
 			</Compile>
 		

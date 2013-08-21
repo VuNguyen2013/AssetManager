@@ -145,7 +145,7 @@ namespace cunghoc3_AssetManager.Entities
 
 		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
 		[DataObjectField(true, false, false, 10)]
-		public override System.String Id
+		public virtual System.String Id
 		{
 			get
 			{

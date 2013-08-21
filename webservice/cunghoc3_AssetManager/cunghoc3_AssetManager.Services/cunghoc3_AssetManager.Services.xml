@@ -264,7 +264,7 @@
              Creates a new <see cref="T:cunghoc3_AssetManager.Entities.Asset"/> instance .
             </summary>
         </member>
-        <member name="M:cunghoc3_AssetManager.Services.AssetServiceBase.CreateAsset(System.String,System.String,System.String,System.String,System.Int32,System.String,System.Int32,System.String,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.DateTime)">
+        <member name="M:cunghoc3_AssetManager.Services.AssetServiceBase.CreateAsset(System.String,System.String,System.String,System.String,System.Int32,System.String,System.Int32,System.String,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.DateTime,System.String,System.String,System.String,System.Nullable{System.Int16},System.Nullable{System.DateTime},System.String,System.String,System.Nullable{System.Int16})">
             <summary>
              A simple factory method to create a new <see cref="T:cunghoc3_AssetManager.Entities.Asset"/> instance.
             </summary>
@@ -293,6 +293,14 @@
             <param name="_totalReamain"></param>
             <param name="_upDownCode"></param>
             <param name="_inputDateTime"></param>
+            <param name="_manufacturer"></param>
+            <param name="_brand"></param>
+            <param name="_model"></param>
+            <param name="_status"></param>
+            <param name="_dueDate"></param>
+            <param name="_note"></param>
+            <param name="_seriesNumber"></param>
+            <param name="_condition"></param>
         </member>
         <member name="M:cunghoc3_AssetManager.Services.AssetServiceBase.GetByAssetGroupId(System.String)">
             <summary>
@@ -935,6 +943,583 @@
         <member name="M:cunghoc3_AssetManager.Services.SecurityContext`1.#ctor">
             <summary>
              Creates a new <see cref="T:System.Security.SecurityContext"/> instance.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Services.CheckOutService">
+            <summary>
+            An component type implementation of the 'CheckOut' table.
+            </summary>
+            <remarks>
+            All custom implementations should be done here.
+            </remarks>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Services.CheckOutServiceBase">
+            <summary>
+             An object representation of the 'CheckOut' table.
+            </summary>
+             <remarks>
+             IMPORTANT!!! You should not modify this partial  class, modify the CheckOut.cs file instead.
+             All custom implementations should be done in the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> class.
+             </remarks>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.#ctor">
+            <summary>
+             Creates a new <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> instance .
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.CreateCheckOut(System.String,System.Nullable{System.DateTime},System.String,System.String,System.String,System.Nullable{System.Int16})">
+            <summary>
+             A simple factory method to create a new <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> instance.
+            </summary>
+            <param name="_assetId"></param>
+            <param name="_checkOutDate"></param>
+            <param name="_comment"></param>
+            <param name="_user"></param>
+            <param name="_computer"></param>
+            <param name="_status"></param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Get(cunghoc3_AssetManager.Entities.CheckOutKey)">
+            <summary>
+            	Gets a row from the DataSource based on its primary key.
+            </summary>
+            <param name="key">The unique identifier of the row to retrieve.</param>
+            <returns>Returns an instance of the Entity class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.GetById(System.Int64)">
+            <summary>
+             method that Gets rows in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> from the datasource based on the primary key PK__CheckOut__3214EC075812160E index.
+            </summary>
+            <param name="_id"></param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.GetById(System.Int64,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+             Method that Gets rows in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> from the datasource based on the primary key PK__CheckOut__3214EC075812160E index.
+            </summary>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Page length of records you would like to retrieve</param>
+            <param name="totalCount">out parameter, number of total rows in given query.</param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.GetAll">
+            <summary>
+            Get a complete collection of <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> entities.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.GetAll(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Get a set portion of a complete list of <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> entities
+            </summary>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="totalCount">out parameter, number of total rows in given query.</param>
+            <returns>a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> </returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.GetPaged(System.Int32@)">
+            <summary>
+            Gets a page of <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> rows from the DataSource.
+            </summary>
+            <param name="totalCount">Out Parameter, Number of rows in the DataSource.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of <c>CheckOut</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.GetPaged(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets a page of <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> rows from the DataSource.
+            </summary>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="totalCount">Number of rows in the DataSource.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of <c>CheckOut</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.GetPaged(System.String,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets a page of entity rows with a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> from the DataSource with a where clause and order by clause.
+            </summary>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC).</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="totalCount">Out Parameter, Number of rows in the DataSource.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of <c>CheckOut</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.GetTotalItems(System.String,System.Int32@)">
+            <summary>
+            Gets the number of rows in the DataSource that match the specified whereClause.
+            This method is only provided as a workaround for the ObjectDataSource's need to 
+            execute another method to discover the total count instead of using another param, like our out param.  
+            This method should be avoided if using the ObjectDataSource or another method.
+            </summary>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="totalCount">Number of rows in the DataSource.</param>
+            <returns>Returns the number of rows.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Find(System.String)">
+            <summary>
+            Attempts to do a parameterized version of a simple whereclause. 
+            Returns rows meeting the whereClause condition from the DataSource.
+            </summary>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <remarks>Does NOT Support Advanced Operations such as SubSelects.  See GetPaged for that functionality.</remarks>
+            <returns>Returns a typed collection of Entity objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Find(System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Returns rows meeting the whereClause condition from the DataSource.
+            </summary>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="totalCount">out parameter to get total records for query</param>
+            <remarks>Does NOT Support Advanced Operations such as SubSelects.  See GetPaged for that functionality.</remarks>
+            <returns>Returns a typed collection TList{CheckOut} of <c>CheckOut</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Find(cunghoc3_AssetManager.Data.IFilterParameterCollection)">
+            <summary>
+            Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <returns>Returns a typed collection of <c>CheckOut</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Find(cunghoc3_AssetManager.Data.IFilterParameterCollection,cunghoc3_AssetManager.Data.ISortColumnCollection)">
+            <summary>
+            Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <param name="sortColumns">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlSortColumn"/> objects.</param>
+            <returns>Returns a typed collection of <c>CheckOut</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Find(cunghoc3_AssetManager.Data.IFilterParameterCollection,System.String)">
+            <summary>
+            	Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <returns>Returns a typed collection of <c>CheckOut</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Find(cunghoc3_AssetManager.Data.IFilterParameterCollection,cunghoc3_AssetManager.Data.ISortColumnCollection,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <param name="sortColumns">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlSortColumn"/> objects.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <returns>Returns a typed collection of <c>CheckOut</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Find(cunghoc3_AssetManager.Data.IFilterParameterCollection,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <returns>Returns a typed collection of <c>CheckOut</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Insert(cunghoc3_AssetManager.Entities.CheckOut)">
+            <summary>
+            public virtual method that Inserts a CheckOut object into the datasource using a transaction.
+            </summary>
+            <param name="entity">CheckOut object to Insert.</param>
+            <remarks>After Inserting into the datasource, the CheckOut object will be updated
+            to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+            <returns>Returns bool that the operation is successful.</returns>
+            <example>
+            The following code shows the usage of the Insert Method with an already open transaction.
+            <code>
+            CheckOut entity = new CheckOut();
+            entity.StringProperty = "foo";
+            entity.IntProperty = 12;
+            entity.ChildObjectSource.StringProperty = "bar";
+            TransactionManager tm = null;
+            try
+            {
+            	tm = ConnectionContext.CreateTransaction();
+            	//Insert Child entity, Then Parent Entity
+            	ChildObjectTypeService.Insert(entity.ChildObjectSource);
+            	CheckOutService.Insert(entity);
+            }
+            catch (Exception e)
+            {
+            	if (tm != null &amp;&amp; tm.IsOpen) tm.Rollback();
+            	if (DomainUtil.HandleException(e, name)) throw;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Insert(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.CheckOut})">
+             <summary>
+             public virtual method that Inserts rows in <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> to the datasource.
+             </summary>
+             <param name="entityCollection"><c>CheckOut</c> objects in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object to Insert.</param>
+             <remarks>
+            		This function will only Insert entity objects marked as dirty
+            		and have an identity field equal to zero.
+            		Upon Inserting the objects, each dirty object will have the public
+            		method <c>Object.AcceptChanges()</c> called to make it clean.
+             	After Inserting into the datasource, the <c>CheckOut</c> objects will be updated
+             	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+             <returns>Returns the number of successful Insert.</returns>
+             <example>
+             The following code shows the usage of the Insert Method with a collection of CheckOut.
+             <code><![CDATA[
+             TList<CheckOut> list = new TList<CheckOut>();
+             CheckOut entity = new CheckOut();
+             entity.StringProperty = "foo";
+             CheckOut entity2 = new CheckOut();
+             entity.StringProperty = "bar";
+             list.Add(entity);
+             list.Add(entity2);
+            	CheckOutService.Insert(list);
+            	}
+            	catch (Exception e)
+            	{
+            		if (DomainUtil.HandleException(e, name)) throw;
+            	}
+             ]]></code>
+             </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Update(cunghoc3_AssetManager.Entities.CheckOut)">
+            <summary>
+            public virtual method that Updates a CheckOut object into the datasource using a transaction.
+            </summary>
+            <param name="entity">CheckOut object to Update.</param>
+            <remarks>After Updateing into the datasource, the CheckOut object will be updated
+            to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+            <returns>Returns bool that the operation is successful.</returns>
+            <example>
+            The following code shows the usage of the Update Method with an already open transaction.
+            <code>
+            CheckOut entity = CheckOutService.GetByPrimaryKeyColumn(1234);
+            entity.StringProperty = "foo";
+            entity.IntProperty = 12;
+            entity.ChildObjectSource.StringProperty = "bar";
+            TransactionManager tm = null;
+            try
+            {
+            	tm = ConnectionContext.CreateTransaction();
+            	//Update Child entity, Then Parent Entity
+            	ChildObjectTypeService.Update(entity.ChildObjectSource);
+            	CheckOutService.Update(entity);
+            }
+            catch (Exception e)
+            {
+            	if (tm != null &amp;&amp; tm.IsOpen) tm.Rollback();
+            	if (DomainUtil.HandleException(e, name)) throw;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Update(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.CheckOut})">
+             <summary>
+             public virtual method that Updates rows in <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> to the datasource.
+             </summary>
+             <param name="entityCollection"><c>CheckOut</c> objects in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object to Update.</param>
+             <remarks>
+            		This function will only Update entity objects marked as dirty
+            		and have an identity field equal to zero.
+            		Upon Updateing the objects, each dirty object will have the public
+            		method <c>Object.AcceptChanges()</c> called to make it clean.
+             	After Updateing into the datasource, the <c>CheckOut</c> objects will be updated
+             	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+             <returns>Returns the number of successful Update.</returns>
+             <example>
+             The following code shows the usage of the Update Method with a collection of CheckOut.
+             <code><![CDATA[
+             TList<CheckOut> list = new TList<CheckOut>();
+             CheckOut entity = new CheckOut();
+             entity.StringProperty = "foo";
+             CheckOut entity2 = new CheckOut();
+             entity.StringProperty = "bar";
+             list.Add(entity);
+             list.Add(entity2);
+            	CheckOutService.Update(list);
+            	}
+            	catch (Exception e)
+            	{
+            		if (DomainUtil.HandleException(e, name)) throw;
+            	}
+             ]]></code>
+             </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Save(cunghoc3_AssetManager.Entities.CheckOut)">
+            <summary>
+            public virtual method that Saves a CheckOut object into the datasource using a transaction.
+            </summary>
+            <param name="entity">CheckOut object to Save.</param>
+            <remarks>After Saveing into the datasource, the CheckOut object will be updated
+            to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+            <returns>Returns bool that the operation is successful.</returns>
+            <example>
+            The following code shows the usage of the Save Method with an already open transaction.
+            <code>
+            CheckOut entity = CheckOutService.GetByPrimaryKeyColumn(1234);
+            entity.StringProperty = "foo";
+            entity.IntProperty = 12;
+            entity.ChildObjectSource.StringProperty = "bar";
+            TransactionManager tm = null;
+            try
+            {
+            	tm = ConnectionContext.CreateTransaction();
+            	//Save Child entity, Then Parent Entity
+            	ChildObjectTypeService.Save(entity.ChildObjectSource);
+            	CheckOutService.Save(entity);
+            }
+            catch (Exception e)
+            {
+            	if (tm != null &amp;&amp; tm.IsOpen) tm.Rollback();
+            	if (DomainUtil.HandleException(e, name)) throw;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Save(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.CheckOut})">
+             <summary>
+             public virtual method that Saves rows in <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> to the datasource.
+             </summary>
+             <param name="entityCollection"><c>CheckOut</c> objects in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object to Save.</param>
+             <remarks>
+            		This function will only Save entity objects marked as dirty
+            		and have an identity field equal to zero.
+            		Upon Saveing the objects, each dirty object will have the public
+            		method <c>Object.AcceptChanges()</c> called to make it clean.
+             	After Saveing into the datasource, the <c>CheckOut</c> objects will be updated
+             	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+             <returns>Returns the number of successful Save.</returns>
+             <example>
+             The following code shows the usage of the Save Method with a collection of CheckOut.
+             <code><![CDATA[
+             TList<CheckOut> list = new TList<CheckOut>();
+             CheckOut entity = new CheckOut();
+             entity.StringProperty = "foo";
+             CheckOut entity2 = new CheckOut();
+             entity.StringProperty = "bar";
+             list.Add(entity);
+             list.Add(entity2);
+            	CheckOutService.Save(list);
+            	}
+            	catch (Exception e)
+            	{
+            		if (DomainUtil.HandleException(e, name)) throw;
+            	}
+             ]]></code>
+             </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Delete(cunghoc3_AssetManager.Entities.CheckOut)">
+            <summary>
+            public virtual method that Deletes a CheckOut object into the datasource using a transaction.
+            </summary>
+            <param name="entity">CheckOut object to Delete.</param>
+            <remarks>After Deleteing into the datasource, the CheckOut object will be updated
+            to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+            <returns>Returns bool that the operation is successful.</returns>
+            <example>
+            The following code shows the usage of the Delete Method with an already open transaction.
+            <code>
+            CheckOut entity = CheckOutService.GetByPrimaryKeyColumn(1234);
+            entity.StringProperty = "foo";
+            entity.IntProperty = 12;
+            entity.ChildObjectSource.StringProperty = "bar";
+            TransactionManager tm = null;
+            try
+            {
+            	tm = ConnectionContext.CreateTransaction();
+            	//Delete Child entity, Then Parent Entity
+            	ChildObjectTypeService.Delete(entity.ChildObjectSource);
+            	CheckOutService.Delete(entity);
+            }
+            catch (Exception e)
+            {
+            	if (tm != null &amp;&amp; tm.IsOpen) tm.Rollback();
+            	if (DomainUtil.HandleException(e, name)) throw;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Delete(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.CheckOut})">
+             <summary>
+             public virtual method that Deletes rows in <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> to the datasource.
+             </summary>
+             <param name="entityCollection"><c>CheckOut</c> objects in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object to Delete.</param>
+             <remarks>
+            		This function will only Delete entity objects marked as dirty
+            		and have an identity field equal to zero.
+            		Upon Deleteing the objects, each dirty object will have the public
+            		method <c>Object.AcceptChanges()</c> called to make it clean.
+             	After Deleteing into the datasource, the <c>CheckOut</c> objects will be updated
+             	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+             <returns>Returns the number of successful Delete.</returns>
+             <example>
+             The following code shows the usage of the Delete Method with a collection of CheckOut.
+             <code><![CDATA[
+             TList<CheckOut> list = new TList<CheckOut>();
+             CheckOut entity = new CheckOut();
+             entity.StringProperty = "foo";
+             CheckOut entity2 = new CheckOut();
+             entity.StringProperty = "bar";
+             list.Add(entity);
+             list.Add(entity2);
+            	CheckOutService.Delete(list);
+            	}
+            	catch (Exception e)
+            	{
+            		if (DomainUtil.HandleException(e, name)) throw;
+            	}
+             ]]></code>
+             </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Delete(cunghoc3_AssetManager.Entities.CheckOutKey)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="key">The unique identifier of the row to delete.</param>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.Delete(System.Int64)">
+            <summary>
+            	Deletes a row from the DataSource based on the PK'S System.Int64 _id
+            </summary>
+            <param name="_id">CheckOut pk id.</param>
+            <remarks>Deletes based on primary key(s).</remarks>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.DeepLoadById(System.Int64,System.Boolean,cunghoc3_AssetManager.Data.DeepLoadType,System.Type[])">
+            <summary>
+            public virtualDeep Loads the requested <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> by the entity keys.  The criteria of the child 
+            property collections only N Levels Deep based on the <see cref="T:cunghoc3_AssetManager.Data.DeepLoadType"/>.
+            </summary>
+            <param name="_id"></param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively save all Property Collection that are descendants of this instance. If True, saves the complete object graph below this object. If False, saves this object only. </param>
+            <param name="deepLoadType">DeepLoadType Enumeration to Include/Exclude object property collections from Load.</param>
+            <param name="childTypes">CheckOut Property Collection Type Array To Include or Exclude from Load</param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> class and DeepLoaded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.CheckOut)">
+            <summary>
+            public virtualDeep Load the IEntity object with all of the child 
+            property collections only 1 Level Deep.
+            </summary>
+            <param name="entity">CheckOut Object</param>
+            <remarks>
+            <seealso cref="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.CheckOut)"/> overloaded methods for a recursive N Level deep loading method.
+            </remarks>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.CheckOut,System.Boolean)">
+            <summary>
+            public virtualDeep Load the IEntity object with all of the child 
+            property collections only 1 Level Deep.
+            </summary>
+            <remarks>
+            <seealso cref="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.CheckOut)"/> overloaded methods for a recursive N Level deep loading method.
+            </remarks>
+            <param name="entity">CheckOut Object</param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively save all Property Collection that are descendants of this instance. If True, saves the complete object graph below this object. If False, saves this object only. </param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.CheckOut,System.Boolean,cunghoc3_AssetManager.Data.DeepLoadType,System.Type[])">
+            <summary>
+            public virtualDeep Loads the <see cref="T:cunghoc3_AssetManager.Entities.IEntity"/> object with criteria based of the child 
+            property collections only N Levels Deep based on the <see cref="T:cunghoc3_AssetManager.Data.DeepLoadType"/>.
+            </summary>
+            <remarks>
+            Use this method with caution as it is possible to DeepLoad with Recursion and traverse an entire object graph.
+            </remarks>
+            <param name="entity">The <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> object to load.</param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively load all Property Collections that are descendants of this instance. 
+            If True, saves the complete object graph below this object. If False, saves this object only. </param>
+            <param name="deepLoadType">DeepLoadType Enumeration to Include/Exclude object property collections from Load.</param>
+            <param name="childTypes">CheckOut Property Collection Type Array To Include or Exclude from Load</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.CheckOut})">
+            <summary>
+            Deep Loads the <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object with all of the child 
+            property collections only 1 Level Deep.
+            </summary>
+            <remarks>
+            <seealso cref="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.CheckOut)"/> overloaded methods for a recursive N Level deep loading method.
+            </remarks>
+            <param name="entityCollection">the <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> Object to deep loads.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.CheckOut},System.Boolean)">
+            <summary>
+            Deep Loads the <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object.
+            </summary>
+            <remarks>
+            <seealso cref="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.CheckOut)"/> overloaded methods for a recursive N Level deep loading method.
+            </remarks>
+            <param name="entityCollection">the <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> Object to deep loads.</param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively save all Property Collection that are descendants of this instance. If True, saves the complete object graph below this object. If False, saves this object only. </param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.CheckOut},System.Boolean,cunghoc3_AssetManager.Data.DeepLoadType,System.Type[])">
+            <summary>
+            Deep Loads the entire <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object with criteria based of the child 
+            property collections only N Levels Deep based on the DeepLoadType.
+            </summary>
+            <remarks>
+            Use this method with caution as it is possible to DeepLoad with Recursion and traverse an entire collection's object graph.
+            </remarks>
+            <param name="entityCollection">The <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> instance to load.</param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively save all Property Collection that are descendants of this instance. If True, saves the complete object graph below this object. If False, saves this object only. </param>
+            <param name="deepLoadType"><see cref="T:cunghoc3_AssetManager.Data.DeepLoadType"/> Enumeration to Include/Exclude object property collections from Load.
+            	Use DeepLoadType.IncludeChildren, ExcludeChildren to traverse the entire object graph.
+            </param>
+            <param name="childTypes"><see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> Property Collection Type Array To Include or Exclude from Load</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.DeepSave(cunghoc3_AssetManager.Entities.CheckOut)">
+            <summary>
+            public virtualDeep Saves the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> object with all of the child
+            property collections N Levels Deep.
+            </summary>
+            <param name="entity">CheckOut Object</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.DeepSave(cunghoc3_AssetManager.Entities.CheckOut,cunghoc3_AssetManager.Data.DeepSaveType,System.Type[])">
+            <summary>
+            public virtualDeep Saves the entire object graph of the CheckOut object with criteria based of the child 
+            Type property array and DeepSaveType.
+            </summary>
+            <param name="entity">CheckOut Object</param>
+            <param name="deepSaveType">DeepSaveType Enumeration to Include/Exclude object property collections from Save.</param>
+            <param name="childTypes"><c>CheckOut</c> property Type Array To Include or Exclude from Save</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.DeepSave(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.CheckOut})">
+            <summary>
+            Deep Save the entire <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object with all of the child 
+            property collections.
+            </summary>
+            <param name="entityCollection">TList{CheckOut} Object</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutServiceBase.DeepSave(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.CheckOut},cunghoc3_AssetManager.Data.DeepSaveType,System.Type[])">
+            <summary>
+            Deep Save the entire object graph of the <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object with criteria based of the child 
+            property collections.
+            </summary>
+            <param name="entityCollection"><see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> Object</param>
+            <param name="deepSaveType">DeepSaveType Enumeration to Include/Exclude object property collections from Save.</param>
+            <param name="childTypes">CheckOut Property Collection Type Array To Include or Exclude from Save</param>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Services.CheckOutServiceBase.SecurityContext">
+            <summary>
+             Contains all necessary information to validate and authorize the 
+             call of the method with the Principal and Roles of the current user.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.CheckOutService.#ctor">
+            <summary>
+            Initializes a new instance of the CheckOutService class.
             </summary>
         </member>
         <member name="T:cunghoc3_AssetManager.Services.AssetGroupTypeService">
@@ -5215,6 +5800,566 @@
              call of the method with the Principal and Roles of the current user.
             </summary>
         </member>
+        <member name="T:cunghoc3_AssetManager.Services.ImageServiceBase">
+            <summary>
+             An object representation of the 'Image' table.
+            </summary>
+             <remarks>
+             IMPORTANT!!! You should not modify this partial  class, modify the Image.cs file instead.
+             All custom implementations should be done in the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> class.
+             </remarks>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.#ctor">
+            <summary>
+             Creates a new <see cref="T:cunghoc3_AssetManager.Entities.Image"/> instance .
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.CreateImage(System.String,System.String)">
+            <summary>
+             A simple factory method to create a new <see cref="T:cunghoc3_AssetManager.Entities.Image"/> instance.
+            </summary>
+            <param name="_assetId"></param>
+            <param name="_imageUrl"></param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Get(cunghoc3_AssetManager.Entities.ImageKey)">
+            <summary>
+            	Gets a row from the DataSource based on its primary key.
+            </summary>
+            <param name="key">The unique identifier of the row to retrieve.</param>
+            <returns>Returns an instance of the Entity class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.GetById(System.Int64)">
+            <summary>
+             method that Gets rows in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> from the datasource based on the primary key PK__Image__3214EC075070F446 index.
+            </summary>
+            <param name="_id"></param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.GetById(System.Int64,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+             Method that Gets rows in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> from the datasource based on the primary key PK__Image__3214EC075070F446 index.
+            </summary>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Page length of records you would like to retrieve</param>
+            <param name="totalCount">out parameter, number of total rows in given query.</param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.GetAll">
+            <summary>
+            Get a complete collection of <see cref="T:cunghoc3_AssetManager.Entities.Image"/> entities.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.GetAll(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Get a set portion of a complete list of <see cref="T:cunghoc3_AssetManager.Entities.Image"/> entities
+            </summary>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="totalCount">out parameter, number of total rows in given query.</param>
+            <returns>a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> </returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.GetPaged(System.Int32@)">
+            <summary>
+            Gets a page of <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> rows from the DataSource.
+            </summary>
+            <param name="totalCount">Out Parameter, Number of rows in the DataSource.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of <c>Image</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.GetPaged(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets a page of <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> rows from the DataSource.
+            </summary>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="totalCount">Number of rows in the DataSource.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of <c>Image</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.GetPaged(System.String,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets a page of entity rows with a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> from the DataSource with a where clause and order by clause.
+            </summary>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC).</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="totalCount">Out Parameter, Number of rows in the DataSource.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of <c>Image</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.GetTotalItems(System.String,System.Int32@)">
+            <summary>
+            Gets the number of rows in the DataSource that match the specified whereClause.
+            This method is only provided as a workaround for the ObjectDataSource's need to 
+            execute another method to discover the total count instead of using another param, like our out param.  
+            This method should be avoided if using the ObjectDataSource or another method.
+            </summary>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="totalCount">Number of rows in the DataSource.</param>
+            <returns>Returns the number of rows.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Find(System.String)">
+            <summary>
+            Attempts to do a parameterized version of a simple whereclause. 
+            Returns rows meeting the whereClause condition from the DataSource.
+            </summary>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <remarks>Does NOT Support Advanced Operations such as SubSelects.  See GetPaged for that functionality.</remarks>
+            <returns>Returns a typed collection of Entity objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Find(System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Returns rows meeting the whereClause condition from the DataSource.
+            </summary>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="totalCount">out parameter to get total records for query</param>
+            <remarks>Does NOT Support Advanced Operations such as SubSelects.  See GetPaged for that functionality.</remarks>
+            <returns>Returns a typed collection TList{Image} of <c>Image</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Find(cunghoc3_AssetManager.Data.IFilterParameterCollection)">
+            <summary>
+            Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <returns>Returns a typed collection of <c>Image</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Find(cunghoc3_AssetManager.Data.IFilterParameterCollection,cunghoc3_AssetManager.Data.ISortColumnCollection)">
+            <summary>
+            Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <param name="sortColumns">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlSortColumn"/> objects.</param>
+            <returns>Returns a typed collection of <c>Image</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Find(cunghoc3_AssetManager.Data.IFilterParameterCollection,System.String)">
+            <summary>
+            	Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <returns>Returns a typed collection of <c>Image</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Find(cunghoc3_AssetManager.Data.IFilterParameterCollection,cunghoc3_AssetManager.Data.ISortColumnCollection,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <param name="sortColumns">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlSortColumn"/> objects.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <returns>Returns a typed collection of <c>Image</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Find(cunghoc3_AssetManager.Data.IFilterParameterCollection,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <returns>Returns a typed collection of <c>Image</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Insert(cunghoc3_AssetManager.Entities.Image)">
+            <summary>
+            public virtual method that Inserts a Image object into the datasource using a transaction.
+            </summary>
+            <param name="entity">Image object to Insert.</param>
+            <remarks>After Inserting into the datasource, the Image object will be updated
+            to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+            <returns>Returns bool that the operation is successful.</returns>
+            <example>
+            The following code shows the usage of the Insert Method with an already open transaction.
+            <code>
+            Image entity = new Image();
+            entity.StringProperty = "foo";
+            entity.IntProperty = 12;
+            entity.ChildObjectSource.StringProperty = "bar";
+            TransactionManager tm = null;
+            try
+            {
+            	tm = ConnectionContext.CreateTransaction();
+            	//Insert Child entity, Then Parent Entity
+            	ChildObjectTypeService.Insert(entity.ChildObjectSource);
+            	ImageService.Insert(entity);
+            }
+            catch (Exception e)
+            {
+            	if (tm != null &amp;&amp; tm.IsOpen) tm.Rollback();
+            	if (DomainUtil.HandleException(e, name)) throw;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Insert(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Image})">
+             <summary>
+             public virtual method that Inserts rows in <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> to the datasource.
+             </summary>
+             <param name="entityCollection"><c>Image</c> objects in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object to Insert.</param>
+             <remarks>
+            		This function will only Insert entity objects marked as dirty
+            		and have an identity field equal to zero.
+            		Upon Inserting the objects, each dirty object will have the public
+            		method <c>Object.AcceptChanges()</c> called to make it clean.
+             	After Inserting into the datasource, the <c>Image</c> objects will be updated
+             	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+             <returns>Returns the number of successful Insert.</returns>
+             <example>
+             The following code shows the usage of the Insert Method with a collection of Image.
+             <code><![CDATA[
+             TList<Image> list = new TList<Image>();
+             Image entity = new Image();
+             entity.StringProperty = "foo";
+             Image entity2 = new Image();
+             entity.StringProperty = "bar";
+             list.Add(entity);
+             list.Add(entity2);
+            	ImageService.Insert(list);
+            	}
+            	catch (Exception e)
+            	{
+            		if (DomainUtil.HandleException(e, name)) throw;
+            	}
+             ]]></code>
+             </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Update(cunghoc3_AssetManager.Entities.Image)">
+            <summary>
+            public virtual method that Updates a Image object into the datasource using a transaction.
+            </summary>
+            <param name="entity">Image object to Update.</param>
+            <remarks>After Updateing into the datasource, the Image object will be updated
+            to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+            <returns>Returns bool that the operation is successful.</returns>
+            <example>
+            The following code shows the usage of the Update Method with an already open transaction.
+            <code>
+            Image entity = ImageService.GetByPrimaryKeyColumn(1234);
+            entity.StringProperty = "foo";
+            entity.IntProperty = 12;
+            entity.ChildObjectSource.StringProperty = "bar";
+            TransactionManager tm = null;
+            try
+            {
+            	tm = ConnectionContext.CreateTransaction();
+            	//Update Child entity, Then Parent Entity
+            	ChildObjectTypeService.Update(entity.ChildObjectSource);
+            	ImageService.Update(entity);
+            }
+            catch (Exception e)
+            {
+            	if (tm != null &amp;&amp; tm.IsOpen) tm.Rollback();
+            	if (DomainUtil.HandleException(e, name)) throw;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Update(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Image})">
+             <summary>
+             public virtual method that Updates rows in <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> to the datasource.
+             </summary>
+             <param name="entityCollection"><c>Image</c> objects in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object to Update.</param>
+             <remarks>
+            		This function will only Update entity objects marked as dirty
+            		and have an identity field equal to zero.
+            		Upon Updateing the objects, each dirty object will have the public
+            		method <c>Object.AcceptChanges()</c> called to make it clean.
+             	After Updateing into the datasource, the <c>Image</c> objects will be updated
+             	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+             <returns>Returns the number of successful Update.</returns>
+             <example>
+             The following code shows the usage of the Update Method with a collection of Image.
+             <code><![CDATA[
+             TList<Image> list = new TList<Image>();
+             Image entity = new Image();
+             entity.StringProperty = "foo";
+             Image entity2 = new Image();
+             entity.StringProperty = "bar";
+             list.Add(entity);
+             list.Add(entity2);
+            	ImageService.Update(list);
+            	}
+            	catch (Exception e)
+            	{
+            		if (DomainUtil.HandleException(e, name)) throw;
+            	}
+             ]]></code>
+             </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Save(cunghoc3_AssetManager.Entities.Image)">
+            <summary>
+            public virtual method that Saves a Image object into the datasource using a transaction.
+            </summary>
+            <param name="entity">Image object to Save.</param>
+            <remarks>After Saveing into the datasource, the Image object will be updated
+            to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+            <returns>Returns bool that the operation is successful.</returns>
+            <example>
+            The following code shows the usage of the Save Method with an already open transaction.
+            <code>
+            Image entity = ImageService.GetByPrimaryKeyColumn(1234);
+            entity.StringProperty = "foo";
+            entity.IntProperty = 12;
+            entity.ChildObjectSource.StringProperty = "bar";
+            TransactionManager tm = null;
+            try
+            {
+            	tm = ConnectionContext.CreateTransaction();
+            	//Save Child entity, Then Parent Entity
+            	ChildObjectTypeService.Save(entity.ChildObjectSource);
+            	ImageService.Save(entity);
+            }
+            catch (Exception e)
+            {
+            	if (tm != null &amp;&amp; tm.IsOpen) tm.Rollback();
+            	if (DomainUtil.HandleException(e, name)) throw;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Save(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Image})">
+             <summary>
+             public virtual method that Saves rows in <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> to the datasource.
+             </summary>
+             <param name="entityCollection"><c>Image</c> objects in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object to Save.</param>
+             <remarks>
+            		This function will only Save entity objects marked as dirty
+            		and have an identity field equal to zero.
+            		Upon Saveing the objects, each dirty object will have the public
+            		method <c>Object.AcceptChanges()</c> called to make it clean.
+             	After Saveing into the datasource, the <c>Image</c> objects will be updated
+             	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+             <returns>Returns the number of successful Save.</returns>
+             <example>
+             The following code shows the usage of the Save Method with a collection of Image.
+             <code><![CDATA[
+             TList<Image> list = new TList<Image>();
+             Image entity = new Image();
+             entity.StringProperty = "foo";
+             Image entity2 = new Image();
+             entity.StringProperty = "bar";
+             list.Add(entity);
+             list.Add(entity2);
+            	ImageService.Save(list);
+            	}
+            	catch (Exception e)
+            	{
+            		if (DomainUtil.HandleException(e, name)) throw;
+            	}
+             ]]></code>
+             </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Delete(cunghoc3_AssetManager.Entities.Image)">
+            <summary>
+            public virtual method that Deletes a Image object into the datasource using a transaction.
+            </summary>
+            <param name="entity">Image object to Delete.</param>
+            <remarks>After Deleteing into the datasource, the Image object will be updated
+            to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+            <returns>Returns bool that the operation is successful.</returns>
+            <example>
+            The following code shows the usage of the Delete Method with an already open transaction.
+            <code>
+            Image entity = ImageService.GetByPrimaryKeyColumn(1234);
+            entity.StringProperty = "foo";
+            entity.IntProperty = 12;
+            entity.ChildObjectSource.StringProperty = "bar";
+            TransactionManager tm = null;
+            try
+            {
+            	tm = ConnectionContext.CreateTransaction();
+            	//Delete Child entity, Then Parent Entity
+            	ChildObjectTypeService.Delete(entity.ChildObjectSource);
+            	ImageService.Delete(entity);
+            }
+            catch (Exception e)
+            {
+            	if (tm != null &amp;&amp; tm.IsOpen) tm.Rollback();
+            	if (DomainUtil.HandleException(e, name)) throw;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Delete(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Image})">
+             <summary>
+             public virtual method that Deletes rows in <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> to the datasource.
+             </summary>
+             <param name="entityCollection"><c>Image</c> objects in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object to Delete.</param>
+             <remarks>
+            		This function will only Delete entity objects marked as dirty
+            		and have an identity field equal to zero.
+            		Upon Deleteing the objects, each dirty object will have the public
+            		method <c>Object.AcceptChanges()</c> called to make it clean.
+             	After Deleteing into the datasource, the <c>Image</c> objects will be updated
+             	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+             <returns>Returns the number of successful Delete.</returns>
+             <example>
+             The following code shows the usage of the Delete Method with a collection of Image.
+             <code><![CDATA[
+             TList<Image> list = new TList<Image>();
+             Image entity = new Image();
+             entity.StringProperty = "foo";
+             Image entity2 = new Image();
+             entity.StringProperty = "bar";
+             list.Add(entity);
+             list.Add(entity2);
+            	ImageService.Delete(list);
+            	}
+            	catch (Exception e)
+            	{
+            		if (DomainUtil.HandleException(e, name)) throw;
+            	}
+             ]]></code>
+             </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Delete(cunghoc3_AssetManager.Entities.ImageKey)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="key">The unique identifier of the row to delete.</param>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.Delete(System.Int64)">
+            <summary>
+            	Deletes a row from the DataSource based on the PK'S System.Int64 _id
+            </summary>
+            <param name="_id">Image pk id.</param>
+            <remarks>Deletes based on primary key(s).</remarks>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.DeepLoadById(System.Int64,System.Boolean,cunghoc3_AssetManager.Data.DeepLoadType,System.Type[])">
+            <summary>
+            public virtualDeep Loads the requested <see cref="T:cunghoc3_AssetManager.Entities.Image"/> by the entity keys.  The criteria of the child 
+            property collections only N Levels Deep based on the <see cref="T:cunghoc3_AssetManager.Data.DeepLoadType"/>.
+            </summary>
+            <param name="_id"></param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively save all Property Collection that are descendants of this instance. If True, saves the complete object graph below this object. If False, saves this object only. </param>
+            <param name="deepLoadType">DeepLoadType Enumeration to Include/Exclude object property collections from Load.</param>
+            <param name="childTypes">Image Property Collection Type Array To Include or Exclude from Load</param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> class and DeepLoaded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.Image)">
+            <summary>
+            public virtualDeep Load the IEntity object with all of the child 
+            property collections only 1 Level Deep.
+            </summary>
+            <param name="entity">Image Object</param>
+            <remarks>
+            <seealso cref="M:cunghoc3_AssetManager.Services.ImageServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.Image)"/> overloaded methods for a recursive N Level deep loading method.
+            </remarks>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.Image,System.Boolean)">
+            <summary>
+            public virtualDeep Load the IEntity object with all of the child 
+            property collections only 1 Level Deep.
+            </summary>
+            <remarks>
+            <seealso cref="M:cunghoc3_AssetManager.Services.ImageServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.Image)"/> overloaded methods for a recursive N Level deep loading method.
+            </remarks>
+            <param name="entity">Image Object</param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively save all Property Collection that are descendants of this instance. If True, saves the complete object graph below this object. If False, saves this object only. </param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.Image,System.Boolean,cunghoc3_AssetManager.Data.DeepLoadType,System.Type[])">
+            <summary>
+            public virtualDeep Loads the <see cref="T:cunghoc3_AssetManager.Entities.IEntity"/> object with criteria based of the child 
+            property collections only N Levels Deep based on the <see cref="T:cunghoc3_AssetManager.Data.DeepLoadType"/>.
+            </summary>
+            <remarks>
+            Use this method with caution as it is possible to DeepLoad with Recursion and traverse an entire object graph.
+            </remarks>
+            <param name="entity">The <see cref="T:cunghoc3_AssetManager.Entities.Image"/> object to load.</param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively load all Property Collections that are descendants of this instance. 
+            If True, saves the complete object graph below this object. If False, saves this object only. </param>
+            <param name="deepLoadType">DeepLoadType Enumeration to Include/Exclude object property collections from Load.</param>
+            <param name="childTypes">Image Property Collection Type Array To Include or Exclude from Load</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Image})">
+            <summary>
+            Deep Loads the <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object with all of the child 
+            property collections only 1 Level Deep.
+            </summary>
+            <remarks>
+            <seealso cref="M:cunghoc3_AssetManager.Services.ImageServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.Image)"/> overloaded methods for a recursive N Level deep loading method.
+            </remarks>
+            <param name="entityCollection">the <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> Object to deep loads.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Image},System.Boolean)">
+            <summary>
+            Deep Loads the <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object.
+            </summary>
+            <remarks>
+            <seealso cref="M:cunghoc3_AssetManager.Services.ImageServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.Image)"/> overloaded methods for a recursive N Level deep loading method.
+            </remarks>
+            <param name="entityCollection">the <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> Object to deep loads.</param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively save all Property Collection that are descendants of this instance. If True, saves the complete object graph below this object. If False, saves this object only. </param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Image},System.Boolean,cunghoc3_AssetManager.Data.DeepLoadType,System.Type[])">
+            <summary>
+            Deep Loads the entire <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object with criteria based of the child 
+            property collections only N Levels Deep based on the DeepLoadType.
+            </summary>
+            <remarks>
+            Use this method with caution as it is possible to DeepLoad with Recursion and traverse an entire collection's object graph.
+            </remarks>
+            <param name="entityCollection">The <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> instance to load.</param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively save all Property Collection that are descendants of this instance. If True, saves the complete object graph below this object. If False, saves this object only. </param>
+            <param name="deepLoadType"><see cref="T:cunghoc3_AssetManager.Data.DeepLoadType"/> Enumeration to Include/Exclude object property collections from Load.
+            	Use DeepLoadType.IncludeChildren, ExcludeChildren to traverse the entire object graph.
+            </param>
+            <param name="childTypes"><see cref="T:cunghoc3_AssetManager.Entities.Image"/> Property Collection Type Array To Include or Exclude from Load</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.DeepSave(cunghoc3_AssetManager.Entities.Image)">
+            <summary>
+            public virtualDeep Saves the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> object with all of the child
+            property collections N Levels Deep.
+            </summary>
+            <param name="entity">Image Object</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.DeepSave(cunghoc3_AssetManager.Entities.Image,cunghoc3_AssetManager.Data.DeepSaveType,System.Type[])">
+            <summary>
+            public virtualDeep Saves the entire object graph of the Image object with criteria based of the child 
+            Type property array and DeepSaveType.
+            </summary>
+            <param name="entity">Image Object</param>
+            <param name="deepSaveType">DeepSaveType Enumeration to Include/Exclude object property collections from Save.</param>
+            <param name="childTypes"><c>Image</c> property Type Array To Include or Exclude from Save</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.DeepSave(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Image})">
+            <summary>
+            Deep Save the entire <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object with all of the child 
+            property collections.
+            </summary>
+            <param name="entityCollection">TList{Image} Object</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageServiceBase.DeepSave(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Image},cunghoc3_AssetManager.Data.DeepSaveType,System.Type[])">
+            <summary>
+            Deep Save the entire object graph of the <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object with criteria based of the child 
+            property collections.
+            </summary>
+            <param name="entityCollection"><see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> Object</param>
+            <param name="deepSaveType">DeepSaveType Enumeration to Include/Exclude object property collections from Save.</param>
+            <param name="childTypes">Image Property Collection Type Array To Include or Exclude from Save</param>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Services.ImageServiceBase.SecurityContext">
+            <summary>
+             Contains all necessary information to validate and authorize the 
+             call of the method with the Principal and Roles of the current user.
+            </summary>
+        </member>
         <member name="T:cunghoc3_AssetManager.Services.AssetLiquidationService">
             <summary>
             An component type implementation of the 'AssetLiquidation' table.
@@ -7339,6 +8484,19 @@
             <param name="reader">The reader to convert</param>
             <returns>A dataset with one table per result in the reader</returns>
         </member>
+        <member name="T:cunghoc3_AssetManager.Services.ImageService">
+            <summary>
+            An component type implementation of the 'Image' table.
+            </summary>
+            <remarks>
+            All custom implementations should be done here.
+            </remarks>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.ImageService.#ctor">
+            <summary>
+            Initializes a new instance of the ImageService class.
+            </summary>
+        </member>
         <member name="T:cunghoc3_AssetManager.Services.AssetGroupService">
             <summary>
             An component type implementation of the 'AssetGroup' table.
@@ -7459,6 +8617,582 @@
         <member name="M:cunghoc3_AssetManager.Services.RepairAssetService.#ctor">
             <summary>
             Initializes a new instance of the RepairAssetService class.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Services.AuditServiceBase">
+            <summary>
+             An object representation of the 'Audit' table.
+            </summary>
+             <remarks>
+             IMPORTANT!!! You should not modify this partial  class, modify the Audit.cs file instead.
+             All custom implementations should be done in the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> class.
+             </remarks>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.#ctor">
+            <summary>
+             Creates a new <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> instance .
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.CreateAudit(System.String,System.Nullable{System.DateTime},System.String,System.String,System.String)">
+            <summary>
+             A simple factory method to create a new <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> instance.
+            </summary>
+            <param name="_assetId"></param>
+            <param name="_auditDate"></param>
+            <param name="_comment"></param>
+            <param name="_user"></param>
+            <param name="_computer"></param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Get(cunghoc3_AssetManager.Entities.AuditKey)">
+            <summary>
+            	Gets a row from the DataSource based on its primary key.
+            </summary>
+            <param name="key">The unique identifier of the row to retrieve.</param>
+            <returns>Returns an instance of the Entity class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.GetById(System.Int64)">
+            <summary>
+             method that Gets rows in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> from the datasource based on the primary key PK__Audit__3214EC075441852A index.
+            </summary>
+            <param name="_id"></param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.GetById(System.Int64,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+             Method that Gets rows in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> from the datasource based on the primary key PK__Audit__3214EC075441852A index.
+            </summary>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Page length of records you would like to retrieve</param>
+            <param name="totalCount">out parameter, number of total rows in given query.</param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.GetAll">
+            <summary>
+            Get a complete collection of <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> entities.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.GetAll(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Get a set portion of a complete list of <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> entities
+            </summary>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="totalCount">out parameter, number of total rows in given query.</param>
+            <returns>a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> </returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.GetPaged(System.Int32@)">
+            <summary>
+            Gets a page of <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> rows from the DataSource.
+            </summary>
+            <param name="totalCount">Out Parameter, Number of rows in the DataSource.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of <c>Audit</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.GetPaged(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets a page of <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> rows from the DataSource.
+            </summary>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="totalCount">Number of rows in the DataSource.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of <c>Audit</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.GetPaged(System.String,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets a page of entity rows with a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> from the DataSource with a where clause and order by clause.
+            </summary>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC).</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="totalCount">Out Parameter, Number of rows in the DataSource.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of <c>Audit</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.GetTotalItems(System.String,System.Int32@)">
+            <summary>
+            Gets the number of rows in the DataSource that match the specified whereClause.
+            This method is only provided as a workaround for the ObjectDataSource's need to 
+            execute another method to discover the total count instead of using another param, like our out param.  
+            This method should be avoided if using the ObjectDataSource or another method.
+            </summary>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="totalCount">Number of rows in the DataSource.</param>
+            <returns>Returns the number of rows.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Find(System.String)">
+            <summary>
+            Attempts to do a parameterized version of a simple whereclause. 
+            Returns rows meeting the whereClause condition from the DataSource.
+            </summary>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <remarks>Does NOT Support Advanced Operations such as SubSelects.  See GetPaged for that functionality.</remarks>
+            <returns>Returns a typed collection of Entity objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Find(System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Returns rows meeting the whereClause condition from the DataSource.
+            </summary>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="totalCount">out parameter to get total records for query</param>
+            <remarks>Does NOT Support Advanced Operations such as SubSelects.  See GetPaged for that functionality.</remarks>
+            <returns>Returns a typed collection TList{Audit} of <c>Audit</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Find(cunghoc3_AssetManager.Data.IFilterParameterCollection)">
+            <summary>
+            Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <returns>Returns a typed collection of <c>Audit</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Find(cunghoc3_AssetManager.Data.IFilterParameterCollection,cunghoc3_AssetManager.Data.ISortColumnCollection)">
+            <summary>
+            Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <param name="sortColumns">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlSortColumn"/> objects.</param>
+            <returns>Returns a typed collection of <c>Audit</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Find(cunghoc3_AssetManager.Data.IFilterParameterCollection,System.String)">
+            <summary>
+            	Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <returns>Returns a typed collection of <c>Audit</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Find(cunghoc3_AssetManager.Data.IFilterParameterCollection,cunghoc3_AssetManager.Data.ISortColumnCollection,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <param name="sortColumns">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlSortColumn"/> objects.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <returns>Returns a typed collection of <c>Audit</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Find(cunghoc3_AssetManager.Data.IFilterParameterCollection,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <returns>Returns a typed collection of <c>Audit</c> objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Insert(cunghoc3_AssetManager.Entities.Audit)">
+            <summary>
+            public virtual method that Inserts a Audit object into the datasource using a transaction.
+            </summary>
+            <param name="entity">Audit object to Insert.</param>
+            <remarks>After Inserting into the datasource, the Audit object will be updated
+            to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+            <returns>Returns bool that the operation is successful.</returns>
+            <example>
+            The following code shows the usage of the Insert Method with an already open transaction.
+            <code>
+            Audit entity = new Audit();
+            entity.StringProperty = "foo";
+            entity.IntProperty = 12;
+            entity.ChildObjectSource.StringProperty = "bar";
+            TransactionManager tm = null;
+            try
+            {
+            	tm = ConnectionContext.CreateTransaction();
+            	//Insert Child entity, Then Parent Entity
+            	ChildObjectTypeService.Insert(entity.ChildObjectSource);
+            	AuditService.Insert(entity);
+            }
+            catch (Exception e)
+            {
+            	if (tm != null &amp;&amp; tm.IsOpen) tm.Rollback();
+            	if (DomainUtil.HandleException(e, name)) throw;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Insert(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Audit})">
+             <summary>
+             public virtual method that Inserts rows in <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> to the datasource.
+             </summary>
+             <param name="entityCollection"><c>Audit</c> objects in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object to Insert.</param>
+             <remarks>
+            		This function will only Insert entity objects marked as dirty
+            		and have an identity field equal to zero.
+            		Upon Inserting the objects, each dirty object will have the public
+            		method <c>Object.AcceptChanges()</c> called to make it clean.
+             	After Inserting into the datasource, the <c>Audit</c> objects will be updated
+             	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+             <returns>Returns the number of successful Insert.</returns>
+             <example>
+             The following code shows the usage of the Insert Method with a collection of Audit.
+             <code><![CDATA[
+             TList<Audit> list = new TList<Audit>();
+             Audit entity = new Audit();
+             entity.StringProperty = "foo";
+             Audit entity2 = new Audit();
+             entity.StringProperty = "bar";
+             list.Add(entity);
+             list.Add(entity2);
+            	AuditService.Insert(list);
+            	}
+            	catch (Exception e)
+            	{
+            		if (DomainUtil.HandleException(e, name)) throw;
+            	}
+             ]]></code>
+             </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Update(cunghoc3_AssetManager.Entities.Audit)">
+            <summary>
+            public virtual method that Updates a Audit object into the datasource using a transaction.
+            </summary>
+            <param name="entity">Audit object to Update.</param>
+            <remarks>After Updateing into the datasource, the Audit object will be updated
+            to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+            <returns>Returns bool that the operation is successful.</returns>
+            <example>
+            The following code shows the usage of the Update Method with an already open transaction.
+            <code>
+            Audit entity = AuditService.GetByPrimaryKeyColumn(1234);
+            entity.StringProperty = "foo";
+            entity.IntProperty = 12;
+            entity.ChildObjectSource.StringProperty = "bar";
+            TransactionManager tm = null;
+            try
+            {
+            	tm = ConnectionContext.CreateTransaction();
+            	//Update Child entity, Then Parent Entity
+            	ChildObjectTypeService.Update(entity.ChildObjectSource);
+            	AuditService.Update(entity);
+            }
+            catch (Exception e)
+            {
+            	if (tm != null &amp;&amp; tm.IsOpen) tm.Rollback();
+            	if (DomainUtil.HandleException(e, name)) throw;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Update(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Audit})">
+             <summary>
+             public virtual method that Updates rows in <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> to the datasource.
+             </summary>
+             <param name="entityCollection"><c>Audit</c> objects in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object to Update.</param>
+             <remarks>
+            		This function will only Update entity objects marked as dirty
+            		and have an identity field equal to zero.
+            		Upon Updateing the objects, each dirty object will have the public
+            		method <c>Object.AcceptChanges()</c> called to make it clean.
+             	After Updateing into the datasource, the <c>Audit</c> objects will be updated
+             	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+             <returns>Returns the number of successful Update.</returns>
+             <example>
+             The following code shows the usage of the Update Method with a collection of Audit.
+             <code><![CDATA[
+             TList<Audit> list = new TList<Audit>();
+             Audit entity = new Audit();
+             entity.StringProperty = "foo";
+             Audit entity2 = new Audit();
+             entity.StringProperty = "bar";
+             list.Add(entity);
+             list.Add(entity2);
+            	AuditService.Update(list);
+            	}
+            	catch (Exception e)
+            	{
+            		if (DomainUtil.HandleException(e, name)) throw;
+            	}
+             ]]></code>
+             </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Save(cunghoc3_AssetManager.Entities.Audit)">
+            <summary>
+            public virtual method that Saves a Audit object into the datasource using a transaction.
+            </summary>
+            <param name="entity">Audit object to Save.</param>
+            <remarks>After Saveing into the datasource, the Audit object will be updated
+            to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+            <returns>Returns bool that the operation is successful.</returns>
+            <example>
+            The following code shows the usage of the Save Method with an already open transaction.
+            <code>
+            Audit entity = AuditService.GetByPrimaryKeyColumn(1234);
+            entity.StringProperty = "foo";
+            entity.IntProperty = 12;
+            entity.ChildObjectSource.StringProperty = "bar";
+            TransactionManager tm = null;
+            try
+            {
+            	tm = ConnectionContext.CreateTransaction();
+            	//Save Child entity, Then Parent Entity
+            	ChildObjectTypeService.Save(entity.ChildObjectSource);
+            	AuditService.Save(entity);
+            }
+            catch (Exception e)
+            {
+            	if (tm != null &amp;&amp; tm.IsOpen) tm.Rollback();
+            	if (DomainUtil.HandleException(e, name)) throw;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Save(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Audit})">
+             <summary>
+             public virtual method that Saves rows in <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> to the datasource.
+             </summary>
+             <param name="entityCollection"><c>Audit</c> objects in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object to Save.</param>
+             <remarks>
+            		This function will only Save entity objects marked as dirty
+            		and have an identity field equal to zero.
+            		Upon Saveing the objects, each dirty object will have the public
+            		method <c>Object.AcceptChanges()</c> called to make it clean.
+             	After Saveing into the datasource, the <c>Audit</c> objects will be updated
+             	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+             <returns>Returns the number of successful Save.</returns>
+             <example>
+             The following code shows the usage of the Save Method with a collection of Audit.
+             <code><![CDATA[
+             TList<Audit> list = new TList<Audit>();
+             Audit entity = new Audit();
+             entity.StringProperty = "foo";
+             Audit entity2 = new Audit();
+             entity.StringProperty = "bar";
+             list.Add(entity);
+             list.Add(entity2);
+            	AuditService.Save(list);
+            	}
+            	catch (Exception e)
+            	{
+            		if (DomainUtil.HandleException(e, name)) throw;
+            	}
+             ]]></code>
+             </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Delete(cunghoc3_AssetManager.Entities.Audit)">
+            <summary>
+            public virtual method that Deletes a Audit object into the datasource using a transaction.
+            </summary>
+            <param name="entity">Audit object to Delete.</param>
+            <remarks>After Deleteing into the datasource, the Audit object will be updated
+            to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+            <returns>Returns bool that the operation is successful.</returns>
+            <example>
+            The following code shows the usage of the Delete Method with an already open transaction.
+            <code>
+            Audit entity = AuditService.GetByPrimaryKeyColumn(1234);
+            entity.StringProperty = "foo";
+            entity.IntProperty = 12;
+            entity.ChildObjectSource.StringProperty = "bar";
+            TransactionManager tm = null;
+            try
+            {
+            	tm = ConnectionContext.CreateTransaction();
+            	//Delete Child entity, Then Parent Entity
+            	ChildObjectTypeService.Delete(entity.ChildObjectSource);
+            	AuditService.Delete(entity);
+            }
+            catch (Exception e)
+            {
+            	if (tm != null &amp;&amp; tm.IsOpen) tm.Rollback();
+            	if (DomainUtil.HandleException(e, name)) throw;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Delete(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Audit})">
+             <summary>
+             public virtual method that Deletes rows in <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> to the datasource.
+             </summary>
+             <param name="entityCollection"><c>Audit</c> objects in a <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object to Delete.</param>
+             <remarks>
+            		This function will only Delete entity objects marked as dirty
+            		and have an identity field equal to zero.
+            		Upon Deleteing the objects, each dirty object will have the public
+            		method <c>Object.AcceptChanges()</c> called to make it clean.
+             	After Deleteing into the datasource, the <c>Audit</c> objects will be updated
+             	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+             <returns>Returns the number of successful Delete.</returns>
+             <example>
+             The following code shows the usage of the Delete Method with a collection of Audit.
+             <code><![CDATA[
+             TList<Audit> list = new TList<Audit>();
+             Audit entity = new Audit();
+             entity.StringProperty = "foo";
+             Audit entity2 = new Audit();
+             entity.StringProperty = "bar";
+             list.Add(entity);
+             list.Add(entity2);
+            	AuditService.Delete(list);
+            	}
+            	catch (Exception e)
+            	{
+            		if (DomainUtil.HandleException(e, name)) throw;
+            	}
+             ]]></code>
+             </example>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Delete(cunghoc3_AssetManager.Entities.AuditKey)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="key">The unique identifier of the row to delete.</param>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.Delete(System.Int64)">
+            <summary>
+            	Deletes a row from the DataSource based on the PK'S System.Int64 _id
+            </summary>
+            <param name="_id">Audit pk id.</param>
+            <remarks>Deletes based on primary key(s).</remarks>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.DeepLoadById(System.Int64,System.Boolean,cunghoc3_AssetManager.Data.DeepLoadType,System.Type[])">
+            <summary>
+            public virtualDeep Loads the requested <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> by the entity keys.  The criteria of the child 
+            property collections only N Levels Deep based on the <see cref="T:cunghoc3_AssetManager.Data.DeepLoadType"/>.
+            </summary>
+            <param name="_id"></param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively save all Property Collection that are descendants of this instance. If True, saves the complete object graph below this object. If False, saves this object only. </param>
+            <param name="deepLoadType">DeepLoadType Enumeration to Include/Exclude object property collections from Load.</param>
+            <param name="childTypes">Audit Property Collection Type Array To Include or Exclude from Load</param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> class and DeepLoaded.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.Audit)">
+            <summary>
+            public virtualDeep Load the IEntity object with all of the child 
+            property collections only 1 Level Deep.
+            </summary>
+            <param name="entity">Audit Object</param>
+            <remarks>
+            <seealso cref="M:cunghoc3_AssetManager.Services.AuditServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.Audit)"/> overloaded methods for a recursive N Level deep loading method.
+            </remarks>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.Audit,System.Boolean)">
+            <summary>
+            public virtualDeep Load the IEntity object with all of the child 
+            property collections only 1 Level Deep.
+            </summary>
+            <remarks>
+            <seealso cref="M:cunghoc3_AssetManager.Services.AuditServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.Audit)"/> overloaded methods for a recursive N Level deep loading method.
+            </remarks>
+            <param name="entity">Audit Object</param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively save all Property Collection that are descendants of this instance. If True, saves the complete object graph below this object. If False, saves this object only. </param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.Audit,System.Boolean,cunghoc3_AssetManager.Data.DeepLoadType,System.Type[])">
+            <summary>
+            public virtualDeep Loads the <see cref="T:cunghoc3_AssetManager.Entities.IEntity"/> object with criteria based of the child 
+            property collections only N Levels Deep based on the <see cref="T:cunghoc3_AssetManager.Data.DeepLoadType"/>.
+            </summary>
+            <remarks>
+            Use this method with caution as it is possible to DeepLoad with Recursion and traverse an entire object graph.
+            </remarks>
+            <param name="entity">The <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> object to load.</param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively load all Property Collections that are descendants of this instance. 
+            If True, saves the complete object graph below this object. If False, saves this object only. </param>
+            <param name="deepLoadType">DeepLoadType Enumeration to Include/Exclude object property collections from Load.</param>
+            <param name="childTypes">Audit Property Collection Type Array To Include or Exclude from Load</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Audit})">
+            <summary>
+            Deep Loads the <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object with all of the child 
+            property collections only 1 Level Deep.
+            </summary>
+            <remarks>
+            <seealso cref="M:cunghoc3_AssetManager.Services.AuditServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.Audit)"/> overloaded methods for a recursive N Level deep loading method.
+            </remarks>
+            <param name="entityCollection">the <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> Object to deep loads.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Audit},System.Boolean)">
+            <summary>
+            Deep Loads the <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object.
+            </summary>
+            <remarks>
+            <seealso cref="M:cunghoc3_AssetManager.Services.AuditServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.Audit)"/> overloaded methods for a recursive N Level deep loading method.
+            </remarks>
+            <param name="entityCollection">the <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> Object to deep loads.</param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively save all Property Collection that are descendants of this instance. If True, saves the complete object graph below this object. If False, saves this object only. </param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.DeepLoad(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Audit},System.Boolean,cunghoc3_AssetManager.Data.DeepLoadType,System.Type[])">
+            <summary>
+            Deep Loads the entire <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object with criteria based of the child 
+            property collections only N Levels Deep based on the DeepLoadType.
+            </summary>
+            <remarks>
+            Use this method with caution as it is possible to DeepLoad with Recursion and traverse an entire collection's object graph.
+            </remarks>
+            <param name="entityCollection">The <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> instance to load.</param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively save all Property Collection that are descendants of this instance. If True, saves the complete object graph below this object. If False, saves this object only. </param>
+            <param name="deepLoadType"><see cref="T:cunghoc3_AssetManager.Data.DeepLoadType"/> Enumeration to Include/Exclude object property collections from Load.
+            	Use DeepLoadType.IncludeChildren, ExcludeChildren to traverse the entire object graph.
+            </param>
+            <param name="childTypes"><see cref="T:cunghoc3_AssetManager.Entities.Audit"/> Property Collection Type Array To Include or Exclude from Load</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.DeepSave(cunghoc3_AssetManager.Entities.Audit)">
+            <summary>
+            public virtualDeep Saves the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> object with all of the child
+            property collections N Levels Deep.
+            </summary>
+            <param name="entity">Audit Object</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.DeepSave(cunghoc3_AssetManager.Entities.Audit,cunghoc3_AssetManager.Data.DeepSaveType,System.Type[])">
+            <summary>
+            public virtualDeep Saves the entire object graph of the Audit object with criteria based of the child 
+            Type property array and DeepSaveType.
+            </summary>
+            <param name="entity">Audit Object</param>
+            <param name="deepSaveType">DeepSaveType Enumeration to Include/Exclude object property collections from Save.</param>
+            <param name="childTypes"><c>Audit</c> property Type Array To Include or Exclude from Save</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.DeepSave(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Audit})">
+            <summary>
+            Deep Save the entire <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object with all of the child 
+            property collections.
+            </summary>
+            <param name="entityCollection">TList{Audit} Object</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditServiceBase.DeepSave(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Audit},cunghoc3_AssetManager.Data.DeepSaveType,System.Type[])">
+            <summary>
+            Deep Save the entire object graph of the <see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> object with criteria based of the child 
+            property collections.
+            </summary>
+            <param name="entityCollection"><see cref="T:cunghoc3_AssetManager.Entities.TList`1"/> Object</param>
+            <param name="deepSaveType">DeepSaveType Enumeration to Include/Exclude object property collections from Save.</param>
+            <param name="childTypes">Audit Property Collection Type Array To Include or Exclude from Save</param>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Services.AuditServiceBase.SecurityContext">
+            <summary>
+             Contains all necessary information to validate and authorize the 
+             call of the method with the Principal and Roles of the current user.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Services.AuditService">
+            <summary>
+            An component type implementation of the 'Audit' table.
+            </summary>
+            <remarks>
+            All custom implementations should be done here.
+            </remarks>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Services.AuditService.#ctor">
+            <summary>
+            Initializes a new instance of the AuditService class.
             </summary>
         </member>
         <member name="T:cunghoc3_AssetManager.Services.ProcessorBase">

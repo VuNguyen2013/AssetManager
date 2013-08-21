@@ -2410,6 +2410,160 @@
             that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.DepartmentUsed"/> object.
             </summary>
         </member>
+        <member name="T:cunghoc3_AssetManager.Web.UI.AuditRepeaterDesigner">
+            <summary>
+            A designer class for a strongly typed repeater <c>AuditRepeater</c>
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.AuditRepeaterDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AuditRepeaterDesigner"/> class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.AuditRepeaterDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes the control designer and loads the specified component.
+            </summary>
+            <param name="component">The control being designed.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.AuditRepeaterDesigner.GetDesignTimeHtml">
+            <summary>
+            Generate HTML for the designer
+            </summary>
+            <returns>a string of design time HTML</returns>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.UI.AuditRepeater">
+            <summary>
+            A strongly typed repeater control for the <see cref="T:cunghoc3_AssetManager.Web.UI.AuditRepeater"/> Type.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.AuditRepeater.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AuditRepeater"/> class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.AuditRepeater.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.AuditRepeater.RenderEndTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.AuditRepeater.CreateChildControls(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.AuditRepeater.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender"></see> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.AuditRepeater.RenderAtDesignTime">
+            <summary>
+            Renders at design time.
+            </summary>
+            <returns>a  string of the Designed HTML</returns>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AuditRepeater.Controls">
+            <summary>
+            Gets a <see cref="T:System.Web.UI.ControlCollection"></see> object that represents the child controls for a specified server control in the UI hierarchy.
+            </summary>
+            <value></value>
+            <returns>The collection of child controls for the specified server control.</returns>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AuditRepeater.HeaderTemplate">
+            <summary>
+            Gets or sets the header template.
+            </summary>
+            <value>The header template.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AuditRepeater.ItemTemplate">
+            <summary>
+            Gets or sets the item template.
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AuditRepeater.SeperatorTemplate">
+            <summary>
+            Gets or sets the Seperator Template
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AuditRepeater.AlternatingItemTemplate">
+            <summary>
+            Gets or sets the alternating item template.
+            </summary>
+            <value>The alternating item template.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AuditRepeater.FooterTemplate">
+            <summary>
+            Gets or sets the footer template.
+            </summary>
+            <value>The footer template.</value>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.UI.AuditItem">
+            <summary>
+            A wrapper type for the entity
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.AuditItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AuditItem"/> class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.AuditItem.#ctor(cunghoc3_AssetManager.Entities.Audit)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AuditItem"/> class.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AuditItem.Id">
+            <summary>
+            Gets the Id
+            </summary>
+            <value>The Id.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AuditItem.AssetId">
+            <summary>
+            Gets the AssetId
+            </summary>
+            <value>The AssetId.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AuditItem.AuditDate">
+            <summary>
+            Gets the AuditDate
+            </summary>
+            <value>The AuditDate.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AuditItem.Comment">
+            <summary>
+            Gets the Comment
+            </summary>
+            <value>The Comment.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AuditItem.User">
+            <summary>
+            Gets the User
+            </summary>
+            <value>The User.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AuditItem.Computer">
+            <summary>
+            Gets the Computer
+            </summary>
+            <value>The Computer.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AuditItem.Entity">
+            <summary>
+            Gets a <see cref="T:cunghoc3_AssetManager.Entities.Audit"></see> object
+            </summary>
+            <value></value>
+        </member>
         <member name="T:cunghoc3_AssetManager.Web.Data.ReadOnlyDataSourceDesigner`1">
             <summary>
             Provides design-time support in a design host for the ReadOnlyDataSource class.
@@ -4057,6 +4211,191 @@
         <member name="F:cunghoc3_AssetManager.Web.UI.SearchOperator.EndsWith">
             does an ends with search - '%{0}'
         </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.AuditDataSource">
+            <summary>
+            Represents the DataRepository.AuditProvider object that provides
+            data to data-bound controls in multi-tier Web application architectures.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.AuditDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the AuditDataSource class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.AuditDataSource.GetNewDataSourceView">
+            <summary>
+            Creates a new instance of the AuditDataSourceView class that is to be
+            used by the AuditDataSource.
+            </summary>
+            <returns>An instance of the AuditDataSourceView class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.AuditDataSource.CacheHashKey(System.Int32,System.Int32)">
+            <summary>
+            Creates a cache hashing key based on the startIndex, pageSize and the SelectMethod being used.
+            </summary>
+            <param name="startIndex">The current start row index.</param>
+            <param name="pageSize">The current page size.</param>
+            <returns>A string that can be used as a key for caching purposes.</returns>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.AuditDataSource.AuditView">
+            <summary>
+            Gets a reference to the AuditDataSourceView used by the AuditDataSource.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.AuditDataSource.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the AuditDataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.AuditDataSourceView">
+            <summary>
+            Supports the AuditDataSource control and provides an interface for
+            data-bound controls to perform data operations with business and data objects.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.AuditDataSourceView.#ctor(cunghoc3_AssetManager.Web.Data.AuditDataSource,System.String)">
+            <summary>
+            Initializes a new instance of the AuditDataSourceView class.
+            </summary>
+            <param name="owner">A reference to the AuditDataSource which created this instance.</param>
+            <param name="viewName">The name of the view.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.AuditDataSourceView.GetSelectData(System.Collections.IDictionary,System.Int32@)">
+            <summary>
+            Gets a collection of Entity objects based on the value of the SelectMethod property.
+            </summary>
+            <param name="count">The total number of rows in the DataSource.</param>
+            <param name="values"></param>
+            <returns>A collection of Entity objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.AuditDataSourceView.GetSelectParameters(System.Collections.IDictionary)">
+            <summary>
+            Gets the values of any supplied parameters for internal caching.
+            </summary>
+            <param name="values">An IDictionary object of name/value pairs.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.AuditDataSourceView.DeepLoad">
+            <summary>
+            Performs a DeepLoad operation for the current entity if it has
+            not already been performed.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.AuditDataSourceView.DeepLoad(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Audit},cunghoc3_AssetManager.Web.Data.ProviderDataSourceDeepLoadList)">
+            <summary>
+            Performs a DeepLoad operation on the specified entity collection.
+            </summary>
+            <param name="entityList"></param>
+            <param name="properties"></param>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.AuditDataSourceView.AuditOwner">
+            <summary>
+            Gets a strongly-typed reference to the Owner property.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.AuditDataSourceView.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the DataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.AuditDataSourceView.AuditProvider">
+            <summary>
+            Gets a strongly typed reference to the Provider property.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.AuditDataSourceDesigner">
+            <summary>
+            Provides design-time support in a design host for the AuditDataSource class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.AuditDataSourceDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the AuditDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.AuditDataSourceDesigner.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.AuditDataSourceDesigner.ActionLists">
+            <summary>Gets the designer action list collection for this designer.</summary>
+            <returns>The <see cref="T:System.ComponentModel.Design.DesignerActionListCollection"/>
+            associated with this designer.</returns>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.AuditDataSourceActionList">
+            <summary>
+            Supports the AuditDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.AuditDataSourceActionList.#ctor(cunghoc3_AssetManager.Web.Data.AuditDataSourceDesigner)">
+            <summary>
+            Initializes a new instance of the AuditDataSourceActionList class.
+            </summary>
+            <param name="designer"></param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.AuditDataSourceActionList.GetSortedActionItems">
+            <summary>
+            Returns the collection of <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            objects contained in the list.
+            </summary>
+            <returns>A <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            array that contains the items in this list.</returns>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.AuditDataSourceActionList.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.AuditSelectMethod">
+            <summary>
+            Enumeration of method names available for the AuditDataSource.SelectMethod property.
+            </summary>
+        </member>
+        <member name="F:cunghoc3_AssetManager.Web.Data.AuditSelectMethod.Get">
+            <summary>
+            Represents the Get method.
+            </summary>
+        </member>
+        <member name="F:cunghoc3_AssetManager.Web.Data.AuditSelectMethod.GetAll">
+            <summary>
+            Represents the GetAll method.
+            </summary>
+        </member>
+        <member name="F:cunghoc3_AssetManager.Web.Data.AuditSelectMethod.GetPaged">
+            <summary>
+            Represents the GetPaged method.
+            </summary>
+        </member>
+        <member name="F:cunghoc3_AssetManager.Web.Data.AuditSelectMethod.Find">
+            <summary>
+            Represents the Find method.
+            </summary>
+        </member>
+        <member name="F:cunghoc3_AssetManager.Web.Data.AuditSelectMethod.GetById">
+            <summary>
+            Represents the GetById method.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.AuditFilter">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Web.Data.SqlFilter`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> object.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.AuditExpressionBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Web.Data.SqlExpressionBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> object.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.AuditProperty">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.Bases.ChildEntityProperty`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> object.
+            </summary>
+        </member>
         <member name="T:cunghoc3_AssetManager.Web.UI.AssetLiquidationRepeaterDesigner">
             <summary>
             A designer class for a strongly typed repeater <c>AssetLiquidationRepeater</c>
@@ -4302,6 +4641,191 @@
         <member name="P:cunghoc3_AssetManager.Web.UI.MultiBindableTemplate.HasTemplates">
             <summary>
             Gets a value that indicates whether there are any templates specified.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.CheckOutDataSource">
+            <summary>
+            Represents the DataRepository.CheckOutProvider object that provides
+            data to data-bound controls in multi-tier Web application architectures.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.CheckOutDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the CheckOutDataSource class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.CheckOutDataSource.GetNewDataSourceView">
+            <summary>
+            Creates a new instance of the CheckOutDataSourceView class that is to be
+            used by the CheckOutDataSource.
+            </summary>
+            <returns>An instance of the CheckOutDataSourceView class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.CheckOutDataSource.CacheHashKey(System.Int32,System.Int32)">
+            <summary>
+            Creates a cache hashing key based on the startIndex, pageSize and the SelectMethod being used.
+            </summary>
+            <param name="startIndex">The current start row index.</param>
+            <param name="pageSize">The current page size.</param>
+            <returns>A string that can be used as a key for caching purposes.</returns>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.CheckOutDataSource.CheckOutView">
+            <summary>
+            Gets a reference to the CheckOutDataSourceView used by the CheckOutDataSource.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.CheckOutDataSource.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the CheckOutDataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.CheckOutDataSourceView">
+            <summary>
+            Supports the CheckOutDataSource control and provides an interface for
+            data-bound controls to perform data operations with business and data objects.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.CheckOutDataSourceView.#ctor(cunghoc3_AssetManager.Web.Data.CheckOutDataSource,System.String)">
+            <summary>
+            Initializes a new instance of the CheckOutDataSourceView class.
+            </summary>
+            <param name="owner">A reference to the CheckOutDataSource which created this instance.</param>
+            <param name="viewName">The name of the view.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.CheckOutDataSourceView.GetSelectData(System.Collections.IDictionary,System.Int32@)">
+            <summary>
+            Gets a collection of Entity objects based on the value of the SelectMethod property.
+            </summary>
+            <param name="count">The total number of rows in the DataSource.</param>
+            <param name="values"></param>
+            <returns>A collection of Entity objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.CheckOutDataSourceView.GetSelectParameters(System.Collections.IDictionary)">
+            <summary>
+            Gets the values of any supplied parameters for internal caching.
+            </summary>
+            <param name="values">An IDictionary object of name/value pairs.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.CheckOutDataSourceView.DeepLoad">
+            <summary>
+            Performs a DeepLoad operation for the current entity if it has
+            not already been performed.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.CheckOutDataSourceView.DeepLoad(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.CheckOut},cunghoc3_AssetManager.Web.Data.ProviderDataSourceDeepLoadList)">
+            <summary>
+            Performs a DeepLoad operation on the specified entity collection.
+            </summary>
+            <param name="entityList"></param>
+            <param name="properties"></param>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.CheckOutDataSourceView.CheckOutOwner">
+            <summary>
+            Gets a strongly-typed reference to the Owner property.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.CheckOutDataSourceView.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the DataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.CheckOutDataSourceView.CheckOutProvider">
+            <summary>
+            Gets a strongly typed reference to the Provider property.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.CheckOutDataSourceDesigner">
+            <summary>
+            Provides design-time support in a design host for the CheckOutDataSource class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.CheckOutDataSourceDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the CheckOutDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.CheckOutDataSourceDesigner.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.CheckOutDataSourceDesigner.ActionLists">
+            <summary>Gets the designer action list collection for this designer.</summary>
+            <returns>The <see cref="T:System.ComponentModel.Design.DesignerActionListCollection"/>
+            associated with this designer.</returns>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.CheckOutDataSourceActionList">
+            <summary>
+            Supports the CheckOutDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.CheckOutDataSourceActionList.#ctor(cunghoc3_AssetManager.Web.Data.CheckOutDataSourceDesigner)">
+            <summary>
+            Initializes a new instance of the CheckOutDataSourceActionList class.
+            </summary>
+            <param name="designer"></param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.CheckOutDataSourceActionList.GetSortedActionItems">
+            <summary>
+            Returns the collection of <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            objects contained in the list.
+            </summary>
+            <returns>A <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            array that contains the items in this list.</returns>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.CheckOutDataSourceActionList.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.CheckOutSelectMethod">
+            <summary>
+            Enumeration of method names available for the CheckOutDataSource.SelectMethod property.
+            </summary>
+        </member>
+        <member name="F:cunghoc3_AssetManager.Web.Data.CheckOutSelectMethod.Get">
+            <summary>
+            Represents the Get method.
+            </summary>
+        </member>
+        <member name="F:cunghoc3_AssetManager.Web.Data.CheckOutSelectMethod.GetAll">
+            <summary>
+            Represents the GetAll method.
+            </summary>
+        </member>
+        <member name="F:cunghoc3_AssetManager.Web.Data.CheckOutSelectMethod.GetPaged">
+            <summary>
+            Represents the GetPaged method.
+            </summary>
+        </member>
+        <member name="F:cunghoc3_AssetManager.Web.Data.CheckOutSelectMethod.Find">
+            <summary>
+            Represents the Find method.
+            </summary>
+        </member>
+        <member name="F:cunghoc3_AssetManager.Web.Data.CheckOutSelectMethod.GetById">
+            <summary>
+            Represents the GetById method.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.CheckOutFilter">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Web.Data.SqlFilter`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> object.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.CheckOutExpressionBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Web.Data.SqlExpressionBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> object.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.CheckOutProperty">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.Bases.ChildEntityProperty`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> object.
             </summary>
         </member>
         <member name="T:cunghoc3_AssetManager.Web.Data.EntityDataSource">
@@ -5659,6 +6183,54 @@
             Gets the InputDateTime
             </summary>
             <value>The InputDateTime.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AssetItem.Manufacturer">
+            <summary>
+            Gets the Manufacturer
+            </summary>
+            <value>The Manufacturer.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AssetItem.Brand">
+            <summary>
+            Gets the Brand
+            </summary>
+            <value>The Brand.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AssetItem.Model">
+            <summary>
+            Gets the Model
+            </summary>
+            <value>The Model.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AssetItem.Status">
+            <summary>
+            Gets the Status
+            </summary>
+            <value>The Status.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AssetItem.DueDate">
+            <summary>
+            Gets the DueDate
+            </summary>
+            <value>The DueDate.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AssetItem.Note">
+            <summary>
+            Gets the Note
+            </summary>
+            <value>The Note.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AssetItem.SeriesNumber">
+            <summary>
+            Gets the SeriesNumber
+            </summary>
+            <value>The SeriesNumber.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.AssetItem.Condition">
+            <summary>
+            Gets the Condition
+            </summary>
+            <value>The Condition.</value>
         </member>
         <member name="P:cunghoc3_AssetManager.Web.UI.AssetItem.Entity">
             <summary>
@@ -10282,6 +10854,142 @@
             </summary>
             <value></value>
         </member>
+        <member name="T:cunghoc3_AssetManager.Web.UI.ImageRepeaterDesigner">
+            <summary>
+            A designer class for a strongly typed repeater <c>ImageRepeater</c>
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.ImageRepeaterDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ImageRepeaterDesigner"/> class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.ImageRepeaterDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes the control designer and loads the specified component.
+            </summary>
+            <param name="component">The control being designed.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.ImageRepeaterDesigner.GetDesignTimeHtml">
+            <summary>
+            Generate HTML for the designer
+            </summary>
+            <returns>a string of design time HTML</returns>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.UI.ImageRepeater">
+            <summary>
+            A strongly typed repeater control for the <see cref="T:cunghoc3_AssetManager.Web.UI.ImageRepeater"/> Type.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.ImageRepeater.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ImageRepeater"/> class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.ImageRepeater.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.ImageRepeater.RenderEndTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.ImageRepeater.CreateChildControls(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.ImageRepeater.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender"></see> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.ImageRepeater.RenderAtDesignTime">
+            <summary>
+            Renders at design time.
+            </summary>
+            <returns>a  string of the Designed HTML</returns>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.ImageRepeater.Controls">
+            <summary>
+            Gets a <see cref="T:System.Web.UI.ControlCollection"></see> object that represents the child controls for a specified server control in the UI hierarchy.
+            </summary>
+            <value></value>
+            <returns>The collection of child controls for the specified server control.</returns>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.ImageRepeater.HeaderTemplate">
+            <summary>
+            Gets or sets the header template.
+            </summary>
+            <value>The header template.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.ImageRepeater.ItemTemplate">
+            <summary>
+            Gets or sets the item template.
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.ImageRepeater.SeperatorTemplate">
+            <summary>
+            Gets or sets the Seperator Template
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.ImageRepeater.AlternatingItemTemplate">
+            <summary>
+            Gets or sets the alternating item template.
+            </summary>
+            <value>The alternating item template.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.ImageRepeater.FooterTemplate">
+            <summary>
+            Gets or sets the footer template.
+            </summary>
+            <value>The footer template.</value>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.UI.ImageItem">
+            <summary>
+            A wrapper type for the entity
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.ImageItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ImageItem"/> class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.ImageItem.#ctor(cunghoc3_AssetManager.Entities.Image)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ImageItem"/> class.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.ImageItem.Id">
+            <summary>
+            Gets the Id
+            </summary>
+            <value>The Id.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.ImageItem.AssetId">
+            <summary>
+            Gets the AssetId
+            </summary>
+            <value>The AssetId.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.ImageItem.ImageUrl">
+            <summary>
+            Gets the ImageUrl
+            </summary>
+            <value>The ImageUrl.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.ImageItem.Entity">
+            <summary>
+            Gets a <see cref="T:cunghoc3_AssetManager.Entities.Image"></see> object
+            </summary>
+            <value></value>
+        </member>
         <member name="T:cunghoc3_AssetManager.Web.UI.PersistenceMethod">
             <summary>
             used to determine the persistence method
@@ -10300,6 +11008,351 @@
         </member>
         <member name="F:cunghoc3_AssetManager.Web.UI.PersistenceMethod.PersistentCookie">
             a persistent client cookie will be used
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.ImageDataSource">
+            <summary>
+            Represents the DataRepository.ImageProvider object that provides
+            data to data-bound controls in multi-tier Web application architectures.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.ImageDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the ImageDataSource class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.ImageDataSource.GetNewDataSourceView">
+            <summary>
+            Creates a new instance of the ImageDataSourceView class that is to be
+            used by the ImageDataSource.
+            </summary>
+            <returns>An instance of the ImageDataSourceView class.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.ImageDataSource.CacheHashKey(System.Int32,System.Int32)">
+            <summary>
+            Creates a cache hashing key based on the startIndex, pageSize and the SelectMethod being used.
+            </summary>
+            <param name="startIndex">The current start row index.</param>
+            <param name="pageSize">The current page size.</param>
+            <returns>A string that can be used as a key for caching purposes.</returns>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.ImageDataSource.ImageView">
+            <summary>
+            Gets a reference to the ImageDataSourceView used by the ImageDataSource.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.ImageDataSource.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the ImageDataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.ImageDataSourceView">
+            <summary>
+            Supports the ImageDataSource control and provides an interface for
+            data-bound controls to perform data operations with business and data objects.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.ImageDataSourceView.#ctor(cunghoc3_AssetManager.Web.Data.ImageDataSource,System.String)">
+            <summary>
+            Initializes a new instance of the ImageDataSourceView class.
+            </summary>
+            <param name="owner">A reference to the ImageDataSource which created this instance.</param>
+            <param name="viewName">The name of the view.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.ImageDataSourceView.GetSelectData(System.Collections.IDictionary,System.Int32@)">
+            <summary>
+            Gets a collection of Entity objects based on the value of the SelectMethod property.
+            </summary>
+            <param name="count">The total number of rows in the DataSource.</param>
+            <param name="values"></param>
+            <returns>A collection of Entity objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.ImageDataSourceView.GetSelectParameters(System.Collections.IDictionary)">
+            <summary>
+            Gets the values of any supplied parameters for internal caching.
+            </summary>
+            <param name="values">An IDictionary object of name/value pairs.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.ImageDataSourceView.DeepLoad">
+            <summary>
+            Performs a DeepLoad operation for the current entity if it has
+            not already been performed.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.ImageDataSourceView.DeepLoad(cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Image},cunghoc3_AssetManager.Web.Data.ProviderDataSourceDeepLoadList)">
+            <summary>
+            Performs a DeepLoad operation on the specified entity collection.
+            </summary>
+            <param name="entityList"></param>
+            <param name="properties"></param>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.ImageDataSourceView.ImageOwner">
+            <summary>
+            Gets a strongly-typed reference to the Owner property.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.ImageDataSourceView.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the DataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.ImageDataSourceView.ImageProvider">
+            <summary>
+            Gets a strongly typed reference to the Provider property.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.ImageDataSourceDesigner">
+            <summary>
+            Provides design-time support in a design host for the ImageDataSource class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.ImageDataSourceDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the ImageDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.ImageDataSourceDesigner.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.ImageDataSourceDesigner.ActionLists">
+            <summary>Gets the designer action list collection for this designer.</summary>
+            <returns>The <see cref="T:System.ComponentModel.Design.DesignerActionListCollection"/>
+            associated with this designer.</returns>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.ImageDataSourceActionList">
+            <summary>
+            Supports the ImageDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.ImageDataSourceActionList.#ctor(cunghoc3_AssetManager.Web.Data.ImageDataSourceDesigner)">
+            <summary>
+            Initializes a new instance of the ImageDataSourceActionList class.
+            </summary>
+            <param name="designer"></param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.Data.ImageDataSourceActionList.GetSortedActionItems">
+            <summary>
+            Returns the collection of <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            objects contained in the list.
+            </summary>
+            <returns>A <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            array that contains the items in this list.</returns>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.Data.ImageDataSourceActionList.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.ImageSelectMethod">
+            <summary>
+            Enumeration of method names available for the ImageDataSource.SelectMethod property.
+            </summary>
+        </member>
+        <member name="F:cunghoc3_AssetManager.Web.Data.ImageSelectMethod.Get">
+            <summary>
+            Represents the Get method.
+            </summary>
+        </member>
+        <member name="F:cunghoc3_AssetManager.Web.Data.ImageSelectMethod.GetAll">
+            <summary>
+            Represents the GetAll method.
+            </summary>
+        </member>
+        <member name="F:cunghoc3_AssetManager.Web.Data.ImageSelectMethod.GetPaged">
+            <summary>
+            Represents the GetPaged method.
+            </summary>
+        </member>
+        <member name="F:cunghoc3_AssetManager.Web.Data.ImageSelectMethod.Find">
+            <summary>
+            Represents the Find method.
+            </summary>
+        </member>
+        <member name="F:cunghoc3_AssetManager.Web.Data.ImageSelectMethod.GetById">
+            <summary>
+            Represents the GetById method.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.ImageFilter">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Web.Data.SqlFilter`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Image"/> object.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.ImageExpressionBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Web.Data.SqlExpressionBuilder`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Image"/> object.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.Data.ImageProperty">
+            <summary>
+            A strongly-typed instance of the <see cref="T:cunghoc3_AssetManager.Data.Bases.ChildEntityProperty`1"/> class
+            that is used exclusively with a <see cref="T:cunghoc3_AssetManager.Entities.Image"/> object.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.UI.CheckOutRepeaterDesigner">
+            <summary>
+            A designer class for a strongly typed repeater <c>CheckOutRepeater</c>
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.CheckOutRepeaterDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CheckOutRepeaterDesigner"/> class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.CheckOutRepeaterDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes the control designer and loads the specified component.
+            </summary>
+            <param name="component">The control being designed.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.CheckOutRepeaterDesigner.GetDesignTimeHtml">
+            <summary>
+            Generate HTML for the designer
+            </summary>
+            <returns>a string of design time HTML</returns>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.UI.CheckOutRepeater">
+            <summary>
+            A strongly typed repeater control for the <see cref="T:cunghoc3_AssetManager.Web.UI.CheckOutRepeater"/> Type.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.CheckOutRepeater.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CheckOutRepeater"/> class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.CheckOutRepeater.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.CheckOutRepeater.RenderEndTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.CheckOutRepeater.CreateChildControls(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.CheckOutRepeater.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender"></see> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.CheckOutRepeater.RenderAtDesignTime">
+            <summary>
+            Renders at design time.
+            </summary>
+            <returns>a  string of the Designed HTML</returns>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.CheckOutRepeater.Controls">
+            <summary>
+            Gets a <see cref="T:System.Web.UI.ControlCollection"></see> object that represents the child controls for a specified server control in the UI hierarchy.
+            </summary>
+            <value></value>
+            <returns>The collection of child controls for the specified server control.</returns>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.CheckOutRepeater.HeaderTemplate">
+            <summary>
+            Gets or sets the header template.
+            </summary>
+            <value>The header template.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.CheckOutRepeater.ItemTemplate">
+            <summary>
+            Gets or sets the item template.
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.CheckOutRepeater.SeperatorTemplate">
+            <summary>
+            Gets or sets the Seperator Template
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.CheckOutRepeater.AlternatingItemTemplate">
+            <summary>
+            Gets or sets the alternating item template.
+            </summary>
+            <value>The alternating item template.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.CheckOutRepeater.FooterTemplate">
+            <summary>
+            Gets or sets the footer template.
+            </summary>
+            <value>The footer template.</value>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Web.UI.CheckOutItem">
+            <summary>
+            A wrapper type for the entity
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.CheckOutItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CheckOutItem"/> class.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Web.UI.CheckOutItem.#ctor(cunghoc3_AssetManager.Entities.CheckOut)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CheckOutItem"/> class.
+            </summary>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.CheckOutItem.Id">
+            <summary>
+            Gets the Id
+            </summary>
+            <value>The Id.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.CheckOutItem.AssetId">
+            <summary>
+            Gets the AssetId
+            </summary>
+            <value>The AssetId.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.CheckOutItem.CheckOutDate">
+            <summary>
+            Gets the CheckOutDate
+            </summary>
+            <value>The CheckOutDate.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.CheckOutItem.Comment">
+            <summary>
+            Gets the Comment
+            </summary>
+            <value>The Comment.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.CheckOutItem.User">
+            <summary>
+            Gets the User
+            </summary>
+            <value>The User.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.CheckOutItem.Computer">
+            <summary>
+            Gets the Computer
+            </summary>
+            <value>The Computer.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.CheckOutItem.Status">
+            <summary>
+            Gets the Status
+            </summary>
+            <value>The Status.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Web.UI.CheckOutItem.Entity">
+            <summary>
+            Gets a <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"></see> object
+            </summary>
+            <value></value>
         </member>
         <member name="T:cunghoc3_AssetManager.Web.Data.OneToOneViewRelationship">
             <summary>

@@ -4,6 +4,12 @@
 	<ItemTemplate>
 		<table border="0" cellpadding="3" cellspacing="1">
 			<tr>
+        <td class="literal"><asp:Label ID="lbldataCondition" runat="server" Text="Condition:" AssociatedControlID="dataCondition" /></td>
+        <td>
+					<asp:TextBox runat="server" ID="dataCondition" Text='<%# Bind("Condition") %>'></asp:TextBox><asp:RangeValidator ID="RangeVal_dataCondition" runat="server" Display="Dynamic" ControlToValidate="dataCondition" ErrorMessage="Invalid value" MaximumValue="32767" MinimumValue="-32768" Type="Integer"></asp:RangeValidator>
+				</td>
+			</tr>
+			<tr>
         <td class="literal"><asp:Label ID="lbldataId" runat="server" Text="Id:" AssociatedControlID="dataId" /></td>
         <td>
 					<asp:TextBox runat="server" ID="dataId" Text='<%# Bind("Id") %>' MaxLength="10"></asp:TextBox><asp:RequiredFieldValidator ID="ReqVal_dataId" runat="server" Display="Dynamic" ControlToValidate="dataId" ErrorMessage="Required"></asp:RequiredFieldValidator>
@@ -154,6 +160,48 @@
         <td class="literal"><asp:Label ID="lbldataInputDateTime" runat="server" Text="Input Date Time:" AssociatedControlID="dataInputDateTime" /></td>
         <td>
 					<asp:TextBox runat="server" ID="dataInputDateTime" Text='<%# Bind("InputDateTime", "{0:d}") %>' MaxLength="10"></asp:TextBox><asp:ImageButton ID="cal_dataInputDateTime" runat="server" SkinID="CalendarImageButton" OnClientClick="javascript:showCalendarControl(this.previousSibling);return false;" /><asp:RequiredFieldValidator ID="ReqVal_dataInputDateTime" runat="server" Display="Dynamic" ControlToValidate="dataInputDateTime" ErrorMessage="Required"></asp:RequiredFieldValidator>
+				</td>
+			</tr>
+			<tr>
+        <td class="literal"><asp:Label ID="lbldataManufacturer" runat="server" Text="Manufacturer:" AssociatedControlID="dataManufacturer" /></td>
+        <td>
+					<asp:TextBox runat="server" ID="dataManufacturer" Text='<%# Bind("Manufacturer") %>' MaxLength="50"></asp:TextBox>
+				</td>
+			</tr>
+			<tr>
+        <td class="literal"><asp:Label ID="lbldataBrand" runat="server" Text="Brand:" AssociatedControlID="dataBrand" /></td>
+        <td>
+					<asp:TextBox runat="server" ID="dataBrand" Text='<%# Bind("Brand") %>' MaxLength="50"></asp:TextBox>
+				</td>
+			</tr>
+			<tr>
+        <td class="literal"><asp:Label ID="lbldataModel" runat="server" Text="Model:" AssociatedControlID="dataModel" /></td>
+        <td>
+					<asp:TextBox runat="server" ID="dataModel" Text='<%# Bind("Model") %>' MaxLength="50"></asp:TextBox>
+				</td>
+			</tr>
+			<tr>
+        <td class="literal"><asp:Label ID="lbldataStatus" runat="server" Text="Status:" AssociatedControlID="dataStatus" /></td>
+        <td>
+					<asp:TextBox runat="server" ID="dataStatus" Text='<%# Bind("Status") %>'></asp:TextBox><asp:RangeValidator ID="RangeVal_dataStatus" runat="server" Display="Dynamic" ControlToValidate="dataStatus" ErrorMessage="Invalid value" MaximumValue="32767" MinimumValue="-32768" Type="Integer"></asp:RangeValidator>
+				</td>
+			</tr>
+			<tr>
+        <td class="literal"><asp:Label ID="lbldataDueDate" runat="server" Text="Due Date:" AssociatedControlID="dataDueDate" /></td>
+        <td>
+					<asp:TextBox runat="server" ID="dataDueDate" Text='<%# Bind("DueDate", "{0:d}") %>' MaxLength="10"></asp:TextBox><asp:ImageButton ID="cal_dataDueDate" runat="server" SkinID="CalendarImageButton" OnClientClick="javascript:showCalendarControl(this.previousSibling);return false;" />
+				</td>
+			</tr>
+			<tr>
+        <td class="literal"><asp:Label ID="lbldataNote" runat="server" Text="Note:" AssociatedControlID="dataNote" /></td>
+        <td>
+					<asp:TextBox runat="server" ID="dataNote" Text='<%# Bind("Note") %>'  TextMode="MultiLine"  Width="250px" Rows="5"></asp:TextBox>
+				</td>
+			</tr>
+			<tr>
+        <td class="literal"><asp:Label ID="lbldataSeriesNumber" runat="server" Text="Series Number:" AssociatedControlID="dataSeriesNumber" /></td>
+        <td>
+					<asp:TextBox runat="server" ID="dataSeriesNumber" Text='<%# Bind("SeriesNumber") %>' MaxLength="10"></asp:TextBox>
 				</td>
 			</tr>
 			

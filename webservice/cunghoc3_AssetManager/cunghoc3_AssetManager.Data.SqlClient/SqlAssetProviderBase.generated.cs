@@ -200,6 +200,14 @@ namespace cunghoc3_AssetManager.Data.SqlClient
 		database.AddInParameter(commandWrapper, "@TotalReamain", DbType.Int64, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@UpDownCode", DbType.AnsiString, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@InputDateTime", DbType.DateTime, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@Manufacturer", DbType.String, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@Brand", DbType.String, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@Model", DbType.String, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@Status", DbType.Int16, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@DueDate", DbType.DateTime, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@Note", DbType.String, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@SeriesNumber", DbType.String, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@Condition", DbType.Int16, DBNull.Value);
 	
 			// replace all instances of 'AND' and 'OR' because we already set searchUsingOR
 			whereClause = whereClause.Replace(" AND ", "|").Replace(" OR ", "|") ; 
@@ -362,6 +370,54 @@ namespace cunghoc3_AssetManager.Data.SqlClient
 				{
 					database.SetParameterValue(commandWrapper, "@InputDateTime", 
 						clause.Trim().Remove(0,13).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("manufacturer ") || clause.Trim().StartsWith("manufacturer="))
+				{
+					database.SetParameterValue(commandWrapper, "@Manufacturer", 
+						clause.Trim().Remove(0,12).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("brand ") || clause.Trim().StartsWith("brand="))
+				{
+					database.SetParameterValue(commandWrapper, "@Brand", 
+						clause.Trim().Remove(0,5).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("model ") || clause.Trim().StartsWith("model="))
+				{
+					database.SetParameterValue(commandWrapper, "@Model", 
+						clause.Trim().Remove(0,5).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("status ") || clause.Trim().StartsWith("status="))
+				{
+					database.SetParameterValue(commandWrapper, "@Status", 
+						clause.Trim().Remove(0,6).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("duedate ") || clause.Trim().StartsWith("duedate="))
+				{
+					database.SetParameterValue(commandWrapper, "@DueDate", 
+						clause.Trim().Remove(0,7).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("note ") || clause.Trim().StartsWith("note="))
+				{
+					database.SetParameterValue(commandWrapper, "@Note", 
+						clause.Trim().Remove(0,4).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("seriesnumber ") || clause.Trim().StartsWith("seriesnumber="))
+				{
+					database.SetParameterValue(commandWrapper, "@SeriesNumber", 
+						clause.Trim().Remove(0,12).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("condition ") || clause.Trim().StartsWith("condition="))
+				{
+					database.SetParameterValue(commandWrapper, "@Condition", 
+						clause.Trim().Remove(0,9).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
 					continue;
 				}
 	
@@ -991,6 +1047,22 @@ namespace cunghoc3_AssetManager.Data.SqlClient
 			col23.AllowDBNull = true;		
 			DataColumn col24 = dataTable.Columns.Add("InputDateTime", typeof(System.DateTime));
 			col24.AllowDBNull = false;		
+			DataColumn col25 = dataTable.Columns.Add("Manufacturer", typeof(System.String));
+			col25.AllowDBNull = true;		
+			DataColumn col26 = dataTable.Columns.Add("Brand", typeof(System.String));
+			col26.AllowDBNull = true;		
+			DataColumn col27 = dataTable.Columns.Add("Model", typeof(System.String));
+			col27.AllowDBNull = true;		
+			DataColumn col28 = dataTable.Columns.Add("Status", typeof(System.Int16));
+			col28.AllowDBNull = true;		
+			DataColumn col29 = dataTable.Columns.Add("DueDate", typeof(System.DateTime));
+			col29.AllowDBNull = true;		
+			DataColumn col30 = dataTable.Columns.Add("Note", typeof(System.String));
+			col30.AllowDBNull = true;		
+			DataColumn col31 = dataTable.Columns.Add("SeriesNumber", typeof(System.String));
+			col31.AllowDBNull = true;		
+			DataColumn col32 = dataTable.Columns.Add("Condition", typeof(System.Int16));
+			col32.AllowDBNull = true;		
 			
 			bulkCopy.ColumnMappings.Add("Id", "Id");
 			bulkCopy.ColumnMappings.Add("Name", "Name");
@@ -1017,6 +1089,14 @@ namespace cunghoc3_AssetManager.Data.SqlClient
 			bulkCopy.ColumnMappings.Add("TotalReamain", "TotalReamain");
 			bulkCopy.ColumnMappings.Add("UpDownCode", "UpDownCode");
 			bulkCopy.ColumnMappings.Add("InputDateTime", "InputDateTime");
+			bulkCopy.ColumnMappings.Add("Manufacturer", "Manufacturer");
+			bulkCopy.ColumnMappings.Add("Brand", "Brand");
+			bulkCopy.ColumnMappings.Add("Model", "Model");
+			bulkCopy.ColumnMappings.Add("Status", "Status");
+			bulkCopy.ColumnMappings.Add("DueDate", "DueDate");
+			bulkCopy.ColumnMappings.Add("Note", "Note");
+			bulkCopy.ColumnMappings.Add("SeriesNumber", "SeriesNumber");
+			bulkCopy.ColumnMappings.Add("Condition", "Condition");
 			
 			foreach(cunghoc3_AssetManager.Entities.Asset entity in entities)
 			{
@@ -1100,6 +1180,30 @@ namespace cunghoc3_AssetManager.Data.SqlClient
 					row["InputDateTime"] = entity.InputDateTime;
 							
 				
+					row["Manufacturer"] = entity.Manufacturer;
+							
+				
+					row["Brand"] = entity.Brand;
+							
+				
+					row["Model"] = entity.Model;
+							
+				
+					row["Status"] = entity.Status.HasValue ? (object) entity.Status  : System.DBNull.Value;
+							
+				
+					row["DueDate"] = entity.DueDate.HasValue ? (object) entity.DueDate  : System.DBNull.Value;
+							
+				
+					row["Note"] = entity.Note;
+							
+				
+					row["SeriesNumber"] = entity.SeriesNumber;
+							
+				
+					row["Condition"] = entity.Condition.HasValue ? (object) entity.Condition  : System.DBNull.Value;
+							
+				
 				dataTable.Rows.Add(row);
 			}		
 			
@@ -1159,6 +1263,14 @@ namespace cunghoc3_AssetManager.Data.SqlClient
 			database.AddInParameter(commandWrapper, "@TotalReamain", DbType.Int64, entity.TotalReamain );
 			database.AddInParameter(commandWrapper, "@UpDownCode", DbType.AnsiString, entity.UpDownCode );
 			database.AddInParameter(commandWrapper, "@InputDateTime", DbType.DateTime, entity.InputDateTime );
+			database.AddInParameter(commandWrapper, "@Manufacturer", DbType.String, entity.Manufacturer );
+			database.AddInParameter(commandWrapper, "@Brand", DbType.String, entity.Brand );
+			database.AddInParameter(commandWrapper, "@Model", DbType.String, entity.Model );
+			database.AddInParameter(commandWrapper, "@Status", DbType.Int16, (entity.Status.HasValue ? (object) entity.Status  : System.DBNull.Value));
+			database.AddInParameter(commandWrapper, "@DueDate", DbType.DateTime, (entity.DueDate.HasValue ? (object) entity.DueDate  : System.DBNull.Value));
+			database.AddInParameter(commandWrapper, "@Note", DbType.String, entity.Note );
+			database.AddInParameter(commandWrapper, "@SeriesNumber", DbType.String, entity.SeriesNumber );
+			database.AddInParameter(commandWrapper, "@Condition", DbType.Int16, (entity.Condition.HasValue ? (object) entity.Condition  : System.DBNull.Value));
 			
 			int results = 0;
 			
@@ -1232,6 +1344,14 @@ namespace cunghoc3_AssetManager.Data.SqlClient
 			database.AddInParameter(commandWrapper, "@TotalReamain", DbType.Int64, entity.TotalReamain );
 			database.AddInParameter(commandWrapper, "@UpDownCode", DbType.AnsiString, entity.UpDownCode );
 			database.AddInParameter(commandWrapper, "@InputDateTime", DbType.DateTime, entity.InputDateTime );
+			database.AddInParameter(commandWrapper, "@Manufacturer", DbType.String, entity.Manufacturer );
+			database.AddInParameter(commandWrapper, "@Brand", DbType.String, entity.Brand );
+			database.AddInParameter(commandWrapper, "@Model", DbType.String, entity.Model );
+			database.AddInParameter(commandWrapper, "@Status", DbType.Int16, (entity.Status.HasValue ? (object) entity.Status : System.DBNull.Value) );
+			database.AddInParameter(commandWrapper, "@DueDate", DbType.DateTime, (entity.DueDate.HasValue ? (object) entity.DueDate : System.DBNull.Value) );
+			database.AddInParameter(commandWrapper, "@Note", DbType.String, entity.Note );
+			database.AddInParameter(commandWrapper, "@SeriesNumber", DbType.String, entity.SeriesNumber );
+			database.AddInParameter(commandWrapper, "@Condition", DbType.Int16, (entity.Condition.HasValue ? (object) entity.Condition : System.DBNull.Value) );
 			
 			int results = 0;
 			

@@ -106,13 +106,22 @@ namespace cunghoc3_AssetManager.Entities
 		///<param name="_totalReamain"></param>
 		///<param name="_upDownCode"></param>
 		///<param name="_inputDateTime"></param>
+		///<param name="_manufacturer"></param>
+		///<param name="_brand"></param>
+		///<param name="_model"></param>
+		///<param name="_status"></param>
+		///<param name="_dueDate"></param>
+		///<param name="_note"></param>
+		///<param name="_seriesNumber"></param>
+		///<param name="_condition"></param>
 		public AssetBase(System.String _id, System.String _name, System.String _assetGroupId, 
 			System.String _unitId, System.Int32 _amount, System.String _counPro, System.Int32 _yearPro, System.String _departmentUsedId, 
 			System.Int64 _totalPrice, System.Int64 _budgetPrice, System.Int64 _ownPrice, System.Int64 _venturePrice, 
 			System.Int64 _anotherPrice, System.Int64 _totalDepreciation, System.Int64 _budgetDepreciation, System.Int64 _ownDepreciation, 
 			System.Int64 _ventureDepreciation, System.Int64 _anotherDepreciation, System.Int64 _budgetRemain, System.Int64 _ownRemain, 
 			System.Int64 _ventureRemain, System.Int64 _anotherRemain, System.Int64 _totalReamain, System.String _upDownCode, 
-			System.DateTime _inputDateTime)
+			System.DateTime _inputDateTime, System.String _manufacturer, System.String _brand, System.String _model, 
+			System.Int16? _status, System.DateTime? _dueDate, System.String _note, System.String _seriesNumber, System.Int16? _condition)
 		{
 			this.entityData = new AssetEntityData();
 			this.backupData = null;
@@ -142,6 +151,14 @@ namespace cunghoc3_AssetManager.Entities
 			this.TotalReamain = _totalReamain;
 			this.UpDownCode = _upDownCode;
 			this.InputDateTime = _inputDateTime;
+			this.Manufacturer = _manufacturer;
+			this.Brand = _brand;
+			this.Model = _model;
+			this.Status = _status;
+			this.DueDate = _dueDate;
+			this.Note = _note;
+			this.SeriesNumber = _seriesNumber;
+			this.Condition = _condition;
 		}
 		
 		///<summary>
@@ -172,13 +189,22 @@ namespace cunghoc3_AssetManager.Entities
 		///<param name="_totalReamain"></param>
 		///<param name="_upDownCode"></param>
 		///<param name="_inputDateTime"></param>
+		///<param name="_manufacturer"></param>
+		///<param name="_brand"></param>
+		///<param name="_model"></param>
+		///<param name="_status"></param>
+		///<param name="_dueDate"></param>
+		///<param name="_note"></param>
+		///<param name="_seriesNumber"></param>
+		///<param name="_condition"></param>
 		public static Asset CreateAsset(System.String _id, System.String _name, System.String _assetGroupId, 
 			System.String _unitId, System.Int32 _amount, System.String _counPro, System.Int32 _yearPro, System.String _departmentUsedId, 
 			System.Int64 _totalPrice, System.Int64 _budgetPrice, System.Int64 _ownPrice, System.Int64 _venturePrice, 
 			System.Int64 _anotherPrice, System.Int64 _totalDepreciation, System.Int64 _budgetDepreciation, System.Int64 _ownDepreciation, 
 			System.Int64 _ventureDepreciation, System.Int64 _anotherDepreciation, System.Int64 _budgetRemain, System.Int64 _ownRemain, 
 			System.Int64 _ventureRemain, System.Int64 _anotherRemain, System.Int64 _totalReamain, System.String _upDownCode, 
-			System.DateTime _inputDateTime)
+			System.DateTime _inputDateTime, System.String _manufacturer, System.String _brand, System.String _model, 
+			System.Int16? _status, System.DateTime? _dueDate, System.String _note, System.String _seriesNumber, System.Int16? _condition)
 		{
 			Asset newAsset = new Asset();
 			newAsset.Id = _id;
@@ -206,6 +232,14 @@ namespace cunghoc3_AssetManager.Entities
 			newAsset.TotalReamain = _totalReamain;
 			newAsset.UpDownCode = _upDownCode;
 			newAsset.InputDateTime = _inputDateTime;
+			newAsset.Manufacturer = _manufacturer;
+			newAsset.Brand = _brand;
+			newAsset.Model = _model;
+			newAsset.Status = _status;
+			newAsset.DueDate = _dueDate;
+			newAsset.Note = _note;
+			newAsset.SeriesNumber = _seriesNumber;
+			newAsset.Condition = _condition;
 			return newAsset;
 		}
 				
@@ -231,7 +265,7 @@ namespace cunghoc3_AssetManager.Entities
 
 		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
 		[DataObjectField(true, false, false, 10)]
-		public override System.String Id
+		public virtual System.String Id
 		{
 			get
 			{
@@ -1181,6 +1215,316 @@ namespace cunghoc3_AssetManager.Entities
 			}
 		}
 		
+		/// <summary>
+		/// 	Gets or sets the Manufacturer property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true, 50)]
+		public virtual System.String Manufacturer
+		{
+			get
+			{
+				return this.entityData.Manufacturer; 
+			}
+			
+			set
+			{
+				if (this.entityData.Manufacturer == value)
+					return;
+				
+                OnPropertyChanging("Manufacturer");                    
+				OnColumnChanging(AssetColumn.Manufacturer, this.entityData.Manufacturer);
+				this.entityData.Manufacturer = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(AssetColumn.Manufacturer, this.entityData.Manufacturer);
+				OnPropertyChanged("Manufacturer");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or sets the Brand property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true, 50)]
+		public virtual System.String Brand
+		{
+			get
+			{
+				return this.entityData.Brand; 
+			}
+			
+			set
+			{
+				if (this.entityData.Brand == value)
+					return;
+				
+                OnPropertyChanging("Brand");                    
+				OnColumnChanging(AssetColumn.Brand, this.entityData.Brand);
+				this.entityData.Brand = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(AssetColumn.Brand, this.entityData.Brand);
+				OnPropertyChanged("Brand");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or sets the Model property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true, 50)]
+		public virtual System.String Model
+		{
+			get
+			{
+				return this.entityData.Model; 
+			}
+			
+			set
+			{
+				if (this.entityData.Model == value)
+					return;
+				
+                OnPropertyChanging("Model");                    
+				OnColumnChanging(AssetColumn.Model, this.entityData.Model);
+				this.entityData.Model = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(AssetColumn.Model, this.entityData.Model);
+				OnPropertyChanged("Model");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or sets the Status property. 
+		///		
+		/// </summary>
+		/// <value>This type is smallint.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// If this column is null, this property will return (short)0. It is up to the developer
+		/// to check the value of IsStatusNull() and perform business logic appropriately.
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true)]
+		public virtual System.Int16? Status
+		{
+			get
+			{
+				return this.entityData.Status; 
+			}
+			
+			set
+			{
+				if (this.entityData.Status == value)
+					return;
+				
+                OnPropertyChanging("Status");                    
+				OnColumnChanging(AssetColumn.Status, this.entityData.Status);
+				this.entityData.Status = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(AssetColumn.Status, this.entityData.Status);
+				OnPropertyChanged("Status");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or sets the DueDate property. 
+		///		
+		/// </summary>
+		/// <value>This type is datetime.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// If this column is null, this property will return DateTime.MinValue. It is up to the developer
+		/// to check the value of IsDueDateNull() and perform business logic appropriately.
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true)]
+		public virtual System.DateTime? DueDate
+		{
+			get
+			{
+				return this.entityData.DueDate; 
+			}
+			
+			set
+			{
+				if (this.entityData.DueDate == value)
+					return;
+				
+                OnPropertyChanging("DueDate");                    
+				OnColumnChanging(AssetColumn.DueDate, this.entityData.DueDate);
+				this.entityData.DueDate = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(AssetColumn.DueDate, this.entityData.DueDate);
+				OnPropertyChanged("DueDate");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or sets the Note property. 
+		///		
+		/// </summary>
+		/// <value>This type is ntext.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true)]
+		public virtual System.String Note
+		{
+			get
+			{
+				return this.entityData.Note; 
+			}
+			
+			set
+			{
+				if (this.entityData.Note == value)
+					return;
+				
+                OnPropertyChanging("Note");                    
+				OnColumnChanging(AssetColumn.Note, this.entityData.Note);
+				this.entityData.Note = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(AssetColumn.Note, this.entityData.Note);
+				OnPropertyChanged("Note");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or sets the SeriesNumber property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true, 10)]
+		public virtual System.String SeriesNumber
+		{
+			get
+			{
+				return this.entityData.SeriesNumber; 
+			}
+			
+			set
+			{
+				if (this.entityData.SeriesNumber == value)
+					return;
+				
+                OnPropertyChanging("SeriesNumber");                    
+				OnColumnChanging(AssetColumn.SeriesNumber, this.entityData.SeriesNumber);
+				this.entityData.SeriesNumber = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(AssetColumn.SeriesNumber, this.entityData.SeriesNumber);
+				OnPropertyChanged("SeriesNumber");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or sets the Condition property. 
+		///		
+		/// </summary>
+		/// <value>This type is smallint.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// If this column is null, this property will return (short)0. It is up to the developer
+		/// to check the value of IsConditionNull() and perform business logic appropriately.
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true)]
+		public virtual System.Int16? Condition
+		{
+			get
+			{
+				return this.entityData.Condition; 
+			}
+			
+			set
+			{
+				if (this.entityData.Condition == value)
+					return;
+				
+                OnPropertyChanging("Condition");                    
+				OnColumnChanging(AssetColumn.Condition, this.entityData.Condition);
+				this.entityData.Condition = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(AssetColumn.Condition, this.entityData.Condition);
+				OnPropertyChanged("Condition");
+			}
+		}
+		
 		#endregion Data Properties		
 
 		#region Source Foreign Key Property
@@ -1286,6 +1630,14 @@ namespace cunghoc3_AssetManager.Entities
 				new CommonRules.MaxLengthRuleArgs("DepartmentUsedId", "Department Used Id", 10));
 			ValidationRules.AddRule( CommonRules.StringMaxLength, 
 				new CommonRules.MaxLengthRuleArgs("UpDownCode", "Up Down Code", 10));
+			ValidationRules.AddRule( CommonRules.StringMaxLength, 
+				new CommonRules.MaxLengthRuleArgs("Manufacturer", "Manufacturer", 50));
+			ValidationRules.AddRule( CommonRules.StringMaxLength, 
+				new CommonRules.MaxLengthRuleArgs("Brand", "Brand", 50));
+			ValidationRules.AddRule( CommonRules.StringMaxLength, 
+				new CommonRules.MaxLengthRuleArgs("Model", "Model", 50));
+			ValidationRules.AddRule( CommonRules.StringMaxLength, 
+				new CommonRules.MaxLengthRuleArgs("SeriesNumber", "Series Number", 10));
 		}
    		#endregion
 		
@@ -1307,7 +1659,7 @@ namespace cunghoc3_AssetManager.Entities
 		{
 			get
 			{
-				return new string[] {"Id", "Name", "AssetGroupId", "UnitId", "Amount", "CounPro", "YearPro", "DepartmentUsedId", "TotalPrice", "BudgetPrice", "OwnPrice", "VenturePrice", "AnotherPrice", "TotalDepreciation", "BudgetDepreciation", "OwnDepreciation", "VentureDepreciation", "AnotherDepreciation", "BudgetRemain", "OwnRemain", "VentureRemain", "AnotherRemain", "TotalReamain", "UpDownCode", "InputDateTime"};
+				return new string[] {"Id", "Name", "AssetGroupId", "UnitId", "Amount", "CounPro", "YearPro", "DepartmentUsedId", "TotalPrice", "BudgetPrice", "OwnPrice", "VenturePrice", "AnotherPrice", "TotalDepreciation", "BudgetDepreciation", "OwnDepreciation", "VentureDepreciation", "AnotherDepreciation", "BudgetRemain", "OwnRemain", "VentureRemain", "AnotherRemain", "TotalReamain", "UpDownCode", "InputDateTime", "Manufacturer", "Brand", "Model", "Status", "DueDate", "Note", "SeriesNumber", "Condition"};
 			}
 		}
 		#endregion 
@@ -1481,6 +1833,14 @@ namespace cunghoc3_AssetManager.Entities
 				copy.TotalReamain = this.TotalReamain;
 				copy.UpDownCode = this.UpDownCode;
 				copy.InputDateTime = this.InputDateTime;
+				copy.Manufacturer = this.Manufacturer;
+				copy.Brand = this.Brand;
+				copy.Model = this.Model;
+				copy.Status = this.Status;
+				copy.DueDate = this.DueDate;
+				copy.Note = this.Note;
+				copy.SeriesNumber = this.SeriesNumber;
+				copy.Condition = this.Condition;
 			
 			if (this.AssetGroupIdSource != null && existingCopies.Contains(this.AssetGroupIdSource))
 				copy.AssetGroupIdSource = existingCopies[this.AssetGroupIdSource] as AssetGroup;
@@ -1679,6 +2039,22 @@ namespace cunghoc3_AssetManager.Entities
 					return entityData.UpDownCode != _originalData.UpDownCode;
 					case AssetColumn.InputDateTime:
 					return entityData.InputDateTime != _originalData.InputDateTime;
+					case AssetColumn.Manufacturer:
+					return entityData.Manufacturer != _originalData.Manufacturer;
+					case AssetColumn.Brand:
+					return entityData.Brand != _originalData.Brand;
+					case AssetColumn.Model:
+					return entityData.Model != _originalData.Model;
+					case AssetColumn.Status:
+					return entityData.Status != _originalData.Status;
+					case AssetColumn.DueDate:
+					return entityData.DueDate != _originalData.DueDate;
+					case AssetColumn.Note:
+					return entityData.Note != _originalData.Note;
+					case AssetColumn.SeriesNumber:
+					return entityData.SeriesNumber != _originalData.SeriesNumber;
+					case AssetColumn.Condition:
+					return entityData.Condition != _originalData.Condition;
 			
 				default:
 					return false;
@@ -1731,6 +2107,14 @@ namespace cunghoc3_AssetManager.Entities
 			result = result || entityData.TotalReamain != _originalData.TotalReamain;
 			result = result || entityData.UpDownCode != _originalData.UpDownCode;
 			result = result || entityData.InputDateTime != _originalData.InputDateTime;
+			result = result || entityData.Manufacturer != _originalData.Manufacturer;
+			result = result || entityData.Brand != _originalData.Brand;
+			result = result || entityData.Model != _originalData.Model;
+			result = result || entityData.Status != _originalData.Status;
+			result = result || entityData.DueDate != _originalData.DueDate;
+			result = result || entityData.Note != _originalData.Note;
+			result = result || entityData.SeriesNumber != _originalData.SeriesNumber;
+			result = result || entityData.Condition != _originalData.Condition;
 			return result;
 		}	
 		
@@ -1765,7 +2149,15 @@ namespace cunghoc3_AssetManager.Entities
 				_originalData.AnotherRemain,
 				_originalData.TotalReamain,
 				_originalData.UpDownCode,
-				_originalData.InputDateTime
+				_originalData.InputDateTime,
+				_originalData.Manufacturer,
+				_originalData.Brand,
+				_originalData.Model,
+				_originalData.Status,
+				_originalData.DueDate,
+				_originalData.Note,
+				_originalData.SeriesNumber,
+				_originalData.Condition
 				);
 				
 			return (Asset)this.Clone();
@@ -1819,7 +2211,15 @@ namespace cunghoc3_AssetManager.Entities
 					this.AnotherRemain.GetHashCode() ^ 
 					this.TotalReamain.GetHashCode() ^ 
 					((this.UpDownCode == null) ? string.Empty : this.UpDownCode.ToString()).GetHashCode() ^ 
-					this.InputDateTime.GetHashCode();
+					this.InputDateTime.GetHashCode() ^ 
+					((this.Manufacturer == null) ? string.Empty : this.Manufacturer.ToString()).GetHashCode() ^ 
+					((this.Brand == null) ? string.Empty : this.Brand.ToString()).GetHashCode() ^ 
+					((this.Model == null) ? string.Empty : this.Model.ToString()).GetHashCode() ^ 
+					((this.Status == null) ? string.Empty : this.Status.ToString()).GetHashCode() ^ 
+					((this.DueDate == null) ? string.Empty : this.DueDate.ToString()).GetHashCode() ^ 
+					((this.Note == null) ? string.Empty : this.Note.ToString()).GetHashCode() ^ 
+					((this.SeriesNumber == null) ? string.Empty : this.SeriesNumber.ToString()).GetHashCode() ^ 
+					((this.Condition == null) ? string.Empty : this.Condition.ToString()).GetHashCode();
         }
 		
 		///<summary>
@@ -1930,6 +2330,78 @@ namespace cunghoc3_AssetManager.Entities
 			}
 			if (Object1.InputDateTime != Object2.InputDateTime)
 				equal = false;
+			if ( Object1.Manufacturer != null && Object2.Manufacturer != null )
+			{
+				if (Object1.Manufacturer != Object2.Manufacturer)
+					equal = false;
+			}
+			else if (Object1.Manufacturer == null ^ Object2.Manufacturer == null )
+			{
+				equal = false;
+			}
+			if ( Object1.Brand != null && Object2.Brand != null )
+			{
+				if (Object1.Brand != Object2.Brand)
+					equal = false;
+			}
+			else if (Object1.Brand == null ^ Object2.Brand == null )
+			{
+				equal = false;
+			}
+			if ( Object1.Model != null && Object2.Model != null )
+			{
+				if (Object1.Model != Object2.Model)
+					equal = false;
+			}
+			else if (Object1.Model == null ^ Object2.Model == null )
+			{
+				equal = false;
+			}
+			if ( Object1.Status != null && Object2.Status != null )
+			{
+				if (Object1.Status != Object2.Status)
+					equal = false;
+			}
+			else if (Object1.Status == null ^ Object2.Status == null )
+			{
+				equal = false;
+			}
+			if ( Object1.DueDate != null && Object2.DueDate != null )
+			{
+				if (Object1.DueDate != Object2.DueDate)
+					equal = false;
+			}
+			else if (Object1.DueDate == null ^ Object2.DueDate == null )
+			{
+				equal = false;
+			}
+			if ( Object1.Note != null && Object2.Note != null )
+			{
+				if (Object1.Note != Object2.Note)
+					equal = false;
+			}
+			else if (Object1.Note == null ^ Object2.Note == null )
+			{
+				equal = false;
+			}
+			if ( Object1.SeriesNumber != null && Object2.SeriesNumber != null )
+			{
+				if (Object1.SeriesNumber != Object2.SeriesNumber)
+					equal = false;
+			}
+			else if (Object1.SeriesNumber == null ^ Object2.SeriesNumber == null )
+			{
+				equal = false;
+			}
+			if ( Object1.Condition != null && Object2.Condition != null )
+			{
+				if (Object1.Condition != Object2.Condition)
+					equal = false;
+			}
+			else if (Object1.Condition == null ^ Object2.Condition == null )
+			{
+				equal = false;
+			}
 					
 			return equal;
 		}
@@ -2122,6 +2594,54 @@ namespace cunghoc3_AssetManager.Entities
             		return this.InputDateTime.CompareTo(rhs.InputDateTime);
             		
             		                 
+            	
+            	
+            	case AssetColumn.Manufacturer:
+            		return this.Manufacturer.CompareTo(rhs.Manufacturer);
+            		
+            		                 
+            	
+            	
+            	case AssetColumn.Brand:
+            		return this.Brand.CompareTo(rhs.Brand);
+            		
+            		                 
+            	
+            	
+            	case AssetColumn.Model:
+            		return this.Model.CompareTo(rhs.Model);
+            		
+            		                 
+            	
+            	
+            	case AssetColumn.Status:
+            		return this.Status.Value.CompareTo(rhs.Status.Value);
+            		
+            		                 
+            	
+            	
+            	case AssetColumn.DueDate:
+            		return this.DueDate.Value.CompareTo(rhs.DueDate.Value);
+            		
+            		                 
+            	
+            	
+            	case AssetColumn.Note:
+            		return this.Note.CompareTo(rhs.Note);
+            		
+            		                 
+            	
+            	
+            	case AssetColumn.SeriesNumber:
+            		return this.SeriesNumber.CompareTo(rhs.SeriesNumber);
+            		
+            		                 
+            	
+            	
+            	case AssetColumn.Condition:
+            		return this.Condition.Value.CompareTo(rhs.Condition.Value);
+            		
+            		                 
             }
             return 0;
         }
@@ -2256,7 +2776,7 @@ namespace cunghoc3_AssetManager.Entities
 		public override string ToString()
 		{
 			return string.Format(System.Globalization.CultureInfo.InvariantCulture,
-				"{26}{25}- Id: {0}{25}- Name: {1}{25}- AssetGroupId: {2}{25}- UnitId: {3}{25}- Amount: {4}{25}- CounPro: {5}{25}- YearPro: {6}{25}- DepartmentUsedId: {7}{25}- TotalPrice: {8}{25}- BudgetPrice: {9}{25}- OwnPrice: {10}{25}- VenturePrice: {11}{25}- AnotherPrice: {12}{25}- TotalDepreciation: {13}{25}- BudgetDepreciation: {14}{25}- OwnDepreciation: {15}{25}- VentureDepreciation: {16}{25}- AnotherDepreciation: {17}{25}- BudgetRemain: {18}{25}- OwnRemain: {19}{25}- VentureRemain: {20}{25}- AnotherRemain: {21}{25}- TotalReamain: {22}{25}- UpDownCode: {23}{25}- InputDateTime: {24}{25}{27}", 
+				"{34}{33}- Id: {0}{33}- Name: {1}{33}- AssetGroupId: {2}{33}- UnitId: {3}{33}- Amount: {4}{33}- CounPro: {5}{33}- YearPro: {6}{33}- DepartmentUsedId: {7}{33}- TotalPrice: {8}{33}- BudgetPrice: {9}{33}- OwnPrice: {10}{33}- VenturePrice: {11}{33}- AnotherPrice: {12}{33}- TotalDepreciation: {13}{33}- BudgetDepreciation: {14}{33}- OwnDepreciation: {15}{33}- VentureDepreciation: {16}{33}- AnotherDepreciation: {17}{33}- BudgetRemain: {18}{33}- OwnRemain: {19}{33}- VentureRemain: {20}{33}- AnotherRemain: {21}{33}- TotalReamain: {22}{33}- UpDownCode: {23}{33}- InputDateTime: {24}{33}- Manufacturer: {25}{33}- Brand: {26}{33}- Model: {27}{33}- Status: {28}{33}- DueDate: {29}{33}- Note: {30}{33}- SeriesNumber: {31}{33}- Condition: {32}{33}{35}", 
 				this.Id,
 				this.Name,
 				(this.AssetGroupId == null) ? string.Empty : this.AssetGroupId.ToString(),
@@ -2282,6 +2802,14 @@ namespace cunghoc3_AssetManager.Entities
 				this.TotalReamain,
 				(this.UpDownCode == null) ? string.Empty : this.UpDownCode.ToString(),
 				this.InputDateTime,
+				(this.Manufacturer == null) ? string.Empty : this.Manufacturer.ToString(),
+				(this.Brand == null) ? string.Empty : this.Brand.ToString(),
+				(this.Model == null) ? string.Empty : this.Model.ToString(),
+				(this.Status == null) ? string.Empty : this.Status.ToString(),
+				(this.DueDate == null) ? string.Empty : this.DueDate.ToString(),
+				(this.Note == null) ? string.Empty : this.Note.ToString(),
+				(this.SeriesNumber == null) ? string.Empty : this.SeriesNumber.ToString(),
+				(this.Condition == null) ? string.Empty : this.Condition.ToString(),
 				System.Environment.NewLine, 
 				this.GetType(),
 				this.Error.Length == 0 ? string.Empty : string.Format("- Error: {0}\n",this.Error));
@@ -2439,6 +2967,46 @@ namespace cunghoc3_AssetManager.Entities
 		/// InputDateTime : 
 		/// </summary>
 		public System.DateTime InputDateTime = DateTime.MinValue;
+		
+		/// <summary>
+		/// Manufacturer : 
+		/// </summary>
+		public System.String Manufacturer = null;
+		
+		/// <summary>
+		/// Brand : 
+		/// </summary>
+		public System.String Brand = null;
+		
+		/// <summary>
+		/// Model : 
+		/// </summary>
+		public System.String Model = null;
+		
+		/// <summary>
+		/// Status : 
+		/// </summary>
+		public System.Int16? Status = null;
+		
+		/// <summary>
+		/// DueDate : 
+		/// </summary>
+		public System.DateTime? DueDate = null;
+		
+		/// <summary>
+		/// Note : 
+		/// </summary>
+		public System.String Note = null;
+		
+		/// <summary>
+		/// SeriesNumber : 
+		/// </summary>
+		public System.String SeriesNumber = null;
+		
+		/// <summary>
+		/// Condition : 
+		/// </summary>
+		public System.Int16? Condition = null;
 		#endregion
 			
 		#region Source Foreign Key Property
@@ -2601,6 +3169,14 @@ namespace cunghoc3_AssetManager.Entities
 			_tmp.TotalReamain = this.TotalReamain;
 			_tmp.UpDownCode = this.UpDownCode;
 			_tmp.InputDateTime = this.InputDateTime;
+			_tmp.Manufacturer = this.Manufacturer;
+			_tmp.Brand = this.Brand;
+			_tmp.Model = this.Model;
+			_tmp.Status = this.Status;
+			_tmp.DueDate = this.DueDate;
+			_tmp.Note = this.Note;
+			_tmp.SeriesNumber = this.SeriesNumber;
+			_tmp.Condition = this.Condition;
 			
 			#region Source Parent Composite Entities
 			if (this.AssetGroupIdSource != null)
@@ -2665,6 +3241,14 @@ namespace cunghoc3_AssetManager.Entities
 			_tmp.TotalReamain = this.TotalReamain;
 			_tmp.UpDownCode = this.UpDownCode;
 			_tmp.InputDateTime = this.InputDateTime;
+			_tmp.Manufacturer = this.Manufacturer;
+			_tmp.Brand = this.Brand;
+			_tmp.Model = this.Model;
+			_tmp.Status = this.Status;
+			_tmp.DueDate = this.DueDate;
+			_tmp.Note = this.Note;
+			_tmp.SeriesNumber = this.SeriesNumber;
+			_tmp.Condition = this.Condition;
 			
 			#region Source Parent Composite Entities
 			if (this.AssetGroupIdSource != null && existingCopies.Contains(this.AssetGroupIdSource))
@@ -3193,7 +3777,55 @@ namespace cunghoc3_AssetManager.Entities
 		/// </summary>
 		[EnumTextValue("InputDateTime")]
 		[ColumnEnum("InputDateTime", typeof(System.DateTime), System.Data.DbType.DateTime, false, false, false)]
-		InputDateTime = 25
+		InputDateTime = 25,
+		/// <summary>
+		/// Manufacturer : 
+		/// </summary>
+		[EnumTextValue("Manufacturer")]
+		[ColumnEnum("Manufacturer", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
+		Manufacturer = 26,
+		/// <summary>
+		/// Brand : 
+		/// </summary>
+		[EnumTextValue("Brand")]
+		[ColumnEnum("Brand", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
+		Brand = 27,
+		/// <summary>
+		/// Model : 
+		/// </summary>
+		[EnumTextValue("Model")]
+		[ColumnEnum("Model", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
+		Model = 28,
+		/// <summary>
+		/// Status : 
+		/// </summary>
+		[EnumTextValue("Status")]
+		[ColumnEnum("Status", typeof(System.Int16), System.Data.DbType.Int16, false, false, true)]
+		Status = 29,
+		/// <summary>
+		/// DueDate : 
+		/// </summary>
+		[EnumTextValue("DueDate")]
+		[ColumnEnum("DueDate", typeof(System.DateTime), System.Data.DbType.DateTime, false, false, true)]
+		DueDate = 30,
+		/// <summary>
+		/// Note : 
+		/// </summary>
+		[EnumTextValue("Note")]
+		[ColumnEnum("Note", typeof(System.String), System.Data.DbType.String, false, false, true)]
+		Note = 31,
+		/// <summary>
+		/// SeriesNumber : 
+		/// </summary>
+		[EnumTextValue("SeriesNumber")]
+		[ColumnEnum("SeriesNumber", typeof(System.String), System.Data.DbType.String, false, false, true, 10)]
+		SeriesNumber = 32,
+		/// <summary>
+		/// Condition : 
+		/// </summary>
+		[EnumTextValue("Condition")]
+		[ColumnEnum("Condition", typeof(System.Int16), System.Data.DbType.Int16, false, false, true)]
+		Condition = 33
 	}//End enum
 
 	#endregion AssetColumn Enum

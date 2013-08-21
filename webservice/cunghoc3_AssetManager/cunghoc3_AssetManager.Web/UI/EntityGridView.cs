@@ -743,7 +743,7 @@ namespace cunghoc3_AssetManager.Web.UI
 
                         if (sortImgLoc != String.Empty)
                         {
-                            Image imgSortDirection = new Image();
+                            System.Web.UI.WebControls.Image imgSortDirection = new System.Web.UI.WebControls.Image();
                             imgSortDirection.ImageUrl = sortImgLoc;
                             dgItem.Cells[i].Controls.Add(imgSortDirection);
                             
@@ -1014,9 +1014,9 @@ namespace cunghoc3_AssetManager.Web.UI
                 control.Parent.Controls.Remove(control);
             }
             // Replace image with 'o' char
-            else if (control is Image)
+            else if (control is System.Web.UI.WebControls.Image)
             {
-                if (((Image)control).Visible)
+                if (((System.Web.UI.WebControls.Image)control).Visible)
                 {
                     control.Parent.Controls.Add(new LiteralControl("<span style='font-size:8px;'>o</span>"));
                 }

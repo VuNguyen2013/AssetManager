@@ -500,6 +500,14 @@ namespace cunghoc3_AssetManager.Data.Bases
 					c.TotalReamain = (System.Int64)reader[((int)AssetColumn.TotalReamain - 1)];
 					c.UpDownCode = (reader.IsDBNull(((int)AssetColumn.UpDownCode - 1)))?null:(System.String)reader[((int)AssetColumn.UpDownCode - 1)];
 					c.InputDateTime = (System.DateTime)reader[((int)AssetColumn.InputDateTime - 1)];
+					c.Manufacturer = (reader.IsDBNull(((int)AssetColumn.Manufacturer - 1)))?null:(System.String)reader[((int)AssetColumn.Manufacturer - 1)];
+					c.Brand = (reader.IsDBNull(((int)AssetColumn.Brand - 1)))?null:(System.String)reader[((int)AssetColumn.Brand - 1)];
+					c.Model = (reader.IsDBNull(((int)AssetColumn.Model - 1)))?null:(System.String)reader[((int)AssetColumn.Model - 1)];
+					c.Status = (reader.IsDBNull(((int)AssetColumn.Status - 1)))?null:(System.Int16?)reader[((int)AssetColumn.Status - 1)];
+					c.DueDate = (reader.IsDBNull(((int)AssetColumn.DueDate - 1)))?null:(System.DateTime?)reader[((int)AssetColumn.DueDate - 1)];
+					c.Note = (reader.IsDBNull(((int)AssetColumn.Note - 1)))?null:(System.String)reader[((int)AssetColumn.Note - 1)];
+					c.SeriesNumber = (reader.IsDBNull(((int)AssetColumn.SeriesNumber - 1)))?null:(System.String)reader[((int)AssetColumn.SeriesNumber - 1)];
+					c.Condition = (reader.IsDBNull(((int)AssetColumn.Condition - 1)))?null:(System.Int16?)reader[((int)AssetColumn.Condition - 1)];
 					c.EntityTrackingKey = key;
 					c.AcceptChanges();
 					c.SuppressEntityEvents = false;
@@ -543,6 +551,14 @@ namespace cunghoc3_AssetManager.Data.Bases
 			entity.TotalReamain = (System.Int64)reader[((int)AssetColumn.TotalReamain - 1)];
 			entity.UpDownCode = (reader.IsDBNull(((int)AssetColumn.UpDownCode - 1)))?null:(System.String)reader[((int)AssetColumn.UpDownCode - 1)];
 			entity.InputDateTime = (System.DateTime)reader[((int)AssetColumn.InputDateTime - 1)];
+			entity.Manufacturer = (reader.IsDBNull(((int)AssetColumn.Manufacturer - 1)))?null:(System.String)reader[((int)AssetColumn.Manufacturer - 1)];
+			entity.Brand = (reader.IsDBNull(((int)AssetColumn.Brand - 1)))?null:(System.String)reader[((int)AssetColumn.Brand - 1)];
+			entity.Model = (reader.IsDBNull(((int)AssetColumn.Model - 1)))?null:(System.String)reader[((int)AssetColumn.Model - 1)];
+			entity.Status = (reader.IsDBNull(((int)AssetColumn.Status - 1)))?null:(System.Int16?)reader[((int)AssetColumn.Status - 1)];
+			entity.DueDate = (reader.IsDBNull(((int)AssetColumn.DueDate - 1)))?null:(System.DateTime?)reader[((int)AssetColumn.DueDate - 1)];
+			entity.Note = (reader.IsDBNull(((int)AssetColumn.Note - 1)))?null:(System.String)reader[((int)AssetColumn.Note - 1)];
+			entity.SeriesNumber = (reader.IsDBNull(((int)AssetColumn.SeriesNumber - 1)))?null:(System.String)reader[((int)AssetColumn.SeriesNumber - 1)];
+			entity.Condition = (reader.IsDBNull(((int)AssetColumn.Condition - 1)))?null:(System.Int16?)reader[((int)AssetColumn.Condition - 1)];
 			entity.AcceptChanges();
 		}
 		
@@ -581,6 +597,14 @@ namespace cunghoc3_AssetManager.Data.Bases
 			entity.TotalReamain = (System.Int64)dataRow["TotalReamain"];
 			entity.UpDownCode = Convert.IsDBNull(dataRow["UpDownCode"]) ? null : (System.String)dataRow["UpDownCode"];
 			entity.InputDateTime = (System.DateTime)dataRow["InputDateTime"];
+			entity.Manufacturer = Convert.IsDBNull(dataRow["Manufacturer"]) ? null : (System.String)dataRow["Manufacturer"];
+			entity.Brand = Convert.IsDBNull(dataRow["Brand"]) ? null : (System.String)dataRow["Brand"];
+			entity.Model = Convert.IsDBNull(dataRow["Model"]) ? null : (System.String)dataRow["Model"];
+			entity.Status = Convert.IsDBNull(dataRow["Status"]) ? null : (System.Int16?)dataRow["Status"];
+			entity.DueDate = Convert.IsDBNull(dataRow["DueDate"]) ? null : (System.DateTime?)dataRow["DueDate"];
+			entity.Note = Convert.IsDBNull(dataRow["Note"]) ? null : (System.String)dataRow["Note"];
+			entity.SeriesNumber = Convert.IsDBNull(dataRow["SeriesNumber"]) ? null : (System.String)dataRow["SeriesNumber"];
+			entity.Condition = Convert.IsDBNull(dataRow["Condition"]) ? null : (System.Int16?)dataRow["Condition"];
 			entity.AcceptChanges();
 		}
 		#endregion 

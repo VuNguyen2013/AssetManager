@@ -180,6 +180,14 @@
 			  <DependentUpon>SqlAssetLiquidationProvider.cs</DependentUpon>
 			  <SubType>Code</SubType>
 			</Compile>
+			<Compile Include="SqlAuditProvider.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="SqlAuditProviderBase.generated.cs">
+			  <DependentUpon>SqlAuditProvider.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
 			<Compile Include="SqlCapitalProvider.cs">
 			  <SubType>Code</SubType>
 			</Compile>
@@ -188,12 +196,28 @@
 			  <DependentUpon>SqlCapitalProvider.cs</DependentUpon>
 			  <SubType>Code</SubType>
 			</Compile>
+			<Compile Include="SqlCheckOutProvider.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="SqlCheckOutProviderBase.generated.cs">
+			  <DependentUpon>SqlCheckOutProvider.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
 			<Compile Include="SqlDepartmentUsedProvider.cs">
 			  <SubType>Code</SubType>
 			</Compile>
 			
 			<Compile Include="SqlDepartmentUsedProviderBase.generated.cs">
 			  <DependentUpon>SqlDepartmentUsedProvider.cs</DependentUpon>
+			  <SubType>Code</SubType>
+			</Compile>
+			<Compile Include="SqlImageProvider.cs">
+			  <SubType>Code</SubType>
+			</Compile>
+			
+			<Compile Include="SqlImageProviderBase.generated.cs">
+			  <DependentUpon>SqlImageProvider.cs</DependentUpon>
 			  <SubType>Code</SubType>
 			</Compile>
 			<Compile Include="SqlPartnerProvider.cs">

@@ -4,6 +4,176 @@
         <name>cunghoc3_AssetManager.Data.SqlClient</name>
     </assembly>
     <members>
+        <member name="T:cunghoc3_AssetManager.Data.SqlClient.SqlImageProvider">
+            <summary>
+             This class is the SqlClient Data Access Logic Component implementation for the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> entity.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.SqlClient.SqlImageProviderBase">
+            <summary>
+             This class is the SqlClient Data Access Logic Component implementation for the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> entity.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlImageProviderBase.#ctor">
+            <summary>
+            Creates a new <see cref="T:cunghoc3_AssetManager.Data.SqlClient.SqlImageProviderBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlImageProviderBase.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:cunghoc3_AssetManager.Data.SqlClient.SqlImageProviderBase"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we should use stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlImageProviderBase.Delete(cunghoc3_AssetManager.Data.TransactionManager,System.Int64)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="_id">. Primary Key.</param>	
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <remarks>Deletes based on primary key(s).</remarks>
+            <returns>Returns true if operation suceeded.</returns>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlImageProviderBase.Find(cunghoc3_AssetManager.Data.TransactionManager,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Returns rows meeting the whereClause condition from the DataSource.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <remarks>Operators must be capitalized (OR, AND).</remarks>
+            <returns>Returns a typed collection of cunghoc3_AssetManager.Entities.Image objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlImageProviderBase.Find(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Data.IFilterParameterCollection,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <returns>Returns a typed collection of cunghoc3_AssetManager.Entities.Image objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlImageProviderBase.GetAll(cunghoc3_AssetManager.Data.TransactionManager,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets All rows from the DataSource.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of cunghoc3_AssetManager.Entities.Image objects.</returns>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlImageProviderBase.GetPaged(cunghoc3_AssetManager.Data.TransactionManager,System.String,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets a page of rows from the DataSource.
+            </summary>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">Number of rows in the DataSource.</param>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of cunghoc3_AssetManager.Entities.Image objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlImageProviderBase.GetById(cunghoc3_AssetManager.Data.TransactionManager,System.Int64,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets rows from the datasource based on the PK__Image__3214EC075070F446 index.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out parameter to get total records for query.</param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> class.</returns>
+            <remarks></remarks>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlImageProviderBase.BulkInsert(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Image})">
+            <summary>
+            Lets you efficiently bulk insert many entities to the database.
+            </summary>
+            <param name="transactionManager">The transaction manager.</param>
+            <param name="entities">The entities.</param>
+            <remarks>
+            	After inserting into the datasource, the cunghoc3_AssetManager.Entities.Image object will be updated
+            	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>	
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlImageProviderBase.Insert(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.Image)">
+            <summary>
+            	Inserts a cunghoc3_AssetManager.Entities.Image object into the datasource using a transaction.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="entity">cunghoc3_AssetManager.Entities.Image object to insert.</param>
+            <remarks>
+            	After inserting into the datasource, the cunghoc3_AssetManager.Entities.Image object will be updated
+            	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>	
+            <returns>Returns true if operation is successful.</returns>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlImageProviderBase.Update(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.Image)">
+            <summary>
+            	Update an existing row in the datasource.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="entity">cunghoc3_AssetManager.Entities.Image object to update.</param>
+            <remarks>
+            	After updating the datasource, the cunghoc3_AssetManager.Entities.Image object will be updated
+            	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+            <returns>Returns true if operation is successful.</returns>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlImageProviderBase.ConnectionString">
+            <summary>
+            Gets or sets the connection string.
+            </summary>
+            <value>The connection string.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlImageProviderBase.UseStoredProcedure">
+            <summary>
+            Gets or sets a value indicating whether to use stored procedures.
+            </summary>
+            <value><c>true</c> if we choose to use use stored procedures; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlImageProviderBase.ProviderInvariantName">
+            <summary>
+            Gets or sets the invariant provider name listed in the DbProviderFactories machine.config section.
+            </summary>
+            <value>The name of the provider invariant.</value>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlImageProvider.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:cunghoc3_AssetManager.Data.SqlClient.SqlImageProvider"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we use the stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
         <member name="T:cunghoc3_AssetManager.Data.SqlClient.SqlDepartmentUsedProvider">
             <summary>
              This class is the SqlClient Data Access Logic Component implementation for the <see cref="T:cunghoc3_AssetManager.Entities.DepartmentUsed"/> entity.
@@ -904,6 +1074,176 @@
             </summary>
             <value>The name of the provider invariant.</value>
         </member>
+        <member name="T:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProvider">
+            <summary>
+             This class is the SqlClient Data Access Logic Component implementation for the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> entity.
+            </summary>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProviderBase">
+            <summary>
+             This class is the SqlClient Data Access Logic Component implementation for the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> entity.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProviderBase.#ctor">
+            <summary>
+            Creates a new <see cref="T:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProviderBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProviderBase.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProviderBase"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we should use stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProviderBase.Delete(cunghoc3_AssetManager.Data.TransactionManager,System.Int64)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="_id">. Primary Key.</param>	
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <remarks>Deletes based on primary key(s).</remarks>
+            <returns>Returns true if operation suceeded.</returns>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProviderBase.Find(cunghoc3_AssetManager.Data.TransactionManager,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Returns rows meeting the whereClause condition from the DataSource.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <remarks>Operators must be capitalized (OR, AND).</remarks>
+            <returns>Returns a typed collection of cunghoc3_AssetManager.Entities.Audit objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProviderBase.Find(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Data.IFilterParameterCollection,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <returns>Returns a typed collection of cunghoc3_AssetManager.Entities.Audit objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProviderBase.GetAll(cunghoc3_AssetManager.Data.TransactionManager,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets All rows from the DataSource.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of cunghoc3_AssetManager.Entities.Audit objects.</returns>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProviderBase.GetPaged(cunghoc3_AssetManager.Data.TransactionManager,System.String,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets a page of rows from the DataSource.
+            </summary>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">Number of rows in the DataSource.</param>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of cunghoc3_AssetManager.Entities.Audit objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProviderBase.GetById(cunghoc3_AssetManager.Data.TransactionManager,System.Int64,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets rows from the datasource based on the PK__Audit__3214EC075441852A index.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out parameter to get total records for query.</param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> class.</returns>
+            <remarks></remarks>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProviderBase.BulkInsert(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.Audit})">
+            <summary>
+            Lets you efficiently bulk insert many entities to the database.
+            </summary>
+            <param name="transactionManager">The transaction manager.</param>
+            <param name="entities">The entities.</param>
+            <remarks>
+            	After inserting into the datasource, the cunghoc3_AssetManager.Entities.Audit object will be updated
+            	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>	
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProviderBase.Insert(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.Audit)">
+            <summary>
+            	Inserts a cunghoc3_AssetManager.Entities.Audit object into the datasource using a transaction.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="entity">cunghoc3_AssetManager.Entities.Audit object to insert.</param>
+            <remarks>
+            	After inserting into the datasource, the cunghoc3_AssetManager.Entities.Audit object will be updated
+            	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>	
+            <returns>Returns true if operation is successful.</returns>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProviderBase.Update(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.Audit)">
+            <summary>
+            	Update an existing row in the datasource.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="entity">cunghoc3_AssetManager.Entities.Audit object to update.</param>
+            <remarks>
+            	After updating the datasource, the cunghoc3_AssetManager.Entities.Audit object will be updated
+            	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+            <returns>Returns true if operation is successful.</returns>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProviderBase.ConnectionString">
+            <summary>
+            Gets or sets the connection string.
+            </summary>
+            <value>The connection string.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProviderBase.UseStoredProcedure">
+            <summary>
+            Gets or sets a value indicating whether to use stored procedures.
+            </summary>
+            <value><c>true</c> if we choose to use use stored procedures; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProviderBase.ProviderInvariantName">
+            <summary>
+            Gets or sets the invariant provider name listed in the DbProviderFactories machine.config section.
+            </summary>
+            <value>The name of the provider invariant.</value>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProvider.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:cunghoc3_AssetManager.Data.SqlClient.SqlAuditProvider"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we use the stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
         <member name="T:cunghoc3_AssetManager.Data.SqlClient.SqlCapitalProviderBase">
             <summary>
              This class is the SqlClient Data Access Logic Component implementation for the <see cref="T:cunghoc3_AssetManager.Entities.Capital"/> entity.
@@ -1243,6 +1583,162 @@
             <value><c>true</c> if we choose to use use stored procedures; otherwise, <c>false</c>.</value>
         </member>
         <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlAssetLiquidationProviderBase.ProviderInvariantName">
+            <summary>
+            Gets or sets the invariant provider name listed in the DbProviderFactories machine.config section.
+            </summary>
+            <value>The name of the provider invariant.</value>
+        </member>
+        <member name="T:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProviderBase">
+            <summary>
+             This class is the SqlClient Data Access Logic Component implementation for the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> entity.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProviderBase.#ctor">
+            <summary>
+            Creates a new <see cref="T:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProviderBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProviderBase.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProviderBase"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we should use stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProviderBase.Delete(cunghoc3_AssetManager.Data.TransactionManager,System.Int64)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="_id">. Primary Key.</param>	
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <remarks>Deletes based on primary key(s).</remarks>
+            <returns>Returns true if operation suceeded.</returns>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProviderBase.Find(cunghoc3_AssetManager.Data.TransactionManager,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Returns rows meeting the whereClause condition from the DataSource.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <remarks>Operators must be capitalized (OR, AND).</remarks>
+            <returns>Returns a typed collection of cunghoc3_AssetManager.Entities.CheckOut objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProviderBase.Find(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Data.IFilterParameterCollection,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="parameters">A collection of <see cref="T:cunghoc3_AssetManager.Data.SqlFilterParameter"/> objects.</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <returns>Returns a typed collection of cunghoc3_AssetManager.Entities.CheckOut objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProviderBase.GetAll(cunghoc3_AssetManager.Data.TransactionManager,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets All rows from the DataSource.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of cunghoc3_AssetManager.Entities.CheckOut objects.</returns>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProviderBase.GetPaged(cunghoc3_AssetManager.Data.TransactionManager,System.String,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets a page of rows from the DataSource.
+            </summary>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">Number of rows in the DataSource.</param>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of cunghoc3_AssetManager.Entities.CheckOut objects.</returns>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProviderBase.GetById(cunghoc3_AssetManager.Data.TransactionManager,System.Int64,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets rows from the datasource based on the PK__CheckOut__3214EC075812160E index.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out parameter to get total records for query.</param>
+            <returns>Returns an instance of the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> class.</returns>
+            <remarks></remarks>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProviderBase.BulkInsert(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.TList{cunghoc3_AssetManager.Entities.CheckOut})">
+            <summary>
+            Lets you efficiently bulk insert many entities to the database.
+            </summary>
+            <param name="transactionManager">The transaction manager.</param>
+            <param name="entities">The entities.</param>
+            <remarks>
+            	After inserting into the datasource, the cunghoc3_AssetManager.Entities.CheckOut object will be updated
+            	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>	
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProviderBase.Insert(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.CheckOut)">
+            <summary>
+            	Inserts a cunghoc3_AssetManager.Entities.CheckOut object into the datasource using a transaction.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="entity">cunghoc3_AssetManager.Entities.CheckOut object to insert.</param>
+            <remarks>
+            	After inserting into the datasource, the cunghoc3_AssetManager.Entities.CheckOut object will be updated
+            	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>	
+            <returns>Returns true if operation is successful.</returns>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProviderBase.Update(cunghoc3_AssetManager.Data.TransactionManager,cunghoc3_AssetManager.Entities.CheckOut)">
+            <summary>
+            	Update an existing row in the datasource.
+            </summary>
+            <param name="transactionManager"><see cref="T:cunghoc3_AssetManager.Data.TransactionManager"/> object</param>
+            <param name="entity">cunghoc3_AssetManager.Entities.CheckOut object to update.</param>
+            <remarks>
+            	After updating the datasource, the cunghoc3_AssetManager.Entities.CheckOut object will be updated
+            	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+            <returns>Returns true if operation is successful.</returns>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProviderBase.ConnectionString">
+            <summary>
+            Gets or sets the connection string.
+            </summary>
+            <value>The connection string.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProviderBase.UseStoredProcedure">
+            <summary>
+            Gets or sets a value indicating whether to use stored procedures.
+            </summary>
+            <value><c>true</c> if we choose to use use stored procedures; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProviderBase.ProviderInvariantName">
             <summary>
             Gets or sets the invariant provider name listed in the DbProviderFactories machine.config section.
             </summary>
@@ -2191,6 +2687,20 @@
             <param name="useStoredProcedure">A boolean value that indicates if we use the stored procedures or embedded queries.</param>
             <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
         </member>
+        <member name="T:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProvider">
+            <summary>
+             This class is the SqlClient Data Access Logic Component implementation for the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> entity.
+            </summary>
+        </member>
+        <member name="M:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProvider.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:cunghoc3_AssetManager.Data.SqlClient.SqlCheckOutProvider"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we use the stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
         <member name="T:cunghoc3_AssetManager.Data.SqlClient.SqlAssetLiquidationProvider">
             <summary>
              This class is the SqlClient Data Access Logic Component implementation for the <see cref="T:cunghoc3_AssetManager.Entities.AssetLiquidation"/> entity.
@@ -2478,19 +2988,6 @@
              Indicates if the current <see cref="T:cunghoc3_AssetManager.Data.Bases.NetTiersProvider"/> implementation supports Transacton.
             </summary>
         </member>
-        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.DepartmentUsedProvider">
-            <summary>
-             This class is the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.DepartmentUsed"/> business entity.
-             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-            </summary>
-             <value></value>
-        </member>
-        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlDepartmentUsedProvider">
-            <summary>
-            Gets the current <see cref="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlDepartmentUsedProvider"/>.
-            </summary>
-            <value></value>
-        </member>
         <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.UnitProvider">
             <summary>
              This class is the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.Unit"/> business entity.
@@ -2504,6 +3001,58 @@
             </summary>
             <value></value>
         </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.DepartmentUsedProvider">
+            <summary>
+             This class is the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.DepartmentUsed"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+             <value></value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlDepartmentUsedProvider">
+            <summary>
+            Gets the current <see cref="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlDepartmentUsedProvider"/>.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.PartnerProvider">
+            <summary>
+             This class is the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.Partner"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+             <value></value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlPartnerProvider">
+            <summary>
+            Gets the current <see cref="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlPartnerProvider"/>.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.ImageProvider">
+            <summary>
+             This class is the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.Image"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+             <value></value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlImageProvider">
+            <summary>
+            Gets the current <see cref="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlImageProvider"/>.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.AssetProvider">
+            <summary>
+             This class is the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.Asset"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+             <value></value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlAssetProvider">
+            <summary>
+            Gets the current <see cref="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlAssetProvider"/>.
+            </summary>
+            <value></value>
+        </member>
         <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.UpDownReasonProvider">
             <summary>
              This class is the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.UpDownReason"/> business entity.
@@ -2514,6 +3063,32 @@
         <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlUpDownReasonProvider">
             <summary>
             Gets the current <see cref="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlUpDownReasonProvider"/>.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.RepairAssetProvider">
+            <summary>
+             This class is the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.RepairAsset"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+             <value></value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlRepairAssetProvider">
+            <summary>
+            Gets the current <see cref="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlRepairAssetProvider"/>.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.CheckOutProvider">
+            <summary>
+             This class is the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.CheckOut"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+             <value></value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlCheckOutProvider">
+            <summary>
+            Gets the current <see cref="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlCheckOutProvider"/>.
             </summary>
             <value></value>
         </member>
@@ -2543,32 +3118,6 @@
             </summary>
             <value></value>
         </member>
-        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.PartnerProvider">
-            <summary>
-             This class is the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.Partner"/> business entity.
-             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-            </summary>
-             <value></value>
-        </member>
-        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlPartnerProvider">
-            <summary>
-            Gets the current <see cref="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlPartnerProvider"/>.
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.AssetProvider">
-            <summary>
-             This class is the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.Asset"/> business entity.
-             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-            </summary>
-             <value></value>
-        </member>
-        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlAssetProvider">
-            <summary>
-            Gets the current <see cref="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlAssetProvider"/>.
-            </summary>
-            <value></value>
-        </member>
         <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.AssetLiquidationProvider">
             <summary>
              This class is the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.AssetLiquidation"/> business entity.
@@ -2579,6 +3128,19 @@
         <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlAssetLiquidationProvider">
             <summary>
             Gets the current <see cref="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlAssetLiquidationProvider"/>.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.AuditProvider">
+            <summary>
+             This class is the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.Audit"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+             <value></value>
+        </member>
+        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlAuditProvider">
+            <summary>
+            Gets the current <see cref="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlAuditProvider"/>.
             </summary>
             <value></value>
         </member>
@@ -2605,19 +3167,6 @@
         <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlWarrantyAssetProvider">
             <summary>
             Gets the current <see cref="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlWarrantyAssetProvider"/>.
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.RepairAssetProvider">
-            <summary>
-             This class is the Data Access Logic Component for the <see cref="T:cunghoc3_AssetManager.Entities.RepairAsset"/> business entity.
-             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-            </summary>
-             <value></value>
-        </member>
-        <member name="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlRepairAssetProvider">
-            <summary>
-            Gets the current <see cref="P:cunghoc3_AssetManager.Data.SqlClient.SqlNetTiersProvider.SqlRepairAssetProvider"/>.
             </summary>
             <value></value>
         </member>

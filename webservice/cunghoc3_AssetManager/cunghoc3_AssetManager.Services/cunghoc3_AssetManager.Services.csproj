@@ -207,6 +207,13 @@
 		  <DependentUpon>AssetLiquidationService.cs</DependentUpon>
 		  <SubType>Code</SubType>
 		</Compile>	
+		<Compile Include="AuditService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="AuditServiceBase.generated.cs">
+		  <DependentUpon>AuditService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
 		<Compile Include="CapitalService.cs">
 		  <SubType>Code</SubType>
 		</Compile>
@@ -214,11 +221,25 @@
 		  <DependentUpon>CapitalService.cs</DependentUpon>
 		  <SubType>Code</SubType>
 		</Compile>	
+		<Compile Include="CheckOutService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="CheckOutServiceBase.generated.cs">
+		  <DependentUpon>CheckOutService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
 		<Compile Include="DepartmentUsedService.cs">
 		  <SubType>Code</SubType>
 		</Compile>
 		<Compile Include="DepartmentUsedServiceBase.generated.cs">
 		  <DependentUpon>DepartmentUsedService.cs</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>	
+		<Compile Include="ImageService.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Include="ImageServiceBase.generated.cs">
+		  <DependentUpon>ImageService.cs</DependentUpon>
 		  <SubType>Code</SubType>
 		</Compile>	
 		<Compile Include="PartnerService.cs">
