@@ -14,9 +14,9 @@ namespace AssetManagerClient
     {
         private int _action;
         private string _id;
-        private Form form1;
+        private Form1 form1;
         public AssetManagerService WebServices = new AssetManagerService();
-        public GroupTypeInfo(Form frm)
+        public GroupTypeInfo(Form1 frm)
         {
             
             InitializeComponent();
@@ -30,7 +30,37 @@ namespace AssetManagerClient
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            if(txt)
+            try
+            {
+                if (txtName.Equals(""))
+                {
+                    MessageBox.Show("Vui lòng nhập tên");
+                    return;
+                }
+                if (_action == (int)AssetManagerCommon.CommonEnums.ACTION.ADD)
+                {
+                    var result = WebServices.NewAssetGroupType(txtName.Text);
+                    if (result == (int)AssetManagerCommon.CommonEnums.RetCode.SUCCESS)
+                    {
+                        MessageBox.Show("Thành công");
+                        form1.InitContent();
+                    }
+                }
+                if (_action == (int)AssetManagerCommon.CommonEnums.ACTION.EDIT)
+                {
+                    var result = WebServices.UpdateAssetGroupType(_id, txtName.Text);
+                    if (result == (int)AssetManagerCommon.CommonEnums.RetCode.SUCCESS)
+                    {
+                        MessageBox.Show("Thành công");
+                        form1.InitContent();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Không thể kết nối tới server,vui lòng kiểm tra cài đặt mạng");
+            }
+            
         }
         public void DelegateContent(int action, string id)
         {
@@ -43,6 +73,16 @@ namespace AssetManagerClient
             if (_action == (int)AssetManagerCommon.CommonEnums.ACTION.EDIT)
             {
                 lblCreateName.Text = "SỬA THÔNG TIN";
+                try
+                {
+                    var result = WebServices.GetAssetGroupTypeById(id);
+                    txtName.Text = result.Name;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Không thể kết nối tới server,vui lòng kiểm tra cài đặt mạng");
+                }
+                
             }
         }
     }

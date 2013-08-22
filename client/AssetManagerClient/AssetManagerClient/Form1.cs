@@ -39,9 +39,6 @@ namespace AssetManagerClient
                 {
                     var item = new NavBarItem { Caption = assetGroupType.Name, CanDrag = true, Name = assetGroupType.Id };
                     nbAssetsType.ItemLinks.Add(item);
-                    nbAssetsType.AddItem();
-
-
                 }
                 //init department
 
@@ -50,7 +47,6 @@ namespace AssetManagerClient
                 {
                     var item = new NavBarItem { Caption = departmentUsed.Name, CanDrag = true, Name = departmentUsed.Id };
                     nbDepartmentUsed.ItemLinks.Add(item);
-                    nbDepartmentUsed.AddItem();
                 }
 
                 //init all asset
@@ -158,7 +154,7 @@ namespace AssetManagerClient
             
             if (nbAssets.SelectedLink.Group.Name == nbAssetsType.Name)
             {
-                var createForm = new GroupTypeInfo();
+                var createForm = new GroupTypeInfo(this);
                 createForm.DelegateContent((int)AssetManagerCommon.CommonEnums.FILTER.GROUP_TYPE,"");
                 createForm.ShowDialog();
             }
@@ -173,7 +169,7 @@ namespace AssetManagerClient
         {
             if (nbAssets.SelectedLink.Group.Name == nbAssetsType.Name)
             {
-                var createForm = new GroupTypeInfo();
+                var createForm = new GroupTypeInfo(this);
                 createForm.DelegateContent((int)AssetManagerCommon.CommonEnums.FILTER.GROUP_TYPE, nbAssets.SelectedLink.Item.Name);
                 createForm.ShowDialog();
             }
@@ -202,6 +198,32 @@ namespace AssetManagerClient
                     InitContent();
                 }
             }
+        }
+
+        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var row=gvAsset.GetSelectedRows();
+            var createForm = new NewAsset();
+            createForm.DelegateContent((int)AssetManagerCommon.CommonEnums.ACTION.EDIT, gvAsset.GetRowCellValue((int)row.GetValue(0), gvAsset.Columns[0]).ToString());
+            createForm.ShowDialog();
+        }
+
+        private void gcAsset_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void gvAsset_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            
+        }
+
+        private void gvAsset_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        {
+            MessageBox.Show(e.RowHandle.ToString());
+            
+
+            //label.Text = gvAsset.Rows[e.RowIndex].Cells["Your Coloumn name"].Value.ToString();
         }
     }
 }

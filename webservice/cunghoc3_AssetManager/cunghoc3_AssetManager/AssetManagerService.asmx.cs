@@ -21,19 +21,24 @@ namespace cunghoc3_AssetManager
     {
         public Random randomId = new Random();
         [WebMethod]
-        public int NewAssetGroupType(string Id, string Name)
+        public int NewAssetGroupType(string name)
         {
             try
             {
+                var id = "AGT_"+randomId.Next().ToString();
+                while ((GetAssetGroupTypeById(id) == null))
+                {
+                    id = "AGT_" + randomId.Next().ToString();
+                }
                 var db = new Services.AssetGroupTypeService();
-                if (GetAssetGroupTypeById(Id) != null)
+                if (GetAssetGroupTypeById(id) != null)
                 {
                     return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
                 }
                 using (var item = new AssetGroupType
                 {
-                    Id = Id,
-                    Name = Name,
+                    Id = id,
+                    Name = name,
                 })
                 {
                     if (db.Insert(item))
@@ -214,18 +219,19 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public int NewDepartmentUsed(string Id, string Name, string Phone, string Representative, string Address)
+        public int NewDepartmentUsed(string Name, string Phone, string Representative, string Address)
         {
             try
             {
-                var db = new Services.DepartmentUsedService();
-                if (GetDepartmentUsedById(Id) != null)
+                var id = "DU_"+randomId.Next().ToString();
+                while ((GetDepartmentUsedById(id) == null))
                 {
-                    return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
+                    id = "DU_" + randomId.Next().ToString();
                 }
+                var db = new Services.DepartmentUsedService();
                 using (var item = new DepartmentUsed
                 {
-                    Id = Id,
+                    Id = id,
                     Name = Name,
                     Phone = Phone,
                     Representative = Representative,

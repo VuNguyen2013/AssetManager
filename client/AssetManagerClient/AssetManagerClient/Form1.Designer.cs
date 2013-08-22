@@ -97,7 +97,7 @@
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.gcAsset = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gvAsset = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grAssetId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grDepartmentUsed = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcAssetGroup = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -146,7 +146,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcAsset)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvAsset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbAssets)).BeginInit();
@@ -805,22 +805,25 @@
             // 
             this.gcAsset.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcAsset.Location = new System.Drawing.Point(2, 21);
-            this.gcAsset.MainView = this.gridView2;
+            this.gcAsset.MainView = this.gvAsset;
             this.gcAsset.MenuManager = this.ribbonControl;
             this.gcAsset.Name = "gcAsset";
             this.gcAsset.Size = new System.Drawing.Size(933, 409);
             this.gcAsset.TabIndex = 0;
             this.gcAsset.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            this.gvAsset});
+            this.gcAsset.Click += new System.EventHandler(this.gcAsset_Click);
             // 
-            // gridView2
+            // gvAsset
             // 
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gvAsset.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.grAssetId,
             this.grDepartmentUsed,
             this.gcAssetGroup});
-            this.gridView2.GridControl = this.gcAsset;
-            this.gridView2.Name = "gridView2";
+            this.gvAsset.GridControl = this.gcAsset;
+            this.gvAsset.Name = "gvAsset";
+            this.gvAsset.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvAsset_RowClick);
+            this.gvAsset.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gvAsset_RowCellClick);
             // 
             // grAssetId
             // 
@@ -979,6 +982,7 @@
             this.barButtonItem4.Id = 5;
             this.barButtonItem4.Name = "barButtonItem4";
             this.barButtonItem4.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
             // barButtonItem5
             // 
@@ -1082,7 +1086,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcAsset)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvAsset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nbAssets)).EndInit();
@@ -1157,7 +1161,7 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private DevExpress.XtraGrid.GridControl gcAsset;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvAsset;
         private DevExpress.XtraGrid.Columns.GridColumn grAssetId;
         private DevExpress.XtraGrid.Columns.GridColumn grDepartmentUsed;
         private DevExpress.XtraGrid.Columns.GridColumn gcAssetGroup;
