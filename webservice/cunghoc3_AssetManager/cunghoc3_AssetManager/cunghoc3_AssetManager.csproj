@@ -65,6 +65,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataContract\AssetData.cs" />
+    <Compile Include="DataContract\AssetLiquidationData.cs" />
+    <Compile Include="DataContract\RepairAssetData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

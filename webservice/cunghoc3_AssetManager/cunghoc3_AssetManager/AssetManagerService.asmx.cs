@@ -56,17 +56,26 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public List<AssetGroupType> GetAllAssetGroupType()
+        public ResultObject<List<AssetGroupType>> GetAllAssetGroupType()
         {
+            var resultObject = new ResultObject<List<AssetGroupType>> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
             cunghoc3_AssetManager.Services.AssetGroupTypeService db = new Services.AssetGroupTypeService();
-            return db.GetAll().ToList();
+            resultObject.RetObject = db.GetAll().ToList();
+            resultObject.Message = "Get AssetGroupType list success";
+            return resultObject;
         }
 
         [WebMethod]
-        public AssetGroupType GetAssetGroupTypeById(string id)
+        public ResultObject<AssetGroupType> GetAssetGroupTypeById(string id)
         {
+            var resultObject = new ResultObject<AssetGroupType> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
             cunghoc3_AssetManager.Services.AssetGroupTypeService db = new Services.AssetGroupTypeService();
-            return db.GetById(id);
+            resultObject.RetObject = db.GetById(id);
+            if(resultObject.RetObject!=null)
+                resultObject.Message = "Get AssetGroupType by Id success";
+            else
+                resultObject.Message = "Get AssetGroupTypeId not exist";
+            return resultObject;
         }
 
         [WebMethod]
@@ -119,17 +128,26 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public List<AssetGroup> GetAllAssetGroup()
+        public ResultObject<List<AssetGroup>> GetAllAssetGroup()
         {
+            var resultObject = new ResultObject<List<AssetGroup>> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
             cunghoc3_AssetManager.Services.AssetGroupService db = new Services.AssetGroupService();
-            return db.GetAll().ToList();
+            resultObject.RetObject = db.GetAll().ToList();
+            resultObject.Message = "Get AssetGroup list success";
+            return resultObject;
         }
 
         [WebMethod]
-        public AssetGroup GetAssetGroupById(string id)
+        public ResultObject<AssetGroup> GetAssetGroupById(string id)
         {
             cunghoc3_AssetManager.Services.AssetGroupService db = new Services.AssetGroupService();
-            return db.GetById(id);
+            var resultObject = new ResultObject<AssetGroup> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+            resultObject.RetObject = db.GetById(id);
+            if (resultObject.RetObject != null)
+                resultObject.Message = "Get AssetGroup by Id success";
+            else
+                resultObject.Message = "Get AssetGroup not exist";
+            return resultObject;
         }
 
         [WebMethod]
@@ -185,17 +203,26 @@ namespace cunghoc3_AssetManager
 
 
         [WebMethod]
-        public List<Capital> GetAllCapitalGroup()
+        public ResultObject<List<Capital>> GetAllCapitalGroup()
         {
             cunghoc3_AssetManager.Services.CapitalService db = new Services.CapitalService();
-            return db.GetAll().ToList();
+            var resultObject = new ResultObject<List<Capital>> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+            resultObject.RetObject = db.GetAll().ToList();
+            resultObject.Message = "Get Capital list success";
+            return resultObject;
         }
 
         [WebMethod]
-        public Capital GetCapitalById(string id)
+        public ResultObject<Capital> GetCapitalById(string id)
         {
             cunghoc3_AssetManager.Services.CapitalService db = new Services.CapitalService();
-            return db.GetById(id);
+            var resultObject = new ResultObject<Capital> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+            resultObject.RetObject = db.GetById(id);
+            if (resultObject.RetObject != null)
+                resultObject.Message = "Get Capital by Id success";
+            else
+                resultObject.Message = "Get Capital not exist";
+            return resultObject;
         }
 
         [WebMethod]
@@ -265,17 +292,26 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public List<DepartmentUsed> GetDepartmentUsed()
+        public ResultObject<List<DepartmentUsed>> GetAllDepartmentUsed()
         {
             cunghoc3_AssetManager.Services.DepartmentUsedService db = new Services.DepartmentUsedService();
-            return db.GetAll().ToList();
+            var resultObject = new ResultObject<List<DepartmentUsed>> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+            resultObject.RetObject = db.GetAll().ToList();
+            resultObject.Message = "Get DepartmentUsed list success";
+            return resultObject;
         }
 
         [WebMethod]
-        public DepartmentUsed GetDepartmentUsedById(string id)
+        public ResultObject<DepartmentUsed> GetDepartmentUsedById(string id)
         {
             cunghoc3_AssetManager.Services.DepartmentUsedService db = new Services.DepartmentUsedService();
-            return db.GetById(id);
+            var resultObject = new ResultObject<DepartmentUsed> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+	        resultObject.RetObject = db.GetById(id);
+            if(resultObject.RetObject!=null)
+                resultObject.Message = "Get DepartmentUsed by Id success";
+            else
+                resultObject.Message = "Get DepartmentUsed not exist";
+            return resultObject;
         }
 
         [WebMethod]
@@ -329,17 +365,26 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public List<Unit> GetAllUnit()
+        public ResultObject<List<Unit>> GetAllUnit()
         {
             cunghoc3_AssetManager.Services.UnitService db = new Services.UnitService();
-            return db.GetAll().ToList();
+            var resultObject = new ResultObject<List<Unit>> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+            resultObject.RetObject = db.GetAll().ToList();
+            resultObject.Message = "Get Unit list success";
+            return resultObject;
         }
 
         [WebMethod]
-        public Unit GetUnitById(string id)
+        public ResultObject<Unit> GetUnitById(string id)
         {
             cunghoc3_AssetManager.Services.UnitService db = new Services.UnitService();
-            return db.GetById(id);
+            var resultObject = new ResultObject<Unit> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+	        resultObject.RetObject = db.GetById(id);
+            if(resultObject.RetObject!=null)
+                resultObject.Message = "Get Unit by Id success";
+            else
+                resultObject.Message = "Get Unit not exist";
+            return resultObject;
         }
 
         [WebMethod]
@@ -352,7 +397,9 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
+
         public int NewAsset(string assetNumber,string name, string assetGroupId, string unitId, int amount, string counPro, int yearPro, string departmentUsedId, long totalPrice, long bugetPrice, long ownPrice, long venturePrice, long anotherPrice, long totalDepreciation, long bugetDepreciation, long ownDepreciation, long ventureDepreciation, long anotherDepreciation, long bugeRemain, long ownRemain, long ventureRemain, long anotherRemain, long totalRemain, string upDownCode, string manufacturer, string brand, string model, short status, short condition, DateTime dueDate, string note, string seriesNumber)
+
         {
             var inputDateTime = DateTime.Today;
             try
@@ -398,7 +445,8 @@ namespace cunghoc3_AssetManager
                     Note = note,
                     SeriesNumber = seriesNumber
                 })
-                {
+
+                {    
                     if (db.Insert(item))
                     {
                         return (int)CommonEnums.RetCode.SUCCESS;
@@ -453,9 +501,9 @@ namespace cunghoc3_AssetManager
                 var db = new Services.AssetService();
                 var assets = db.GetAll();
                 var assetsList= (from asset in assets
-                                 let unit = GetUnitById(asset.UnitId)
-                                 let departmentUsed = GetDepartmentUsedById(asset.DepartmentUsedId)
-                                 let assetGroup = GetAssetGroupById(asset.AssetGroupId)
+                                 let unit = GetUnitById(asset.UnitId).RetObject
+                                 let departmentUsed = GetDepartmentUsedById(asset.DepartmentUsedId).RetObject
+                                 let assetGroup = GetAssetGroupById(asset.AssetGroupId).RetObject
                                  select new AssetData
                                      {
                                          Amount = asset.Amount, AnotherDepreciation = asset.AnotherDepreciation, AnotherPrice = asset.AnotherPrice, AnotherRemain = asset.AnotherRemain, BugeRemain = asset.BudgetRemain, BugetDepreciation = asset.BudgetDepreciation, BugetPrice = asset.BudgetPrice, CounPro = asset.CounPro, Id = asset.Id, InputDateTime = asset.InputDateTime, Name = asset.Name, OwnDepreciation = asset.OwnDepreciation, OwnPrice = asset.OwnPrice, OwnRemain = asset.OwnRemain, TotalDepreciation = asset.TotalDepreciation, TotalPrice = asset.TotalPrice, TotalRemain = asset.TotalReamain, UpDownCode = asset.UpDownCode, VentureDepreciation = asset.VentureDepreciation, VenturePrice = asset.VenturePrice, VentureRemain = asset.VentureRemain, YearPro = asset.YearPro,
@@ -475,13 +523,6 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public Asset GetAssetById(string id)
-        {
-            cunghoc3_AssetManager.Services.AssetService db = new Services.AssetService();
-            return db.GetById(id);
-        }
-
-        [WebMethod]
         public ResultObject<List<AssetData>> GetAssetByAssetGroupTypeId(string AssetGroupTypeId)
         {
               var resultObject = new ResultObject<List<AssetData>> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
@@ -491,9 +532,9 @@ namespace cunghoc3_AssetManager
                 
                 var assets = db.GetByAssetGroupId(AssetGroupTypeId);
                 var assetsList= (from asset in assets
-                                 let unit = GetUnitById(asset.UnitId)
-                                 let departmentUsed = GetDepartmentUsedById(asset.DepartmentUsedId)
-                                 let assetGroup = GetAssetGroupById(asset.AssetGroupId)
+                                 let unit = GetUnitById(asset.UnitId).RetObject
+                                 let departmentUsed = GetDepartmentUsedById(asset.DepartmentUsedId).RetObject
+                                 let assetGroup = GetAssetGroupById(asset.AssetGroupId).RetObject
                                  select new AssetData
                                      {
                                          Amount = asset.Amount, AnotherDepreciation = asset.AnotherDepreciation, AnotherPrice = asset.AnotherPrice, AnotherRemain = asset.AnotherRemain, BugeRemain = asset.BudgetRemain, BugetDepreciation = asset.BudgetDepreciation, BugetPrice = asset.BudgetPrice, CounPro = asset.CounPro, Id = asset.Id, InputDateTime = asset.InputDateTime, Name = asset.Name, OwnDepreciation = asset.OwnDepreciation, OwnPrice = asset.OwnPrice, OwnRemain = asset.OwnRemain, TotalDepreciation = asset.TotalDepreciation, TotalPrice = asset.TotalPrice, TotalRemain = asset.TotalReamain, UpDownCode = asset.UpDownCode, VentureDepreciation = asset.VentureDepreciation, VenturePrice = asset.VenturePrice, VentureRemain = asset.VentureRemain, YearPro = asset.YearPro,
@@ -512,6 +553,19 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
+        public ResultObject<Asset> GetAssetById(string id)
+        {
+            cunghoc3_AssetManager.Services.AssetService db = new Services.AssetService();
+            var resultObject = new ResultObject<Asset> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+            resultObject.RetObject = db.GetById(id);
+            if (resultObject.RetObject != null)
+                resultObject.Message = "Get Asset by Id success";
+            else
+                resultObject.Message = "Get Asset not exist";
+            return resultObject;
+        }
+
+        [WebMethod]
         public ResultObject<List<AssetData>> GetAssetByDepartmentUsedId(string DepartmentUsedId)
         {
             var resultObject = new ResultObject<List<AssetData>> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
@@ -521,9 +575,9 @@ namespace cunghoc3_AssetManager
 
                 var assets = db.GetByDepartmentUsedId(DepartmentUsedId);
                 var assetsList = (from asset in assets
-                                  let unit = GetUnitById(asset.UnitId)
-                                  let departmentUsed = GetDepartmentUsedById(asset.DepartmentUsedId)
-                                  let assetGroup = GetAssetGroupById(asset.AssetGroupId)
+                                  let unit = GetUnitById(asset.UnitId).RetObject
+                                  let departmentUsed = GetDepartmentUsedById(asset.DepartmentUsedId).RetObject
+                                  let assetGroup = GetAssetGroupById(asset.AssetGroupId).RetObject
                                   select new AssetData
                                   {
                                       Amount = asset.Amount,
@@ -619,17 +673,26 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public List<Partner> GetAllPartner()
+        public ResultObject<List<Partner>> GetAllPartner()
         {
             cunghoc3_AssetManager.Services.PartnerService db = new Services.PartnerService();
-            return db.GetAll().ToList();
+            var resultObject = new ResultObject<List<Partner>> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+            resultObject.RetObject = db.GetAll().ToList();
+            resultObject.Message = "Get Partner list success";
+            return resultObject;
         }
 
         [WebMethod]
-        public Partner GetPartnerById(string id)
+        public ResultObject<Partner> GetPartnerById(string id)
         {
             cunghoc3_AssetManager.Services.PartnerService db = new Services.PartnerService();
-            return db.GetById(id);
+            var resultObject = new ResultObject<Partner> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+	        resultObject.RetObject = db.GetById(id);
+            if(resultObject.RetObject!=null)
+                resultObject.Message = "Get Partner by Id success";
+            else
+                resultObject.Message = "Get Partner not exist";
+            return resultObject;
         }
 
         [WebMethod]
@@ -683,17 +746,26 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public List<UpDownReason> GetAllUpDownReason()
+        public ResultObject<List<UpDownReason>> GetAllUpDownReason()
         {
             cunghoc3_AssetManager.Services.UpDownReasonService db = new Services.UpDownReasonService();
-            return db.GetAll().ToList();
+            var resultObject = new ResultObject<List<UpDownReason>> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+            resultObject.RetObject = db.GetAll().ToList();
+            resultObject.Message = "Get UpDownReason list success";
+            return resultObject;
         }
 
         [WebMethod]
-        public UpDownReason GetUpDownReasonById(string id)
+        public ResultObject<UpDownReason> GetUpDownReasonById(string id)
         {
             cunghoc3_AssetManager.Services.UpDownReasonService db = new Services.UpDownReasonService();
-            return db.GetById(id);
+            var resultObject = new ResultObject<UpDownReason> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+	        resultObject.RetObject = db.GetById(id);
+            if(resultObject.RetObject!=null)
+                resultObject.Message = "Get UpDownReason by Id success";
+            else
+                resultObject.Message = "Get UpDownReason not exist";
+            return resultObject;
         }
 
         [WebMethod]
@@ -751,17 +823,46 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public List<AssetLiquidation> GetAllAssetLiquidation()
+        public ResultObject<List<AssetLiquidationData>> GetAllAssetLiquidation()
         {
             cunghoc3_AssetManager.Services.AssetLiquidationService db = new Services.AssetLiquidationService();
-            return db.GetAll().ToList();
+            var resultObject = new ResultObject<List<AssetLiquidationData>> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+            var aLList = db.GetAll().ToList();
+            foreach (AssetLiquidation al in aLList)
+            {
+                AssetLiquidationData ald = new AssetLiquidationData() {
+                    Id = al.Id,
+                    AssetName = GetAssetById(al.AssetId).RetObject.Name,
+                    DepartmentUsedName = GetDepartmentUsedById(al.DepartmentUsedId).RetObject.Name,
+                    LiDateTime = al.LiDateTime,
+                    LiPrice = al.LiPrice
+                };
+                resultObject.RetObject.Add(ald);
+            }
+            resultObject.Message = "Get AssetLiquidationData list success";
+            return resultObject;
         }
 
         [WebMethod]
-        public AssetLiquidation GetAssetLiquidationById(string id)
+        public ResultObject<AssetLiquidationData> GetAssetLiquidationById(string id)
         {
             cunghoc3_AssetManager.Services.AssetLiquidationService db = new Services.AssetLiquidationService();
-            return db.GetById(id);
+            var resultObject = new ResultObject<AssetLiquidationData> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+            var al = db.GetById(id);
+            AssetLiquidationData ald = new AssetLiquidationData()
+            {
+                Id = al.Id,
+                AssetName = GetAssetById(al.AssetId).RetObject.Name,
+                DepartmentUsedName = GetDepartmentUsedById(al.DepartmentUsedId).RetObject.Name,
+                LiDateTime = al.LiDateTime,
+                LiPrice = al.LiPrice
+            };
+            resultObject.RetObject = ald;
+            if(resultObject.RetObject!=null)
+                resultObject.Message = "Get AssetLiquidation by Id success";
+            else
+                resultObject.Message = "Get AssetLiquidation not exist";
+            return resultObject;
         }
 
         [WebMethod]
@@ -824,17 +925,51 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public List<RepairAsset> GetAllRepairAsset()
+        public ResultObject<List<RepairAssetData>> GetAllRepairAsset()
         {
             cunghoc3_AssetManager.Services.RepairAssetService db = new Services.RepairAssetService();
-            return db.GetAll().ToList();
+            var resultObject = new ResultObject<List<RepairAssetData>> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+            var list = db.GetAll().ToList();
+            foreach (RepairAsset item in list)
+            {
+                RepairAssetData itemData = new RepairAssetData()
+                {
+                    Id = item.Id,
+                    AssetName = GetAssetById(item.AssetId).RetObject.Name,
+                    DepartmentUsedName = GetDepartmentUsedById(item.DepartmentUsedId).RetObject.Name,
+                    PartnerName = GetPartnerById(item.PartnerId).RetObject.Name,
+                    Address = item.Address,
+                    Fee = item.Fee,
+                    RepairDate = item.RepairDate
+                };
+                resultObject.RetObject.Add(itemData);
+            }
+            resultObject.Message = "Get RepairAsset list success";
+            return resultObject;
         }
 
         [WebMethod]
-        public RepairAsset GetRepairAssetById(string id)
+        public ResultObject<RepairAssetData> GetRepairAssetById(string id)
         {
             cunghoc3_AssetManager.Services.RepairAssetService db = new Services.RepairAssetService();
-            return db.GetById(id);
+            var resultObject = new ResultObject<RepairAssetData> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+            var item = db.GetById(id);
+            RepairAssetData itemData = new RepairAssetData()
+            {
+                Id = item.Id,
+                AssetName = GetAssetById(item.AssetId).RetObject.Name,
+                DepartmentUsedName = GetDepartmentUsedById(item.DepartmentUsedId).RetObject.Name,
+                PartnerName = GetPartnerById(item.PartnerId).RetObject.Name,
+                Address = item.Address,
+                Fee = item.Fee,
+                RepairDate = item.RepairDate
+            };
+            resultObject.RetObject = itemData;
+            if (resultObject.RetObject != null)
+                resultObject.Message = "Get RepairAssetData by Id success";
+            else
+                resultObject.Message = "Get RepairAssetData not exist";
+            return resultObject;
         }
 
         [WebMethod]
