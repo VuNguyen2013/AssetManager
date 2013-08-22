@@ -177,10 +177,19 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\WebService\AssetManagerService.wsdl" />
+    <None Include="Web References\WebService\Audit.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\WebService\Capital.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <None Include="Web References\WebService\CheckOut.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\WebService\DepartmentUsed.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\Image.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\WebService\Partner.datasource">

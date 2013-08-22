@@ -88,6 +88,7 @@
             this.Controls.Add(this.lblCreateName);
             this.Controls.Add(this.labelControl1);
             this.Name = "GroupTypeInfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GroupTypeInfo";
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);

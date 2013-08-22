@@ -8,6 +8,7 @@ using AssetManagerClient.WebService;
 using AssetManagerCommon;
 using DevExpress.XtraPrinting.Native;
 using FtpLib;
+using Image = System.Drawing.Image;
 
 namespace AssetManagerClient
 {
@@ -138,9 +139,10 @@ namespace AssetManagerClient
             gpLoading.Show();
             try
             {
+                DateTime now=new DateTime();
                 var result = WebServices.NewAsset("AS_" + txtAssetNumber.Text, txtName.Text, cbxAssetGroup.Id,
                                                   cbxUnit.Id, 1, "japan", 2013, cbxDepartmentUsed.Id,
-                                                  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "U");
+                                                  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "U","toshiba","f","ewq",1,1,now,"","");
                 if (result == (int) AssetManagerCommon.CommonEnums.RetCode.SUCCESS)
                 {
                     //if success,upload image

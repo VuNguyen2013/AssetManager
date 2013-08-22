@@ -13,7 +13,7 @@ namespace AssetManagerClient
     public partial class Form1 : RibbonForm
     {
         public AssetManagerService WebServices=new AssetManagerService();
-        readonly Action<int> DelegateContent = delegate { };
+        
         public Form1()
         {
             Enabled = false;
@@ -26,10 +26,13 @@ namespace AssetManagerClient
         {
             SkinHelper.InitSkinGallery(rgbiSkins, true);
         }
-        void InitContent()
+        public void InitContent()
         {
             try
             {
+                //clear content
+                nbAssetsType.ItemLinks.Clear();
+                nbDepartmentUsed.ItemLinks.Clear();
                 //init assets tab
                 var assetGroupTypes = WebServices.GetAllAssetGroupType();
                 foreach (var assetGroupType in assetGroupTypes)
@@ -61,16 +64,16 @@ namespace AssetManagerClient
                 {
                     lblStatusAlert.Text = AssetManagerCommon.CommonFunction.GetMassageReturn(assets.RetCode);
                 }
-                Invoke(new Action(() =>
+                    Invoke(new Action(() =>
                 {
                     gpLoading.Hide();
                     Enabled = true;
                 }));
+                
             }
             catch (Exception)
             {
                 MessageBox.Show("Không thể kết nối tới server,vui lòng kiểm tra cài đặt mạng");
-                throw;
             }
             
             
@@ -125,6 +128,7 @@ namespace AssetManagerClient
                 NavBarHitInfo hi = nbAssets.CalcHitInfo(e.Location);
                 if (hi.InLink)
                 {
+                    nbAssets.SelectedLink = hi.Link;
                     if (hi.Link.Group.Name == nbAssetsType.Name)
                     {
                         var contextMenu = new ContextMenu();
@@ -156,29 +160,28 @@ namespace AssetManagerClient
             {
                 var createForm = new GroupTypeInfo();
                 createForm.DelegateContent((int)AssetManagerCommon.CommonEnums.FILTER.GROUP_TYPE,"");
-                createForm.Show();
+                createForm.ShowDialog();
             }
             if (nbAssets.SelectedLink.Group.Name == nbDepartmentUsed.Name)
             {
-                var createForm = new DepartmentInfo();
+                var createForm = new DepartmentInfo(this);
                 createForm.DelegateContent((int)AssetManagerCommon.CommonEnums.ACTION.ADD,"");
-                createForm.Show();
+                createForm.ShowDialog();
             }
         }
         void ContextMenuEditButton(object sender, EventArgs e)
         {
-
             if (nbAssets.SelectedLink.Group.Name == nbAssetsType.Name)
             {
                 var createForm = new GroupTypeInfo();
                 createForm.DelegateContent((int)AssetManagerCommon.CommonEnums.FILTER.GROUP_TYPE, nbAssets.SelectedLink.Item.Name);
-                createForm.Show();
+                createForm.ShowDialog();
             }
             if (nbAssets.SelectedLink.Group.Name == nbDepartmentUsed.Name)
             {
-                var createForm = new DepartmentInfo();
+                var createForm = new DepartmentInfo(this);
                 createForm.DelegateContent((int)AssetManagerCommon.CommonEnums.ACTION.EDIT, nbAssets.SelectedLink.Item.Name);
-                createForm.Show();
+                createForm.ShowDialog();
             }
         }
         void ContextMenuDeleteButton(object sender, EventArgs e)
@@ -188,6 +191,7 @@ namespace AssetManagerClient
                 if (MessageBox.Show("Bạn muốn xóa loại tài sản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     WebServices.DelAssetGroupTypeById(nbAssets.SelectedLink.Item.Name);
+                    InitContent();
                 }
             }
             if (nbAssets.SelectedLink.Group.Name == nbDepartmentUsed.Name)
@@ -195,6 +199,7 @@ namespace AssetManagerClient
                 if (MessageBox.Show("Bạn muốn xóa bộ phận này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     WebServices.DelDepartmentUsedById(nbAssets.SelectedLink.Item.Name);
+                    InitContent();
                 }
             }
         }

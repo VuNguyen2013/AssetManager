@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using AssetManagerClient.WebService;
 using DevExpress.XtraEditors;
 
 namespace AssetManagerClient
@@ -13,10 +14,13 @@ namespace AssetManagerClient
     {
         private int _action;
         private string _id;
-
-        public GroupTypeInfo()
+        private Form form1;
+        public AssetManagerService WebServices = new AssetManagerService();
+        public GroupTypeInfo(Form frm)
         {
+            
             InitializeComponent();
+            form1 = frm;
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
@@ -26,7 +30,7 @@ namespace AssetManagerClient
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-
+            if(txt)
         }
         public void DelegateContent(int action, string id)
         {

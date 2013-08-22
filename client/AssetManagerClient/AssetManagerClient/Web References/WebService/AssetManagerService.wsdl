@@ -2,6 +2,132 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="DelAuditById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelAuditByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelAuditByIdResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewCheckOut">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CheckOutDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Computer" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewCheckOutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NewCheckOutResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCheckOut">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CheckOutDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Computer" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCheckOutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCheckOutResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllCheckOut">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllCheckOutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllCheckOutResult" type="tns:ArrayOfCheckOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCheckOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CheckOut" nillable="true" type="tns:CheckOut" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CheckOut">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CheckOutBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CheckOutBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CheckOutDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Computer" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:short" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBaseCore" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityBaseCore" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Tag" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCheckOutById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCheckOutByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCheckOutByIdResult" type="tns:CheckOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelCheckOutById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelCheckOutByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelCheckOutByIdResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="NewAssetGroupType">
         <s:complexType>
           <s:sequence>
@@ -20,89 +146,21 @@
       <s:element name="GetAllAssetGroupType">
         <s:complexType />
       </s:element>
-      <s:element name="GetAllAssetGroupTypeResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAllAssetGroupTypeResult" type="tns:ArrayOfAssetGroupType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="ArrayOfAssetGroupType">
+      <s:complexType name="ArrayOfWarrantyAsset">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="AssetGroupType" nillable="true" type="tns:AssetGroupType" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WarrantyAsset" nillable="true" type="tns:WarrantyAsset" />
         </s:sequence>
       </s:complexType>
-      <s:complexType name="AssetGroupType">
+      <s:complexType name="WarrantyAsset">
         <s:complexContent mixed="false">
-          <s:extension base="tns:AssetGroupTypeBase" />
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="AssetGroupTypeBase" abstract="true">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:EntityBase">
-            <s:sequence>
-              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="AssetGroupCollection" type="tns:ArrayOfAssetGroup" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="EntityBase" abstract="true">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:EntityBaseCore" />
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="EntityBaseCore" abstract="true">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Tag" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="RepairAssetBase" abstract="true">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:EntityBase">
-            <s:sequence>
-              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedId" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Reason" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="PartnerId" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="RepairDate" type="s:dateTime" />
-              <s:element minOccurs="1" maxOccurs="1" name="Fee" type="s:long" />
-              <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="RepairAsset">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:RepairAssetBase" />
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="AssetLiquidationBase" abstract="true">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:EntityBase">
-            <s:sequence>
-              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
-              <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedId" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="LiDateTime" type="s:dateTime" />
-              <s:element minOccurs="1" maxOccurs="1" name="LiPrice" type="s:long" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="AssetLiquidation">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:AssetLiquidationBase" />
+          <s:extension base="tns:WarrantyAssetBase" />
         </s:complexContent>
       </s:complexType>
       <s:complexType name="WarrantyAssetBase" abstract="true">
         <s:complexContent mixed="false">
           <s:extension base="tns:EntityBase">
             <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="AsssetId" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedId" type="s:string" />
@@ -115,15 +173,73 @@
           </s:extension>
         </s:complexContent>
       </s:complexType>
-      <s:complexType name="WarrantyAsset">
+      <s:complexType name="ArrayOfAssetLiquidation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AssetLiquidation" nillable="true" type="tns:AssetLiquidation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AssetLiquidation">
         <s:complexContent mixed="false">
-          <s:extension base="tns:WarrantyAssetBase" />
+          <s:extension base="tns:AssetLiquidationBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AssetLiquidationBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedId" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="LiDateTime" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="LiPrice" type="s:long" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfRepairAsset">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RepairAsset" nillable="true" type="tns:RepairAsset" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RepairAsset">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RepairAssetBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RepairAssetBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Reason" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PartnerId" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="RepairDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="Fee" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfAsset">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Asset" nillable="true" type="tns:Asset" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Asset">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:AssetBase" />
         </s:complexContent>
       </s:complexType>
       <s:complexType name="AssetBase" abstract="true">
         <s:complexContent mixed="false">
           <s:extension base="tns:EntityBase">
             <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="AssetGroupId" type="s:string" />
@@ -149,6 +265,14 @@
               <s:element minOccurs="1" maxOccurs="1" name="TotalReamain" type="s:long" />
               <s:element minOccurs="0" maxOccurs="1" name="UpDownCode" type="s:string" />
               <s:element minOccurs="1" maxOccurs="1" name="InputDateTime" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Manufacturer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Brand" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="DueDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SeriesNumber" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Condition" nillable="true" type="s:short" />
               <s:element minOccurs="0" maxOccurs="1" name="WarrantyAssetCollection" type="tns:ArrayOfWarrantyAsset" />
               <s:element minOccurs="0" maxOccurs="1" name="AssetLiquidationCollection" type="tns:ArrayOfAssetLiquidation" />
               <s:element minOccurs="0" maxOccurs="1" name="RepairAssetCollection" type="tns:ArrayOfRepairAsset" />
@@ -156,30 +280,21 @@
           </s:extension>
         </s:complexContent>
       </s:complexType>
-      <s:complexType name="ArrayOfWarrantyAsset">
+      <s:complexType name="ArrayOfAssetGroup">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="WarrantyAsset" nillable="true" type="tns:WarrantyAsset" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AssetGroup" nillable="true" type="tns:AssetGroup" />
         </s:sequence>
       </s:complexType>
-      <s:complexType name="ArrayOfAssetLiquidation">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="AssetLiquidation" nillable="true" type="tns:AssetLiquidation" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="ArrayOfRepairAsset">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="RepairAsset" nillable="true" type="tns:RepairAsset" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="Asset">
+      <s:complexType name="AssetGroup">
         <s:complexContent mixed="false">
-          <s:extension base="tns:AssetBase" />
+          <s:extension base="tns:AssetGroupBase" />
         </s:complexContent>
       </s:complexType>
       <s:complexType name="AssetGroupBase" abstract="true">
         <s:complexContent mixed="false">
           <s:extension base="tns:EntityBase">
             <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="AssetGroupTypeId" type="s:string" />
@@ -188,21 +303,35 @@
           </s:extension>
         </s:complexContent>
       </s:complexType>
-      <s:complexType name="ArrayOfAsset">
+      <s:complexType name="ArrayOfAssetGroupType">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Asset" nillable="true" type="tns:Asset" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AssetGroupType" nillable="true" type="tns:AssetGroupType" />
         </s:sequence>
       </s:complexType>
-      <s:complexType name="AssetGroup">
+      <s:complexType name="AssetGroupType">
         <s:complexContent mixed="false">
-          <s:extension base="tns:AssetGroupBase" />
+          <s:extension base="tns:AssetGroupTypeBase" />
         </s:complexContent>
       </s:complexType>
-      <s:complexType name="ArrayOfAssetGroup">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="AssetGroup" nillable="true" type="tns:AssetGroup" />
-        </s:sequence>
+      <s:complexType name="AssetGroupTypeBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssetGroupCollection" type="tns:ArrayOfAssetGroup" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
       </s:complexType>
+      <s:element name="GetAllAssetGroupTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllAssetGroupTypeResult" type="tns:ArrayOfAssetGroupType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetAssetGroupTypeById">
         <s:complexType>
           <s:sequence>
@@ -227,7 +356,7 @@
       <s:element name="DelAssetGroupTypeByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="DelAssetGroupTypeByIdResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DelAssetGroupTypeByIdResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -242,7 +371,7 @@
       <s:element name="UpdateAssetGroupTypeResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UpdateAssetGroupTypeResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateAssetGroupTypeResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -296,7 +425,7 @@
       <s:element name="DelAssetGroupByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="DelAssetGroupByIdResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DelAssetGroupByIdResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -312,7 +441,7 @@
       <s:element name="UpdateAssetGroupResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UpdateAssetGroupResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateAssetGroupResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -349,6 +478,7 @@
         <s:complexContent mixed="false">
           <s:extension base="tns:EntityBase">
             <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
@@ -387,7 +517,7 @@
       <s:element name="DelCapitalByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="DelCapitalByIdResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DelCapitalByIdResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -403,7 +533,7 @@
       <s:element name="UpdateCapitalResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UpdateCapitalResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCapitalResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -439,7 +569,7 @@
       <s:element name="UpdateDepartmentUsedResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UpdateDepartmentUsedResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateDepartmentUsedResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -460,6 +590,7 @@
         <s:complexContent mixed="false">
           <s:extension base="tns:EntityBase">
             <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
@@ -504,7 +635,7 @@
       <s:element name="DelDepartmentUsedByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="DelDepartmentUsedByIdResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DelDepartmentUsedByIdResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -536,7 +667,7 @@
       <s:element name="UpdateUnitResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UpdateUnitResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateUnitResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -557,6 +688,7 @@
         <s:complexContent mixed="false">
           <s:extension base="tns:EntityBase">
             <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
@@ -596,7 +728,7 @@
       <s:element name="DelUnitByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="DelUnitByIdResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DelUnitByIdResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -627,6 +759,14 @@
             <s:element minOccurs="1" maxOccurs="1" name="anotherRemain" type="s:long" />
             <s:element minOccurs="1" maxOccurs="1" name="totalRemain" type="s:long" />
             <s:element minOccurs="0" maxOccurs="1" name="upDownCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="manufacturer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="brand" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="model" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="condition" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="dueDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="note" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seriesNumber" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -671,7 +811,7 @@
       <s:element name="UpdateAssetResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UpdateAssetResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateAssetResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -778,7 +918,7 @@
       <s:element name="DelAssetByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="DelAssetByIdResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DelAssetByIdResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -814,7 +954,7 @@
       <s:element name="UpdatePartnerResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UpdatePartnerResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UpdatePartnerResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -835,6 +975,7 @@
         <s:complexContent mixed="false">
           <s:extension base="tns:EntityBase">
             <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
@@ -877,7 +1018,7 @@
       <s:element name="DelPartnerByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="DelPartnerByIdResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DelPartnerByIdResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -909,7 +1050,7 @@
       <s:element name="UpdateUpDownReasonResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UpdateUpDownReasonResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateUpDownReasonResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -930,6 +1071,7 @@
         <s:complexContent mixed="false">
           <s:extension base="tns:EntityBase">
             <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
@@ -968,7 +1110,7 @@
       <s:element name="DelUpDownReasonByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="DelUpDownReasonByIdResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DelUpDownReasonByIdResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1004,7 +1146,7 @@
       <s:element name="UpdateAssetLiquidationResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UpdateAssetLiquidationResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateAssetLiquidationResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1042,7 +1184,7 @@
       <s:element name="DelAssetLiquidationByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="DelAssetLiquidationByIdResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DelAssetLiquidationByIdResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1082,7 +1224,7 @@
       <s:element name="UpdateRepairAssetResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UpdateRepairAssetResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateRepairAssetResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1120,7 +1262,7 @@
       <s:element name="DelRepairAssetByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="DelRepairAssetByIdResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DelRepairAssetByIdResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1162,7 +1304,7 @@
       <s:element name="UpdateWarrantyAssetResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UpdateWarrantyAssetResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateWarrantyAssetResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1200,14 +1342,162 @@
       <s:element name="DelWarrantyAssetByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="DelWarrantyAssetByIdResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DelWarrantyAssetByIdResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="NewImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ImageURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NewImageResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ImageURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateImageResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImageById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImageByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetImageByIdResult" type="tns:Image" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Image">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ImageBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ImageBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ImageUrl" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="DelImageById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelImageByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DelImageByIdResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewAudit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AuditDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Computer" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewAuditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NewAuditResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAudit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AuditDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Computer" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAuditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateAuditResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAuditById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAuditByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAuditByIdResult" type="tns:Audit" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Audit">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:AuditBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AuditBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AuditDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Computer" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
       <s:element name="int" type="s:int" />
+      <s:element name="ArrayOfCheckOut" nillable="true" type="tns:ArrayOfCheckOut" />
+      <s:element name="CheckOut" nillable="true" type="tns:CheckOut" />
       <s:element name="ArrayOfAssetGroupType" nillable="true" type="tns:ArrayOfAssetGroupType" />
       <s:element name="AssetGroupType" nillable="true" type="tns:AssetGroupType" />
-      <s:element name="string" nillable="true" type="s:string" />
       <s:element name="ArrayOfAssetGroup" nillable="true" type="tns:ArrayOfAssetGroup" />
       <s:element name="AssetGroup" nillable="true" type="tns:AssetGroup" />
       <s:element name="ArrayOfCapital" nillable="true" type="tns:ArrayOfCapital" />
@@ -1228,8 +1518,46 @@
       <s:element name="RepairAsset" nillable="true" type="tns:RepairAsset" />
       <s:element name="ArrayOfWarrantyAsset" nillable="true" type="tns:ArrayOfWarrantyAsset" />
       <s:element name="WarrantyAsset" nillable="true" type="tns:WarrantyAsset" />
+      <s:element name="Image" nillable="true" type="tns:Image" />
+      <s:element name="Audit" nillable="true" type="tns:Audit" />
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="DelAuditByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DelAuditById" />
+  </wsdl:message>
+  <wsdl:message name="DelAuditByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DelAuditByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewCheckOutSoapIn">
+    <wsdl:part name="parameters" element="tns:NewCheckOut" />
+  </wsdl:message>
+  <wsdl:message name="NewCheckOutSoapOut">
+    <wsdl:part name="parameters" element="tns:NewCheckOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCheckOutSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCheckOut" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCheckOutSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCheckOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCheckOutSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllCheckOut" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCheckOutSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllCheckOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCheckOutByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCheckOutById" />
+  </wsdl:message>
+  <wsdl:message name="GetCheckOutByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCheckOutByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelCheckOutByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DelCheckOutById" />
+  </wsdl:message>
+  <wsdl:message name="DelCheckOutByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DelCheckOutByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="NewAssetGroupTypeSoapIn">
     <wsdl:part name="parameters" element="tns:NewAssetGroupType" />
   </wsdl:message>
@@ -1572,6 +1900,93 @@
   <wsdl:message name="DelWarrantyAssetByIdSoapOut">
     <wsdl:part name="parameters" element="tns:DelWarrantyAssetByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="NewImageSoapIn">
+    <wsdl:part name="parameters" element="tns:NewImage" />
+  </wsdl:message>
+  <wsdl:message name="NewImageSoapOut">
+    <wsdl:part name="parameters" element="tns:NewImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateImageSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateImage" />
+  </wsdl:message>
+  <wsdl:message name="UpdateImageSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetImageByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetImageById" />
+  </wsdl:message>
+  <wsdl:message name="GetImageByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetImageByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelImageByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DelImageById" />
+  </wsdl:message>
+  <wsdl:message name="DelImageByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DelImageByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewAuditSoapIn">
+    <wsdl:part name="parameters" element="tns:NewAudit" />
+  </wsdl:message>
+  <wsdl:message name="NewAuditSoapOut">
+    <wsdl:part name="parameters" element="tns:NewAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAuditSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAudit" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAuditSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAuditByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAuditById" />
+  </wsdl:message>
+  <wsdl:message name="GetAuditByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAuditByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelAuditByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelAuditByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="NewCheckOutHttpGetIn">
+    <wsdl:part name="Id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="CheckOutDate" type="s:string" />
+    <wsdl:part name="Comment" type="s:string" />
+    <wsdl:part name="User" type="s:string" />
+    <wsdl:part name="Computer" type="s:string" />
+    <wsdl:part name="Status" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NewCheckOutHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCheckOutHttpGetIn">
+    <wsdl:part name="Id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="CheckOutDate" type="s:string" />
+    <wsdl:part name="Comment" type="s:string" />
+    <wsdl:part name="User" type="s:string" />
+    <wsdl:part name="Computer" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCheckOutHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCheckOutHttpGetIn" />
+  <wsdl:message name="GetAllCheckOutHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCheckOut" />
+  </wsdl:message>
+  <wsdl:message name="GetCheckOutByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCheckOutByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:CheckOut" />
+  </wsdl:message>
+  <wsdl:message name="DelCheckOutByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelCheckOutByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
   <wsdl:message name="NewAssetGroupTypeHttpGetIn">
     <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="Name" type="s:string" />
@@ -1593,14 +2008,14 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelAssetGroupTypeByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateAssetGroupTypeHttpGetIn">
     <wsdl:part name="id" type="s:string" />
     <wsdl:part name="name" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateAssetGroupTypeHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewAssetGroupHttpGetIn">
     <wsdl:part name="Id" type="s:string" />
@@ -1624,7 +2039,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelAssetGroupByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateAssetGroupHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -1632,7 +2047,7 @@
     <wsdl:part name="AssetGroupTypeId" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateAssetGroupHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewCapitalHttpGetIn">
     <wsdl:part name="Id" type="s:string" />
@@ -1656,7 +2071,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelCapitalByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateCapitalHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -1664,7 +2079,7 @@
     <wsdl:part name="Note" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateCapitalHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewDepartmentUsedHttpGetIn">
     <wsdl:part name="Id" type="s:string" />
@@ -1684,7 +2099,7 @@
     <wsdl:part name="Address" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateDepartmentUsedHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetDepartmentUsedHttpGetIn" />
   <wsdl:message name="GetDepartmentUsedHttpGetOut">
@@ -1700,7 +2115,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelDepartmentUsedByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewUnitHttpGetIn">
     <wsdl:part name="Id" type="s:string" />
@@ -1716,7 +2131,7 @@
     <wsdl:part name="Note" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateUnitHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllUnitHttpGetIn" />
   <wsdl:message name="GetAllUnitHttpGetOut">
@@ -1732,7 +2147,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelUnitByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewAssetHttpGetIn">
     <wsdl:part name="assetNumber" type="s:string" />
@@ -1759,6 +2174,14 @@
     <wsdl:part name="anotherRemain" type="s:string" />
     <wsdl:part name="totalRemain" type="s:string" />
     <wsdl:part name="upDownCode" type="s:string" />
+    <wsdl:part name="manufacturer" type="s:string" />
+    <wsdl:part name="brand" type="s:string" />
+    <wsdl:part name="model" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+    <wsdl:part name="condition" type="s:string" />
+    <wsdl:part name="dueDate" type="s:string" />
+    <wsdl:part name="note" type="s:string" />
+    <wsdl:part name="seriesNumber" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetHttpGetOut">
     <wsdl:part name="Body" element="tns:int" />
@@ -1791,7 +2214,7 @@
     <wsdl:part name="InputDateTime" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateAssetHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllAssetHttpGetIn" />
   <wsdl:message name="GetAllAssetHttpGetOut">
@@ -1819,7 +2242,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelAssetByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewPartnerHttpGetIn">
     <wsdl:part name="Id" type="s:string" />
@@ -1839,7 +2262,7 @@
     <wsdl:part name="Address" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdatePartnerHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllPartnerHttpGetIn" />
   <wsdl:message name="GetAllPartnerHttpGetOut">
@@ -1855,7 +2278,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelPartnerByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewUpDownReasonHttpGetIn">
     <wsdl:part name="Id" type="s:string" />
@@ -1871,7 +2294,7 @@
     <wsdl:part name="Type" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateUpDownReasonHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllUpDownReasonHttpGetIn" />
   <wsdl:message name="GetAllUpDownReasonHttpGetOut">
@@ -1887,7 +2310,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelUpDownReasonByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewAssetLiquidationHttpGetIn">
     <wsdl:part name="Id" type="s:string" />
@@ -1907,7 +2330,7 @@
     <wsdl:part name="LiPrice" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateAssetLiquidationHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllAssetLiquidationHttpGetIn" />
   <wsdl:message name="GetAllAssetLiquidationHttpGetOut">
@@ -1923,7 +2346,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelAssetLiquidationByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewRepairAssetHttpGetIn">
     <wsdl:part name="Id" type="s:string" />
@@ -1947,7 +2370,7 @@
     <wsdl:part name="Fee" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateRepairAssetHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllRepairAssetHttpGetIn" />
   <wsdl:message name="GetAllRepairAssetHttpGetOut">
@@ -1963,7 +2386,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelRepairAssetByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewWarrantyAssetHttpGetIn">
     <wsdl:part name="Id" type="s:string" />
@@ -1989,7 +2412,7 @@
     <wsdl:part name="PersonWar" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateWarrantyAssetHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllWarrantyAssetHttpGetIn" />
   <wsdl:message name="GetAllWarrantyAssetHttpGetOut">
@@ -2005,7 +2428,108 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelWarrantyAssetByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="NewImageHttpGetIn">
+    <wsdl:part name="Id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="ImageURL" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NewImageHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="UpdateImageHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="ImageURL" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateImageHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetImageByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetImageByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:Image" />
+  </wsdl:message>
+  <wsdl:message name="DelImageByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelImageByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="NewAuditHttpGetIn">
+    <wsdl:part name="Id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="AuditDate" type="s:string" />
+    <wsdl:part name="Comment" type="s:string" />
+    <wsdl:part name="User" type="s:string" />
+    <wsdl:part name="Computer" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NewAuditHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAuditHttpGetIn">
+    <wsdl:part name="Id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="AuditDate" type="s:string" />
+    <wsdl:part name="Comment" type="s:string" />
+    <wsdl:part name="User" type="s:string" />
+    <wsdl:part name="Computer" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAuditHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetAuditByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAuditByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:Audit" />
+  </wsdl:message>
+  <wsdl:message name="DelAuditByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelAuditByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="NewCheckOutHttpPostIn">
+    <wsdl:part name="Id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="CheckOutDate" type="s:string" />
+    <wsdl:part name="Comment" type="s:string" />
+    <wsdl:part name="User" type="s:string" />
+    <wsdl:part name="Computer" type="s:string" />
+    <wsdl:part name="Status" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NewCheckOutHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCheckOutHttpPostIn">
+    <wsdl:part name="Id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="CheckOutDate" type="s:string" />
+    <wsdl:part name="Comment" type="s:string" />
+    <wsdl:part name="User" type="s:string" />
+    <wsdl:part name="Computer" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCheckOutHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCheckOutHttpPostIn" />
+  <wsdl:message name="GetAllCheckOutHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCheckOut" />
+  </wsdl:message>
+  <wsdl:message name="GetCheckOutByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCheckOutByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:CheckOut" />
+  </wsdl:message>
+  <wsdl:message name="DelCheckOutByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelCheckOutByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewAssetGroupTypeHttpPostIn">
     <wsdl:part name="Id" type="s:string" />
@@ -2028,14 +2552,14 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelAssetGroupTypeByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateAssetGroupTypeHttpPostIn">
     <wsdl:part name="id" type="s:string" />
     <wsdl:part name="name" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateAssetGroupTypeHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewAssetGroupHttpPostIn">
     <wsdl:part name="Id" type="s:string" />
@@ -2059,7 +2583,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelAssetGroupByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateAssetGroupHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -2067,7 +2591,7 @@
     <wsdl:part name="AssetGroupTypeId" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateAssetGroupHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewCapitalHttpPostIn">
     <wsdl:part name="Id" type="s:string" />
@@ -2091,7 +2615,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelCapitalByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="UpdateCapitalHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -2099,7 +2623,7 @@
     <wsdl:part name="Note" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateCapitalHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewDepartmentUsedHttpPostIn">
     <wsdl:part name="Id" type="s:string" />
@@ -2119,7 +2643,7 @@
     <wsdl:part name="Address" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateDepartmentUsedHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetDepartmentUsedHttpPostIn" />
   <wsdl:message name="GetDepartmentUsedHttpPostOut">
@@ -2135,7 +2659,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelDepartmentUsedByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewUnitHttpPostIn">
     <wsdl:part name="Id" type="s:string" />
@@ -2151,7 +2675,7 @@
     <wsdl:part name="Note" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateUnitHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllUnitHttpPostIn" />
   <wsdl:message name="GetAllUnitHttpPostOut">
@@ -2167,7 +2691,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelUnitByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewAssetHttpPostIn">
     <wsdl:part name="assetNumber" type="s:string" />
@@ -2194,6 +2718,14 @@
     <wsdl:part name="anotherRemain" type="s:string" />
     <wsdl:part name="totalRemain" type="s:string" />
     <wsdl:part name="upDownCode" type="s:string" />
+    <wsdl:part name="manufacturer" type="s:string" />
+    <wsdl:part name="brand" type="s:string" />
+    <wsdl:part name="model" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+    <wsdl:part name="condition" type="s:string" />
+    <wsdl:part name="dueDate" type="s:string" />
+    <wsdl:part name="note" type="s:string" />
+    <wsdl:part name="seriesNumber" type="s:string" />
   </wsdl:message>
   <wsdl:message name="NewAssetHttpPostOut">
     <wsdl:part name="Body" element="tns:int" />
@@ -2226,7 +2758,7 @@
     <wsdl:part name="InputDateTime" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateAssetHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllAssetHttpPostIn" />
   <wsdl:message name="GetAllAssetHttpPostOut">
@@ -2254,7 +2786,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelAssetByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewPartnerHttpPostIn">
     <wsdl:part name="Id" type="s:string" />
@@ -2274,7 +2806,7 @@
     <wsdl:part name="Address" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdatePartnerHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllPartnerHttpPostIn" />
   <wsdl:message name="GetAllPartnerHttpPostOut">
@@ -2290,7 +2822,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelPartnerByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewUpDownReasonHttpPostIn">
     <wsdl:part name="Id" type="s:string" />
@@ -2306,7 +2838,7 @@
     <wsdl:part name="Type" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateUpDownReasonHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllUpDownReasonHttpPostIn" />
   <wsdl:message name="GetAllUpDownReasonHttpPostOut">
@@ -2322,7 +2854,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelUpDownReasonByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewAssetLiquidationHttpPostIn">
     <wsdl:part name="Id" type="s:string" />
@@ -2342,7 +2874,7 @@
     <wsdl:part name="LiPrice" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateAssetLiquidationHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllAssetLiquidationHttpPostIn" />
   <wsdl:message name="GetAllAssetLiquidationHttpPostOut">
@@ -2358,7 +2890,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelAssetLiquidationByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewRepairAssetHttpPostIn">
     <wsdl:part name="Id" type="s:string" />
@@ -2382,7 +2914,7 @@
     <wsdl:part name="Fee" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateRepairAssetHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllRepairAssetHttpPostIn" />
   <wsdl:message name="GetAllRepairAssetHttpPostOut">
@@ -2398,7 +2930,7 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelRepairAssetByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewWarrantyAssetHttpPostIn">
     <wsdl:part name="Id" type="s:string" />
@@ -2424,7 +2956,7 @@
     <wsdl:part name="PersonWar" type="s:string" />
   </wsdl:message>
   <wsdl:message name="UpdateWarrantyAssetHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="GetAllWarrantyAssetHttpPostIn" />
   <wsdl:message name="GetAllWarrantyAssetHttpPostOut">
@@ -2440,9 +2972,89 @@
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="DelWarrantyAssetByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="NewImageHttpPostIn">
+    <wsdl:part name="Id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="ImageURL" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NewImageHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="UpdateImageHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="ImageURL" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateImageHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetImageByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetImageByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:Image" />
+  </wsdl:message>
+  <wsdl:message name="DelImageByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelImageByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="NewAuditHttpPostIn">
+    <wsdl:part name="Id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="AuditDate" type="s:string" />
+    <wsdl:part name="Comment" type="s:string" />
+    <wsdl:part name="User" type="s:string" />
+    <wsdl:part name="Computer" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NewAuditHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAuditHttpPostIn">
+    <wsdl:part name="Id" type="s:string" />
+    <wsdl:part name="AssetId" type="s:string" />
+    <wsdl:part name="AuditDate" type="s:string" />
+    <wsdl:part name="Comment" type="s:string" />
+    <wsdl:part name="User" type="s:string" />
+    <wsdl:part name="Computer" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAuditHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetAuditByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAuditByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:Audit" />
   </wsdl:message>
   <wsdl:portType name="AssetManagerServiceSoap">
+    <wsdl:operation name="DelAuditById">
+      <wsdl:input message="tns:DelAuditByIdSoapIn" />
+      <wsdl:output message="tns:DelAuditByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewCheckOut">
+      <wsdl:input message="tns:NewCheckOutSoapIn" />
+      <wsdl:output message="tns:NewCheckOutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheckOut">
+      <wsdl:input message="tns:UpdateCheckOutSoapIn" />
+      <wsdl:output message="tns:UpdateCheckOutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCheckOut">
+      <wsdl:input message="tns:GetAllCheckOutSoapIn" />
+      <wsdl:output message="tns:GetAllCheckOutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckOutById">
+      <wsdl:input message="tns:GetCheckOutByIdSoapIn" />
+      <wsdl:output message="tns:GetCheckOutByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelCheckOutById">
+      <wsdl:input message="tns:DelCheckOutByIdSoapIn" />
+      <wsdl:output message="tns:DelCheckOutByIdSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewAssetGroupType">
       <wsdl:input message="tns:NewAssetGroupTypeSoapIn" />
       <wsdl:output message="tns:NewAssetGroupTypeSoapOut" />
@@ -2671,8 +3283,60 @@
       <wsdl:input message="tns:DelWarrantyAssetByIdSoapIn" />
       <wsdl:output message="tns:DelWarrantyAssetByIdSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="NewImage">
+      <wsdl:input message="tns:NewImageSoapIn" />
+      <wsdl:output message="tns:NewImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateImage">
+      <wsdl:input message="tns:UpdateImageSoapIn" />
+      <wsdl:output message="tns:UpdateImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageById">
+      <wsdl:input message="tns:GetImageByIdSoapIn" />
+      <wsdl:output message="tns:GetImageByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelImageById">
+      <wsdl:input message="tns:DelImageByIdSoapIn" />
+      <wsdl:output message="tns:DelImageByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewAudit">
+      <wsdl:input message="tns:NewAuditSoapIn" />
+      <wsdl:output message="tns:NewAuditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAudit">
+      <wsdl:input message="tns:UpdateAuditSoapIn" />
+      <wsdl:output message="tns:UpdateAuditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditById">
+      <wsdl:input message="tns:GetAuditByIdSoapIn" />
+      <wsdl:output message="tns:GetAuditByIdSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="AssetManagerServiceHttpGet">
+    <wsdl:operation name="DelAuditById">
+      <wsdl:input message="tns:DelAuditByIdHttpGetIn" />
+      <wsdl:output message="tns:DelAuditByIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewCheckOut">
+      <wsdl:input message="tns:NewCheckOutHttpGetIn" />
+      <wsdl:output message="tns:NewCheckOutHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheckOut">
+      <wsdl:input message="tns:UpdateCheckOutHttpGetIn" />
+      <wsdl:output message="tns:UpdateCheckOutHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCheckOut">
+      <wsdl:input message="tns:GetAllCheckOutHttpGetIn" />
+      <wsdl:output message="tns:GetAllCheckOutHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckOutById">
+      <wsdl:input message="tns:GetCheckOutByIdHttpGetIn" />
+      <wsdl:output message="tns:GetCheckOutByIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelCheckOutById">
+      <wsdl:input message="tns:DelCheckOutByIdHttpGetIn" />
+      <wsdl:output message="tns:DelCheckOutByIdHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewAssetGroupType">
       <wsdl:input message="tns:NewAssetGroupTypeHttpGetIn" />
       <wsdl:output message="tns:NewAssetGroupTypeHttpGetOut" />
@@ -2901,8 +3565,60 @@
       <wsdl:input message="tns:DelWarrantyAssetByIdHttpGetIn" />
       <wsdl:output message="tns:DelWarrantyAssetByIdHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="NewImage">
+      <wsdl:input message="tns:NewImageHttpGetIn" />
+      <wsdl:output message="tns:NewImageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateImage">
+      <wsdl:input message="tns:UpdateImageHttpGetIn" />
+      <wsdl:output message="tns:UpdateImageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageById">
+      <wsdl:input message="tns:GetImageByIdHttpGetIn" />
+      <wsdl:output message="tns:GetImageByIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelImageById">
+      <wsdl:input message="tns:DelImageByIdHttpGetIn" />
+      <wsdl:output message="tns:DelImageByIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewAudit">
+      <wsdl:input message="tns:NewAuditHttpGetIn" />
+      <wsdl:output message="tns:NewAuditHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAudit">
+      <wsdl:input message="tns:UpdateAuditHttpGetIn" />
+      <wsdl:output message="tns:UpdateAuditHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditById">
+      <wsdl:input message="tns:GetAuditByIdHttpGetIn" />
+      <wsdl:output message="tns:GetAuditByIdHttpGetOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="AssetManagerServiceHttpPost">
+    <wsdl:operation name="DelAuditById">
+      <wsdl:input message="tns:DelAuditByIdHttpPostIn" />
+      <wsdl:output message="tns:DelAuditByIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewCheckOut">
+      <wsdl:input message="tns:NewCheckOutHttpPostIn" />
+      <wsdl:output message="tns:NewCheckOutHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheckOut">
+      <wsdl:input message="tns:UpdateCheckOutHttpPostIn" />
+      <wsdl:output message="tns:UpdateCheckOutHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCheckOut">
+      <wsdl:input message="tns:GetAllCheckOutHttpPostIn" />
+      <wsdl:output message="tns:GetAllCheckOutHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckOutById">
+      <wsdl:input message="tns:GetCheckOutByIdHttpPostIn" />
+      <wsdl:output message="tns:GetCheckOutByIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelCheckOutById">
+      <wsdl:input message="tns:DelCheckOutByIdHttpPostIn" />
+      <wsdl:output message="tns:DelCheckOutByIdHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="NewAssetGroupType">
       <wsdl:input message="tns:NewAssetGroupTypeHttpPostIn" />
       <wsdl:output message="tns:NewAssetGroupTypeHttpPostOut" />
@@ -3131,9 +3847,91 @@
       <wsdl:input message="tns:DelWarrantyAssetByIdHttpPostIn" />
       <wsdl:output message="tns:DelWarrantyAssetByIdHttpPostOut" />
     </wsdl:operation>
+    <wsdl:operation name="NewImage">
+      <wsdl:input message="tns:NewImageHttpPostIn" />
+      <wsdl:output message="tns:NewImageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateImage">
+      <wsdl:input message="tns:UpdateImageHttpPostIn" />
+      <wsdl:output message="tns:UpdateImageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageById">
+      <wsdl:input message="tns:GetImageByIdHttpPostIn" />
+      <wsdl:output message="tns:GetImageByIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelImageById">
+      <wsdl:input message="tns:DelImageByIdHttpPostIn" />
+      <wsdl:output message="tns:DelImageByIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewAudit">
+      <wsdl:input message="tns:NewAuditHttpPostIn" />
+      <wsdl:output message="tns:NewAuditHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAudit">
+      <wsdl:input message="tns:UpdateAuditHttpPostIn" />
+      <wsdl:output message="tns:UpdateAuditHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditById">
+      <wsdl:input message="tns:GetAuditByIdHttpPostIn" />
+      <wsdl:output message="tns:GetAuditByIdHttpPostOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="AssetManagerServiceSoap" type="tns:AssetManagerServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DelAuditById">
+      <soap:operation soapAction="http://tempuri.org/DelAuditById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewCheckOut">
+      <soap:operation soapAction="http://tempuri.org/NewCheckOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheckOut">
+      <soap:operation soapAction="http://tempuri.org/UpdateCheckOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCheckOut">
+      <soap:operation soapAction="http://tempuri.org/GetAllCheckOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckOutById">
+      <soap:operation soapAction="http://tempuri.org/GetCheckOutById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelCheckOutById">
+      <soap:operation soapAction="http://tempuri.org/DelCheckOutById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewAssetGroupType">
       <soap:operation soapAction="http://tempuri.org/NewAssetGroupType" style="document" />
       <wsdl:input>
@@ -3647,9 +4445,126 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="NewImage">
+      <soap:operation soapAction="http://tempuri.org/NewImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateImage">
+      <soap:operation soapAction="http://tempuri.org/UpdateImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageById">
+      <soap:operation soapAction="http://tempuri.org/GetImageById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelImageById">
+      <soap:operation soapAction="http://tempuri.org/DelImageById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewAudit">
+      <soap:operation soapAction="http://tempuri.org/NewAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAudit">
+      <soap:operation soapAction="http://tempuri.org/UpdateAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditById">
+      <soap:operation soapAction="http://tempuri.org/GetAuditById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="AssetManagerServiceSoap12" type="tns:AssetManagerServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DelAuditById">
+      <soap12:operation soapAction="http://tempuri.org/DelAuditById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewCheckOut">
+      <soap12:operation soapAction="http://tempuri.org/NewCheckOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheckOut">
+      <soap12:operation soapAction="http://tempuri.org/UpdateCheckOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCheckOut">
+      <soap12:operation soapAction="http://tempuri.org/GetAllCheckOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckOutById">
+      <soap12:operation soapAction="http://tempuri.org/GetCheckOutById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelCheckOutById">
+      <soap12:operation soapAction="http://tempuri.org/DelCheckOutById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewAssetGroupType">
       <soap12:operation soapAction="http://tempuri.org/NewAssetGroupType" style="document" />
       <wsdl:input>
@@ -4163,9 +5078,126 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="NewImage">
+      <soap12:operation soapAction="http://tempuri.org/NewImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateImage">
+      <soap12:operation soapAction="http://tempuri.org/UpdateImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageById">
+      <soap12:operation soapAction="http://tempuri.org/GetImageById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelImageById">
+      <soap12:operation soapAction="http://tempuri.org/DelImageById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewAudit">
+      <soap12:operation soapAction="http://tempuri.org/NewAudit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAudit">
+      <soap12:operation soapAction="http://tempuri.org/UpdateAudit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditById">
+      <soap12:operation soapAction="http://tempuri.org/GetAuditById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="AssetManagerServiceHttpGet" type="tns:AssetManagerServiceHttpGet">
     <http:binding verb="GET" />
+    <wsdl:operation name="DelAuditById">
+      <http:operation location="/DelAuditById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewCheckOut">
+      <http:operation location="/NewCheckOut" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheckOut">
+      <http:operation location="/UpdateCheckOut" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCheckOut">
+      <http:operation location="/GetAllCheckOut" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckOutById">
+      <http:operation location="/GetCheckOutById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelCheckOutById">
+      <http:operation location="/DelCheckOutById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewAssetGroupType">
       <http:operation location="/NewAssetGroupType" />
       <wsdl:input>
@@ -4672,6 +5704,69 @@
     </wsdl:operation>
     <wsdl:operation name="DelWarrantyAssetById">
       <http:operation location="/DelWarrantyAssetById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewImage">
+      <http:operation location="/NewImage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateImage">
+      <http:operation location="/UpdateImage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageById">
+      <http:operation location="/GetImageById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelImageById">
+      <http:operation location="/DelImageById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewAudit">
+      <http:operation location="/NewAudit" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAudit">
+      <http:operation location="/UpdateAudit" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditById">
+      <http:operation location="/GetAuditById" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -4682,6 +5777,60 @@
   </wsdl:binding>
   <wsdl:binding name="AssetManagerServiceHttpPost" type="tns:AssetManagerServiceHttpPost">
     <http:binding verb="POST" />
+    <wsdl:operation name="DelAuditById">
+      <http:operation location="/DelAuditById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewCheckOut">
+      <http:operation location="/NewCheckOut" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheckOut">
+      <http:operation location="/UpdateCheckOut" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCheckOut">
+      <http:operation location="/GetAllCheckOut" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckOutById">
+      <http:operation location="/GetCheckOutById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelCheckOutById">
+      <http:operation location="/DelCheckOutById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="NewAssetGroupType">
       <http:operation location="/NewAssetGroupType" />
       <wsdl:input>
@@ -5188,6 +6337,69 @@
     </wsdl:operation>
     <wsdl:operation name="DelWarrantyAssetById">
       <http:operation location="/DelWarrantyAssetById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewImage">
+      <http:operation location="/NewImage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateImage">
+      <http:operation location="/UpdateImage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageById">
+      <http:operation location="/GetImageById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelImageById">
+      <http:operation location="/DelImageById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewAudit">
+      <http:operation location="/NewAudit" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAudit">
+      <http:operation location="/UpdateAudit" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditById">
+      <http:operation location="/GetAuditById" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>

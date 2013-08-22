@@ -346,11 +346,7 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-<<<<<<< HEAD
         public int NewAsset(string assetNumber,string name, string assetGroupId, string unitId, int amount, string counPro, int yearPro, string departmentUsedId, long totalPrice, long bugetPrice, long ownPrice, long venturePrice, long anotherPrice, long totalDepreciation, long bugetDepreciation, long ownDepreciation, long ventureDepreciation, long anotherDepreciation, long bugeRemain, long ownRemain, long ventureRemain, long anotherRemain, long totalRemain, string upDownCode, string manufacturer, string brand, string model, short status, short condition, DateTime dueDate, string note, string seriesNumber)
-=======
-        public int NewAsset(string assetNumber, string name, string assetGroupId, string unitId, int amount, string counPro, int yearPro, string departmentUsedId, long totalPrice, long bugetPrice, long ownPrice, long venturePrice, long anotherPrice, long totalDepreciation, long bugetDepreciation, long ownDepreciation, long ventureDepreciation, long anotherDepreciation, long bugeRemain, long ownRemain, long ventureRemain, long anotherRemain, long totalRemain, string upDownCode)
->>>>>>> fb81ef442f60eba87ea87e3a61c65e84c3241b9e
         {
             var inputDateTime = DateTime.Today;
             try
@@ -396,12 +392,7 @@ namespace cunghoc3_AssetManager
                     Note = note,
                     SeriesNumber = seriesNumber
                 })
-<<<<<<< HEAD
-                {    
-=======
-
                 {
->>>>>>> fb81ef442f60eba87ea87e3a61c65e84c3241b9e
                     if (db.Insert(item))
                     {
                         return (int)CommonEnums.RetCode.SUCCESS;

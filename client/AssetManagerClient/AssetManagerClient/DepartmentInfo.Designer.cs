@@ -152,6 +152,7 @@
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.lblCreateName);
             this.Name = "DepartmentInfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create";
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSdt.Properties)).EndInit();
