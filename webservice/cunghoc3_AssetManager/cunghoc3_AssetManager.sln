@@ -12,6 +12,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cunghoc3_AssetManager.Web", "cunghoc3_AssetManager.Web\cunghoc3_AssetManager.Web.csproj", "{47FE3BE8-3E46-47CA-8494-473755867DD0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetTiers", "NetTiers", "{F3A10C8D-3227-449F-A2CB-014DE2D7F415}"
+	ProjectSection(SolutionItems) = preProject
+		AssemblyInfo.cs = AssemblyInfo.cs
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cunghoc3_AssetManager", "cunghoc3_AssetManager\cunghoc3_AssetManager.csproj", "{C5566A69-9BFA-4935-AAE6-E07D293A8D3C}"
 EndProject
