@@ -58,7 +58,7 @@ namespace AssetManagerClient
                 //action
                 if (_action == (int)AssetManagerCommon.CommonEnums.ACTION.ADD)
                 {
-                    var result=WebServices.NewDepartmentUsed("id",txtName.Text,txtSdt.Text,txtRepresentative.Text,txtAddress.Text);
+                    var result=WebServices.NewDepartmentUsed(txtName.Text,txtSdt.Text,txtRepresentative.Text,txtAddress.Text);
                     if (result == (int) AssetManagerCommon.CommonEnums.RetCode.SUCCESS)
                     {
                         //if success
@@ -77,7 +77,22 @@ namespace AssetManagerClient
                 }
                 if (_action == (int)AssetManagerCommon.CommonEnums.ACTION.EDIT)
                 {
-                   
+                    var result = WebServices.UpdateDepartmentUsed(_id,txtName.Text, txtSdt.Text, txtRepresentative.Text, txtAddress.Text);
+                    if (result == (int)AssetManagerCommon.CommonEnums.RetCode.SUCCESS)
+                    {
+                        //if success
+                        MessageBox.Show("Thành công");
+                        _parentForm.InitContent();
+                        Close();
+                    }
+                    if (result == (int)AssetManagerCommon.CommonEnums.RetCode.FAIL)
+                    {
+                        MessageBox.Show("Không thành công,vui lòng thử lại!");
+                    }
+                    if (result == (int)AssetManagerCommon.CommonEnums.RetCode.SYSTEM_ERROR)
+                    {
+                        MessageBox.Show("Lỗi hệ thống,vui lòng thử lại sau!");
+                    }
                 }
             }
             catch (Exception)
@@ -91,6 +106,22 @@ namespace AssetManagerClient
         {
             _action = action;
             _id = id;
+            if (action == (int) AssetManagerCommon.CommonEnums.ACTION.EDIT)
+            {
+                try
+                {
+                    var result = WebServices.GetDepartmentUsedById(_id);
+                    txtName.Text = result.Name;
+                    txtAddress.Text = result.Address;
+                    txtSdt.Text = result.Phone;
+                    txtRepresentative.Text = result.Representative;
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Không thể kết nối tới server,vui lòng kiểm tra cài đặt mạng");
+                }
+            }
         }
     }
 }

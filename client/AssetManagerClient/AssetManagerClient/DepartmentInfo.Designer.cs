@@ -66,7 +66,7 @@
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(62, 23);
             this.simpleButton1.TabIndex = 2;
-            this.simpleButton1.Text = "Tạo";
+            this.simpleButton1.Text = "Hoàn thành";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // simpleButton2

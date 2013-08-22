@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.lblCreateName = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -44,12 +44,12 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Tên";
             // 
-            // textEdit1
+            // txtName
             // 
-            this.textEdit1.Location = new System.Drawing.Point(106, 41);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(190, 20);
-            this.textEdit1.TabIndex = 1;
+            this.txtName.Location = new System.Drawing.Point(106, 41);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(190, 20);
+            this.txtName.TabIndex = 1;
             // 
             // lblCreateName
             // 
@@ -84,13 +84,13 @@
             this.ClientSize = new System.Drawing.Size(328, 130);
             this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.simpleButton1);
-            this.Controls.Add(this.textEdit1);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblCreateName);
             this.Controls.Add(this.labelControl1);
             this.Name = "GroupTypeInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GroupTypeInfo";
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,7 +99,7 @@
         #endregion
 
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraEditors.LabelControl lblCreateName;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;

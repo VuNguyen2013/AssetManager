@@ -18,6 +18,9 @@ namespace AssetManagerClient
         private List<string> _imagePathList=new List<string>();
         private string assetNumber = string.Empty;
         private Random random = new Random();
+        private int _action;
+        private string _id;
+
         public NewAsset()
         {
             
@@ -214,6 +217,24 @@ namespace AssetManagerClient
         {
             txtAssetNumber.Enabled = false;
             txtAssetNumber.Text = assetNumber;
+        }
+        public void DelegateContent(int action, string id)
+        {
+            _action = action;
+            _id = id;
+            if (action == (int) CommonEnums.ACTION.EDIT)
+            {
+                try
+                {
+                    var result=WebServices.GetAssetById(_id);
+                    txtName.Text = result.Name;
+                    //txtModel.Text=result.
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Không thể kết nối tới server,vui lòng kiểm tra cài đặt mạng");
+                }
+            }
         }
     }
 }
