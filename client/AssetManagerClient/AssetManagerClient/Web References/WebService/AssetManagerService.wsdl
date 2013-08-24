@@ -145,6 +145,113 @@
       <s:element name="GetAllAssetGroupType">
         <s:complexType />
       </s:element>
+      <s:complexType name="ResultObjectOfListOfAssetGroupType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:ArrayOfAssetGroupType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAssetGroupType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AssetGroupType" nillable="true" type="tns:AssetGroupType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AssetGroupType">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:AssetGroupTypeBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AssetGroupTypeBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssetGroupCollection" type="tns:ArrayOfAssetGroup" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfAssetGroup">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AssetGroup" nillable="true" type="tns:AssetGroup" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AssetGroup">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:AssetGroupBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AssetGroupBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssetGroupTypeId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssetCollection" type="tns:ArrayOfAsset" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfAsset">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Asset" nillable="true" type="tns:Asset" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Asset">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:AssetBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AssetBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssetGroupId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnitId" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CounPro" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="YearPro" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedId" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="TotalPrice" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="BudgetPrice" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="OwnPrice" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="VenturePrice" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="AnotherPrice" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="TotalDepreciation" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="BudgetDepreciation" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="OwnDepreciation" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="VentureDepreciation" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="AnotherDepreciation" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="BudgetRemain" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="OwnRemain" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="VentureRemain" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="AnotherRemain" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="TotalReamain" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="UpDownCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="InputDateTime" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Manufacturer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Brand" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="DueDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SeriesNumber" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Condition" nillable="true" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="WarrantyAssetCollection" type="tns:ArrayOfWarrantyAsset" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssetLiquidationCollection" type="tns:ArrayOfAssetLiquidation" />
+              <s:element minOccurs="0" maxOccurs="1" name="RepairAssetCollection" type="tns:ArrayOfRepairAsset" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
       <s:complexType name="ArrayOfWarrantyAsset">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="unbounded" name="WarrantyAsset" nillable="true" type="tns:WarrantyAsset" />
@@ -224,110 +331,10 @@
           </s:extension>
         </s:complexContent>
       </s:complexType>
-      <s:complexType name="ArrayOfAsset">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Asset" nillable="true" type="tns:Asset" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="Asset">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:AssetBase" />
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="AssetBase" abstract="true">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:EntityBase">
-            <s:sequence>
-              <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="AssetGroupId" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="UnitId" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
-              <s:element minOccurs="0" maxOccurs="1" name="CounPro" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="YearPro" type="s:int" />
-              <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedId" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="TotalPrice" type="s:long" />
-              <s:element minOccurs="1" maxOccurs="1" name="BudgetPrice" type="s:long" />
-              <s:element minOccurs="1" maxOccurs="1" name="OwnPrice" type="s:long" />
-              <s:element minOccurs="1" maxOccurs="1" name="VenturePrice" type="s:long" />
-              <s:element minOccurs="1" maxOccurs="1" name="AnotherPrice" type="s:long" />
-              <s:element minOccurs="1" maxOccurs="1" name="TotalDepreciation" type="s:long" />
-              <s:element minOccurs="1" maxOccurs="1" name="BudgetDepreciation" type="s:long" />
-              <s:element minOccurs="1" maxOccurs="1" name="OwnDepreciation" type="s:long" />
-              <s:element minOccurs="1" maxOccurs="1" name="VentureDepreciation" type="s:long" />
-              <s:element minOccurs="1" maxOccurs="1" name="AnotherDepreciation" type="s:long" />
-              <s:element minOccurs="1" maxOccurs="1" name="BudgetRemain" type="s:long" />
-              <s:element minOccurs="1" maxOccurs="1" name="OwnRemain" type="s:long" />
-              <s:element minOccurs="1" maxOccurs="1" name="VentureRemain" type="s:long" />
-              <s:element minOccurs="1" maxOccurs="1" name="AnotherRemain" type="s:long" />
-              <s:element minOccurs="1" maxOccurs="1" name="TotalReamain" type="s:long" />
-              <s:element minOccurs="0" maxOccurs="1" name="UpDownCode" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="InputDateTime" type="s:dateTime" />
-              <s:element minOccurs="0" maxOccurs="1" name="Manufacturer" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Brand" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:short" />
-              <s:element minOccurs="1" maxOccurs="1" name="DueDate" nillable="true" type="s:dateTime" />
-              <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="SeriesNumber" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="Condition" nillable="true" type="s:short" />
-              <s:element minOccurs="0" maxOccurs="1" name="WarrantyAssetCollection" type="tns:ArrayOfWarrantyAsset" />
-              <s:element minOccurs="0" maxOccurs="1" name="AssetLiquidationCollection" type="tns:ArrayOfAssetLiquidation" />
-              <s:element minOccurs="0" maxOccurs="1" name="RepairAssetCollection" type="tns:ArrayOfRepairAsset" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="ArrayOfAssetGroup">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="AssetGroup" nillable="true" type="tns:AssetGroup" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="AssetGroup">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:AssetGroupBase" />
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="AssetGroupBase" abstract="true">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:EntityBase">
-            <s:sequence>
-              <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="AssetGroupTypeId" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="AssetCollection" type="tns:ArrayOfAsset" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="ArrayOfAssetGroupType">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="AssetGroupType" nillable="true" type="tns:AssetGroupType" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="AssetGroupType">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:AssetGroupTypeBase" />
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="AssetGroupTypeBase" abstract="true">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:EntityBase">
-            <s:sequence>
-              <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="OriginalId" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="AssetGroupCollection" type="tns:ArrayOfAssetGroup" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
       <s:element name="GetAllAssetGroupTypeResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAllAssetGroupTypeResult" type="tns:ArrayOfAssetGroupType" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllAssetGroupTypeResult" type="tns:ResultObjectOfListOfAssetGroupType" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -338,10 +345,17 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ResultObjectOfAssetGroupType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:AssetGroupType" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetAssetGroupTypeByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAssetGroupTypeByIdResult" type="tns:AssetGroupType" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssetGroupTypeByIdResult" type="tns:ResultObjectOfAssetGroupType" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -393,10 +407,17 @@
       <s:element name="GetAllAssetGroup">
         <s:complexType />
       </s:element>
+      <s:complexType name="ResultObjectOfListOfAssetGroup">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:ArrayOfAssetGroup" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetAllAssetGroupResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAllAssetGroupResult" type="tns:ArrayOfAssetGroup" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllAssetGroupResult" type="tns:ResultObjectOfListOfAssetGroup" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -407,10 +428,17 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ResultObjectOfAssetGroup">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:AssetGroup" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetAssetGroupByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAssetGroupByIdResult" type="tns:AssetGroup" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssetGroupByIdResult" type="tns:ResultObjectOfAssetGroup" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -463,6 +491,13 @@
       <s:element name="GetAllCapitalGroup">
         <s:complexType />
       </s:element>
+      <s:complexType name="ResultObjectOfListOfCapital">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:ArrayOfCapital" />
+        </s:sequence>
+      </s:complexType>
       <s:complexType name="ArrayOfCapital">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="unbounded" name="Capital" nillable="true" type="tns:Capital" />
@@ -488,7 +523,7 @@
       <s:element name="GetAllCapitalGroupResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAllCapitalGroupResult" type="tns:ArrayOfCapital" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllCapitalGroupResult" type="tns:ResultObjectOfListOfCapital" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -499,10 +534,17 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ResultObjectOfCapital">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:Capital" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetCapitalByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetCapitalByIdResult" type="tns:Capital" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetCapitalByIdResult" type="tns:ResultObjectOfCapital" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -571,9 +613,16 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetDepartmentUsed">
+      <s:element name="GetAllDepartmentUsed">
         <s:complexType />
       </s:element>
+      <s:complexType name="ResultObjectOfListOfDepartmentUsed">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:ArrayOfDepartmentUsed" />
+        </s:sequence>
+      </s:complexType>
       <s:complexType name="ArrayOfDepartmentUsed">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="unbounded" name="DepartmentUsed" nillable="true" type="tns:DepartmentUsed" />
@@ -602,10 +651,10 @@
           </s:extension>
         </s:complexContent>
       </s:complexType>
-      <s:element name="GetDepartmentUsedResponse">
+      <s:element name="GetAllDepartmentUsedResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetDepartmentUsedResult" type="tns:ArrayOfDepartmentUsed" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllDepartmentUsedResult" type="tns:ResultObjectOfListOfDepartmentUsed" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -616,10 +665,17 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ResultObjectOfDepartmentUsed">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:DepartmentUsed" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetDepartmentUsedByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetDepartmentUsedByIdResult" type="tns:DepartmentUsed" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetDepartmentUsedByIdResult" type="tns:ResultObjectOfDepartmentUsed" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -672,6 +728,13 @@
       <s:element name="GetAllUnit">
         <s:complexType />
       </s:element>
+      <s:complexType name="ResultObjectOfListOfUnit">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:ArrayOfUnit" />
+        </s:sequence>
+      </s:complexType>
       <s:complexType name="ArrayOfUnit">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="unbounded" name="Unit" nillable="true" type="tns:Unit" />
@@ -698,7 +761,7 @@
       <s:element name="GetAllUnitResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAllUnitResult" type="tns:ArrayOfUnit" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllUnitResult" type="tns:ResultObjectOfListOfUnit" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -709,10 +772,17 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ResultObjectOfUnit">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:Unit" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetUnitByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetUnitByIdResult" type="tns:Unit" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetUnitByIdResult" type="tns:ResultObjectOfUnit" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -864,20 +934,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetAssetById">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetAssetByIdResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAssetByIdResult" type="tns:Asset" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="GetAssetByAssetGroupTypeId">
         <s:complexType>
           <s:sequence>
@@ -889,6 +945,27 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="GetAssetByAssetGroupTypeIdResult" type="tns:ResultObjectOfListOfAssetData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssetById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultObjectOfAsset">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:Asset" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAssetByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssetByIdResult" type="tns:ResultObjectOfAsset" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -959,6 +1036,13 @@
       <s:element name="GetAllPartner">
         <s:complexType />
       </s:element>
+      <s:complexType name="ResultObjectOfListOfPartner">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:ArrayOfPartner" />
+        </s:sequence>
+      </s:complexType>
       <s:complexType name="ArrayOfPartner">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="unbounded" name="Partner" nillable="true" type="tns:Partner" />
@@ -988,7 +1072,7 @@
       <s:element name="GetAllPartnerResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAllPartnerResult" type="tns:ArrayOfPartner" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllPartnerResult" type="tns:ResultObjectOfListOfPartner" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -999,10 +1083,17 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ResultObjectOfPartner">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:Partner" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetPartnerByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetPartnerByIdResult" type="tns:Partner" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetPartnerByIdResult" type="tns:ResultObjectOfPartner" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1055,6 +1146,13 @@
       <s:element name="GetAllUpDownReason">
         <s:complexType />
       </s:element>
+      <s:complexType name="ResultObjectOfListOfUpDownReason">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:ArrayOfUpDownReason" />
+        </s:sequence>
+      </s:complexType>
       <s:complexType name="ArrayOfUpDownReason">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="unbounded" name="UpDownReason" nillable="true" type="tns:UpDownReason" />
@@ -1080,7 +1178,7 @@
       <s:element name="GetAllUpDownReasonResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAllUpDownReasonResult" type="tns:ArrayOfUpDownReason" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllUpDownReasonResult" type="tns:ResultObjectOfListOfUpDownReason" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1091,10 +1189,17 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ResultObjectOfUpDownReason">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:UpDownReason" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetUpDownReasonByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetUpDownReasonByIdResult" type="tns:UpDownReason" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetUpDownReasonByIdResult" type="tns:ResultObjectOfUpDownReason" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1151,10 +1256,31 @@
       <s:element name="GetAllAssetLiquidation">
         <s:complexType />
       </s:element>
+      <s:complexType name="ResultObjectOfListOfAssetLiquidationData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:ArrayOfAssetLiquidationData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAssetLiquidationData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AssetLiquidationData" nillable="true" type="tns:AssetLiquidationData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AssetLiquidationData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LiDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LiPrice" type="s:long" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetAllAssetLiquidationResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAllAssetLiquidationResult" type="tns:ArrayOfAssetLiquidation" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllAssetLiquidationResult" type="tns:ResultObjectOfListOfAssetLiquidationData" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1165,10 +1291,17 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ResultObjectOfAssetLiquidationData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:AssetLiquidationData" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetAssetLiquidationByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAssetLiquidationByIdResult" type="tns:AssetLiquidation" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssetLiquidationByIdResult" type="tns:ResultObjectOfAssetLiquidationData" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1229,10 +1362,33 @@
       <s:element name="GetAllRepairAsset">
         <s:complexType />
       </s:element>
+      <s:complexType name="ResultObjectOfListOfRepairAssetData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:ArrayOfRepairAssetData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRepairAssetData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RepairAssetData" nillable="true" type="tns:RepairAssetData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RepairAssetData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DepartmentUsedName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartnerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RepairDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fee" type="s:long" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetAllRepairAssetResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAllRepairAssetResult" type="tns:ArrayOfRepairAsset" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllRepairAssetResult" type="tns:ResultObjectOfListOfRepairAssetData" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1243,10 +1399,17 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ResultObjectOfRepairAssetData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetObject" type="tns:RepairAssetData" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetRepairAssetByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetRepairAssetByIdResult" type="tns:RepairAsset" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetRepairAssetByIdResult" type="tns:ResultObjectOfRepairAssetData" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1494,26 +1657,26 @@
       <s:element name="int" type="s:int" />
       <s:element name="ArrayOfCheckOut" nillable="true" type="tns:ArrayOfCheckOut" />
       <s:element name="CheckOut" nillable="true" type="tns:CheckOut" />
-      <s:element name="ArrayOfAssetGroupType" nillable="true" type="tns:ArrayOfAssetGroupType" />
-      <s:element name="AssetGroupType" nillable="true" type="tns:AssetGroupType" />
-      <s:element name="ArrayOfAssetGroup" nillable="true" type="tns:ArrayOfAssetGroup" />
-      <s:element name="AssetGroup" nillable="true" type="tns:AssetGroup" />
-      <s:element name="ArrayOfCapital" nillable="true" type="tns:ArrayOfCapital" />
-      <s:element name="Capital" nillable="true" type="tns:Capital" />
-      <s:element name="ArrayOfDepartmentUsed" nillable="true" type="tns:ArrayOfDepartmentUsed" />
-      <s:element name="DepartmentUsed" nillable="true" type="tns:DepartmentUsed" />
-      <s:element name="ArrayOfUnit" nillable="true" type="tns:ArrayOfUnit" />
-      <s:element name="Unit" nillable="true" type="tns:Unit" />
+      <s:element name="ResultObjectOfListOfAssetGroupType" nillable="true" type="tns:ResultObjectOfListOfAssetGroupType" />
+      <s:element name="ResultObjectOfAssetGroupType" nillable="true" type="tns:ResultObjectOfAssetGroupType" />
+      <s:element name="ResultObjectOfListOfAssetGroup" nillable="true" type="tns:ResultObjectOfListOfAssetGroup" />
+      <s:element name="ResultObjectOfAssetGroup" nillable="true" type="tns:ResultObjectOfAssetGroup" />
+      <s:element name="ResultObjectOfListOfCapital" nillable="true" type="tns:ResultObjectOfListOfCapital" />
+      <s:element name="ResultObjectOfCapital" nillable="true" type="tns:ResultObjectOfCapital" />
+      <s:element name="ResultObjectOfListOfDepartmentUsed" nillable="true" type="tns:ResultObjectOfListOfDepartmentUsed" />
+      <s:element name="ResultObjectOfDepartmentUsed" nillable="true" type="tns:ResultObjectOfDepartmentUsed" />
+      <s:element name="ResultObjectOfListOfUnit" nillable="true" type="tns:ResultObjectOfListOfUnit" />
+      <s:element name="ResultObjectOfUnit" nillable="true" type="tns:ResultObjectOfUnit" />
       <s:element name="ResultObjectOfListOfAssetData" nillable="true" type="tns:ResultObjectOfListOfAssetData" />
-      <s:element name="Asset" nillable="true" type="tns:Asset" />
-      <s:element name="ArrayOfPartner" nillable="true" type="tns:ArrayOfPartner" />
-      <s:element name="Partner" nillable="true" type="tns:Partner" />
-      <s:element name="ArrayOfUpDownReason" nillable="true" type="tns:ArrayOfUpDownReason" />
-      <s:element name="UpDownReason" nillable="true" type="tns:UpDownReason" />
-      <s:element name="ArrayOfAssetLiquidation" nillable="true" type="tns:ArrayOfAssetLiquidation" />
-      <s:element name="AssetLiquidation" nillable="true" type="tns:AssetLiquidation" />
-      <s:element name="ArrayOfRepairAsset" nillable="true" type="tns:ArrayOfRepairAsset" />
-      <s:element name="RepairAsset" nillable="true" type="tns:RepairAsset" />
+      <s:element name="ResultObjectOfAsset" nillable="true" type="tns:ResultObjectOfAsset" />
+      <s:element name="ResultObjectOfListOfPartner" nillable="true" type="tns:ResultObjectOfListOfPartner" />
+      <s:element name="ResultObjectOfPartner" nillable="true" type="tns:ResultObjectOfPartner" />
+      <s:element name="ResultObjectOfListOfUpDownReason" nillable="true" type="tns:ResultObjectOfListOfUpDownReason" />
+      <s:element name="ResultObjectOfUpDownReason" nillable="true" type="tns:ResultObjectOfUpDownReason" />
+      <s:element name="ResultObjectOfListOfAssetLiquidationData" nillable="true" type="tns:ResultObjectOfListOfAssetLiquidationData" />
+      <s:element name="ResultObjectOfAssetLiquidationData" nillable="true" type="tns:ResultObjectOfAssetLiquidationData" />
+      <s:element name="ResultObjectOfListOfRepairAssetData" nillable="true" type="tns:ResultObjectOfListOfRepairAssetData" />
+      <s:element name="ResultObjectOfRepairAssetData" nillable="true" type="tns:ResultObjectOfRepairAssetData" />
       <s:element name="ArrayOfWarrantyAsset" nillable="true" type="tns:ArrayOfWarrantyAsset" />
       <s:element name="WarrantyAsset" nillable="true" type="tns:WarrantyAsset" />
       <s:element name="Image" nillable="true" type="tns:Image" />
@@ -1658,11 +1821,11 @@
   <wsdl:message name="UpdateDepartmentUsedSoapOut">
     <wsdl:part name="parameters" element="tns:UpdateDepartmentUsedResponse" />
   </wsdl:message>
-  <wsdl:message name="GetDepartmentUsedSoapIn">
-    <wsdl:part name="parameters" element="tns:GetDepartmentUsed" />
+  <wsdl:message name="GetAllDepartmentUsedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllDepartmentUsed" />
   </wsdl:message>
-  <wsdl:message name="GetDepartmentUsedSoapOut">
-    <wsdl:part name="parameters" element="tns:GetDepartmentUsedResponse" />
+  <wsdl:message name="GetAllDepartmentUsedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllDepartmentUsedResponse" />
   </wsdl:message>
   <wsdl:message name="GetDepartmentUsedByIdSoapIn">
     <wsdl:part name="parameters" element="tns:GetDepartmentUsedById" />
@@ -1724,17 +1887,17 @@
   <wsdl:message name="GetAllAssetSoapOut">
     <wsdl:part name="parameters" element="tns:GetAllAssetResponse" />
   </wsdl:message>
-  <wsdl:message name="GetAssetByIdSoapIn">
-    <wsdl:part name="parameters" element="tns:GetAssetById" />
-  </wsdl:message>
-  <wsdl:message name="GetAssetByIdSoapOut">
-    <wsdl:part name="parameters" element="tns:GetAssetByIdResponse" />
-  </wsdl:message>
   <wsdl:message name="GetAssetByAssetGroupTypeIdSoapIn">
     <wsdl:part name="parameters" element="tns:GetAssetByAssetGroupTypeId" />
   </wsdl:message>
   <wsdl:message name="GetAssetByAssetGroupTypeIdSoapOut">
     <wsdl:part name="parameters" element="tns:GetAssetByAssetGroupTypeIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssetById" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssetByIdResponse" />
   </wsdl:message>
   <wsdl:message name="GetAssetByDepartmentUsedIdSoapIn">
     <wsdl:part name="parameters" element="tns:GetAssetByDepartmentUsedId" />
@@ -1993,13 +2156,13 @@
   </wsdl:message>
   <wsdl:message name="GetAllAssetGroupTypeHttpGetIn" />
   <wsdl:message name="GetAllAssetGroupTypeHttpGetOut">
-    <wsdl:part name="Body" element="tns:ArrayOfAssetGroupType" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfAssetGroupType" />
   </wsdl:message>
   <wsdl:message name="GetAssetGroupTypeByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetAssetGroupTypeByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:AssetGroupType" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfAssetGroupType" />
   </wsdl:message>
   <wsdl:message name="DelAssetGroupTypeByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -2024,13 +2187,13 @@
   </wsdl:message>
   <wsdl:message name="GetAllAssetGroupHttpGetIn" />
   <wsdl:message name="GetAllAssetGroupHttpGetOut">
-    <wsdl:part name="Body" element="tns:ArrayOfAssetGroup" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfAssetGroup" />
   </wsdl:message>
   <wsdl:message name="GetAssetGroupByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetAssetGroupByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:AssetGroup" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfAssetGroup" />
   </wsdl:message>
   <wsdl:message name="DelAssetGroupByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -2056,13 +2219,13 @@
   </wsdl:message>
   <wsdl:message name="GetAllCapitalGroupHttpGetIn" />
   <wsdl:message name="GetAllCapitalGroupHttpGetOut">
-    <wsdl:part name="Body" element="tns:ArrayOfCapital" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfCapital" />
   </wsdl:message>
   <wsdl:message name="GetCapitalByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetCapitalByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:Capital" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfCapital" />
   </wsdl:message>
   <wsdl:message name="DelCapitalByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -2097,15 +2260,15 @@
   <wsdl:message name="UpdateDepartmentUsedHttpGetOut">
     <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
-  <wsdl:message name="GetDepartmentUsedHttpGetIn" />
-  <wsdl:message name="GetDepartmentUsedHttpGetOut">
-    <wsdl:part name="Body" element="tns:ArrayOfDepartmentUsed" />
+  <wsdl:message name="GetAllDepartmentUsedHttpGetIn" />
+  <wsdl:message name="GetAllDepartmentUsedHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfDepartmentUsed" />
   </wsdl:message>
   <wsdl:message name="GetDepartmentUsedByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetDepartmentUsedByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:DepartmentUsed" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfDepartmentUsed" />
   </wsdl:message>
   <wsdl:message name="DelDepartmentUsedByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -2131,13 +2294,13 @@
   </wsdl:message>
   <wsdl:message name="GetAllUnitHttpGetIn" />
   <wsdl:message name="GetAllUnitHttpGetOut">
-    <wsdl:part name="Body" element="tns:ArrayOfUnit" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfUnit" />
   </wsdl:message>
   <wsdl:message name="GetUnitByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetUnitByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:Unit" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfUnit" />
   </wsdl:message>
   <wsdl:message name="DelUnitByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -2216,17 +2379,17 @@
   <wsdl:message name="GetAllAssetHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultObjectOfListOfAssetData" />
   </wsdl:message>
-  <wsdl:message name="GetAssetByIdHttpGetIn">
-    <wsdl:part name="id" type="s:string" />
-  </wsdl:message>
-  <wsdl:message name="GetAssetByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:Asset" />
-  </wsdl:message>
   <wsdl:message name="GetAssetByAssetGroupTypeIdHttpGetIn">
     <wsdl:part name="AssetGroupTypeId" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetAssetByAssetGroupTypeIdHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultObjectOfListOfAssetData" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultObjectOfAsset" />
   </wsdl:message>
   <wsdl:message name="GetAssetByDepartmentUsedIdHttpGetIn">
     <wsdl:part name="DepartmentUsedId" type="s:string" />
@@ -2262,13 +2425,13 @@
   </wsdl:message>
   <wsdl:message name="GetAllPartnerHttpGetIn" />
   <wsdl:message name="GetAllPartnerHttpGetOut">
-    <wsdl:part name="Body" element="tns:ArrayOfPartner" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfPartner" />
   </wsdl:message>
   <wsdl:message name="GetPartnerByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetPartnerByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:Partner" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfPartner" />
   </wsdl:message>
   <wsdl:message name="DelPartnerByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -2294,13 +2457,13 @@
   </wsdl:message>
   <wsdl:message name="GetAllUpDownReasonHttpGetIn" />
   <wsdl:message name="GetAllUpDownReasonHttpGetOut">
-    <wsdl:part name="Body" element="tns:ArrayOfUpDownReason" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfUpDownReason" />
   </wsdl:message>
   <wsdl:message name="GetUpDownReasonByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetUpDownReasonByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:UpDownReason" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfUpDownReason" />
   </wsdl:message>
   <wsdl:message name="DelUpDownReasonByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -2330,13 +2493,13 @@
   </wsdl:message>
   <wsdl:message name="GetAllAssetLiquidationHttpGetIn" />
   <wsdl:message name="GetAllAssetLiquidationHttpGetOut">
-    <wsdl:part name="Body" element="tns:ArrayOfAssetLiquidation" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfAssetLiquidationData" />
   </wsdl:message>
   <wsdl:message name="GetAssetLiquidationByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetAssetLiquidationByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:AssetLiquidation" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfAssetLiquidationData" />
   </wsdl:message>
   <wsdl:message name="DelAssetLiquidationByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -2370,13 +2533,13 @@
   </wsdl:message>
   <wsdl:message name="GetAllRepairAssetHttpGetIn" />
   <wsdl:message name="GetAllRepairAssetHttpGetOut">
-    <wsdl:part name="Body" element="tns:ArrayOfRepairAsset" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfRepairAssetData" />
   </wsdl:message>
   <wsdl:message name="GetRepairAssetByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetRepairAssetByIdHttpGetOut">
-    <wsdl:part name="Body" element="tns:RepairAsset" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfRepairAssetData" />
   </wsdl:message>
   <wsdl:message name="DelRepairAssetByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -2535,13 +2698,13 @@
   </wsdl:message>
   <wsdl:message name="GetAllAssetGroupTypeHttpPostIn" />
   <wsdl:message name="GetAllAssetGroupTypeHttpPostOut">
-    <wsdl:part name="Body" element="tns:ArrayOfAssetGroupType" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfAssetGroupType" />
   </wsdl:message>
   <wsdl:message name="GetAssetGroupTypeByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetAssetGroupTypeByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:AssetGroupType" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfAssetGroupType" />
   </wsdl:message>
   <wsdl:message name="DelAssetGroupTypeByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -2566,13 +2729,13 @@
   </wsdl:message>
   <wsdl:message name="GetAllAssetGroupHttpPostIn" />
   <wsdl:message name="GetAllAssetGroupHttpPostOut">
-    <wsdl:part name="Body" element="tns:ArrayOfAssetGroup" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfAssetGroup" />
   </wsdl:message>
   <wsdl:message name="GetAssetGroupByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetAssetGroupByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:AssetGroup" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfAssetGroup" />
   </wsdl:message>
   <wsdl:message name="DelAssetGroupByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -2598,13 +2761,13 @@
   </wsdl:message>
   <wsdl:message name="GetAllCapitalGroupHttpPostIn" />
   <wsdl:message name="GetAllCapitalGroupHttpPostOut">
-    <wsdl:part name="Body" element="tns:ArrayOfCapital" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfCapital" />
   </wsdl:message>
   <wsdl:message name="GetCapitalByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetCapitalByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:Capital" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfCapital" />
   </wsdl:message>
   <wsdl:message name="DelCapitalByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -2639,15 +2802,15 @@
   <wsdl:message name="UpdateDepartmentUsedHttpPostOut">
     <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
-  <wsdl:message name="GetDepartmentUsedHttpPostIn" />
-  <wsdl:message name="GetDepartmentUsedHttpPostOut">
-    <wsdl:part name="Body" element="tns:ArrayOfDepartmentUsed" />
+  <wsdl:message name="GetAllDepartmentUsedHttpPostIn" />
+  <wsdl:message name="GetAllDepartmentUsedHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfDepartmentUsed" />
   </wsdl:message>
   <wsdl:message name="GetDepartmentUsedByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetDepartmentUsedByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:DepartmentUsed" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfDepartmentUsed" />
   </wsdl:message>
   <wsdl:message name="DelDepartmentUsedByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -2673,13 +2836,13 @@
   </wsdl:message>
   <wsdl:message name="GetAllUnitHttpPostIn" />
   <wsdl:message name="GetAllUnitHttpPostOut">
-    <wsdl:part name="Body" element="tns:ArrayOfUnit" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfUnit" />
   </wsdl:message>
   <wsdl:message name="GetUnitByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetUnitByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:Unit" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfUnit" />
   </wsdl:message>
   <wsdl:message name="DelUnitByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -2758,17 +2921,17 @@
   <wsdl:message name="GetAllAssetHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultObjectOfListOfAssetData" />
   </wsdl:message>
-  <wsdl:message name="GetAssetByIdHttpPostIn">
-    <wsdl:part name="id" type="s:string" />
-  </wsdl:message>
-  <wsdl:message name="GetAssetByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:Asset" />
-  </wsdl:message>
   <wsdl:message name="GetAssetByAssetGroupTypeIdHttpPostIn">
     <wsdl:part name="AssetGroupTypeId" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetAssetByAssetGroupTypeIdHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultObjectOfListOfAssetData" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultObjectOfAsset" />
   </wsdl:message>
   <wsdl:message name="GetAssetByDepartmentUsedIdHttpPostIn">
     <wsdl:part name="DepartmentUsedId" type="s:string" />
@@ -2804,13 +2967,13 @@
   </wsdl:message>
   <wsdl:message name="GetAllPartnerHttpPostIn" />
   <wsdl:message name="GetAllPartnerHttpPostOut">
-    <wsdl:part name="Body" element="tns:ArrayOfPartner" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfPartner" />
   </wsdl:message>
   <wsdl:message name="GetPartnerByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetPartnerByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:Partner" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfPartner" />
   </wsdl:message>
   <wsdl:message name="DelPartnerByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -2836,13 +2999,13 @@
   </wsdl:message>
   <wsdl:message name="GetAllUpDownReasonHttpPostIn" />
   <wsdl:message name="GetAllUpDownReasonHttpPostOut">
-    <wsdl:part name="Body" element="tns:ArrayOfUpDownReason" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfUpDownReason" />
   </wsdl:message>
   <wsdl:message name="GetUpDownReasonByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetUpDownReasonByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:UpDownReason" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfUpDownReason" />
   </wsdl:message>
   <wsdl:message name="DelUpDownReasonByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -2872,13 +3035,13 @@
   </wsdl:message>
   <wsdl:message name="GetAllAssetLiquidationHttpPostIn" />
   <wsdl:message name="GetAllAssetLiquidationHttpPostOut">
-    <wsdl:part name="Body" element="tns:ArrayOfAssetLiquidation" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfAssetLiquidationData" />
   </wsdl:message>
   <wsdl:message name="GetAssetLiquidationByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetAssetLiquidationByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:AssetLiquidation" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfAssetLiquidationData" />
   </wsdl:message>
   <wsdl:message name="DelAssetLiquidationByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -2912,13 +3075,13 @@
   </wsdl:message>
   <wsdl:message name="GetAllRepairAssetHttpPostIn" />
   <wsdl:message name="GetAllRepairAssetHttpPostOut">
-    <wsdl:part name="Body" element="tns:ArrayOfRepairAsset" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfListOfRepairAssetData" />
   </wsdl:message>
   <wsdl:message name="GetRepairAssetByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetRepairAssetByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:RepairAsset" />
+    <wsdl:part name="Body" element="tns:ResultObjectOfRepairAssetData" />
   </wsdl:message>
   <wsdl:message name="DelRepairAssetByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
@@ -3117,9 +3280,9 @@
       <wsdl:input message="tns:UpdateDepartmentUsedSoapIn" />
       <wsdl:output message="tns:UpdateDepartmentUsedSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetDepartmentUsed">
-      <wsdl:input message="tns:GetDepartmentUsedSoapIn" />
-      <wsdl:output message="tns:GetDepartmentUsedSoapOut" />
+    <wsdl:operation name="GetAllDepartmentUsed">
+      <wsdl:input message="tns:GetAllDepartmentUsedSoapIn" />
+      <wsdl:output message="tns:GetAllDepartmentUsedSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetDepartmentUsedById">
       <wsdl:input message="tns:GetDepartmentUsedByIdSoapIn" />
@@ -3161,13 +3324,13 @@
       <wsdl:input message="tns:GetAllAssetSoapIn" />
       <wsdl:output message="tns:GetAllAssetSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAssetById">
-      <wsdl:input message="tns:GetAssetByIdSoapIn" />
-      <wsdl:output message="tns:GetAssetByIdSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="GetAssetByAssetGroupTypeId">
       <wsdl:input message="tns:GetAssetByAssetGroupTypeIdSoapIn" />
       <wsdl:output message="tns:GetAssetByAssetGroupTypeIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetById">
+      <wsdl:input message="tns:GetAssetByIdSoapIn" />
+      <wsdl:output message="tns:GetAssetByIdSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetAssetByDepartmentUsedId">
       <wsdl:input message="tns:GetAssetByDepartmentUsedIdSoapIn" />
@@ -3399,9 +3562,9 @@
       <wsdl:input message="tns:UpdateDepartmentUsedHttpGetIn" />
       <wsdl:output message="tns:UpdateDepartmentUsedHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetDepartmentUsed">
-      <wsdl:input message="tns:GetDepartmentUsedHttpGetIn" />
-      <wsdl:output message="tns:GetDepartmentUsedHttpGetOut" />
+    <wsdl:operation name="GetAllDepartmentUsed">
+      <wsdl:input message="tns:GetAllDepartmentUsedHttpGetIn" />
+      <wsdl:output message="tns:GetAllDepartmentUsedHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="GetDepartmentUsedById">
       <wsdl:input message="tns:GetDepartmentUsedByIdHttpGetIn" />
@@ -3443,13 +3606,13 @@
       <wsdl:input message="tns:GetAllAssetHttpGetIn" />
       <wsdl:output message="tns:GetAllAssetHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAssetById">
-      <wsdl:input message="tns:GetAssetByIdHttpGetIn" />
-      <wsdl:output message="tns:GetAssetByIdHttpGetOut" />
-    </wsdl:operation>
     <wsdl:operation name="GetAssetByAssetGroupTypeId">
       <wsdl:input message="tns:GetAssetByAssetGroupTypeIdHttpGetIn" />
       <wsdl:output message="tns:GetAssetByAssetGroupTypeIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetById">
+      <wsdl:input message="tns:GetAssetByIdHttpGetIn" />
+      <wsdl:output message="tns:GetAssetByIdHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="GetAssetByDepartmentUsedId">
       <wsdl:input message="tns:GetAssetByDepartmentUsedIdHttpGetIn" />
@@ -3681,9 +3844,9 @@
       <wsdl:input message="tns:UpdateDepartmentUsedHttpPostIn" />
       <wsdl:output message="tns:UpdateDepartmentUsedHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetDepartmentUsed">
-      <wsdl:input message="tns:GetDepartmentUsedHttpPostIn" />
-      <wsdl:output message="tns:GetDepartmentUsedHttpPostOut" />
+    <wsdl:operation name="GetAllDepartmentUsed">
+      <wsdl:input message="tns:GetAllDepartmentUsedHttpPostIn" />
+      <wsdl:output message="tns:GetAllDepartmentUsedHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="GetDepartmentUsedById">
       <wsdl:input message="tns:GetDepartmentUsedByIdHttpPostIn" />
@@ -3725,13 +3888,13 @@
       <wsdl:input message="tns:GetAllAssetHttpPostIn" />
       <wsdl:output message="tns:GetAllAssetHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAssetById">
-      <wsdl:input message="tns:GetAssetByIdHttpPostIn" />
-      <wsdl:output message="tns:GetAssetByIdHttpPostOut" />
-    </wsdl:operation>
     <wsdl:operation name="GetAssetByAssetGroupTypeId">
       <wsdl:input message="tns:GetAssetByAssetGroupTypeIdHttpPostIn" />
       <wsdl:output message="tns:GetAssetByAssetGroupTypeIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetById">
+      <wsdl:input message="tns:GetAssetByIdHttpPostIn" />
+      <wsdl:output message="tns:GetAssetByIdHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="GetAssetByDepartmentUsedId">
       <wsdl:input message="tns:GetAssetByDepartmentUsedIdHttpPostIn" />
@@ -4079,8 +4242,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetDepartmentUsed">
-      <soap:operation soapAction="http://tempuri.org/GetDepartmentUsed" style="document" />
+    <wsdl:operation name="GetAllDepartmentUsed">
+      <soap:operation soapAction="http://tempuri.org/GetAllDepartmentUsed" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -4178,8 +4341,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAssetById">
-      <soap:operation soapAction="http://tempuri.org/GetAssetById" style="document" />
+    <wsdl:operation name="GetAssetByAssetGroupTypeId">
+      <soap:operation soapAction="http://tempuri.org/GetAssetByAssetGroupTypeId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -4187,8 +4350,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAssetByAssetGroupTypeId">
-      <soap:operation soapAction="http://tempuri.org/GetAssetByAssetGroupTypeId" style="document" />
+    <wsdl:operation name="GetAssetById">
+      <soap:operation soapAction="http://tempuri.org/GetAssetById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -4712,8 +4875,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetDepartmentUsed">
-      <soap12:operation soapAction="http://tempuri.org/GetDepartmentUsed" style="document" />
+    <wsdl:operation name="GetAllDepartmentUsed">
+      <soap12:operation soapAction="http://tempuri.org/GetAllDepartmentUsed" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -4811,8 +4974,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAssetById">
-      <soap12:operation soapAction="http://tempuri.org/GetAssetById" style="document" />
+    <wsdl:operation name="GetAssetByAssetGroupTypeId">
+      <soap12:operation soapAction="http://tempuri.org/GetAssetByAssetGroupTypeId" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -4820,8 +4983,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAssetByAssetGroupTypeId">
-      <soap12:operation soapAction="http://tempuri.org/GetAssetByAssetGroupTypeId" style="document" />
+    <wsdl:operation name="GetAssetById">
+      <soap12:operation soapAction="http://tempuri.org/GetAssetById" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -5345,8 +5508,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetDepartmentUsed">
-      <http:operation location="/GetDepartmentUsed" />
+    <wsdl:operation name="GetAllDepartmentUsed">
+      <http:operation location="/GetAllDepartmentUsed" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -5444,8 +5607,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAssetById">
-      <http:operation location="/GetAssetById" />
+    <wsdl:operation name="GetAssetByAssetGroupTypeId">
+      <http:operation location="/GetAssetByAssetGroupTypeId" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -5453,8 +5616,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAssetByAssetGroupTypeId">
-      <http:operation location="/GetAssetByAssetGroupTypeId" />
+    <wsdl:operation name="GetAssetById">
+      <http:operation location="/GetAssetById" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -5978,8 +6141,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetDepartmentUsed">
-      <http:operation location="/GetDepartmentUsed" />
+    <wsdl:operation name="GetAllDepartmentUsed">
+      <http:operation location="/GetAllDepartmentUsed" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -6077,8 +6240,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAssetById">
-      <http:operation location="/GetAssetById" />
+    <wsdl:operation name="GetAssetByAssetGroupTypeId">
+      <http:operation location="/GetAssetByAssetGroupTypeId" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -6086,8 +6249,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAssetByAssetGroupTypeId">
-      <http:operation location="/GetAssetByAssetGroupTypeId" />
+    <wsdl:operation name="GetAssetById">
+      <http:operation location="/GetAssetById" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>

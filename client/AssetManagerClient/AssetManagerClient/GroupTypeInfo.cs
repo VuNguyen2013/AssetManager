@@ -75,7 +75,7 @@ namespace AssetManagerClient
                 lblCreateName.Text = "SỬA THÔNG TIN";
                 try
                 {
-                    var result = WebServices.GetAssetGroupTypeById(id);
+                    var result = WebServices.GetAssetGroupTypeById(id).RetObject;
                     txtName.Text = result.Name;
                 }
                 catch (Exception)

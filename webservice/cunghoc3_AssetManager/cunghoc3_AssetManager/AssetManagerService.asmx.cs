@@ -25,10 +25,10 @@ namespace cunghoc3_AssetManager
         {
             try
             {
-                var id = "AGT_"+randomId.Next().ToString();
+                var id = "AGT_"+randomId.Next(100000,999999).ToString();
                 while ((GetAssetGroupTypeById(id) == null))
                 {
-                    id = "AGT_" + randomId.Next().ToString();
+                    id = "AGT_" + randomId.Next(100000, 999999).ToString();
                 }
                 var db = new Services.AssetGroupTypeService();
                 if (GetAssetGroupTypeById(id) != null)
@@ -250,10 +250,10 @@ namespace cunghoc3_AssetManager
         {
             try
             {
-                var id = "DU_"+randomId.Next().ToString();
+                var id = "DU_"+randomId.Next(100000,999999).ToString();
                 while ((GetDepartmentUsedById(id) == null))
                 {
-                    id = "DU_" + randomId.Next().ToString();
+                    id = "DU_" + randomId.Next(100000, 999999).ToString();
                 }
                 var db = new Services.DepartmentUsedService();
                 using (var item = new DepartmentUsed

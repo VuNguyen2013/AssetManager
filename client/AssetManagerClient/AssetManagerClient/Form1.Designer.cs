@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.popupControlContainer2 = new DevExpress.XtraBars.PopupControlContainer(this.components);
@@ -73,29 +72,11 @@
             this.navbarImageList = new System.Windows.Forms.ImageList(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.siInfo = new DevExpress.XtraBars.BarStaticItem();
+            this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-            this.ControlTab2 = new DevExpress.XtraTab.XtraTabPage();
-            this.gpLoading = new DevExpress.XtraWaitForm.ProgressPanel();
-            this.ControlTab1 = new DevExpress.XtraTab.XtraTabPage();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.gpLoading = new DevExpress.XtraWaitForm.ProgressPanel();
             this.gcAsset = new DevExpress.XtraGrid.GridControl();
             this.gvAsset = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grAssetId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -106,7 +87,7 @@
             this.nbAssets = new DevExpress.XtraNavBar.NavBarControl();
             this.nbAssetsType = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbDepartmentUsed = new DevExpress.XtraNavBar.NavBarGroup();
-            this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
+            this.ControlTab2 = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.lblStatusAlert = new DevExpress.XtraEditors.LabelControl();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
@@ -116,10 +97,20 @@
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
+            this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).BeginInit();
@@ -129,19 +120,10 @@
             this.popupControlContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollectionLarge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
+            this.splitContainerControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
-            this.ControlTab2.SuspendLayout();
-            this.ControlTab1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
@@ -150,9 +132,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbAssets)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
-            this.splitContainerControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -288,6 +270,7 @@
             this.iExit.ImageIndex = 6;
             this.iExit.LargeImageIndex = 6;
             this.iExit.Name = "iExit";
+            this.iExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iExit_ItemClick);
             // 
             // popupControlContainer1
             // 
@@ -585,25 +568,52 @@
             this.siInfo.Name = "siInfo";
             this.siInfo.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
+            // splitContainerControl
+            // 
+            this.splitContainerControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl.Location = new System.Drawing.Point(0, 144);
+            this.splitContainerControl.Name = "splitContainerControl";
+            this.splitContainerControl.Padding = new System.Windows.Forms.Padding(6);
+            this.splitContainerControl.Panel1.Text = "Panel1";
+            this.splitContainerControl.Panel2.Controls.Add(this.xtraTabControl1);
+            this.splitContainerControl.Panel2.Text = "Panel2";
+            this.splitContainerControl.Size = new System.Drawing.Size(1100, 525);
+            this.splitContainerControl.SplitterPosition = 0;
+            this.splitContainerControl.TabIndex = 0;
+            this.splitContainerControl.Text = "splitContainerControl1";
+            // 
             // xtraTabControl1
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.SelectedTabPage = this.ControlTab2;
+            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage2;
             this.xtraTabControl1.Size = new System.Drawing.Size(1083, 513);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.ControlTab1,
             this.xtraTabPage2,
-            this.ControlTab2});
+            this.ControlTab2,
+            this.xtraTabPage1});
             // 
-            // ControlTab2
+            // xtraTabPage2
             // 
-            this.ControlTab2.Controls.Add(this.gpLoading);
-            this.ControlTab2.Name = "ControlTab2";
-            this.ControlTab2.Size = new System.Drawing.Size(1077, 485);
-            this.ControlTab2.Text = "Bảo hành";
+            this.xtraTabPage2.Controls.Add(this.groupControl3);
+            this.xtraTabPage2.Controls.Add(this.groupControl2);
+            this.xtraTabPage2.Controls.Add(this.nbAssets);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(1077, 485);
+            this.xtraTabPage2.Text = "Tài sản";
+            // 
+            // groupControl3
+            // 
+            this.groupControl3.Controls.Add(this.gpLoading);
+            this.groupControl3.Controls.Add(this.gcAsset);
+            this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl3.Location = new System.Drawing.Point(140, 53);
+            this.groupControl3.Name = "groupControl3";
+            this.groupControl3.Size = new System.Drawing.Size(937, 432);
+            this.groupControl3.TabIndex = 2;
+            this.groupControl3.Text = "Chi tiết";
             // 
             // gpLoading
             // 
@@ -618,188 +628,12 @@
             this.gpLoading.AppearanceDescription.Options.UseFont = true;
             this.gpLoading.Caption = "Vui lòng chờ";
             this.gpLoading.Description = "đang tải dữ liệu ...";
-            this.gpLoading.Location = new System.Drawing.Point(407, -20);
+            this.gpLoading.Location = new System.Drawing.Point(323, 136);
             this.gpLoading.Name = "gpLoading";
             this.gpLoading.Size = new System.Drawing.Size(246, 66);
             this.gpLoading.TabIndex = 0;
             this.gpLoading.TabStop = false;
             this.gpLoading.Text = "progressPanel1";
-            // 
-            // ControlTab1
-            // 
-            this.ControlTab1.Controls.Add(this.groupControl1);
-            this.ControlTab1.Controls.Add(this.gridControl1);
-            this.ControlTab1.Name = "ControlTab1";
-            this.ControlTab1.Size = new System.Drawing.Size(1077, 485);
-            this.ControlTab1.Text = "Bộ phận sữ dụng";
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.Controls.Add(this.simpleButton2);
-            this.groupControl1.Controls.Add(this.simpleButton1);
-            this.groupControl1.Controls.Add(this.textEdit4);
-            this.groupControl1.Controls.Add(this.textEdit3);
-            this.groupControl1.Controls.Add(this.textEdit2);
-            this.groupControl1.Controls.Add(this.textEdit1);
-            this.groupControl1.Controls.Add(this.labelControl4);
-            this.groupControl1.Controls.Add(this.labelControl3);
-            this.groupControl1.Controls.Add(this.labelControl2);
-            this.groupControl1.Controls.Add(this.labelControl1);
-            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(0, 200);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1077, 285);
-            this.groupControl1.TabIndex = 1;
-            this.groupControl1.Text = "Chi tiết";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Location = new System.Drawing.Point(421, 183);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton2.TabIndex = 3;
-            this.simpleButton2.Text = "Đồng ý";
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(611, 48);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton1.TabIndex = 3;
-            this.simpleButton1.Text = "Tạo";
-            // 
-            // textEdit4
-            // 
-            this.textEdit4.Location = new System.Drawing.Point(356, 141);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Size = new System.Drawing.Size(222, 20);
-            this.textEdit4.TabIndex = 2;
-            // 
-            // textEdit3
-            // 
-            this.textEdit3.Location = new System.Drawing.Point(356, 111);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(222, 20);
-            this.textEdit3.TabIndex = 2;
-            // 
-            // textEdit2
-            // 
-            this.textEdit2.Location = new System.Drawing.Point(356, 80);
-            this.textEdit2.MenuManager = this.ribbonControl;
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(222, 20);
-            this.textEdit2.TabIndex = 2;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Enabled = false;
-            this.textEdit1.Location = new System.Drawing.Point(356, 51);
-            this.textEdit1.MenuManager = this.ribbonControl;
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(222, 20);
-            this.textEdit1.TabIndex = 1;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Location = new System.Drawing.Point(226, 144);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(68, 13);
-            this.labelControl4.TabIndex = 0;
-            this.labelControl4.Text = "Người đại diện";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(226, 114);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(32, 13);
-            this.labelControl3.TabIndex = 0;
-            this.labelControl3.Text = "Địa chỉ";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(226, 83);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(102, 13);
-            this.labelControl2.TabIndex = 0;
-            this.labelControl2.Text = "Tên bộ phận sữ dụng";
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(226, 54);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(98, 13);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Mã bộ phận sữ dụng";
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            gridLevelNode1.RelationName = "Level1";
-            this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.MenuManager = this.ribbonControl;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1077, 200);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1,
-            this.gridView3});
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2,
-            this.gridColumn3});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "gridColumn1";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "gridColumn2";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "gridColumn3";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            // 
-            // gridView3
-            // 
-            this.gridView3.GridControl = this.gridControl1;
-            this.gridView3.Name = "gridView3";
-            // 
-            // xtraTabPage2
-            // 
-            this.xtraTabPage2.Controls.Add(this.groupControl3);
-            this.xtraTabPage2.Controls.Add(this.groupControl2);
-            this.xtraTabPage2.Controls.Add(this.nbAssets);
-            this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1077, 485);
-            this.xtraTabPage2.Text = "Tài sản";
-            // 
-            // groupControl3
-            // 
-            this.groupControl3.Controls.Add(this.gcAsset);
-            this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl3.Location = new System.Drawing.Point(140, 53);
-            this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(937, 432);
-            this.groupControl3.TabIndex = 2;
-            this.groupControl3.Text = "Chi tiết";
             // 
             // gcAsset
             // 
@@ -822,6 +656,9 @@
             this.gcAssetGroup});
             this.gvAsset.GridControl = this.gcAsset;
             this.gvAsset.Name = "gvAsset";
+            this.gvAsset.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gvAsset.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gvAsset.OptionsDetail.EnableMasterViewMode = false;
             this.gvAsset.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvAsset_RowClick);
             this.gvAsset.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gvAsset_RowCellClick);
             // 
@@ -900,19 +737,11 @@
             this.nbDepartmentUsed.Expanded = true;
             this.nbDepartmentUsed.Name = "nbDepartmentUsed";
             // 
-            // splitContainerControl
+            // ControlTab2
             // 
-            this.splitContainerControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl.Location = new System.Drawing.Point(0, 144);
-            this.splitContainerControl.Name = "splitContainerControl";
-            this.splitContainerControl.Padding = new System.Windows.Forms.Padding(6);
-            this.splitContainerControl.Panel1.Text = "Panel1";
-            this.splitContainerControl.Panel2.Controls.Add(this.xtraTabControl1);
-            this.splitContainerControl.Panel2.Text = "Panel2";
-            this.splitContainerControl.Size = new System.Drawing.Size(1100, 525);
-            this.splitContainerControl.SplitterPosition = 0;
-            this.splitContainerControl.TabIndex = 0;
-            this.splitContainerControl.Text = "splitContainerControl1";
+            this.ControlTab2.Name = "ControlTab2";
+            this.ControlTab2.Size = new System.Drawing.Size(1077, 485);
+            this.ControlTab2.Text = "Nhà phân phối";
             // 
             // labelControl5
             // 
@@ -945,8 +774,17 @@
             this.barButtonItem4,
             this.barButtonItem5,
             this.barButtonItem6,
-            this.barButtonItem7});
-            this.barManager1.MaxItemId = 13;
+            this.barButtonItem7,
+            this.barButtonItem8,
+            this.barButtonItem9,
+            this.barButtonItem10,
+            this.barButtonItem11,
+            this.barButtonItem12,
+            this.barEditItem1,
+            this.barButtonItem13});
+            this.barManager1.MaxItemId = 20;
+            this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemTextEdit1});
             // 
             // bar1
             // 
@@ -960,7 +798,14 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem4),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem5),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem7)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem7),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem8),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem9),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem10),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem11),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem12),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barEditItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem13)});
             this.bar1.OptionsBar.AllowQuickCustomization = false;
             this.bar1.StandaloneBarDockControl = this.standaloneBarDockControl1;
             this.bar1.Text = "Custom 1";
@@ -991,6 +836,7 @@
             this.barButtonItem5.Id = 9;
             this.barButtonItem5.Name = "barButtonItem5";
             this.barButtonItem5.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
             // 
             // barButtonItem6
             // 
@@ -1007,6 +853,63 @@
             this.barButtonItem7.Id = 12;
             this.barButtonItem7.Name = "barButtonItem7";
             this.barButtonItem7.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // barButtonItem8
+            // 
+            this.barButtonItem8.Caption = "Xuất file";
+            this.barButtonItem8.Glyph = global::AssetManagerClient.Properties.Resources.btnExport;
+            this.barButtonItem8.Id = 13;
+            this.barButtonItem8.Name = "barButtonItem8";
+            this.barButtonItem8.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonItem8.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem8_ItemClick);
+            // 
+            // barButtonItem9
+            // 
+            this.barButtonItem9.Caption = "Kiểm toán";
+            this.barButtonItem9.Glyph = global::AssetManagerClient.Properties.Resources.btnAudit;
+            this.barButtonItem9.Id = 14;
+            this.barButtonItem9.Name = "barButtonItem9";
+            this.barButtonItem9.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonItem9.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem9_ItemClick);
+            // 
+            // barButtonItem10
+            // 
+            this.barButtonItem10.Caption = "Đưa vào";
+            this.barButtonItem10.Glyph = global::AssetManagerClient.Properties.Resources.btnCheckIn;
+            this.barButtonItem10.Id = 15;
+            this.barButtonItem10.Name = "barButtonItem10";
+            this.barButtonItem10.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // barButtonItem11
+            // 
+            this.barButtonItem11.Caption = "Đưa ra";
+            this.barButtonItem11.Glyph = global::AssetManagerClient.Properties.Resources.btnCheckOut;
+            this.barButtonItem11.Id = 16;
+            this.barButtonItem11.Name = "barButtonItem11";
+            this.barButtonItem11.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // barButtonItem12
+            // 
+            this.barButtonItem12.Id = 17;
+            this.barButtonItem12.Name = "barButtonItem12";
+            // 
+            // barEditItem1
+            // 
+            this.barEditItem1.Edit = this.repositoryItemTextEdit1;
+            this.barEditItem1.Id = 18;
+            this.barEditItem1.Name = "barEditItem1";
+            this.barEditItem1.Width = 139;
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
+            // barButtonItem13
+            // 
+            this.barButtonItem13.Caption = "Tìm kiếm";
+            this.barButtonItem13.Id = 19;
+            this.barButtonItem13.Name = "barButtonItem13";
             // 
             // barDockControlTop
             // 
@@ -1036,6 +939,16 @@
             this.barDockControlRight.Location = new System.Drawing.Point(1100, 0);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 700);
             // 
+            // gridView2
+            // 
+            this.gridView2.Name = "gridView2";
+            // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(1077, 485);
+            this.xtraTabPage1.Text = "xtraTabPage1";
+            // 
             // Form1
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -1057,7 +970,7 @@
             this.Ribbon = this.ribbonControl;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "Form1";
+            this.Text = "AssetManager";
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).EndInit();
@@ -1068,20 +981,10 @@
             this.popupControlContainer1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollectionLarge)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).EndInit();
+            this.splitContainerControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
-            this.ControlTab2.ResumeLayout(false);
-            this.ControlTab1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
@@ -1090,9 +993,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nbAssets)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).EndInit();
-            this.splitContainerControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1139,43 +1042,11 @@
         private System.Windows.Forms.ImageList navbarImageListLarge;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private DevExpress.XtraBars.BarStaticItem siInfo;
-        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
-        private DevExpress.XtraTab.XtraTabPage ControlTab2;
-        private DevExpress.XtraTab.XtraTabPage ControlTab1;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
-        private DevExpress.XtraEditors.GroupControl groupControl3;
-        private DevExpress.XtraGrid.GridControl gcAsset;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvAsset;
-        private DevExpress.XtraGrid.Columns.GridColumn grAssetId;
-        private DevExpress.XtraGrid.Columns.GridColumn grDepartmentUsed;
-        private DevExpress.XtraGrid.Columns.GridColumn gcAssetGroup;
-        private DevExpress.XtraEditors.GroupControl groupControl2;
-        private DevExpress.XtraNavBar.NavBarControl nbAssets;
-        private DevExpress.XtraNavBar.NavBarGroup nbAssetsType;
-        private DevExpress.XtraNavBar.NavBarGroup nbDepartmentUsed;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl lblStatusAlert;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl1;
         private DevExpress.XtraBars.Ribbon.RibbonMiniToolbar ribbonMiniToolbar1;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar1;
@@ -1188,7 +1059,31 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabPage ControlTab2;
         private DevExpress.XtraWaitForm.ProgressPanel gpLoading;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private DevExpress.XtraEditors.GroupControl groupControl3;
+        private DevExpress.XtraGrid.GridControl gcAsset;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvAsset;
+        private DevExpress.XtraGrid.Columns.GridColumn grAssetId;
+        private DevExpress.XtraGrid.Columns.GridColumn grDepartmentUsed;
+        private DevExpress.XtraGrid.Columns.GridColumn gcAssetGroup;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl1;
+        private DevExpress.XtraNavBar.NavBarControl nbAssets;
+        private DevExpress.XtraNavBar.NavBarGroup nbAssetsType;
+        private DevExpress.XtraNavBar.NavBarGroup nbDepartmentUsed;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem11;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem12;
+        private DevExpress.XtraBars.BarEditItem barEditItem1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem13;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
 
     }
 }

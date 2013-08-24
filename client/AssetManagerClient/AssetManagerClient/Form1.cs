@@ -34,7 +34,7 @@ namespace AssetManagerClient
                 nbAssetsType.ItemLinks.Clear();
                 nbDepartmentUsed.ItemLinks.Clear();
                 //init assets tab
-                var assetGroupTypes = WebServices.GetAllAssetGroupType();
+                var assetGroupTypes = WebServices.GetAllAssetGroupType().RetObject;
                 foreach (var assetGroupType in assetGroupTypes)
                 {
                     var item = new NavBarItem { Caption = assetGroupType.Name, CanDrag = true, Name = assetGroupType.Id };
@@ -42,7 +42,7 @@ namespace AssetManagerClient
                 }
                 //init department
 
-                var departmentUseds = WebServices.GetDepartmentUsed();
+                var departmentUseds = WebServices.GetAllDepartmentUsed().RetObject;
                 foreach (var departmentUsed in departmentUseds)
                 {
                     var item = new NavBarItem { Caption = departmentUsed.Name, CanDrag = true, Name = departmentUsed.Id };
@@ -54,13 +54,14 @@ namespace AssetManagerClient
                 var assets = WebServices.GetAllAsset();
                 if (assets.RetCode == (int)AssetManagerCommon.CommonEnums.RetCode.SUCCESS)
                 {
-                    BindData(assets.RetObject);
+                    Invoke(new Action(() => BindData(assets.RetObject)));
+                    
                 }
                 else
                 {
                     lblStatusAlert.Text = AssetManagerCommon.CommonFunction.GetMassageReturn(assets.RetCode);
                 }
-                    Invoke(new Action(() =>
+                Invoke(new Action(() =>
                 {
                     gpLoading.Hide();
                     Enabled = true;
@@ -107,7 +108,17 @@ namespace AssetManagerClient
         }
         private void BindData(AssetData[] asset)
         {
-            gcAsset.DataSource = asset;
+            try
+            {
+                
+                gcAsset.DataSource = asset;
+            }
+            catch (Exception exception)
+            {
+                
+                
+            }
+            
     
         }
 
@@ -204,7 +215,7 @@ namespace AssetManagerClient
         {
             var row=gvAsset.GetSelectedRows();
             var createForm = new NewAsset();
-            createForm.DelegateContent((int)AssetManagerCommon.CommonEnums.ACTION.EDIT, gvAsset.GetRowCellValue((int)row.GetValue(0), gvAsset.Columns[0]).ToString());
+            //createForm.DelegateContent((int)AssetManagerCommon.CommonEnums.ACTION.EDIT, gvAsset.GetRowCellValue((int)row.GetValue(0), gvAsset.Columns[0]).ToString());
             createForm.ShowDialog();
         }
 
@@ -224,6 +235,41 @@ namespace AssetManagerClient
             
 
             //label.Text = gvAsset.Rows[e.RowIndex].Cells["Your Coloumn name"].Value.ToString();
+        }
+
+        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var row = gvAsset.GetSelectedRows();
+            string assetId=gvAsset.GetRowCellValue((int) row.GetValue(0), gvAsset.Columns[0]).ToString();
+            if (assetId.Equals(""))
+            {
+                MessageBox.Show("Vui lòng chọn một tài sản");
+            }
+            else
+            {
+                if (MessageBox.Show("Bạn muốn xóa tài sản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    WebServices.DelAssetById(assetId);
+                }
+   
+            }
+         }
+
+        private void iExit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form formExport=new Export();
+            formExport.ShowDialog();
+        }
+
+        private void barButtonItem9_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form formAudit=new Audit();
+            formAudit.ShowDialog();
         }
     }
 }

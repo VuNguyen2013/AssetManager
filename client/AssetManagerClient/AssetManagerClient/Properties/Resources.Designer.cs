@@ -83,6 +83,36 @@ namespace AssetManagerClient.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnAudit {
+            get {
+                object obj = ResourceManager.GetObject("btnAudit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnCheckIn {
+            get {
+                object obj = ResourceManager.GetObject("btnCheckIn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnCheckOut {
+            get {
+                object obj = ResourceManager.GetObject("btnCheckOut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnCopy {
             get {
                 object obj = ResourceManager.GetObject("btnCopy", resourceCulture);
@@ -106,6 +136,16 @@ namespace AssetManagerClient.Properties {
         internal static System.Drawing.Bitmap btnEdit {
             get {
                 object obj = ResourceManager.GetObject("btnEdit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnExport {
+            get {
+                object obj = ResourceManager.GetObject("btnExport", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

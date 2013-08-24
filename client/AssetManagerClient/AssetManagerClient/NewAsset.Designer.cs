@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraPrinting.BarCode.Code128Generator code128Generator1 = new DevExpress.XtraPrinting.BarCode.Code128Generator();
+            DevExpress.XtraPrinting.BarCode.Code128Generator code128Generator2 = new DevExpress.XtraPrinting.BarCode.Code128Generator();
             this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
@@ -41,23 +41,38 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.deDueDate = new DevExpress.XtraEditors.DateEdit();
             this.cbCondition = new System.Windows.Forms.ComboBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.isImage = new DevExpress.XtraEditors.Controls.ImageSlider();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
-            this.monthEdit1 = new DevExpress.XtraScheduler.UI.MonthEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtSeries = new DevExpress.XtraEditors.TextEdit();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.txtAmount = new DevExpress.XtraEditors.SpinEdit();
+            this.spinEdit1 = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.txtCounPro = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.txtYear = new DevExpress.XtraEditors.TextEdit();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dbPartner = new System.Windows.Forms.ComboBox();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
+            this.meNote = new DevExpress.XtraEditors.MemoEdit();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.rbManual = new System.Windows.Forms.RadioButton();
@@ -85,10 +100,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deDueDate.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deDueDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.isImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.monthEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSeries.Properties)).BeginInit();
+            this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCounPro.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtYear.Properties)).BeginInit();
+            this.xtraTabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.meNote.Properties)).BeginInit();
+            this.xtraTabPage5.SuspendLayout();
+            this.xtraTabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -189,20 +215,18 @@
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
             this.xtraTabPage2,
-            this.xtraTabPage3,
             this.xtraTabPage4,
             this.xtraTabPage5,
             this.xtraTabPage6});
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.deDueDate);
             this.xtraTabPage1.Controls.Add(this.cbCondition);
             this.xtraTabPage1.Controls.Add(this.cbStatus);
             this.xtraTabPage1.Controls.Add(this.simpleButton2);
             this.xtraTabPage1.Controls.Add(this.simpleButton1);
             this.xtraTabPage1.Controls.Add(this.isImage);
-            this.xtraTabPage1.Controls.Add(this.checkEdit1);
-            this.xtraTabPage1.Controls.Add(this.monthEdit1);
             this.xtraTabPage1.Controls.Add(this.labelControl10);
             this.xtraTabPage1.Controls.Add(this.labelControl9);
             this.xtraTabPage1.Controls.Add(this.labelControl8);
@@ -211,6 +235,19 @@
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(626, 225);
             this.xtraTabPage1.Text = "Thông thường";
+            // 
+            // deDueDate
+            // 
+            this.deDueDate.EditValue = null;
+            this.deDueDate.Location = new System.Drawing.Point(107, 126);
+            this.deDueDate.MenuManager = this.barManager1;
+            this.deDueDate.Name = "deDueDate";
+            this.deDueDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deDueDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.deDueDate.Size = new System.Drawing.Size(216, 20);
+            this.deDueDate.TabIndex = 11;
             // 
             // cbCondition
             // 
@@ -255,25 +292,6 @@
             this.isImage.TabIndex = 5;
             this.isImage.Text = "isImage";
             // 
-            // checkEdit1
-            // 
-            this.checkEdit1.Location = new System.Drawing.Point(222, 127);
-            this.checkEdit1.MenuManager = this.barManager1;
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "Không hết hạn";
-            this.checkEdit1.Size = new System.Drawing.Size(101, 19);
-            this.checkEdit1.TabIndex = 4;
-            // 
-            // monthEdit1
-            // 
-            this.monthEdit1.Location = new System.Drawing.Point(107, 126);
-            this.monthEdit1.MenuManager = this.barManager1;
-            this.monthEdit1.Name = "monthEdit1";
-            this.monthEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.monthEdit1.Size = new System.Drawing.Size(109, 20);
-            this.monthEdit1.TabIndex = 3;
-            // 
             // labelControl10
             // 
             this.labelControl10.Location = new System.Drawing.Point(18, 133);
@@ -316,33 +334,186 @@
             // 
             // xtraTabPage2
             // 
+            this.xtraTabPage2.Controls.Add(this.txtAmount);
+            this.xtraTabPage2.Controls.Add(this.spinEdit1);
+            this.xtraTabPage2.Controls.Add(this.labelControl15);
+            this.xtraTabPage2.Controls.Add(this.labelControl14);
+            this.xtraTabPage2.Controls.Add(this.txtCounPro);
+            this.xtraTabPage2.Controls.Add(this.labelControl13);
+            this.xtraTabPage2.Controls.Add(this.txtYear);
+            this.xtraTabPage2.Controls.Add(this.label2);
+            this.xtraTabPage2.Controls.Add(this.label1);
+            this.xtraTabPage2.Controls.Add(this.dbPartner);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(626, 225);
             this.xtraTabPage2.Text = "Tài chính";
             // 
-            // xtraTabPage3
+            // txtAmount
             // 
-            this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(626, 225);
-            this.xtraTabPage3.Text = "Dịch vụ";
+            this.txtAmount.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtAmount.Location = new System.Drawing.Point(354, 12);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtAmount.Size = new System.Drawing.Size(216, 20);
+            this.txtAmount.TabIndex = 13;
+            // 
+            // spinEdit1
+            // 
+            this.spinEdit1.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinEdit1.Location = new System.Drawing.Point(93, 55);
+            this.spinEdit1.MenuManager = this.barManager1;
+            this.spinEdit1.Name = "spinEdit1";
+            this.spinEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.spinEdit1.Size = new System.Drawing.Size(121, 20);
+            this.spinEdit1.TabIndex = 13;
+            // 
+            // labelControl15
+            // 
+            this.labelControl15.Location = new System.Drawing.Point(11, 112);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(60, 13);
+            this.labelControl15.TabIndex = 10;
+            this.labelControl15.Text = "Nơi sản xuất";
+            // 
+            // labelControl14
+            // 
+            this.labelControl14.Location = new System.Drawing.Point(267, 54);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(66, 13);
+            this.labelControl14.TabIndex = 10;
+            this.labelControl14.Text = "Năm sản xuất";
+            // 
+            // txtCounPro
+            // 
+            this.txtCounPro.Location = new System.Drawing.Point(93, 109);
+            this.txtCounPro.Name = "txtCounPro";
+            this.txtCounPro.Size = new System.Drawing.Size(121, 20);
+            this.txtCounPro.TabIndex = 12;
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Location = new System.Drawing.Point(267, 19);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(42, 13);
+            this.labelControl13.TabIndex = 9;
+            this.labelControl13.Text = "Số lượng";
+            // 
+            // txtYear
+            // 
+            this.txtYear.Location = new System.Drawing.Point(354, 51);
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(216, 20);
+            this.txtYear.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Giá mua";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Nhà phân phối";
+            // 
+            // dbPartner
+            // 
+            this.dbPartner.FormattingEnabled = true;
+            this.dbPartner.Location = new System.Drawing.Point(93, 16);
+            this.dbPartner.Name = "dbPartner";
+            this.dbPartner.Size = new System.Drawing.Size(121, 21);
+            this.dbPartner.TabIndex = 0;
             // 
             // xtraTabPage4
             // 
+            this.xtraTabPage4.Controls.Add(this.meNote);
             this.xtraTabPage4.Name = "xtraTabPage4";
             this.xtraTabPage4.Size = new System.Drawing.Size(626, 225);
             this.xtraTabPage4.Text = "Ghi chú";
             // 
+            // meNote
+            // 
+            this.meNote.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.meNote.Location = new System.Drawing.Point(0, 0);
+            this.meNote.MenuManager = this.barManager1;
+            this.meNote.Name = "meNote";
+            this.meNote.Size = new System.Drawing.Size(626, 225);
+            this.meNote.TabIndex = 0;
+            // 
             // xtraTabPage5
             // 
+            this.xtraTabPage5.Controls.Add(this.listView1);
             this.xtraTabPage5.Name = "xtraTabPage5";
             this.xtraTabPage5.Size = new System.Drawing.Size(626, 225);
             this.xtraTabPage5.Text = "Đính kèm";
             // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.GridLines = true;
+            this.listView1.Location = new System.Drawing.Point(0, 0);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(626, 225);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Width = 111;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Width = 134;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Width = 138;
+            // 
             // xtraTabPage6
             // 
+            this.xtraTabPage6.Controls.Add(this.gridControl1);
             this.xtraTabPage6.Name = "xtraTabPage6";
             this.xtraTabPage6.Size = new System.Drawing.Size(626, 225);
             this.xtraTabPage6.Text = "Lịch sử";
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.MenuManager = this.barManager1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(626, 225);
+            this.gridControl1.TabIndex = 0;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
             // 
             // groupControl1
             // 
@@ -405,6 +576,7 @@
             this.rbAuto.TabStop = true;
             this.rbAuto.Text = "Tự động";
             this.rbAuto.UseVisualStyleBackColor = true;
+            this.rbAuto.CheckedChanged += new System.EventHandler(this.rbAuto_CheckedChanged);
             // 
             // labelControl12
             // 
@@ -429,7 +601,7 @@
             this.barCodeControl1.Name = "barCodeControl1";
             this.barCodeControl1.Padding = new System.Windows.Forms.Padding(10, 2, 10, 0);
             this.barCodeControl1.Size = new System.Drawing.Size(100, 23);
-            this.barCodeControl1.Symbology = code128Generator1;
+            this.barCodeControl1.Symbology = code128Generator2;
             this.barCodeControl1.TabIndex = 0;
             // 
             // cbUnit
@@ -583,10 +755,22 @@
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deDueDate.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deDueDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.isImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.monthEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSeries.Properties)).EndInit();
+            this.xtraTabPage2.ResumeLayout(false);
+            this.xtraTabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCounPro.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtYear.Properties)).EndInit();
+            this.xtraTabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.meNote.Properties)).EndInit();
+            this.xtraTabPage5.ResumeLayout(false);
+            this.xtraTabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -623,7 +807,6 @@
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage6;
@@ -632,8 +815,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.TextEdit txtModel;
         private DevExpress.XtraEditors.TextEdit txtBrand;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
-        private DevExpress.XtraScheduler.UI.MonthEdit monthEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.LabelControl labelControl8;
@@ -655,5 +836,23 @@
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraEditors.TextEdit txtAssetNumber;
         private DevExpress.XtraEditors.BarCodeControl barCodeControl1;
+        private DevExpress.XtraEditors.MemoEdit meNote;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox dbPartner;
+        private DevExpress.XtraEditors.SpinEdit txtAmount;
+        private DevExpress.XtraEditors.SpinEdit spinEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
+        private DevExpress.XtraEditors.TextEdit txtYear;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private DevExpress.XtraEditors.LabelControl labelControl15;
+        private DevExpress.XtraEditors.TextEdit txtCounPro;
+        private DevExpress.XtraEditors.DateEdit deDueDate;
     }
 }

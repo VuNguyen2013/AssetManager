@@ -80,12 +80,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets.cs" />
+    <Compile Include="Audit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Audit.Designer.cs">
+      <DependentUpon>Audit.cs</DependentUpon>
+    </Compile>
     <Compile Include="cbxItem.cs" />
+    <Compile Include="CheckIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckIn.Designer.cs">
+      <DependentUpon>CheckIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckOut.Designer.cs">
+      <DependentUpon>CheckOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="DepartmentInfo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DepartmentInfo.Designer.cs">
       <DependentUpon>DepartmentInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Export.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export.Designer.cs">
+      <DependentUpon>Export.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -126,8 +150,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Audit.resx">
+      <DependentUpon>Audit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DepartmentInfo.resx">
       <DependentUpon>DepartmentInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export.resx">
+      <DependentUpon>Export.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -165,51 +195,78 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Web References\WebService\Asset.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\WebService\AssetGroup.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\WebService\AssetGroupType.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\WebService\AssetLiquidation.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
     <None Include="Web References\WebService\AssetManagerService.wsdl" />
     <None Include="Web References\WebService\Audit.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\WebService\Capital.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\WebService\CheckOut.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\WebService\DepartmentUsed.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
     <None Include="Web References\WebService\Image.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\WebService\Partner.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\WebService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\WebService\RepairAsset.datasource">
+    <None Include="Web References\WebService\ResultObjectOfAsset.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\ResultObjectOfAssetGroup.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\ResultObjectOfAssetGroupType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\ResultObjectOfAssetLiquidationData.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\ResultObjectOfCapital.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\ResultObjectOfDepartmentUsed.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\WebService\ResultObjectOfListOfAssetData.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\WebService\Unit.datasource">
+    <None Include="Web References\WebService\ResultObjectOfListOfAssetGroup.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\WebService\UpDownReason.datasource">
+    <None Include="Web References\WebService\ResultObjectOfListOfAssetGroupType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\ResultObjectOfListOfAssetLiquidationData.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\ResultObjectOfListOfCapital.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\ResultObjectOfListOfDepartmentUsed.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\ResultObjectOfListOfPartner.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\ResultObjectOfListOfRepairAssetData.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\ResultObjectOfListOfUnit.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\ResultObjectOfListOfUpDownReason.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\ResultObjectOfPartner.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\ResultObjectOfRepairAssetData.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\ResultObjectOfUnit.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\ResultObjectOfUpDownReason.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\WebService\WarrantyAsset.datasource">
@@ -286,6 +343,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Lib\ftplib.dll" />
+    <None Include="Resources\btnCheckOut.png" />
+    <None Include="Resources\btnCheckIn.png" />
+    <None Include="Resources\btnAudit.png" />
+    <None Include="Resources\btnExport.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

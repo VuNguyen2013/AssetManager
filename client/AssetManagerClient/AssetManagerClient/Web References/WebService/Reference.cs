@@ -77,7 +77,7 @@ namespace AssetManagerClient.WebService {
         
         private System.Threading.SendOrPostCallback UpdateDepartmentUsedOperationCompleted;
         
-        private System.Threading.SendOrPostCallback GetDepartmentUsedOperationCompleted;
+        private System.Threading.SendOrPostCallback GetAllDepartmentUsedOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetDepartmentUsedByIdOperationCompleted;
         
@@ -99,9 +99,9 @@ namespace AssetManagerClient.WebService {
         
         private System.Threading.SendOrPostCallback GetAllAssetOperationCompleted;
         
-        private System.Threading.SendOrPostCallback GetAssetByIdOperationCompleted;
-        
         private System.Threading.SendOrPostCallback GetAssetByAssetGroupTypeIdOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetAssetByIdOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetAssetByDepartmentUsedIdOperationCompleted;
         
@@ -279,7 +279,7 @@ namespace AssetManagerClient.WebService {
         public event UpdateDepartmentUsedCompletedEventHandler UpdateDepartmentUsedCompleted;
         
         /// <remarks/>
-        public event GetDepartmentUsedCompletedEventHandler GetDepartmentUsedCompleted;
+        public event GetAllDepartmentUsedCompletedEventHandler GetAllDepartmentUsedCompleted;
         
         /// <remarks/>
         public event GetDepartmentUsedByIdCompletedEventHandler GetDepartmentUsedByIdCompleted;
@@ -312,10 +312,10 @@ namespace AssetManagerClient.WebService {
         public event GetAllAssetCompletedEventHandler GetAllAssetCompleted;
         
         /// <remarks/>
-        public event GetAssetByIdCompletedEventHandler GetAssetByIdCompleted;
+        public event GetAssetByAssetGroupTypeIdCompletedEventHandler GetAssetByAssetGroupTypeIdCompleted;
         
         /// <remarks/>
-        public event GetAssetByAssetGroupTypeIdCompletedEventHandler GetAssetByAssetGroupTypeIdCompleted;
+        public event GetAssetByIdCompletedEventHandler GetAssetByIdCompleted;
         
         /// <remarks/>
         public event GetAssetByDepartmentUsedIdCompletedEventHandler GetAssetByDepartmentUsedIdCompleted;
@@ -644,9 +644,9 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllAssetGroupType", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public AssetGroupType[] GetAllAssetGroupType() {
+        public ResultObjectOfListOfAssetGroupType GetAllAssetGroupType() {
             object[] results = this.Invoke("GetAllAssetGroupType", new object[0]);
-            return ((AssetGroupType[])(results[0]));
+            return ((ResultObjectOfListOfAssetGroupType)(results[0]));
         }
         
         /// <remarks/>
@@ -671,10 +671,10 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAssetGroupTypeById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public AssetGroupType GetAssetGroupTypeById(string id) {
+        public ResultObjectOfAssetGroupType GetAssetGroupTypeById(string id) {
             object[] results = this.Invoke("GetAssetGroupTypeById", new object[] {
                         id});
-            return ((AssetGroupType)(results[0]));
+            return ((ResultObjectOfAssetGroupType)(results[0]));
         }
         
         /// <remarks/>
@@ -793,9 +793,9 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllAssetGroup", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public AssetGroup[] GetAllAssetGroup() {
+        public ResultObjectOfListOfAssetGroup GetAllAssetGroup() {
             object[] results = this.Invoke("GetAllAssetGroup", new object[0]);
-            return ((AssetGroup[])(results[0]));
+            return ((ResultObjectOfListOfAssetGroup)(results[0]));
         }
         
         /// <remarks/>
@@ -820,10 +820,10 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAssetGroupById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public AssetGroup GetAssetGroupById(string id) {
+        public ResultObjectOfAssetGroup GetAssetGroupById(string id) {
             object[] results = this.Invoke("GetAssetGroupById", new object[] {
                         id});
-            return ((AssetGroup)(results[0]));
+            return ((ResultObjectOfAssetGroup)(results[0]));
         }
         
         /// <remarks/>
@@ -944,9 +944,9 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllCapitalGroup", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Capital[] GetAllCapitalGroup() {
+        public ResultObjectOfListOfCapital GetAllCapitalGroup() {
             object[] results = this.Invoke("GetAllCapitalGroup", new object[0]);
-            return ((Capital[])(results[0]));
+            return ((ResultObjectOfListOfCapital)(results[0]));
         }
         
         /// <remarks/>
@@ -971,10 +971,10 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetCapitalById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Capital GetCapitalById(string id) {
+        public ResultObjectOfCapital GetCapitalById(string id) {
             object[] results = this.Invoke("GetCapitalById", new object[] {
                         id});
-            return ((Capital)(results[0]));
+            return ((ResultObjectOfCapital)(results[0]));
         }
         
         /// <remarks/>
@@ -1133,38 +1133,38 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetDepartmentUsed", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public DepartmentUsed[] GetDepartmentUsed() {
-            object[] results = this.Invoke("GetDepartmentUsed", new object[0]);
-            return ((DepartmentUsed[])(results[0]));
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllDepartmentUsed", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ResultObjectOfListOfDepartmentUsed GetAllDepartmentUsed() {
+            object[] results = this.Invoke("GetAllDepartmentUsed", new object[0]);
+            return ((ResultObjectOfListOfDepartmentUsed)(results[0]));
         }
         
         /// <remarks/>
-        public void GetDepartmentUsedAsync() {
-            this.GetDepartmentUsedAsync(null);
+        public void GetAllDepartmentUsedAsync() {
+            this.GetAllDepartmentUsedAsync(null);
         }
         
         /// <remarks/>
-        public void GetDepartmentUsedAsync(object userState) {
-            if ((this.GetDepartmentUsedOperationCompleted == null)) {
-                this.GetDepartmentUsedOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetDepartmentUsedOperationCompleted);
+        public void GetAllDepartmentUsedAsync(object userState) {
+            if ((this.GetAllDepartmentUsedOperationCompleted == null)) {
+                this.GetAllDepartmentUsedOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAllDepartmentUsedOperationCompleted);
             }
-            this.InvokeAsync("GetDepartmentUsed", new object[0], this.GetDepartmentUsedOperationCompleted, userState);
+            this.InvokeAsync("GetAllDepartmentUsed", new object[0], this.GetAllDepartmentUsedOperationCompleted, userState);
         }
         
-        private void OnGetDepartmentUsedOperationCompleted(object arg) {
-            if ((this.GetDepartmentUsedCompleted != null)) {
+        private void OnGetAllDepartmentUsedOperationCompleted(object arg) {
+            if ((this.GetAllDepartmentUsedCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.GetDepartmentUsedCompleted(this, new GetDepartmentUsedCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.GetAllDepartmentUsedCompleted(this, new GetAllDepartmentUsedCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetDepartmentUsedById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public DepartmentUsed GetDepartmentUsedById(string id) {
+        public ResultObjectOfDepartmentUsed GetDepartmentUsedById(string id) {
             object[] results = this.Invoke("GetDepartmentUsedById", new object[] {
                         id});
-            return ((DepartmentUsed)(results[0]));
+            return ((ResultObjectOfDepartmentUsed)(results[0]));
         }
         
         /// <remarks/>
@@ -1285,9 +1285,9 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllUnit", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Unit[] GetAllUnit() {
+        public ResultObjectOfListOfUnit GetAllUnit() {
             object[] results = this.Invoke("GetAllUnit", new object[0]);
-            return ((Unit[])(results[0]));
+            return ((ResultObjectOfListOfUnit)(results[0]));
         }
         
         /// <remarks/>
@@ -1312,10 +1312,10 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetUnitById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Unit GetUnitById(string id) {
+        public ResultObjectOfUnit GetUnitById(string id) {
             object[] results = this.Invoke("GetUnitById", new object[] {
                         id});
-            return ((Unit)(results[0]));
+            return ((ResultObjectOfUnit)(results[0]));
         }
         
         /// <remarks/>
@@ -1737,35 +1737,6 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAssetById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Asset GetAssetById(string id) {
-            object[] results = this.Invoke("GetAssetById", new object[] {
-                        id});
-            return ((Asset)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void GetAssetByIdAsync(string id) {
-            this.GetAssetByIdAsync(id, null);
-        }
-        
-        /// <remarks/>
-        public void GetAssetByIdAsync(string id, object userState) {
-            if ((this.GetAssetByIdOperationCompleted == null)) {
-                this.GetAssetByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAssetByIdOperationCompleted);
-            }
-            this.InvokeAsync("GetAssetById", new object[] {
-                        id}, this.GetAssetByIdOperationCompleted, userState);
-        }
-        
-        private void OnGetAssetByIdOperationCompleted(object arg) {
-            if ((this.GetAssetByIdCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.GetAssetByIdCompleted(this, new GetAssetByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAssetByAssetGroupTypeId", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public ResultObjectOfListOfAssetData GetAssetByAssetGroupTypeId(string AssetGroupTypeId) {
             object[] results = this.Invoke("GetAssetByAssetGroupTypeId", new object[] {
@@ -1791,6 +1762,35 @@ namespace AssetManagerClient.WebService {
             if ((this.GetAssetByAssetGroupTypeIdCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetAssetByAssetGroupTypeIdCompleted(this, new GetAssetByAssetGroupTypeIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAssetById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ResultObjectOfAsset GetAssetById(string id) {
+            object[] results = this.Invoke("GetAssetById", new object[] {
+                        id});
+            return ((ResultObjectOfAsset)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAssetByIdAsync(string id) {
+            this.GetAssetByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void GetAssetByIdAsync(string id, object userState) {
+            if ((this.GetAssetByIdOperationCompleted == null)) {
+                this.GetAssetByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAssetByIdOperationCompleted);
+            }
+            this.InvokeAsync("GetAssetById", new object[] {
+                        id}, this.GetAssetByIdOperationCompleted, userState);
+        }
+        
+        private void OnGetAssetByIdOperationCompleted(object arg) {
+            if ((this.GetAssetByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAssetByIdCompleted(this, new GetAssetByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1928,9 +1928,9 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllPartner", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Partner[] GetAllPartner() {
+        public ResultObjectOfListOfPartner GetAllPartner() {
             object[] results = this.Invoke("GetAllPartner", new object[0]);
-            return ((Partner[])(results[0]));
+            return ((ResultObjectOfListOfPartner)(results[0]));
         }
         
         /// <remarks/>
@@ -1955,10 +1955,10 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetPartnerById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Partner GetPartnerById(string id) {
+        public ResultObjectOfPartner GetPartnerById(string id) {
             object[] results = this.Invoke("GetPartnerById", new object[] {
                         id});
-            return ((Partner)(results[0]));
+            return ((ResultObjectOfPartner)(results[0]));
         }
         
         /// <remarks/>
@@ -2079,9 +2079,9 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllUpDownReason", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public UpDownReason[] GetAllUpDownReason() {
+        public ResultObjectOfListOfUpDownReason GetAllUpDownReason() {
             object[] results = this.Invoke("GetAllUpDownReason", new object[0]);
-            return ((UpDownReason[])(results[0]));
+            return ((ResultObjectOfListOfUpDownReason)(results[0]));
         }
         
         /// <remarks/>
@@ -2106,10 +2106,10 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetUpDownReasonById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public UpDownReason GetUpDownReasonById(string id) {
+        public ResultObjectOfUpDownReason GetUpDownReasonById(string id) {
             object[] results = this.Invoke("GetUpDownReasonById", new object[] {
                         id});
-            return ((UpDownReason)(results[0]));
+            return ((ResultObjectOfUpDownReason)(results[0]));
         }
         
         /// <remarks/>
@@ -2238,9 +2238,9 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllAssetLiquidation", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public AssetLiquidation[] GetAllAssetLiquidation() {
+        public ResultObjectOfListOfAssetLiquidationData GetAllAssetLiquidation() {
             object[] results = this.Invoke("GetAllAssetLiquidation", new object[0]);
-            return ((AssetLiquidation[])(results[0]));
+            return ((ResultObjectOfListOfAssetLiquidationData)(results[0]));
         }
         
         /// <remarks/>
@@ -2265,10 +2265,10 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAssetLiquidationById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public AssetLiquidation GetAssetLiquidationById(string id) {
+        public ResultObjectOfAssetLiquidationData GetAssetLiquidationById(string id) {
             object[] results = this.Invoke("GetAssetLiquidationById", new object[] {
                         id});
-            return ((AssetLiquidation)(results[0]));
+            return ((ResultObjectOfAssetLiquidationData)(results[0]));
         }
         
         /// <remarks/>
@@ -2405,9 +2405,9 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllRepairAsset", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public RepairAsset[] GetAllRepairAsset() {
+        public ResultObjectOfListOfRepairAssetData GetAllRepairAsset() {
             object[] results = this.Invoke("GetAllRepairAsset", new object[0]);
-            return ((RepairAsset[])(results[0]));
+            return ((ResultObjectOfListOfRepairAssetData)(results[0]));
         }
         
         /// <remarks/>
@@ -2432,10 +2432,10 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetRepairAssetById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public RepairAsset GetRepairAssetById(string id) {
+        public ResultObjectOfRepairAssetData GetRepairAssetById(string id) {
             object[] results = this.Invoke("GetRepairAssetById", new object[] {
                         id});
-            return ((RepairAsset)(results[0]));
+            return ((ResultObjectOfRepairAssetData)(results[0]));
         }
         
         /// <remarks/>
@@ -3029,18 +3029,18 @@ namespace AssetManagerClient.WebService {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DepartmentUsed))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CapitalBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Capital))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroupTypeBase))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroupType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroupBase))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroup))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetBase))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Asset))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RepairAssetBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RepairAsset))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetLiquidationBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetLiquidation))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(WarrantyAssetBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(WarrantyAsset))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Asset))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroupBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroup))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroupTypeBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroupType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CheckOutBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CheckOut))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
@@ -3067,18 +3067,18 @@ namespace AssetManagerClient.WebService {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DepartmentUsed))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CapitalBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Capital))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroupTypeBase))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroupType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroupBase))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroup))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetBase))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Asset))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RepairAssetBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RepairAsset))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetLiquidationBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetLiquidation))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(WarrantyAssetBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(WarrantyAsset))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Asset))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroupBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroup))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroupTypeBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroupType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CheckOutBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CheckOut))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
@@ -3107,322 +3107,13 @@ namespace AssetManagerClient.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class AssetData {
-        
-        private string idField;
-        
-        private string nameField;
-        
-        private string assetGroupField;
-        
-        private string unitField;
-        
-        private long amountField;
-        
-        private string counProField;
-        
-        private long yearProField;
-        
-        private string departmentUsedField;
-        
-        private long totalPriceField;
-        
-        private long bugetPriceField;
-        
-        private long ownPriceField;
-        
-        private long venturePriceField;
-        
-        private long anotherPriceField;
-        
-        private long totalDepreciationField;
-        
-        private long bugetDepreciationField;
-        
-        private long ownDepreciationField;
-        
-        private long ventureDepreciationField;
-        
-        private long anotherDepreciationField;
-        
-        private long bugeRemainField;
-        
-        private long ownRemainField;
-        
-        private long ventureRemainField;
-        
-        private long anotherRemainField;
-        
-        private long totalRemainField;
-        
-        private string upDownCodeField;
-        
-        private System.DateTime inputDateTimeField;
-        
-        /// <remarks/>
-        public string Id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string AssetGroup {
-            get {
-                return this.assetGroupField;
-            }
-            set {
-                this.assetGroupField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Unit {
-            get {
-                return this.unitField;
-            }
-            set {
-                this.unitField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public long Amount {
-            get {
-                return this.amountField;
-            }
-            set {
-                this.amountField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string CounPro {
-            get {
-                return this.counProField;
-            }
-            set {
-                this.counProField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public long YearPro {
-            get {
-                return this.yearProField;
-            }
-            set {
-                this.yearProField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DepartmentUsed {
-            get {
-                return this.departmentUsedField;
-            }
-            set {
-                this.departmentUsedField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public long TotalPrice {
-            get {
-                return this.totalPriceField;
-            }
-            set {
-                this.totalPriceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public long BugetPrice {
-            get {
-                return this.bugetPriceField;
-            }
-            set {
-                this.bugetPriceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public long OwnPrice {
-            get {
-                return this.ownPriceField;
-            }
-            set {
-                this.ownPriceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public long VenturePrice {
-            get {
-                return this.venturePriceField;
-            }
-            set {
-                this.venturePriceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public long AnotherPrice {
-            get {
-                return this.anotherPriceField;
-            }
-            set {
-                this.anotherPriceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public long TotalDepreciation {
-            get {
-                return this.totalDepreciationField;
-            }
-            set {
-                this.totalDepreciationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public long BugetDepreciation {
-            get {
-                return this.bugetDepreciationField;
-            }
-            set {
-                this.bugetDepreciationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public long OwnDepreciation {
-            get {
-                return this.ownDepreciationField;
-            }
-            set {
-                this.ownDepreciationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public long VentureDepreciation {
-            get {
-                return this.ventureDepreciationField;
-            }
-            set {
-                this.ventureDepreciationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public long AnotherDepreciation {
-            get {
-                return this.anotherDepreciationField;
-            }
-            set {
-                this.anotherDepreciationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public long BugeRemain {
-            get {
-                return this.bugeRemainField;
-            }
-            set {
-                this.bugeRemainField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public long OwnRemain {
-            get {
-                return this.ownRemainField;
-            }
-            set {
-                this.ownRemainField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public long VentureRemain {
-            get {
-                return this.ventureRemainField;
-            }
-            set {
-                this.ventureRemainField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public long AnotherRemain {
-            get {
-                return this.anotherRemainField;
-            }
-            set {
-                this.anotherRemainField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public long TotalRemain {
-            get {
-                return this.totalRemainField;
-            }
-            set {
-                this.totalRemainField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string UpDownCode {
-            get {
-                return this.upDownCodeField;
-            }
-            set {
-                this.upDownCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime InputDateTime {
-            get {
-                return this.inputDateTimeField;
-            }
-            set {
-                this.inputDateTimeField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ResultObjectOfListOfAssetData {
+    public partial class ResultObjectOfRepairAssetData {
         
         private string messageField;
         
         private int retCodeField;
         
-        private AssetData[] retObjectField;
+        private RepairAssetData retObjectField;
         
         /// <remarks/>
         public string Message {
@@ -3445,7 +3136,7 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public AssetData[] RetObject {
+        public RepairAssetData RetObject {
             get {
                 return this.retObjectField;
             }
@@ -3456,28 +3147,29 @@ namespace AssetManagerClient.WebService {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Audit))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public abstract partial class AuditBase : EntityBase {
+    public partial class RepairAssetData {
         
-        private long idField;
+        private string idField;
         
-        private string assetIdField;
+        private string assetNameField;
         
-        private System.Nullable<System.DateTime> auditDateField;
+        private string departmentUsedNameField;
         
-        private string commentField;
+        private string partnerNameField;
         
-        private string userField;
+        private string addressField;
         
-        private string computerField;
+        private System.DateTime repairDateField;
+        
+        private long feeField;
         
         /// <remarks/>
-        public long Id {
+        public string Id {
             get {
                 return this.idField;
             }
@@ -3487,53 +3179,62 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public string AssetId {
+        public string AssetName {
             get {
-                return this.assetIdField;
+                return this.assetNameField;
             }
             set {
-                this.assetIdField = value;
+                this.assetNameField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<System.DateTime> AuditDate {
+        public string DepartmentUsedName {
             get {
-                return this.auditDateField;
+                return this.departmentUsedNameField;
             }
             set {
-                this.auditDateField = value;
+                this.departmentUsedNameField = value;
             }
         }
         
         /// <remarks/>
-        public string Comment {
+        public string PartnerName {
             get {
-                return this.commentField;
+                return this.partnerNameField;
             }
             set {
-                this.commentField = value;
+                this.partnerNameField = value;
             }
         }
         
         /// <remarks/>
-        public string User {
+        public string Address {
             get {
-                return this.userField;
+                return this.addressField;
             }
             set {
-                this.userField = value;
+                this.addressField = value;
             }
         }
         
         /// <remarks/>
-        public string Computer {
+        public System.DateTime RepairDate {
             get {
-                return this.computerField;
+                return this.repairDateField;
             }
             set {
-                this.computerField = value;
+                this.repairDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long Fee {
+            get {
+                return this.feeField;
+            }
+            set {
+                this.feeField = value;
             }
         }
     }
@@ -3544,26 +3245,110 @@ namespace AssetManagerClient.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Audit : AuditBase {
+    public partial class ResultObjectOfListOfRepairAssetData {
+        
+        private string messageField;
+        
+        private int retCodeField;
+        
+        private RepairAssetData[] retObjectField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public RepairAssetData[] RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Image))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public abstract partial class ImageBase : EntityBase {
+    public partial class ResultObjectOfAssetLiquidationData {
         
-        private long idField;
+        private string messageField;
         
-        private string assetIdField;
+        private int retCodeField;
         
-        private string imageUrlField;
+        private AssetLiquidationData retObjectField;
         
         /// <remarks/>
-        public long Id {
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public AssetLiquidationData RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class AssetLiquidationData {
+        
+        private string idField;
+        
+        private string assetNameField;
+        
+        private string departmentUsedNameField;
+        
+        private System.DateTime liDateTimeField;
+        
+        private long liPriceField;
+        
+        /// <remarks/>
+        public string Id {
             get {
                 return this.idField;
             }
@@ -3573,22 +3358,42 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public string AssetId {
+        public string AssetName {
             get {
-                return this.assetIdField;
+                return this.assetNameField;
             }
             set {
-                this.assetIdField = value;
+                this.assetNameField = value;
             }
         }
         
         /// <remarks/>
-        public string ImageUrl {
+        public string DepartmentUsedName {
             get {
-                return this.imageUrlField;
+                return this.departmentUsedNameField;
             }
             set {
-                this.imageUrlField = value;
+                this.departmentUsedNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime LiDateTime {
+            get {
+                return this.liDateTimeField;
+            }
+            set {
+                this.liDateTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long LiPrice {
+            get {
+                return this.liPriceField;
+            }
+            set {
+                this.liPriceField = value;
             }
         }
     }
@@ -3599,7 +3404,97 @@ namespace AssetManagerClient.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Image : ImageBase {
+    public partial class ResultObjectOfListOfAssetLiquidationData {
+        
+        private string messageField;
+        
+        private int retCodeField;
+        
+        private AssetLiquidationData[] retObjectField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public AssetLiquidationData[] RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ResultObjectOfUpDownReason {
+        
+        private string messageField;
+        
+        private int retCodeField;
+        
+        private UpDownReason retObjectField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public UpDownReason RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpDownReason : UpDownReasonBase {
     }
     
     /// <remarks/>
@@ -3666,7 +3561,97 @@ namespace AssetManagerClient.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class UpDownReason : UpDownReasonBase {
+    public partial class ResultObjectOfListOfUpDownReason {
+        
+        private string messageField;
+        
+        private int retCodeField;
+        
+        private UpDownReason[] retObjectField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public UpDownReason[] RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ResultObjectOfPartner {
+        
+        private string messageField;
+        
+        private int retCodeField;
+        
+        private Partner retObjectField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Partner RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Partner : PartnerBase {
     }
     
     /// <remarks/>
@@ -4036,75 +4021,86 @@ namespace AssetManagerClient.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Partner : PartnerBase {
+    public partial class ResultObjectOfListOfPartner {
+        
+        private string messageField;
+        
+        private int retCodeField;
+        
+        private Partner[] retObjectField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Partner[] RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Unit))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public abstract partial class UnitBase : EntityBase {
+    public partial class ResultObjectOfAsset {
         
-        private string idField;
+        private string messageField;
         
-        private string originalIdField;
+        private int retCodeField;
         
-        private string nameField;
-        
-        private string noteField;
-        
-        private Asset[] assetCollectionField;
+        private Asset retObjectField;
         
         /// <remarks/>
-        public string Id {
+        public string Message {
             get {
-                return this.idField;
+                return this.messageField;
             }
             set {
-                this.idField = value;
+                this.messageField = value;
             }
         }
         
         /// <remarks/>
-        public string OriginalId {
+        public int RetCode {
             get {
-                return this.originalIdField;
+                return this.retCodeField;
             }
             set {
-                this.originalIdField = value;
+                this.retCodeField = value;
             }
         }
         
         /// <remarks/>
-        public string Name {
+        public Asset RetObject {
             get {
-                return this.nameField;
+                return this.retObjectField;
             }
             set {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Note {
-            get {
-                return this.noteField;
-            }
-            set {
-                this.noteField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Asset[] AssetCollection {
-            get {
-                return this.assetCollectionField;
-            }
-            set {
-                this.assetCollectionField = value;
+                this.retObjectField = value;
             }
         }
     }
@@ -4684,7 +4680,575 @@ namespace AssetManagerClient.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class AssetData {
+        
+        private string idField;
+        
+        private string nameField;
+        
+        private string assetGroupField;
+        
+        private string unitField;
+        
+        private long amountField;
+        
+        private string counProField;
+        
+        private long yearProField;
+        
+        private string departmentUsedField;
+        
+        private long totalPriceField;
+        
+        private long bugetPriceField;
+        
+        private long ownPriceField;
+        
+        private long venturePriceField;
+        
+        private long anotherPriceField;
+        
+        private long totalDepreciationField;
+        
+        private long bugetDepreciationField;
+        
+        private long ownDepreciationField;
+        
+        private long ventureDepreciationField;
+        
+        private long anotherDepreciationField;
+        
+        private long bugeRemainField;
+        
+        private long ownRemainField;
+        
+        private long ventureRemainField;
+        
+        private long anotherRemainField;
+        
+        private long totalRemainField;
+        
+        private string upDownCodeField;
+        
+        private System.DateTime inputDateTimeField;
+        
+        /// <remarks/>
+        public string Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string AssetGroup {
+            get {
+                return this.assetGroupField;
+            }
+            set {
+                this.assetGroupField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Unit {
+            get {
+                return this.unitField;
+            }
+            set {
+                this.unitField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long Amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                this.amountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CounPro {
+            get {
+                return this.counProField;
+            }
+            set {
+                this.counProField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long YearPro {
+            get {
+                return this.yearProField;
+            }
+            set {
+                this.yearProField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DepartmentUsed {
+            get {
+                return this.departmentUsedField;
+            }
+            set {
+                this.departmentUsedField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long TotalPrice {
+            get {
+                return this.totalPriceField;
+            }
+            set {
+                this.totalPriceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long BugetPrice {
+            get {
+                return this.bugetPriceField;
+            }
+            set {
+                this.bugetPriceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long OwnPrice {
+            get {
+                return this.ownPriceField;
+            }
+            set {
+                this.ownPriceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long VenturePrice {
+            get {
+                return this.venturePriceField;
+            }
+            set {
+                this.venturePriceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long AnotherPrice {
+            get {
+                return this.anotherPriceField;
+            }
+            set {
+                this.anotherPriceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long TotalDepreciation {
+            get {
+                return this.totalDepreciationField;
+            }
+            set {
+                this.totalDepreciationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long BugetDepreciation {
+            get {
+                return this.bugetDepreciationField;
+            }
+            set {
+                this.bugetDepreciationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long OwnDepreciation {
+            get {
+                return this.ownDepreciationField;
+            }
+            set {
+                this.ownDepreciationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long VentureDepreciation {
+            get {
+                return this.ventureDepreciationField;
+            }
+            set {
+                this.ventureDepreciationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long AnotherDepreciation {
+            get {
+                return this.anotherDepreciationField;
+            }
+            set {
+                this.anotherDepreciationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long BugeRemain {
+            get {
+                return this.bugeRemainField;
+            }
+            set {
+                this.bugeRemainField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long OwnRemain {
+            get {
+                return this.ownRemainField;
+            }
+            set {
+                this.ownRemainField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long VentureRemain {
+            get {
+                return this.ventureRemainField;
+            }
+            set {
+                this.ventureRemainField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long AnotherRemain {
+            get {
+                return this.anotherRemainField;
+            }
+            set {
+                this.anotherRemainField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public long TotalRemain {
+            get {
+                return this.totalRemainField;
+            }
+            set {
+                this.totalRemainField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string UpDownCode {
+            get {
+                return this.upDownCodeField;
+            }
+            set {
+                this.upDownCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime InputDateTime {
+            get {
+                return this.inputDateTimeField;
+            }
+            set {
+                this.inputDateTimeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ResultObjectOfListOfAssetData {
+        
+        private string messageField;
+        
+        private int retCodeField;
+        
+        private AssetData[] retObjectField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public AssetData[] RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ResultObjectOfUnit {
+        
+        private string messageField;
+        
+        private int retCodeField;
+        
+        private Unit retObjectField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Unit RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class Unit : UnitBase {
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Unit))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public abstract partial class UnitBase : EntityBase {
+        
+        private string idField;
+        
+        private string originalIdField;
+        
+        private string nameField;
+        
+        private string noteField;
+        
+        private Asset[] assetCollectionField;
+        
+        /// <remarks/>
+        public string Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string OriginalId {
+            get {
+                return this.originalIdField;
+            }
+            set {
+                this.originalIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note {
+            get {
+                return this.noteField;
+            }
+            set {
+                this.noteField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Asset[] AssetCollection {
+            get {
+                return this.assetCollectionField;
+            }
+            set {
+                this.assetCollectionField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ResultObjectOfListOfUnit {
+        
+        private string messageField;
+        
+        private int retCodeField;
+        
+        private Unit[] retObjectField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Unit[] RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ResultObjectOfDepartmentUsed {
+        
+        private string messageField;
+        
+        private int retCodeField;
+        
+        private DepartmentUsed retObjectField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public DepartmentUsed RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class DepartmentUsed : DepartmentUsedBase {
     }
     
     /// <remarks/>
@@ -4823,7 +5387,97 @@ namespace AssetManagerClient.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class DepartmentUsed : DepartmentUsedBase {
+    public partial class ResultObjectOfListOfDepartmentUsed {
+        
+        private string messageField;
+        
+        private int retCodeField;
+        
+        private DepartmentUsed[] retObjectField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public DepartmentUsed[] RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ResultObjectOfCapital {
+        
+        private string messageField;
+        
+        private int retCodeField;
+        
+        private Capital retObjectField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Capital RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Capital : CapitalBase {
     }
     
     /// <remarks/>
@@ -4890,63 +5544,86 @@ namespace AssetManagerClient.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Capital : CapitalBase {
+    public partial class ResultObjectOfListOfCapital {
+        
+        private string messageField;
+        
+        private int retCodeField;
+        
+        private Capital[] retObjectField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Capital[] RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroupType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public abstract partial class AssetGroupTypeBase : EntityBase {
+    public partial class ResultObjectOfAssetGroup {
         
-        private string idField;
+        private string messageField;
         
-        private string originalIdField;
+        private int retCodeField;
         
-        private string nameField;
-        
-        private AssetGroup[] assetGroupCollectionField;
+        private AssetGroup retObjectField;
         
         /// <remarks/>
-        public string Id {
+        public string Message {
             get {
-                return this.idField;
+                return this.messageField;
             }
             set {
-                this.idField = value;
+                this.messageField = value;
             }
         }
         
         /// <remarks/>
-        public string OriginalId {
+        public int RetCode {
             get {
-                return this.originalIdField;
+                return this.retCodeField;
             }
             set {
-                this.originalIdField = value;
+                this.retCodeField = value;
             }
         }
         
         /// <remarks/>
-        public string Name {
+        public AssetGroup RetObject {
             get {
-                return this.nameField;
+                return this.retObjectField;
             }
             set {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public AssetGroup[] AssetGroupCollection {
-            get {
-                return this.assetGroupCollectionField;
-            }
-            set {
-                this.assetGroupCollectionField = value;
+                this.retObjectField = value;
             }
         }
     }
@@ -5036,7 +5713,347 @@ namespace AssetManagerClient.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ResultObjectOfListOfAssetGroup {
+        
+        private string messageField;
+        
+        private int retCodeField;
+        
+        private AssetGroup[] retObjectField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public AssetGroup[] RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ResultObjectOfAssetGroupType {
+        
+        private string messageField;
+        
+        private int retCodeField;
+        
+        private AssetGroupType retObjectField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public AssetGroupType RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class AssetGroupType : AssetGroupTypeBase {
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroupType))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public abstract partial class AssetGroupTypeBase : EntityBase {
+        
+        private string idField;
+        
+        private string originalIdField;
+        
+        private string nameField;
+        
+        private AssetGroup[] assetGroupCollectionField;
+        
+        /// <remarks/>
+        public string Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string OriginalId {
+            get {
+                return this.originalIdField;
+            }
+            set {
+                this.originalIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public AssetGroup[] AssetGroupCollection {
+            get {
+                return this.assetGroupCollectionField;
+            }
+            set {
+                this.assetGroupCollectionField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ResultObjectOfListOfAssetGroupType {
+        
+        private string messageField;
+        
+        private int retCodeField;
+        
+        private AssetGroupType[] retObjectField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int RetCode {
+            get {
+                return this.retCodeField;
+            }
+            set {
+                this.retCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public AssetGroupType[] RetObject {
+            get {
+                return this.retObjectField;
+            }
+            set {
+                this.retObjectField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Audit))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public abstract partial class AuditBase : EntityBase {
+        
+        private long idField;
+        
+        private string assetIdField;
+        
+        private System.Nullable<System.DateTime> auditDateField;
+        
+        private string commentField;
+        
+        private string userField;
+        
+        private string computerField;
+        
+        /// <remarks/>
+        public long Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string AssetId {
+            get {
+                return this.assetIdField;
+            }
+            set {
+                this.assetIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> AuditDate {
+            get {
+                return this.auditDateField;
+            }
+            set {
+                this.auditDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Comment {
+            get {
+                return this.commentField;
+            }
+            set {
+                this.commentField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string User {
+            get {
+                return this.userField;
+            }
+            set {
+                this.userField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Computer {
+            get {
+                return this.computerField;
+            }
+            set {
+                this.computerField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Audit : AuditBase {
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Image))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public abstract partial class ImageBase : EntityBase {
+        
+        private long idField;
+        
+        private string assetIdField;
+        
+        private string imageUrlField;
+        
+        /// <remarks/>
+        public long Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string AssetId {
+            get {
+                return this.assetIdField;
+            }
+            set {
+                this.assetIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ImageUrl {
+            get {
+                return this.imageUrlField;
+            }
+            set {
+                this.imageUrlField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Image : ImageBase {
     }
     
     /// <remarks/>
@@ -5239,10 +6256,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public AssetGroupType[] Result {
+        public ResultObjectOfListOfAssetGroupType Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((AssetGroupType[])(this.results[0]));
+                return ((ResultObjectOfListOfAssetGroupType)(this.results[0]));
             }
         }
     }
@@ -5265,10 +6282,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public AssetGroupType Result {
+        public ResultObjectOfAssetGroupType Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((AssetGroupType)(this.results[0]));
+                return ((ResultObjectOfAssetGroupType)(this.results[0]));
             }
         }
     }
@@ -5369,10 +6386,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public AssetGroup[] Result {
+        public ResultObjectOfListOfAssetGroup Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((AssetGroup[])(this.results[0]));
+                return ((ResultObjectOfListOfAssetGroup)(this.results[0]));
             }
         }
     }
@@ -5395,10 +6412,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public AssetGroup Result {
+        public ResultObjectOfAssetGroup Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((AssetGroup)(this.results[0]));
+                return ((ResultObjectOfAssetGroup)(this.results[0]));
             }
         }
     }
@@ -5499,10 +6516,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public Capital[] Result {
+        public ResultObjectOfListOfCapital Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Capital[])(this.results[0]));
+                return ((ResultObjectOfListOfCapital)(this.results[0]));
             }
         }
     }
@@ -5525,10 +6542,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public Capital Result {
+        public ResultObjectOfCapital Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Capital)(this.results[0]));
+                return ((ResultObjectOfCapital)(this.results[0]));
             }
         }
     }
@@ -5639,26 +6656,26 @@ namespace AssetManagerClient.WebService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
-    public delegate void GetDepartmentUsedCompletedEventHandler(object sender, GetDepartmentUsedCompletedEventArgs e);
+    public delegate void GetAllDepartmentUsedCompletedEventHandler(object sender, GetAllDepartmentUsedCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class GetDepartmentUsedCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class GetAllDepartmentUsedCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal GetDepartmentUsedCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal GetAllDepartmentUsedCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public DepartmentUsed[] Result {
+        public ResultObjectOfListOfDepartmentUsed Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((DepartmentUsed[])(this.results[0]));
+                return ((ResultObjectOfListOfDepartmentUsed)(this.results[0]));
             }
         }
     }
@@ -5681,10 +6698,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public DepartmentUsed Result {
+        public ResultObjectOfDepartmentUsed Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((DepartmentUsed)(this.results[0]));
+                return ((ResultObjectOfDepartmentUsed)(this.results[0]));
             }
         }
     }
@@ -5785,10 +6802,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public Unit[] Result {
+        public ResultObjectOfListOfUnit Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Unit[])(this.results[0]));
+                return ((ResultObjectOfListOfUnit)(this.results[0]));
             }
         }
     }
@@ -5811,10 +6828,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public Unit Result {
+        public ResultObjectOfUnit Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Unit)(this.results[0]));
+                return ((ResultObjectOfUnit)(this.results[0]));
             }
         }
     }
@@ -5925,32 +6942,6 @@ namespace AssetManagerClient.WebService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
-    public delegate void GetAssetByIdCompletedEventHandler(object sender, GetAssetByIdCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class GetAssetByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal GetAssetByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public Asset Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((Asset)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
     public delegate void GetAssetByAssetGroupTypeIdCompletedEventHandler(object sender, GetAssetByAssetGroupTypeIdCompletedEventArgs e);
     
     /// <remarks/>
@@ -5971,6 +6962,32 @@ namespace AssetManagerClient.WebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((ResultObjectOfListOfAssetData)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetAssetByIdCompletedEventHandler(object sender, GetAssetByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAssetByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAssetByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public ResultObjectOfAsset Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((ResultObjectOfAsset)(this.results[0]));
             }
         }
     }
@@ -6097,10 +7114,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public Partner[] Result {
+        public ResultObjectOfListOfPartner Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Partner[])(this.results[0]));
+                return ((ResultObjectOfListOfPartner)(this.results[0]));
             }
         }
     }
@@ -6123,10 +7140,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public Partner Result {
+        public ResultObjectOfPartner Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Partner)(this.results[0]));
+                return ((ResultObjectOfPartner)(this.results[0]));
             }
         }
     }
@@ -6227,10 +7244,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public UpDownReason[] Result {
+        public ResultObjectOfListOfUpDownReason Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((UpDownReason[])(this.results[0]));
+                return ((ResultObjectOfListOfUpDownReason)(this.results[0]));
             }
         }
     }
@@ -6253,10 +7270,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public UpDownReason Result {
+        public ResultObjectOfUpDownReason Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((UpDownReason)(this.results[0]));
+                return ((ResultObjectOfUpDownReason)(this.results[0]));
             }
         }
     }
@@ -6357,10 +7374,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public AssetLiquidation[] Result {
+        public ResultObjectOfListOfAssetLiquidationData Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((AssetLiquidation[])(this.results[0]));
+                return ((ResultObjectOfListOfAssetLiquidationData)(this.results[0]));
             }
         }
     }
@@ -6383,10 +7400,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public AssetLiquidation Result {
+        public ResultObjectOfAssetLiquidationData Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((AssetLiquidation)(this.results[0]));
+                return ((ResultObjectOfAssetLiquidationData)(this.results[0]));
             }
         }
     }
@@ -6487,10 +7504,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public RepairAsset[] Result {
+        public ResultObjectOfListOfRepairAssetData Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((RepairAsset[])(this.results[0]));
+                return ((ResultObjectOfListOfRepairAssetData)(this.results[0]));
             }
         }
     }
@@ -6513,10 +7530,10 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        public RepairAsset Result {
+        public ResultObjectOfRepairAssetData Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((RepairAsset)(this.results[0]));
+                return ((ResultObjectOfRepairAssetData)(this.results[0]));
             }
         }
     }

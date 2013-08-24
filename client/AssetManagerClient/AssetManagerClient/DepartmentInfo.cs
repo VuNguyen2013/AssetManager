@@ -110,7 +110,7 @@ namespace AssetManagerClient
             {
                 try
                 {
-                    var result = WebServices.GetDepartmentUsedById(_id);
+                    var result = WebServices.GetDepartmentUsedById(_id).RetObject;
                     txtName.Text = result.Name;
                     txtAddress.Text = result.Address;
                     txtSdt.Text = result.Phone;

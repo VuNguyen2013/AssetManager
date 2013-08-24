@@ -31,10 +31,9 @@ namespace AssetManagerClient
         }
         void InitContent()
         {
-            
             Invoke(new Action(() => txtAssetNumber.Text = assetNumber));
             //init Group
-            var assetGroups = WebServices.GetAllAssetGroup();
+            var assetGroups = WebServices.GetAllAssetGroupType().RetObject;
             cbxItem cbxItem;
             foreach (var assetGroup in assetGroups)
             {
@@ -42,7 +41,7 @@ namespace AssetManagerClient
                 Invoke(new Action(() => cbAssetGroup.Items.Add(cbxItem)));
             }
             //init Department
-            var assetDeparments = WebServices.GetDepartmentUsed();
+            var assetDeparments = WebServices.GetAllDepartmentUsed().RetObject;
             foreach (var assetDeparment in assetDeparments)
             {
                 cbxItem = new cbxItem {Text = assetDeparment.Name, Id = assetDeparment.Id};
@@ -51,7 +50,7 @@ namespace AssetManagerClient
             }
 
             //init Department
-            var units = WebServices.GetAllUnit();
+            var units = WebServices.GetAllUnit().RetObject;
             foreach (var unit in units)
             {
                 cbxItem = new cbxItem { Text = unit.Name, Id = unit.Id };
@@ -59,13 +58,13 @@ namespace AssetManagerClient
             }
 
             //init Status
-            cbxItem = new cbxItem { Text = "Đang sữ dụng", Id = ((int)AssetManagerCommon.CommonEnums.STATUS.IN_USE).ToString(CultureInfo.InvariantCulture) };
+            cbxItem = new cbxItem { Text = "Đang sữ dụng", Id = ((int)CommonEnums.STATUS.IN_USE).ToString(CultureInfo.InvariantCulture) };
             Invoke(new Action(() => cbStatus.Items.Add(cbxItem)));
-            cbxItem = new cbxItem { Text = "Đang lưu trong kho", Id = ((int)AssetManagerCommon.CommonEnums.STATUS.IN_STORAGE).ToString(CultureInfo.InvariantCulture) };
+            cbxItem = new cbxItem { Text = "Đang lưu trong kho", Id = ((int)CommonEnums.STATUS.IN_STORAGE).ToString(CultureInfo.InvariantCulture) };
             Invoke(new Action(() => cbStatus.Items.Add(cbxItem)));
-            cbxItem = new cbxItem { Text = "Đang cho mượn", Id = ((int)AssetManagerCommon.CommonEnums.STATUS.LOANED_OUT).ToString(CultureInfo.InvariantCulture) };
+            cbxItem = new cbxItem { Text = "Đang cho mượn", Id = ((int)CommonEnums.STATUS.LOANED_OUT).ToString(CultureInfo.InvariantCulture) };
             Invoke(new Action(() => cbStatus.Items.Add(cbxItem)));
-            cbxItem = new cbxItem { Text = "Đang sửa chữa", Id = ((int)AssetManagerCommon.CommonEnums.STATUS.OUT_FOR_REPAIR).ToString(CultureInfo.InvariantCulture) };
+            cbxItem = new cbxItem { Text = "Đang sửa chữa", Id = ((int)CommonEnums.STATUS.OUT_FOR_REPAIR).ToString(CultureInfo.InvariantCulture) };
             Invoke(new Action(() => cbStatus.Items.Add(cbxItem)));
 
             //init Status
@@ -142,11 +141,11 @@ namespace AssetManagerClient
             gpLoading.Show();
             try
             {
-                DateTime now=new DateTime();
+                var duedate = Convert.ToDateTime(deDueDate.Text);
                 var result = WebServices.NewAsset("AS_" + txtAssetNumber.Text, txtName.Text, cbxAssetGroup.Id,
-                                                  cbxUnit.Id, 1, "japan", 2013, cbxDepartmentUsed.Id,
-                                                  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "U","toshiba","f","ewq",1,1,now,"","");
-                if (result == (int) AssetManagerCommon.CommonEnums.RetCode.SUCCESS)
+                                                  cbxUnit.Id, Convert.ToInt32(txtAmount.Text),txtCounPro.Text, Convert.ToInt32(txtYear.Text), cbxDepartmentUsed.Id,
+                                                  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "U", txtFactory.Text, txtBrand.Text, txtModel.Text, Convert.ToInt16(cbxStatus.Id), Convert.ToInt16(cbxCondition.Id), duedate, meNote.Text, txtSeries.Text);
+                if (result == (int) CommonEnums.RetCode.SUCCESS)
                 {
                     //if success,upload image
                     gpLoading.Description = "Đang tải hình ảnh lên";
@@ -226,8 +225,18 @@ namespace AssetManagerClient
             {
                 try
                 {
-                    var result=WebServices.GetAssetById(_id);
+                    var result=WebServices.GetAssetById(_id).RetObject;
                     txtName.Text = result.Name;
+                    txtAmount.Text = result.Amount.ToString();
+                    txtAssetNumber.Text = result.Id.Split('_')[2];
+                    txtBrand.Text = result.Brand;
+                    txtCounPro.Text = result.CounPro;
+                    txtFactory.Text = result.Manufacturer;
+                    txtModel.Text = result.Model;
+                    txtName.Text = result.Name;
+                    txtSeries.Text = result.SeriesNumber;
+                    txtYear.Text = result.YearPro.ToString();
+                   
                     //txtModel.Text=result.
                 }
                 catch (Exception)
@@ -235,6 +244,23 @@ namespace AssetManagerClient
                     MessageBox.Show("Không thể kết nối tới server,vui lòng kiểm tra cài đặt mạng");
                 }
             }
+        }
+
+        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+                && !char.IsDigit(e.KeyChar)
+                && e.KeyChar != '.')
+                    {
+                        e.Handled = true;
+                    }
+
+                    // only allow one decimal point
+                    if (e.KeyChar == '.'
+                        && (sender as TextBox).Text.IndexOf('.') > -1)
+                    {
+                        e.Handled = true;
+                    }
         }
     }
 }
