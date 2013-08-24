@@ -566,6 +566,27 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
+        public int IncresaseAsset(string id, int count)
+        {
+            cunghoc3_AssetManager.Services.AssetService db = new Services.AssetService();
+            var resultObject = new ResultObject<Asset> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+            var asset = db.GetById(id);
+            for (int i = 0; i < count; i++)
+            {
+                int num = randomId.Next(1000000, 9999999);
+                string newId = "AS_" + num;
+                while (GetAssetById(newId).RetObject == null)
+                {
+                    num = randomId.Next(1000000, 9999999);
+                    newId = "AS_" + num;
+                }
+                var newAsset = asset;
+                newAsset.Id = newId;
+                db.Insert(newAsset);
+            }
+            return (int)CommonEnums.RetCode.SUCCESS;
+        }
+        [WebMethod]
         public ResultObject<List<AssetData>> GetAssetByDepartmentUsedId(string DepartmentUsedId)
         {
             var resultObject = new ResultObject<List<AssetData>> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
