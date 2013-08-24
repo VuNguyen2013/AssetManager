@@ -6,16 +6,19 @@
       <Value Profile="(Default)">http://localhost:2485/AssetManagerService.asmx</Value>
     </Setting>
     <Setting Name="UsernameFtp" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">thietkewebnet</Value>
+      <Value Profile="(Default)">chsboqgl</Value>
     </Setting>
     <Setting Name="PasswordFtp" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">12345679</Value>
+      <Value Profile="(Default)">yH869kwDu2</Value>
     </Setting>
     <Setting Name="hostIP" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">123.30.174.116</Value>
+      <Value Profile="(Default)">123.30.187.4</Value>
     </Setting>
-    <Setting Name="remoteUrl" Type="System.String" Scope="User">
-      <Value Profile="(Default)">/httpdocs/AssetManage/</Value>
+    <Setting Name="imageUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/httpdocs/AssetManage/Image</Value>
+    </Setting>
+    <Setting Name="attach" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/httpdocs/AssetManage/Attach</Value>
     </Setting>
   </Settings>
 </SettingsFile>

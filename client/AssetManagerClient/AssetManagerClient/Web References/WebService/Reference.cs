@@ -28,8 +28,9 @@ namespace AssetManagerClient.WebService {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="AssetManagerServiceSoap", Namespace="http://tempuri.org/")]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EntityBaseCore))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CheckOut[]))]
     public partial class AssetManagerService : System.Web.Services.Protocols.SoapHttpClientProtocol {
+        
+        private System.Threading.SendOrPostCallback GetAuditByIdOperationCompleted;
         
         private System.Threading.SendOrPostCallback DelAuditByIdOperationCompleted;
         
@@ -103,6 +104,8 @@ namespace AssetManagerClient.WebService {
         
         private System.Threading.SendOrPostCallback GetAssetByIdOperationCompleted;
         
+        private System.Threading.SendOrPostCallback IncresaseAssetOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetAssetByDepartmentUsedIdOperationCompleted;
         
         private System.Threading.SendOrPostCallback DelAssetByIdOperationCompleted;
@@ -169,8 +172,6 @@ namespace AssetManagerClient.WebService {
         
         private System.Threading.SendOrPostCallback UpdateAuditOperationCompleted;
         
-        private System.Threading.SendOrPostCallback GetAuditByIdOperationCompleted;
-        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -208,6 +209,9 @@ namespace AssetManagerClient.WebService {
                 this.useDefaultCredentialsSetExplicitly = true;
             }
         }
+        
+        /// <remarks/>
+        public event GetAuditByIdCompletedEventHandler GetAuditByIdCompleted;
         
         /// <remarks/>
         public event DelAuditByIdCompletedEventHandler DelAuditByIdCompleted;
@@ -318,6 +322,9 @@ namespace AssetManagerClient.WebService {
         public event GetAssetByIdCompletedEventHandler GetAssetByIdCompleted;
         
         /// <remarks/>
+        public event IncresaseAssetCompletedEventHandler IncresaseAssetCompleted;
+        
+        /// <remarks/>
         public event GetAssetByDepartmentUsedIdCompletedEventHandler GetAssetByDepartmentUsedIdCompleted;
         
         /// <remarks/>
@@ -417,7 +424,33 @@ namespace AssetManagerClient.WebService {
         public event UpdateAuditCompletedEventHandler UpdateAuditCompleted;
         
         /// <remarks/>
-        public event GetAuditByIdCompletedEventHandler GetAuditByIdCompleted;
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAuditById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Audit GetAuditById(long id) {
+            object[] results = this.Invoke("GetAuditById", new object[] {
+                        id});
+            return ((Audit)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAuditByIdAsync(long id) {
+            this.GetAuditByIdAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void GetAuditByIdAsync(long id, object userState) {
+            if ((this.GetAuditByIdOperationCompleted == null)) {
+                this.GetAuditByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAuditByIdOperationCompleted);
+            }
+            this.InvokeAsync("GetAuditById", new object[] {
+                        id}, this.GetAuditByIdOperationCompleted, userState);
+        }
+        
+        private void OnGetAuditByIdOperationCompleted(object arg) {
+            if ((this.GetAuditByIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAuditByIdCompleted(this, new GetAuditByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DelAuditById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -1795,6 +1828,37 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IncresaseAsset", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int IncresaseAsset(string id, int count) {
+            object[] results = this.Invoke("IncresaseAsset", new object[] {
+                        id,
+                        count});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void IncresaseAssetAsync(string id, int count) {
+            this.IncresaseAssetAsync(id, count, null);
+        }
+        
+        /// <remarks/>
+        public void IncresaseAssetAsync(string id, int count, object userState) {
+            if ((this.IncresaseAssetOperationCompleted == null)) {
+                this.IncresaseAssetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnIncresaseAssetOperationCompleted);
+            }
+            this.InvokeAsync("IncresaseAsset", new object[] {
+                        id,
+                        count}, this.IncresaseAssetOperationCompleted, userState);
+        }
+        
+        private void OnIncresaseAssetOperationCompleted(object arg) {
+            if ((this.IncresaseAssetCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.IncresaseAssetCompleted(this, new IncresaseAssetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAssetByDepartmentUsedId", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public ResultObjectOfListOfAssetData GetAssetByDepartmentUsedId(string DepartmentUsedId) {
             object[] results = this.Invoke("GetAssetByDepartmentUsedId", new object[] {
@@ -2661,26 +2725,24 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/NewImage", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int NewImage(long Id, string AssetId, string ImageURL) {
+        public int NewImage(string AssetId, string ImageURL) {
             object[] results = this.Invoke("NewImage", new object[] {
-                        Id,
                         AssetId,
                         ImageURL});
             return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void NewImageAsync(long Id, string AssetId, string ImageURL) {
-            this.NewImageAsync(Id, AssetId, ImageURL, null);
+        public void NewImageAsync(string AssetId, string ImageURL) {
+            this.NewImageAsync(AssetId, ImageURL, null);
         }
         
         /// <remarks/>
-        public void NewImageAsync(long Id, string AssetId, string ImageURL, object userState) {
+        public void NewImageAsync(string AssetId, string ImageURL, object userState) {
             if ((this.NewImageOperationCompleted == null)) {
                 this.NewImageOperationCompleted = new System.Threading.SendOrPostCallback(this.OnNewImageOperationCompleted);
             }
             this.InvokeAsync("NewImage", new object[] {
-                        Id,
                         AssetId,
                         ImageURL}, this.NewImageOperationCompleted, userState);
         }
@@ -2862,35 +2924,6 @@ namespace AssetManagerClient.WebService {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAuditById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Audit GetAuditById(long id) {
-            object[] results = this.Invoke("GetAuditById", new object[] {
-                        id});
-            return ((Audit)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void GetAuditByIdAsync(long id) {
-            this.GetAuditByIdAsync(id, null);
-        }
-        
-        /// <remarks/>
-        public void GetAuditByIdAsync(long id, object userState) {
-            if ((this.GetAuditByIdOperationCompleted == null)) {
-                this.GetAuditByIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAuditByIdOperationCompleted);
-            }
-            this.InvokeAsync("GetAuditById", new object[] {
-                        id}, this.GetAuditByIdOperationCompleted, userState);
-        }
-        
-        private void OnGetAuditByIdOperationCompleted(object arg) {
-            if ((this.GetAuditByIdCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.GetAuditByIdCompleted(this, new GetAuditByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -2915,31 +2948,29 @@ namespace AssetManagerClient.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class CheckOut : CheckOutBase {
+    public partial class Audit : AuditBase {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CheckOut))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Audit))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public abstract partial class CheckOutBase : EntityBase {
+    public abstract partial class AuditBase : EntityBase {
         
         private long idField;
         
         private string assetIdField;
         
-        private System.Nullable<System.DateTime> checkOutDateField;
+        private System.Nullable<System.DateTime> auditDateField;
         
         private string commentField;
         
         private string userField;
         
         private string computerField;
-        
-        private System.Nullable<short> statusField;
         
         /// <remarks/>
         public long Id {
@@ -2963,12 +2994,12 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<System.DateTime> CheckOutDate {
+        public System.Nullable<System.DateTime> AuditDate {
             get {
-                return this.checkOutDateField;
+                return this.auditDateField;
             }
             set {
-                this.checkOutDateField = value;
+                this.auditDateField = value;
             }
         }
         
@@ -3001,22 +3032,9 @@ namespace AssetManagerClient.WebService {
                 this.computerField = value;
             }
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<short> Status {
-            get {
-                return this.statusField;
-            }
-            set {
-                this.statusField = value;
-            }
-        }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AuditBase))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Audit))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImageBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Image))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(UpDownReasonBase))]
@@ -3043,6 +3061,8 @@ namespace AssetManagerClient.WebService {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroupType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CheckOutBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CheckOut))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AuditBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Audit))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3053,8 +3073,6 @@ namespace AssetManagerClient.WebService {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EntityBase))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AuditBase))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Audit))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImageBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Image))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(UpDownReasonBase))]
@@ -3081,6 +3099,8 @@ namespace AssetManagerClient.WebService {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetGroupType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CheckOutBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CheckOut))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AuditBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Audit))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5910,98 +5930,6 @@ namespace AssetManagerClient.WebService {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Audit))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public abstract partial class AuditBase : EntityBase {
-        
-        private long idField;
-        
-        private string assetIdField;
-        
-        private System.Nullable<System.DateTime> auditDateField;
-        
-        private string commentField;
-        
-        private string userField;
-        
-        private string computerField;
-        
-        /// <remarks/>
-        public long Id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string AssetId {
-            get {
-                return this.assetIdField;
-            }
-            set {
-                this.assetIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<System.DateTime> AuditDate {
-            get {
-                return this.auditDateField;
-            }
-            set {
-                this.auditDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Comment {
-            get {
-                return this.commentField;
-            }
-            set {
-                this.commentField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string User {
-            get {
-                return this.userField;
-            }
-            set {
-                this.userField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Computer {
-            get {
-                return this.computerField;
-            }
-            set {
-                this.computerField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Audit : AuditBase {
-    }
-    
-    /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Image))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
     [System.SerializableAttribute()]
@@ -6054,6 +5982,137 @@ namespace AssetManagerClient.WebService {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class Image : ImageBase {
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CheckOut))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public abstract partial class CheckOutBase : EntityBase {
+        
+        private long idField;
+        
+        private string assetIdField;
+        
+        private System.Nullable<System.DateTime> checkOutDateField;
+        
+        private string commentField;
+        
+        private string userField;
+        
+        private string computerField;
+        
+        private System.Nullable<short> statusField;
+        
+        /// <remarks/>
+        public long Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string AssetId {
+            get {
+                return this.assetIdField;
+            }
+            set {
+                this.assetIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> CheckOutDate {
+            get {
+                return this.checkOutDateField;
+            }
+            set {
+                this.checkOutDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Comment {
+            get {
+                return this.commentField;
+            }
+            set {
+                this.commentField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string User {
+            get {
+                return this.userField;
+            }
+            set {
+                this.userField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Computer {
+            get {
+                return this.computerField;
+            }
+            set {
+                this.computerField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<short> Status {
+            get {
+                return this.statusField;
+            }
+            set {
+                this.statusField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.32559")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class CheckOut : CheckOutBase {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetAuditByIdCompletedEventHandler(object sender, GetAuditByIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAuditByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAuditByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Audit Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Audit)(this.results[0]));
+            }
+        }
     }
     
     /// <remarks/>
@@ -6994,6 +7053,32 @@ namespace AssetManagerClient.WebService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void IncresaseAssetCompletedEventHandler(object sender, IncresaseAssetCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class IncresaseAssetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal IncresaseAssetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
     public delegate void GetAssetByDepartmentUsedIdCompletedEventHandler(object sender, GetAssetByDepartmentUsedIdCompletedEventArgs e);
     
     /// <remarks/>
@@ -7846,32 +7931,6 @@ namespace AssetManagerClient.WebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((int)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
-    public delegate void GetAuditByIdCompletedEventHandler(object sender, GetAuditByIdCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class GetAuditByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal GetAuditByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public Audit Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((Audit)(this.results[0]));
             }
         }
     }

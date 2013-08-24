@@ -35,7 +35,7 @@ namespace AssetManagerClient.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("thietkewebnet")]
+        [global::System.Configuration.DefaultSettingValueAttribute("chsboqgl")]
         public string UsernameFtp {
             get {
                 return ((string)(this["UsernameFtp"]));
@@ -44,7 +44,7 @@ namespace AssetManagerClient.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("12345679")]
+        [global::System.Configuration.DefaultSettingValueAttribute("yH869kwDu2")]
         public string PasswordFtp {
             get {
                 return ((string)(this["PasswordFtp"]));
@@ -53,7 +53,7 @@ namespace AssetManagerClient.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("123.30.174.116")]
+        [global::System.Configuration.DefaultSettingValueAttribute("123.30.187.4")]
         public string hostIP {
             get {
                 return ((string)(this["hostIP"]));
@@ -62,13 +62,25 @@ namespace AssetManagerClient.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("/httpdocs/AssetManage/")]
-        public string remoteUrl {
+        [global::System.Configuration.DefaultSettingValueAttribute("/httpdocs/AssetManage/Image")]
+        public string imageUrl {
             get {
-                return ((string)(this["remoteUrl"]));
+                return ((string)(this["imageUrl"]));
             }
             set {
-                this["remoteUrl"] = value;
+                this["imageUrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/httpdocs/AssetManage/Attach")]
+        public string attach {
+            get {
+                return ((string)(this["attach"]));
+            }
+            set {
+                this["attach"] = value;
             }
         }
     }

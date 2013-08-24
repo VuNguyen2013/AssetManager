@@ -57,6 +57,14 @@ namespace AssetManagerClient
                 Invoke(new Action(() => cbUnit.Items.Add(cbxItem)));
             }
 
+            //init Department
+            var partners = WebServices.GetAllPartner().RetObject;
+            foreach (var partner in partners)
+            {
+                cbxItem = new cbxItem { Text = partner.Name, Id = partner.Id };
+                Invoke(new Action(() => cbPartner.Items.Add(cbxItem)));
+            }
+
             //init Status
             cbxItem = new cbxItem { Text = "Đang sữ dụng", Id = ((int)CommonEnums.STATUS.IN_USE).ToString(CultureInfo.InvariantCulture) };
             Invoke(new Action(() => cbStatus.Items.Add(cbxItem)));
@@ -77,7 +85,7 @@ namespace AssetManagerClient
             cbxItem = new cbxItem { Text = "Kém", Id = ((int)AssetManagerCommon.CommonEnums.CONDITION.POOR).ToString(CultureInfo.InvariantCulture) };
             Invoke(new Action(() => cbCondition.Items.Add(cbxItem)));
 
-         
+            
 
             Invoke(new Action(() =>
             {
@@ -132,6 +140,11 @@ namespace AssetManagerClient
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
                 return;
             }
+            if (txtYear.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập năm sản xuất");
+                return;
+            }
             if (txtAssetNumber.Text.Length != 7)
             {
                 MessageBox.Show("Mã tài sản bao gồm 7 chữ số");
@@ -148,10 +161,11 @@ namespace AssetManagerClient
                 if (result == (int) CommonEnums.RetCode.SUCCESS)
                 {
                     //if success,upload image
-                    gpLoading.Description = "Đang tải hình ảnh lên";
+                    gpLoading.Description = "Đang tải dữ liệu lên";
                     foreach (var imagePath in _imagePathList)
                     {
-                        var remoteUrl = @Properties.Settings.Default.remoteUrl + txtAssetNumber.Text;
+                        var imageUrl = @Properties.Settings.Default.imageUrl + txtAssetNumber.Text;
+                        var attachUrl = @Properties.Settings.Default.imageUrl + txtAssetNumber.Text;
                         using (var ftp = new FtpConnection(@Properties.Settings.Default.hostIP, @Properties.Settings.Default.UsernameFtp, @Properties.Settings.Default.PasswordFtp))
                         {
                             try
@@ -159,10 +173,20 @@ namespace AssetManagerClient
                                 var fileName = random.Next(10000000, 999999999);
                                 ftp.Open();
                                 ftp.Login();
-                                ftp.CreateDirectory(remoteUrl);
-                                ftp.SetCurrentDirectory(remoteUrl);
+                                ftp.CreateDirectory(imageUrl);
+                                ftp.SetCurrentDirectory(imageUrl);
                                 ftp.PutFile(@imagePath, fileName+".jpg"); /* upload c:\localfile.txt to the current ftp directory as file.txt */
-                                ftp.Close();
+                                WebServices.NewImage("AS_" + txtAssetNumber.Text, fileName.ToString(CultureInfo.InvariantCulture));
+
+                                var count = lvFile.Items.Count;
+
+                                for (int i = 0; i < count; i++)
+                                {
+                                    ftp.CreateDirectory(imageUrl);
+                                    ftp.SetCurrentDirectory(imageUrl);
+                                    ftp.PutFile(lvFile.Items[i].SubItems[0].Text, lvFile.Items[i].SubItems[1].Text + "." + lvFile.Items[i].SubItems[2].Text);
+                                }
+                                    ftp.Close();
                                 //insert table image
                             }
                             catch (FtpException ex)
@@ -200,7 +224,7 @@ namespace AssetManagerClient
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("Không thể kết nối tới server,vui lòng kiểm tra cài đặt mạng");
                 gpLoading.Hide();
@@ -261,6 +285,27 @@ namespace AssetManagerClient
                     {
                         e.Handled = true;
                     }
+        }
+
+        private void barButtonItem1_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            odImage.Multiselect = true;
+            odImage.Filter = "Tất cả|*.*";
+            if (odImage.ShowDialog() == DialogResult.Cancel)
+            {
+
+            }
+            else
+            {
+                var fileNames = odImage.FileNames;
+                foreach (var fileName in fileNames)
+                {
+                    var lvi = new ListViewItem(@fileName);
+                    lvi.SubItems.Add(fileName.Substring(fileName.LastIndexOf('\\')+1, fileName.LastIndexOf('.') - fileName.LastIndexOf('\\')-1));
+                    lvi.SubItems.Add(fileName.Substring(fileName.LastIndexOf('.'), fileName.Length - fileName.LastIndexOf('.')));
+                    lvFile.Items.Add(lvi);
+                }
+            }
         }
     }
 }

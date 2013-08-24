@@ -405,7 +405,7 @@ namespace cunghoc3_AssetManager
             try
             {
                 var db = new Services.AssetService();
-                if (GetAssetById(assetNumber) != null)
+                if (GetAssetById(assetNumber).RetObject != null)
                 {
                     return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
                 }
@@ -1077,18 +1077,14 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public int NewImage(long Id, string AssetId, string ImageURL)
+        public int NewImage( string AssetId, string ImageURL)
         {
             try
             {
                 var db = new Services.ImageService();
-                if (GetImageById(Id) != null)
-                {
-                    return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
-                }
+                
                 using (var item = new Image
                 {
-                    Id = Id,
                     AssetId = AssetId,
                     ImageUrl = ImageURL
 

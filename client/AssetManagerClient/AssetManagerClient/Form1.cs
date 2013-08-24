@@ -271,5 +271,10 @@ namespace AssetManagerClient
             Form formAudit=new Audit();
             formAudit.ShowDialog();
         }
+
+        private void barButtonItem14_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
     }
 }

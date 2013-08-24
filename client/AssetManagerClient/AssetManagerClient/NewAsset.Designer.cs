@@ -34,7 +34,6 @@
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -62,14 +61,14 @@
             this.txtYear = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dbPartner = new System.Windows.Forms.ComboBox();
+            this.cbPartner = new System.Windows.Forms.ComboBox();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
             this.meNote = new DevExpress.XtraEditors.MemoEdit();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvFile = new System.Windows.Forms.ListView();
+            this.Link = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clExt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -96,6 +95,12 @@
             this.txtFactory = new DevExpress.XtraEditors.TextEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.odImage = new System.Windows.Forms.OpenFileDialog();
+            this.standaloneBarDockControl2 = new DevExpress.XtraBars.StandaloneBarDockControl();
+            this.bar2 = new DevExpress.XtraBars.Bar();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -124,6 +129,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFactory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
+            this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
+            this.groupControl4.SuspendLayout();
             this.SuspendLayout();
             // 
             // standaloneBarDockControl1
@@ -138,17 +147,20 @@
             // barManager1
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar1});
+            this.bar1,
+            this.bar2});
             this.barManager1.DockControls.Add(this.barDockControlTop);
             this.barManager1.DockControls.Add(this.barDockControlBottom);
             this.barManager1.DockControls.Add(this.barDockControlLeft);
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.DockControls.Add(this.standaloneBarDockControl1);
+            this.barManager1.DockControls.Add(this.standaloneBarDockControl2);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.btnSave,
+            this.barButtonItem1,
             this.barButtonItem2});
-            this.barManager1.MaxItemId = 2;
+            this.barManager1.MaxItemId = 4;
             // 
             // bar1
             // 
@@ -157,8 +169,7 @@
             this.bar1.DockRow = 0;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Standalone;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnSave),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnSave, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.OptionsBar.AllowRename = true;
             this.bar1.StandaloneBarDockControl = this.standaloneBarDockControl1;
             this.bar1.Text = "Custom 1";
@@ -166,15 +177,10 @@
             // btnSave
             // 
             this.btnSave.Caption = "Lưu và đóng";
+            this.btnSave.Glyph = global::AssetManagerClient.Properties.Resources.btnSave;
             this.btnSave.Id = 0;
             this.btnSave.Name = "btnSave";
             this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Kiểm toán";
-            this.barButtonItem2.Id = 1;
-            this.barButtonItem2.Name = "barButtonItem2";
             // 
             // barDockControlTop
             // 
@@ -343,7 +349,7 @@
             this.xtraTabPage2.Controls.Add(this.txtYear);
             this.xtraTabPage2.Controls.Add(this.label2);
             this.xtraTabPage2.Controls.Add(this.label1);
-            this.xtraTabPage2.Controls.Add(this.dbPartner);
+            this.xtraTabPage2.Controls.Add(this.cbPartner);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(626, 225);
             this.xtraTabPage2.Text = "Tài chính";
@@ -351,7 +357,7 @@
             // txtAmount
             // 
             this.txtAmount.EditValue = new decimal(new int[] {
-            0,
+            1,
             0,
             0,
             0});
@@ -433,13 +439,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Nhà phân phối";
             // 
-            // dbPartner
+            // cbPartner
             // 
-            this.dbPartner.FormattingEnabled = true;
-            this.dbPartner.Location = new System.Drawing.Point(93, 16);
-            this.dbPartner.Name = "dbPartner";
-            this.dbPartner.Size = new System.Drawing.Size(121, 21);
-            this.dbPartner.TabIndex = 0;
+            this.cbPartner.FormattingEnabled = true;
+            this.cbPartner.Location = new System.Drawing.Point(93, 16);
+            this.cbPartner.Name = "cbPartner";
+            this.cbPartner.Size = new System.Drawing.Size(121, 21);
+            this.cbPartner.TabIndex = 0;
             // 
             // xtraTabPage4
             // 
@@ -459,37 +465,41 @@
             // 
             // xtraTabPage5
             // 
-            this.xtraTabPage5.Controls.Add(this.listView1);
+            this.xtraTabPage5.Controls.Add(this.groupControl4);
+            this.xtraTabPage5.Controls.Add(this.groupControl3);
             this.xtraTabPage5.Name = "xtraTabPage5";
             this.xtraTabPage5.Size = new System.Drawing.Size(626, 225);
             this.xtraTabPage5.Text = "Đính kèm";
             // 
-            // listView1
+            // lvFile
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(0, 0);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(626, 225);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lvFile.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Link,
+            this.clName,
+            this.clExt});
+            this.lvFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvFile.GridLines = true;
+            this.lvFile.Location = new System.Drawing.Point(2, 21);
+            this.lvFile.Name = "lvFile";
+            this.lvFile.Size = new System.Drawing.Size(622, 146);
+            this.lvFile.TabIndex = 0;
+            this.lvFile.UseCompatibleStateImageBehavior = false;
+            this.lvFile.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
+            // Link
             // 
-            this.columnHeader1.Width = 111;
+            this.Link.Text = "Đường dẫn";
+            this.Link.Width = 0;
             // 
-            // columnHeader2
+            // clName
             // 
-            this.columnHeader2.Width = 134;
+            this.clName.Text = "Tên file";
+            this.clName.Width = 134;
             // 
-            // columnHeader3
+            // clExt
             // 
-            this.columnHeader3.Width = 138;
+            this.clExt.Text = "Định dạng";
+            this.clExt.Width = 274;
             // 
             // xtraTabPage6
             // 
@@ -735,6 +745,63 @@
             // 
             this.odImage.FileName = "openFileDialog";
             // 
+            // standaloneBarDockControl2
+            // 
+            this.standaloneBarDockControl2.CausesValidation = false;
+            this.standaloneBarDockControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.standaloneBarDockControl2.Location = new System.Drawing.Point(2, 21);
+            this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
+            this.standaloneBarDockControl2.Size = new System.Drawing.Size(622, 38);
+            this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
+            // 
+            // bar2
+            // 
+            this.bar2.BarName = "Custom 2";
+            this.bar2.DockCol = 0;
+            this.bar2.DockRow = 0;
+            this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Standalone;
+            this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem2, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            this.bar2.OptionsBar.AllowRename = true;
+            this.bar2.StandaloneBarDockControl = this.standaloneBarDockControl2;
+            this.bar2.Text = "Custom 2";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Thêm";
+            this.barButtonItem1.Glyph = global::AssetManagerClient.Properties.Resources.btnAdd;
+            this.barButtonItem1.Id = 2;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick_1);
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "Xóa";
+            this.barButtonItem2.Glyph = global::AssetManagerClient.Properties.Resources.btnDelete;
+            this.barButtonItem2.Id = 3;
+            this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // groupControl3
+            // 
+            this.groupControl3.Controls.Add(this.standaloneBarDockControl2);
+            this.groupControl3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl3.Location = new System.Drawing.Point(0, 0);
+            this.groupControl3.Name = "groupControl3";
+            this.groupControl3.Size = new System.Drawing.Size(626, 56);
+            this.groupControl3.TabIndex = 2;
+            this.groupControl3.Text = "groupControl3";
+            // 
+            // groupControl4
+            // 
+            this.groupControl4.Controls.Add(this.lvFile);
+            this.groupControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl4.Location = new System.Drawing.Point(0, 56);
+            this.groupControl4.Name = "groupControl4";
+            this.groupControl4.Size = new System.Drawing.Size(626, 169);
+            this.groupControl4.TabIndex = 3;
+            this.groupControl4.Text = "Chi tiết";
+            // 
             // NewAsset
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -782,6 +849,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFactory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
+            this.groupControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
+            this.groupControl4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -796,7 +867,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem btnSave;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
@@ -840,19 +910,25 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox dbPartner;
+        private System.Windows.Forms.ComboBox cbPartner;
         private DevExpress.XtraEditors.SpinEdit txtAmount;
         private DevExpress.XtraEditors.SpinEdit spinEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl14;
         private DevExpress.XtraEditors.LabelControl labelControl13;
         private DevExpress.XtraEditors.TextEdit txtYear;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ListView lvFile;
+        private System.Windows.Forms.ColumnHeader clName;
+        private System.Windows.Forms.ColumnHeader clExt;
         private DevExpress.XtraEditors.LabelControl labelControl15;
         private DevExpress.XtraEditors.TextEdit txtCounPro;
         private DevExpress.XtraEditors.DateEdit deDueDate;
+        private DevExpress.XtraBars.Bar bar2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl2;
+        private DevExpress.XtraEditors.GroupControl groupControl4;
+        private DevExpress.XtraEditors.GroupControl groupControl3;
+        private System.Windows.Forms.ColumnHeader Link;
     }
 }

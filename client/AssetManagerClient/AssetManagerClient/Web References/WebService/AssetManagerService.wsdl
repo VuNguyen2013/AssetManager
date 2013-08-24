@@ -2,6 +2,49 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetAuditById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAuditByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAuditByIdResult" type="tns:Audit" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Audit">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:AuditBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AuditBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AuditDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Computer" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityBaseCore" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityBaseCore" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Tag" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="DelAuditById">
         <s:complexType>
           <s:sequence>
@@ -58,13 +101,6 @@
       <s:element name="GetAllCheckOut">
         <s:complexType />
       </s:element>
-      <s:element name="GetAllCheckOutResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAllCheckOutResult" type="tns:ArrayOfCheckOut" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:complexType name="ArrayOfCheckOut">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="unbounded" name="CheckOut" nillable="true" type="tns:CheckOut" />
@@ -90,16 +126,13 @@
           </s:extension>
         </s:complexContent>
       </s:complexType>
-      <s:complexType name="EntityBase" abstract="true">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:EntityBaseCore" />
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="EntityBaseCore" abstract="true">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Tag" />
-        </s:sequence>
-      </s:complexType>
+      <s:element name="GetAllCheckOutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllCheckOutResult" type="tns:ArrayOfCheckOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetCheckOutById">
         <s:complexType>
           <s:sequence>
@@ -969,6 +1002,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="IncresaseAsset">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IncresaseAssetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IncresaseAssetResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetAssetByDepartmentUsedId">
         <s:complexType>
           <s:sequence>
@@ -1510,7 +1558,6 @@
       <s:element name="NewImage">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
             <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="ImageURL" type="s:string" />
           </s:sequence>
@@ -1621,39 +1668,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetAuditById">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetAuditByIdResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAuditByIdResult" type="tns:Audit" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="Audit">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:AuditBase" />
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="AuditBase" abstract="true">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:EntityBase">
-            <s:sequence>
-              <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
-              <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="AuditDate" nillable="true" type="s:dateTime" />
-              <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Computer" type="s:string" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
+      <s:element name="Audit" nillable="true" type="tns:Audit" />
       <s:element name="int" type="s:int" />
       <s:element name="ArrayOfCheckOut" nillable="true" type="tns:ArrayOfCheckOut" />
       <s:element name="CheckOut" nillable="true" type="tns:CheckOut" />
@@ -1680,9 +1695,14 @@
       <s:element name="ArrayOfWarrantyAsset" nillable="true" type="tns:ArrayOfWarrantyAsset" />
       <s:element name="WarrantyAsset" nillable="true" type="tns:WarrantyAsset" />
       <s:element name="Image" nillable="true" type="tns:Image" />
-      <s:element name="Audit" nillable="true" type="tns:Audit" />
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="GetAuditByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAuditById" />
+  </wsdl:message>
+  <wsdl:message name="GetAuditByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAuditByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="DelAuditByIdSoapIn">
     <wsdl:part name="parameters" element="tns:DelAuditById" />
   </wsdl:message>
@@ -1899,6 +1919,12 @@
   <wsdl:message name="GetAssetByIdSoapOut">
     <wsdl:part name="parameters" element="tns:GetAssetByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IncresaseAssetSoapIn">
+    <wsdl:part name="parameters" element="tns:IncresaseAsset" />
+  </wsdl:message>
+  <wsdl:message name="IncresaseAssetSoapOut">
+    <wsdl:part name="parameters" element="tns:IncresaseAssetResponse" />
+  </wsdl:message>
   <wsdl:message name="GetAssetByDepartmentUsedIdSoapIn">
     <wsdl:part name="parameters" element="tns:GetAssetByDepartmentUsedId" />
   </wsdl:message>
@@ -2097,11 +2123,11 @@
   <wsdl:message name="UpdateAuditSoapOut">
     <wsdl:part name="parameters" element="tns:UpdateAuditResponse" />
   </wsdl:message>
-  <wsdl:message name="GetAuditByIdSoapIn">
-    <wsdl:part name="parameters" element="tns:GetAuditById" />
+  <wsdl:message name="GetAuditByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetAuditByIdSoapOut">
-    <wsdl:part name="parameters" element="tns:GetAuditByIdResponse" />
+  <wsdl:message name="GetAuditByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:Audit" />
   </wsdl:message>
   <wsdl:message name="DelAuditByIdHttpGetIn">
     <wsdl:part name="id" type="s:string" />
@@ -2391,6 +2417,13 @@
   <wsdl:message name="GetAssetByIdHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultObjectOfAsset" />
   </wsdl:message>
+  <wsdl:message name="IncresaseAssetHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="count" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IncresaseAssetHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
   <wsdl:message name="GetAssetByDepartmentUsedIdHttpGetIn">
     <wsdl:part name="DepartmentUsedId" type="s:string" />
   </wsdl:message>
@@ -2590,7 +2623,6 @@
     <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewImageHttpGetIn">
-    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="AssetId" type="s:string" />
     <wsdl:part name="ImageURL" type="s:string" />
   </wsdl:message>
@@ -2639,10 +2671,10 @@
   <wsdl:message name="UpdateAuditHttpGetOut">
     <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
-  <wsdl:message name="GetAuditByIdHttpGetIn">
+  <wsdl:message name="GetAuditByIdHttpPostIn">
     <wsdl:part name="id" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetAuditByIdHttpGetOut">
+  <wsdl:message name="GetAuditByIdHttpPostOut">
     <wsdl:part name="Body" element="tns:Audit" />
   </wsdl:message>
   <wsdl:message name="DelAuditByIdHttpPostIn">
@@ -2933,6 +2965,13 @@
   <wsdl:message name="GetAssetByIdHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultObjectOfAsset" />
   </wsdl:message>
+  <wsdl:message name="IncresaseAssetHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="count" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IncresaseAssetHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
   <wsdl:message name="GetAssetByDepartmentUsedIdHttpPostIn">
     <wsdl:part name="DepartmentUsedId" type="s:string" />
   </wsdl:message>
@@ -3132,7 +3171,6 @@
     <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="NewImageHttpPostIn">
-    <wsdl:part name="Id" type="s:string" />
     <wsdl:part name="AssetId" type="s:string" />
     <wsdl:part name="ImageURL" type="s:string" />
   </wsdl:message>
@@ -3181,13 +3219,11 @@
   <wsdl:message name="UpdateAuditHttpPostOut">
     <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
-  <wsdl:message name="GetAuditByIdHttpPostIn">
-    <wsdl:part name="id" type="s:string" />
-  </wsdl:message>
-  <wsdl:message name="GetAuditByIdHttpPostOut">
-    <wsdl:part name="Body" element="tns:Audit" />
-  </wsdl:message>
   <wsdl:portType name="AssetManagerServiceSoap">
+    <wsdl:operation name="GetAuditById">
+      <wsdl:input message="tns:GetAuditByIdSoapIn" />
+      <wsdl:output message="tns:GetAuditByIdSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="DelAuditById">
       <wsdl:input message="tns:DelAuditByIdSoapIn" />
       <wsdl:output message="tns:DelAuditByIdSoapOut" />
@@ -3332,6 +3368,10 @@
       <wsdl:input message="tns:GetAssetByIdSoapIn" />
       <wsdl:output message="tns:GetAssetByIdSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="IncresaseAsset">
+      <wsdl:input message="tns:IncresaseAssetSoapIn" />
+      <wsdl:output message="tns:IncresaseAssetSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetAssetByDepartmentUsedId">
       <wsdl:input message="tns:GetAssetByDepartmentUsedIdSoapIn" />
       <wsdl:output message="tns:GetAssetByDepartmentUsedIdSoapOut" />
@@ -3464,12 +3504,12 @@
       <wsdl:input message="tns:UpdateAuditSoapIn" />
       <wsdl:output message="tns:UpdateAuditSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAuditById">
-      <wsdl:input message="tns:GetAuditByIdSoapIn" />
-      <wsdl:output message="tns:GetAuditByIdSoapOut" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="AssetManagerServiceHttpGet">
+    <wsdl:operation name="GetAuditById">
+      <wsdl:input message="tns:GetAuditByIdHttpGetIn" />
+      <wsdl:output message="tns:GetAuditByIdHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="DelAuditById">
       <wsdl:input message="tns:DelAuditByIdHttpGetIn" />
       <wsdl:output message="tns:DelAuditByIdHttpGetOut" />
@@ -3614,6 +3654,10 @@
       <wsdl:input message="tns:GetAssetByIdHttpGetIn" />
       <wsdl:output message="tns:GetAssetByIdHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="IncresaseAsset">
+      <wsdl:input message="tns:IncresaseAssetHttpGetIn" />
+      <wsdl:output message="tns:IncresaseAssetHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetAssetByDepartmentUsedId">
       <wsdl:input message="tns:GetAssetByDepartmentUsedIdHttpGetIn" />
       <wsdl:output message="tns:GetAssetByDepartmentUsedIdHttpGetOut" />
@@ -3746,12 +3790,12 @@
       <wsdl:input message="tns:UpdateAuditHttpGetIn" />
       <wsdl:output message="tns:UpdateAuditHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAuditById">
-      <wsdl:input message="tns:GetAuditByIdHttpGetIn" />
-      <wsdl:output message="tns:GetAuditByIdHttpGetOut" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="AssetManagerServiceHttpPost">
+    <wsdl:operation name="GetAuditById">
+      <wsdl:input message="tns:GetAuditByIdHttpPostIn" />
+      <wsdl:output message="tns:GetAuditByIdHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="DelAuditById">
       <wsdl:input message="tns:DelAuditByIdHttpPostIn" />
       <wsdl:output message="tns:DelAuditByIdHttpPostOut" />
@@ -3896,6 +3940,10 @@
       <wsdl:input message="tns:GetAssetByIdHttpPostIn" />
       <wsdl:output message="tns:GetAssetByIdHttpPostOut" />
     </wsdl:operation>
+    <wsdl:operation name="IncresaseAsset">
+      <wsdl:input message="tns:IncresaseAssetHttpPostIn" />
+      <wsdl:output message="tns:IncresaseAssetHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetAssetByDepartmentUsedId">
       <wsdl:input message="tns:GetAssetByDepartmentUsedIdHttpPostIn" />
       <wsdl:output message="tns:GetAssetByDepartmentUsedIdHttpPostOut" />
@@ -4028,13 +4076,18 @@
       <wsdl:input message="tns:UpdateAuditHttpPostIn" />
       <wsdl:output message="tns:UpdateAuditHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAuditById">
-      <wsdl:input message="tns:GetAuditByIdHttpPostIn" />
-      <wsdl:output message="tns:GetAuditByIdHttpPostOut" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="AssetManagerServiceSoap" type="tns:AssetManagerServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAuditById">
+      <soap:operation soapAction="http://tempuri.org/GetAuditById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DelAuditById">
       <soap:operation soapAction="http://tempuri.org/DelAuditById" style="document" />
       <wsdl:input>
@@ -4359,6 +4412,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="IncresaseAsset">
+      <soap:operation soapAction="http://tempuri.org/IncresaseAsset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAssetByDepartmentUsedId">
       <soap:operation soapAction="http://tempuri.org/GetAssetByDepartmentUsedId" style="document" />
       <wsdl:input>
@@ -4656,18 +4718,18 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAuditById">
-      <soap:operation soapAction="http://tempuri.org/GetAuditById" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="AssetManagerServiceSoap12" type="tns:AssetManagerServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAuditById">
+      <soap12:operation soapAction="http://tempuri.org/GetAuditById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DelAuditById">
       <soap12:operation soapAction="http://tempuri.org/DelAuditById" style="document" />
       <wsdl:input>
@@ -4992,6 +5054,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="IncresaseAsset">
+      <soap12:operation soapAction="http://tempuri.org/IncresaseAsset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAssetByDepartmentUsedId">
       <soap12:operation soapAction="http://tempuri.org/GetAssetByDepartmentUsedId" style="document" />
       <wsdl:input>
@@ -5289,18 +5360,18 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAuditById">
-      <soap12:operation soapAction="http://tempuri.org/GetAuditById" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="AssetManagerServiceHttpGet" type="tns:AssetManagerServiceHttpGet">
     <http:binding verb="GET" />
+    <wsdl:operation name="GetAuditById">
+      <http:operation location="/GetAuditById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DelAuditById">
       <http:operation location="/DelAuditById" />
       <wsdl:input>
@@ -5625,6 +5696,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="IncresaseAsset">
+      <http:operation location="/IncresaseAsset" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAssetByDepartmentUsedId">
       <http:operation location="/GetAssetByDepartmentUsedId" />
       <wsdl:input>
@@ -5915,15 +5995,6 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateAudit">
       <http:operation location="/UpdateAudit" />
-      <wsdl:input>
-        <http:urlEncoded />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAuditById">
-      <http:operation location="/GetAuditById" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -5934,6 +6005,15 @@
   </wsdl:binding>
   <wsdl:binding name="AssetManagerServiceHttpPost" type="tns:AssetManagerServiceHttpPost">
     <http:binding verb="POST" />
+    <wsdl:operation name="GetAuditById">
+      <http:operation location="/GetAuditById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DelAuditById">
       <http:operation location="/DelAuditById" />
       <wsdl:input>
@@ -6258,6 +6338,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="IncresaseAsset">
+      <http:operation location="/IncresaseAsset" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAssetByDepartmentUsedId">
       <http:operation location="/GetAssetByDepartmentUsedId" />
       <wsdl:input>
@@ -6548,15 +6637,6 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateAudit">
       <http:operation location="/UpdateAudit" />
-      <wsdl:input>
-        <mime:content type="application/x-www-form-urlencoded" />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAuditById">
-      <http:operation location="/GetAuditById" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>

@@ -343,6 +343,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Lib\ftplib.dll" />
+    <None Include="Resources\btnSearch.png" />
+    <None Include="Resources\btnSave.png" />
     <None Include="Resources\btnCheckOut.png" />
     <None Include="Resources\btnCheckIn.png" />
     <None Include="Resources\btnAudit.png" />

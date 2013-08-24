@@ -151,6 +151,26 @@ namespace AssetManagerClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnSave {
+            get {
+                object obj = ResourceManager.GetObject("btnSave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnSearch {
+            get {
+                object obj = ResourceManager.GetObject("btnSearch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Không thể kết nối tới server,vui lòng kiểm tra cài đặt mạng.
         /// </summary>
         internal static string Create_simpleButton1_Click_Không_thể_kết_nối_tới_server_vui_lòng_kiểm_tra_cài_đặt_mạng {
