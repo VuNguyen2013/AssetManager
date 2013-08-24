@@ -39,7 +39,7 @@ namespace AssetManagerClient
                 }
                 if (_action == (int)AssetManagerCommon.CommonEnums.ACTION.ADD)
                 {
-                    var result = WebServices.NewAssetGroupType(txtName.Text);
+                    var result = WebServices.NewAssetGroup(txtName.Text,"AGT_111111");
                     if (result == (int)AssetManagerCommon.CommonEnums.RetCode.SUCCESS)
                     {
                         MessageBox.Show("Thành công");
@@ -48,7 +48,7 @@ namespace AssetManagerClient
                 }
                 if (_action == (int)AssetManagerCommon.CommonEnums.ACTION.EDIT)
                 {
-                    var result = WebServices.UpdateAssetGroupType(_id, txtName.Text);
+                    var result = WebServices.UpdateAssetGroup(_id, txtName.Text, "AGT_111111");
                     if (result == (int)AssetManagerCommon.CommonEnums.RetCode.SUCCESS)
                     {
                         MessageBox.Show("Thành công");
@@ -75,7 +75,7 @@ namespace AssetManagerClient
                 lblCreateName.Text = "SỬA THÔNG TIN";
                 try
                 {
-                    var result = WebServices.GetAssetGroupTypeById(id).RetObject;
+                    var result = WebServices.GetAssetGroupById(id).RetObject;
                     txtName.Text = result.Name;
                 }
                 catch (Exception)

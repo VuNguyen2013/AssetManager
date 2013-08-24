@@ -34,10 +34,10 @@ namespace AssetManagerClient
                 nbAssetsType.ItemLinks.Clear();
                 nbDepartmentUsed.ItemLinks.Clear();
                 //init assets tab
-                var assetGroupTypes = WebServices.GetAllAssetGroupType().RetObject;
-                foreach (var assetGroupType in assetGroupTypes)
+                var assetGroups = WebServices.GetAllAssetGroup().RetObject;
+                foreach (var assetGroup in assetGroups)
                 {
-                    var item = new NavBarItem { Caption = assetGroupType.Name, CanDrag = true, Name = assetGroupType.Id };
+                    var item = new NavBarItem { Caption = assetGroup.Name, CanDrag = true, Name = assetGroup.Id };
                     nbAssetsType.ItemLinks.Add(item);
                 }
                 //init department
@@ -92,7 +92,7 @@ namespace AssetManagerClient
             //if click on nbAssetType
             if (e.Link.Group.Name == nbAssetsType.Name)
             {
-                var assets = WebServices.GetAssetByAssetGroupTypeId(e.Link.NavBar.Name);
+                var assets = WebServices.GetAssetByAssetGroupId(e.Link.NavBar.Name);
                 BindData(assets.RetObject);
             }
             else
@@ -197,7 +197,7 @@ namespace AssetManagerClient
             {
                 if (MessageBox.Show("Bạn muốn xóa loại tài sản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    WebServices.DelAssetGroupTypeById(nbAssets.SelectedLink.Item.Name);
+                    WebServices.DelAssetGroupById(nbAssets.SelectedLink.Item.Name);
                     InitContent();
                 }
             }

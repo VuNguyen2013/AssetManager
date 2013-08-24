@@ -30,6 +30,8 @@ namespace AssetManagerClient.WebService {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EntityBaseCore))]
     public partial class AssetManagerService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
+        private System.Threading.SendOrPostCallback UpdateAuditOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetAuditByIdOperationCompleted;
         
         private System.Threading.SendOrPostCallback DelAuditByIdOperationCompleted;
@@ -102,6 +104,8 @@ namespace AssetManagerClient.WebService {
         
         private System.Threading.SendOrPostCallback GetAssetByAssetGroupTypeIdOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetAssetByAssetGroupIdOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetAssetByIdOperationCompleted;
         
         private System.Threading.SendOrPostCallback IncresaseAssetOperationCompleted;
@@ -170,8 +174,6 @@ namespace AssetManagerClient.WebService {
         
         private System.Threading.SendOrPostCallback NewAuditOperationCompleted;
         
-        private System.Threading.SendOrPostCallback UpdateAuditOperationCompleted;
-        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -209,6 +211,9 @@ namespace AssetManagerClient.WebService {
                 this.useDefaultCredentialsSetExplicitly = true;
             }
         }
+        
+        /// <remarks/>
+        public event UpdateAuditCompletedEventHandler UpdateAuditCompleted;
         
         /// <remarks/>
         public event GetAuditByIdCompletedEventHandler GetAuditByIdCompleted;
@@ -319,6 +324,9 @@ namespace AssetManagerClient.WebService {
         public event GetAssetByAssetGroupTypeIdCompletedEventHandler GetAssetByAssetGroupTypeIdCompleted;
         
         /// <remarks/>
+        public event GetAssetByAssetGroupIdCompletedEventHandler GetAssetByAssetGroupIdCompleted;
+        
+        /// <remarks/>
         public event GetAssetByIdCompletedEventHandler GetAssetByIdCompleted;
         
         /// <remarks/>
@@ -421,7 +429,43 @@ namespace AssetManagerClient.WebService {
         public event NewAuditCompletedEventHandler NewAuditCompleted;
         
         /// <remarks/>
-        public event UpdateAuditCompletedEventHandler UpdateAuditCompleted;
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateAudit", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int UpdateAudit(long Id, string AssetId, System.DateTime AuditDate, string Comment, string User, string Computer) {
+            object[] results = this.Invoke("UpdateAudit", new object[] {
+                        Id,
+                        AssetId,
+                        AuditDate,
+                        Comment,
+                        User,
+                        Computer});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateAuditAsync(long Id, string AssetId, System.DateTime AuditDate, string Comment, string User, string Computer) {
+            this.UpdateAuditAsync(Id, AssetId, AuditDate, Comment, User, Computer, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateAuditAsync(long Id, string AssetId, System.DateTime AuditDate, string Comment, string User, string Computer, object userState) {
+            if ((this.UpdateAuditOperationCompleted == null)) {
+                this.UpdateAuditOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateAuditOperationCompleted);
+            }
+            this.InvokeAsync("UpdateAudit", new object[] {
+                        Id,
+                        AssetId,
+                        AuditDate,
+                        Comment,
+                        User,
+                        Computer}, this.UpdateAuditOperationCompleted, userState);
+        }
+        
+        private void OnUpdateAuditOperationCompleted(object arg) {
+            if ((this.UpdateAuditCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateAuditCompleted(this, new UpdateAuditCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAuditById", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -793,26 +837,24 @@ namespace AssetManagerClient.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/NewAssetGroup", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int NewAssetGroup(string Id, string Name, string AssetGroupTypeId) {
+        public int NewAssetGroup(string Name, string AssetGroupTypeId) {
             object[] results = this.Invoke("NewAssetGroup", new object[] {
-                        Id,
                         Name,
                         AssetGroupTypeId});
             return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void NewAssetGroupAsync(string Id, string Name, string AssetGroupTypeId) {
-            this.NewAssetGroupAsync(Id, Name, AssetGroupTypeId, null);
+        public void NewAssetGroupAsync(string Name, string AssetGroupTypeId) {
+            this.NewAssetGroupAsync(Name, AssetGroupTypeId, null);
         }
         
         /// <remarks/>
-        public void NewAssetGroupAsync(string Id, string Name, string AssetGroupTypeId, object userState) {
+        public void NewAssetGroupAsync(string Name, string AssetGroupTypeId, object userState) {
             if ((this.NewAssetGroupOperationCompleted == null)) {
                 this.NewAssetGroupOperationCompleted = new System.Threading.SendOrPostCallback(this.OnNewAssetGroupOperationCompleted);
             }
             this.InvokeAsync("NewAssetGroup", new object[] {
-                        Id,
                         Name,
                         AssetGroupTypeId}, this.NewAssetGroupOperationCompleted, userState);
         }
@@ -1795,6 +1837,35 @@ namespace AssetManagerClient.WebService {
             if ((this.GetAssetByAssetGroupTypeIdCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetAssetByAssetGroupTypeIdCompleted(this, new GetAssetByAssetGroupTypeIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAssetByAssetGroupId", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ResultObjectOfListOfAssetData GetAssetByAssetGroupId(string AssetGroupTypeId) {
+            object[] results = this.Invoke("GetAssetByAssetGroupId", new object[] {
+                        AssetGroupTypeId});
+            return ((ResultObjectOfListOfAssetData)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAssetByAssetGroupIdAsync(string AssetGroupTypeId) {
+            this.GetAssetByAssetGroupIdAsync(AssetGroupTypeId, null);
+        }
+        
+        /// <remarks/>
+        public void GetAssetByAssetGroupIdAsync(string AssetGroupTypeId, object userState) {
+            if ((this.GetAssetByAssetGroupIdOperationCompleted == null)) {
+                this.GetAssetByAssetGroupIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAssetByAssetGroupIdOperationCompleted);
+            }
+            this.InvokeAsync("GetAssetByAssetGroupId", new object[] {
+                        AssetGroupTypeId}, this.GetAssetByAssetGroupIdOperationCompleted, userState);
+        }
+        
+        private void OnGetAssetByAssetGroupIdOperationCompleted(object arg) {
+            if ((this.GetAssetByAssetGroupIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAssetByAssetGroupIdCompleted(this, new GetAssetByAssetGroupIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2881,45 +2952,6 @@ namespace AssetManagerClient.WebService {
             if ((this.NewAuditCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.NewAuditCompleted(this, new NewAuditCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateAudit", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int UpdateAudit(long Id, string AssetId, System.DateTime AuditDate, string Comment, string User, string Computer) {
-            object[] results = this.Invoke("UpdateAudit", new object[] {
-                        Id,
-                        AssetId,
-                        AuditDate,
-                        Comment,
-                        User,
-                        Computer});
-            return ((int)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void UpdateAuditAsync(long Id, string AssetId, System.DateTime AuditDate, string Comment, string User, string Computer) {
-            this.UpdateAuditAsync(Id, AssetId, AuditDate, Comment, User, Computer, null);
-        }
-        
-        /// <remarks/>
-        public void UpdateAuditAsync(long Id, string AssetId, System.DateTime AuditDate, string Comment, string User, string Computer, object userState) {
-            if ((this.UpdateAuditOperationCompleted == null)) {
-                this.UpdateAuditOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateAuditOperationCompleted);
-            }
-            this.InvokeAsync("UpdateAudit", new object[] {
-                        Id,
-                        AssetId,
-                        AuditDate,
-                        Comment,
-                        User,
-                        Computer}, this.UpdateAuditOperationCompleted, userState);
-        }
-        
-        private void OnUpdateAuditOperationCompleted(object arg) {
-            if ((this.UpdateAuditCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.UpdateAuditCompleted(this, new UpdateAuditCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -6091,6 +6123,32 @@ namespace AssetManagerClient.WebService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void UpdateAuditCompletedEventHandler(object sender, UpdateAuditCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateAuditCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateAuditCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
     public delegate void GetAuditByIdCompletedEventHandler(object sender, GetAuditByIdCompletedEventArgs e);
     
     /// <remarks/>
@@ -7027,6 +7085,32 @@ namespace AssetManagerClient.WebService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    public delegate void GetAssetByAssetGroupIdCompletedEventHandler(object sender, GetAssetByAssetGroupIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAssetByAssetGroupIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAssetByAssetGroupIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public ResultObjectOfListOfAssetData Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((ResultObjectOfListOfAssetData)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
     public delegate void GetAssetByIdCompletedEventHandler(object sender, GetAssetByIdCompletedEventArgs e);
     
     /// <remarks/>
@@ -7896,32 +7980,6 @@ namespace AssetManagerClient.WebService {
         private object[] results;
         
         internal NewAuditCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public int Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
-    public delegate void UpdateAuditCompletedEventHandler(object sender, UpdateAuditCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.32559")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class UpdateAuditCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal UpdateAuditCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

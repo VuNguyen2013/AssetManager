@@ -98,18 +98,23 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public int NewAssetGroup(string Id, string Name, string AssetGroupTypeId)
+        public int NewAssetGroup(string Name, string AssetGroupTypeId)
         {
             try
             {
+                var id = "AGT_" + randomId.Next(100000, 999999).ToString();
+                while ((GetAssetGroupTypeById(id) == null))
+                {
+                    id = "AGT_" + randomId.Next(100000, 999999).ToString();
+                }
                 var db = new Services.AssetGroupService();
-                if (GetAssetGroupById(Id) != null)
+                if (GetAssetGroupById(id) != null)
                 {
                     return (int)CommonEnums.RetCode.DATA_ALREADY_EXIST;
                 }
                 using (var item = new AssetGroup
                 {
-                    Id = Id,
+                    Id = id,
                     Name = Name,
                     AssetGroupTypeId = AssetGroupTypeId
                 })
@@ -541,6 +546,59 @@ namespace cunghoc3_AssetManager
                                          //refer
                                          Unit = unit.Name, DepartmentUsed = departmentUsed.Name, AssetGroup = assetGroup.Name
                                      }).ToList();
+                resultObject.RetObject = assetsList;
+                resultObject.Message = "Get asset list success";
+                return resultObject;
+            }
+            catch (Exception ex)
+            {
+                resultObject.RetCode = (int)CommonEnums.RetCode.SYSTEM_ERROR;
+                return resultObject;
+            }
+        }
+
+        [WebMethod]
+        public ResultObject<List<AssetData>> GetAssetByAssetGroupId(string AssetGroupTypeId)
+        {
+            var resultObject = new ResultObject<List<AssetData>> { RetCode = (int)CommonEnums.RetCode.SUCCESS };
+            try
+            {
+                var db = new Services.AssetService();
+
+                var assets = db.GetByAssetGroupId(AssetGroupTypeId);
+                var assetsList = (from asset in assets
+                                  let unit = GetUnitById(asset.UnitId).RetObject
+                                  let departmentUsed = GetDepartmentUsedById(asset.DepartmentUsedId).RetObject
+                                  let assetGroup = GetAssetGroupById(asset.AssetGroupId).RetObject
+                                  select new AssetData
+                                  {
+                                      Amount = asset.Amount,
+                                      AnotherDepreciation = asset.AnotherDepreciation,
+                                      AnotherPrice = asset.AnotherPrice,
+                                      AnotherRemain = asset.AnotherRemain,
+                                      BugeRemain = asset.BudgetRemain,
+                                      BugetDepreciation = asset.BudgetDepreciation,
+                                      BugetPrice = asset.BudgetPrice,
+                                      CounPro = asset.CounPro,
+                                      Id = asset.Id,
+                                      InputDateTime = asset.InputDateTime,
+                                      Name = asset.Name,
+                                      OwnDepreciation = asset.OwnDepreciation,
+                                      OwnPrice = asset.OwnPrice,
+                                      OwnRemain = asset.OwnRemain,
+                                      TotalDepreciation = asset.TotalDepreciation,
+                                      TotalPrice = asset.TotalPrice,
+                                      TotalRemain = asset.TotalReamain,
+                                      UpDownCode = asset.UpDownCode,
+                                      VentureDepreciation = asset.VentureDepreciation,
+                                      VenturePrice = asset.VenturePrice,
+                                      VentureRemain = asset.VentureRemain,
+                                      YearPro = asset.YearPro,
+                                      //refer
+                                      Unit = unit.Name,
+                                      DepartmentUsed = departmentUsed.Name,
+                                      AssetGroup = assetGroup.Name
+                                  }).ToList();
                 resultObject.RetObject = assetsList;
                 resultObject.Message = "Get asset list success";
                 return resultObject;
