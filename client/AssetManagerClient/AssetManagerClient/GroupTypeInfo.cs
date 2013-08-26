@@ -32,7 +32,7 @@ namespace AssetManagerClient
         {
             try
             {
-                if (txtName.Equals(""))
+                if (txtName.Text.Equals(""))
                 {
                     MessageBox.Show("Vui lòng nhập tên");
                     return;
@@ -68,11 +68,11 @@ namespace AssetManagerClient
             _id = id;
             if (_action == (int)AssetManagerCommon.CommonEnums.ACTION.ADD)
             {
-                lblCreateName.Text = "TẠO BỘ PHẬN";
+                lblCreateName.Text = "TẠO LOẠI";
             }
             if (_action == (int)AssetManagerCommon.CommonEnums.ACTION.EDIT)
             {
-                lblCreateName.Text = "SỬA THÔNG TIN";
+                lblCreateName.Text = "SỬA LOẠI";
                 try
                 {
                     var result = WebServices.GetAssetGroupById(id).RetObject;

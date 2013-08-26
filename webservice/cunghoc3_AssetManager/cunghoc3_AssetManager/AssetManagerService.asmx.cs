@@ -467,34 +467,54 @@ namespace cunghoc3_AssetManager
         }
 
         [WebMethod]
-        public int UpdateAsset(string id, string Name, string AssetGroupId, string UnitId, string Amount, string CounPro, string YearPro, string DepartmentUsedId, string TotalPrice, string BugetPrice, string OwnPrice, string VenturePrice, string AnotherPrice, string TotalDepreciation, string BugetDepreciation, string OwnDepreciation, string VentureDepreciation, string AnotherDepreciation, string BugeRemain, string OwnRemain, string VentureRemain, string AnotherRemain, string TotalRemain, string UpDownCode, string InputDateTime)
+        public int UpdateAsset(string assetNumber, string name, string assetGroupId, string unitId, int amount, string counPro, int yearPro, string departmentUsedId, long totalPrice, long bugetPrice, long ownPrice, long venturePrice, long anotherPrice, long totalDepreciation, long bugetDepreciation, long ownDepreciation, long ventureDepreciation, long anotherDepreciation, long bugeRemain, long ownRemain, long ventureRemain, long anotherRemain, long totalRemain, string upDownCode, string manufacturer, string brand, string model, short status, short condition, DateTime dueDate, string note, string seriesNumber)
         {
-            cunghoc3_AssetManager.Services.AssetService db = new Services.AssetService();
-            Asset item = db.GetById(id);
-            item.Name = Name;
-            item.AssetGroupId = AssetGroupId;
-            item.UnitId = UnitId;
-            item.Amount = Convert.ToInt32(Amount);
-            item.CounPro = CounPro;
-            item.YearPro = Convert.ToInt32(YearPro);
-            item.DepartmentUsedId = DepartmentUsedId;
-            item.TotalPrice = Convert.ToInt64(TotalPrice);
-            item.BudgetPrice = Convert.ToInt64(BugetPrice);
-            item.OwnPrice = Convert.ToInt64(OwnPrice);
-            item.VenturePrice = Convert.ToInt64(VenturePrice);
-            item.AnotherPrice = Convert.ToInt64(AnotherPrice);
-            item.TotalDepreciation = Convert.ToInt64(TotalDepreciation);
-            item.BudgetDepreciation = Convert.ToInt64(BugetDepreciation);
-            item.OwnDepreciation = Convert.ToInt64(OwnDepreciation);
-            item.VentureDepreciation = Convert.ToInt64(VentureDepreciation);
-            item.AnotherDepreciation = Convert.ToInt64(AnotherDepreciation);
-            item.BudgetRemain = Convert.ToInt64(BugeRemain);
-            item.OwnRemain = Convert.ToInt64(OwnRemain);
-            item.VentureRemain = Convert.ToInt64(VentureRemain);
-            item.AnotherRemain = Convert.ToInt64(AnotherRemain);
-            item.TotalReamain = Convert.ToInt64(TotalRemain);
-            db.Update(item);
-            return (int)CommonEnums.RetCode.SUCCESS;
+            try
+            {
+                var db = new Services.AssetService();
+                Asset item = db.GetById(assetNumber);
+                item.Name = name;
+                item.AssetGroupId = assetGroupId;
+                item.UnitId = unitId;
+                item.Amount = Convert.ToInt32(amount);
+                item.CounPro = counPro;
+                item.YearPro = Convert.ToInt32(yearPro);
+                item.DepartmentUsedId = departmentUsedId;
+                item.TotalPrice = Convert.ToInt64(totalPrice);
+                item.BudgetPrice = Convert.ToInt64(bugetPrice);
+                item.OwnPrice = Convert.ToInt64(ownPrice);
+                item.VenturePrice = Convert.ToInt64(venturePrice);
+                item.AnotherPrice = Convert.ToInt64(anotherPrice);
+                item.TotalDepreciation = Convert.ToInt64(totalDepreciation);
+                item.BudgetDepreciation = Convert.ToInt64(bugetDepreciation);
+                item.OwnDepreciation = Convert.ToInt64(ownDepreciation);
+                item.VentureDepreciation = Convert.ToInt64(ventureDepreciation);
+                item.AnotherDepreciation = Convert.ToInt64(anotherDepreciation);
+                item.BudgetRemain = Convert.ToInt64(bugeRemain);
+                item.OwnRemain = Convert.ToInt64(ownRemain);
+                item.VentureRemain = Convert.ToInt64(ventureRemain);
+                item.AnotherRemain = Convert.ToInt64(anotherRemain);
+                item.TotalReamain = Convert.ToInt64(totalRemain);
+                item.UpDownCode = upDownCode;
+                item.Manufacturer = manufacturer;
+                item.Brand = brand;
+                item.Model = model;
+                item.Status = status;
+                item.Condition = condition;
+                item.DueDate = dueDate;
+                item.Note = note;
+                item.SeriesNumber = seriesNumber;
+
+                if (db.Update(item))
+                {
+                    return (int)CommonEnums.RetCode.SUCCESS;
+                }
+                return (int)CommonEnums.RetCode.OTHER;
+            }
+            catch (Exception)
+            {
+                return (int)CommonEnums.RetCode.SYSTEM_ERROR;
+            }
         }
 
         [WebMethod]
@@ -1171,7 +1191,13 @@ namespace cunghoc3_AssetManager
             db.Update(item);
             return (int)CommonEnums.RetCode.SUCCESS;
         }
-
+        [WebMethod]
+        public List<Image> GetImageByAssetId(string id)
+        {
+            var db = new Services.ImageService();
+            var listImage = db.GetAll();
+            return listImage.Where(i => i.AssetId == id).ToList();
+        }
         [WebMethod]
         public Image GetImageById(long id)
         {

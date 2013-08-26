@@ -40,6 +40,9 @@ namespace AssetManagerClient
                     var item = new NavBarItem { Caption = assetGroup.Name, CanDrag = true, Name = assetGroup.Id };
                     nbAssetsType.ItemLinks.Add(item);
                 }
+
+                
+
                 //init department
 
                 var departmentUseds = WebServices.GetAllDepartmentUsed().RetObject;
@@ -50,17 +53,19 @@ namespace AssetManagerClient
                 }
 
                 //init all asset
+                var partners = WebServices.GetAllPartner();
+                if (partners.RetCode == (int)AssetManagerCommon.CommonEnums.RetCode.SUCCESS)
+                {
+                    Invoke(new Action(() => BindPartnerData(partners.RetObject)));
 
+                }
                 var assets = WebServices.GetAllAsset();
                 if (assets.RetCode == (int)AssetManagerCommon.CommonEnums.RetCode.SUCCESS)
                 {
                     Invoke(new Action(() => BindData(assets.RetObject)));
                     
                 }
-                else
-                {
-                    lblStatusAlert.Text = AssetManagerCommon.CommonFunction.GetMassageReturn(assets.RetCode);
-                }
+  
                 Invoke(new Action(() =>
                 {
                     gpLoading.Hide();
@@ -92,19 +97,27 @@ namespace AssetManagerClient
             //if click on nbAssetType
             if (e.Link.Group.Name == nbAssetsType.Name)
             {
+                gpLoading.Show();
                 var assets = WebServices.GetAssetByAssetGroupId(e.Link.NavBar.Name);
                 BindData(assets.RetObject);
+                gpLoading.Hide();
             }
             else
             {
                 //if click on nbDepartmentUsed
                 if (e.Link.Group.Name == nbDepartmentUsed.Name)
                 {
+                    gpLoading.Show();
                     var assets = WebServices.GetAssetByDepartmentUsedId(e.Link.Item.Name);
                     BindData(assets.RetObject);
+                    gpLoading.Hide();
                 }
             }
                
+        }
+        private void BindPartnerData(Partner[] partner)
+        {
+            gcPartner.DataSource = partner;
         }
         private void BindData(AssetData[] asset)
         {
@@ -166,7 +179,7 @@ namespace AssetManagerClient
             if (nbAssets.SelectedLink.Group.Name == nbAssetsType.Name)
             {
                 var createForm = new GroupTypeInfo(this);
-                createForm.DelegateContent((int)AssetManagerCommon.CommonEnums.FILTER.GROUP_TYPE,"");
+                createForm.DelegateContent((int)AssetManagerCommon.CommonEnums.ACTION.ADD,"");
                 createForm.ShowDialog();
             }
             if (nbAssets.SelectedLink.Group.Name == nbDepartmentUsed.Name)
@@ -181,14 +194,16 @@ namespace AssetManagerClient
             if (nbAssets.SelectedLink.Group.Name == nbAssetsType.Name)
             {
                 var createForm = new GroupTypeInfo(this);
-                createForm.DelegateContent((int)AssetManagerCommon.CommonEnums.FILTER.GROUP_TYPE, nbAssets.SelectedLink.Item.Name);
+                createForm.DelegateContent((int)AssetManagerCommon.CommonEnums.ACTION.EDIT, nbAssets.SelectedLink.Item.Name);
                 createForm.ShowDialog();
+                return;
             }
             if (nbAssets.SelectedLink.Group.Name == nbDepartmentUsed.Name)
             {
                 var createForm = new DepartmentInfo(this);
                 createForm.DelegateContent((int)AssetManagerCommon.CommonEnums.ACTION.EDIT, nbAssets.SelectedLink.Item.Name);
                 createForm.ShowDialog();
+
             }
         }
         void ContextMenuDeleteButton(object sender, EventArgs e)
@@ -197,16 +212,21 @@ namespace AssetManagerClient
             {
                 if (MessageBox.Show("Bạn muốn xóa loại tài sản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    gpLoading.Show();
                     WebServices.DelAssetGroupById(nbAssets.SelectedLink.Item.Name);
                     InitContent();
+                    gpLoading.Hide();
                 }
+                return;
             }
             if (nbAssets.SelectedLink.Group.Name == nbDepartmentUsed.Name)
             {
                 if (MessageBox.Show("Bạn muốn xóa bộ phận này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    gpLoading.Show();
                     WebServices.DelDepartmentUsedById(nbAssets.SelectedLink.Item.Name);
                     InitContent();
+                    gpLoading.Hide();
                 }
             }
         }
@@ -215,7 +235,8 @@ namespace AssetManagerClient
         {
             var row=gvAsset.GetSelectedRows();
             var createForm = new NewAsset();
-            //createForm.DelegateContent((int)AssetManagerCommon.CommonEnums.ACTION.EDIT, gvAsset.GetRowCellValue((int)row.GetValue(0), gvAsset.Columns[0]).ToString());
+            if (row != null)
+                createForm.DelegateContent((int)AssetManagerCommon.CommonEnums.ACTION.EDIT, gvAsset.GetRowCellValue((int)row.GetValue(0), gvAsset.Columns[0]).ToString());
             createForm.ShowDialog();
         }
 
@@ -240,20 +261,25 @@ namespace AssetManagerClient
         private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
         {
             var row = gvAsset.GetSelectedRows();
-            string assetId=gvAsset.GetRowCellValue((int) row.GetValue(0), gvAsset.Columns[0]).ToString();
-            if (assetId.Equals(""))
+            if (row != null)
             {
-                MessageBox.Show("Vui lòng chọn một tài sản");
-            }
-            else
-            {
-                if (MessageBox.Show("Bạn muốn xóa tài sản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                string assetId=gvAsset.GetRowCellValue((int) row.GetValue(0), gvAsset.Columns[0]).ToString();
+                if (assetId.Equals(""))
                 {
-                    WebServices.DelAssetById(assetId);
+                    MessageBox.Show("Vui lòng chọn một tài sản");
                 }
+                else
+                {
+                    if (MessageBox.Show("Bạn muốn xóa tài sản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        gpLoading.Show();
+                        WebServices.DelAssetById(assetId);
+                        gpLoading.Hide();
+                    }
    
+                }
             }
-         }
+        }
 
         private void iExit_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -275,6 +301,12 @@ namespace AssetManagerClient
         private void barButtonItem14_ItemClick(object sender, ItemClickEventArgs e)
         {
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
         }
     }
 }

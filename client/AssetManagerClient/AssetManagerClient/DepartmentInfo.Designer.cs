@@ -62,9 +62,9 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(113, 242);
+            this.simpleButton1.Location = new System.Drawing.Point(85, 242);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(62, 23);
+            this.simpleButton1.Size = new System.Drawing.Size(90, 23);
             this.simpleButton1.TabIndex = 2;
             this.simpleButton1.Text = "Hoàn thành";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
@@ -154,6 +154,7 @@
             this.Name = "DepartmentInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create";
+            this.Load += new System.EventHandler(this.DepartmentInfo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSdt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRepresentative.Properties)).EndInit();

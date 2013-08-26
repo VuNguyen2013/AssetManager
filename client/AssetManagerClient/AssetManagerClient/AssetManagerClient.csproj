@@ -68,6 +68,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\ftplib.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -302,10 +304,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:2485/AssetManagerService.asmx">
+    <WebReferenceUrl Include="http://thietkewebnet.com/assetmanager/AssetManagerService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WebService\</RelPath>
-      <UpdateFromURL>http://localhost:2485/AssetManagerService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://thietkewebnet.com/assetmanager/AssetManagerService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

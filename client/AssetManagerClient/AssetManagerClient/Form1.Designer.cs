@@ -80,17 +80,33 @@
             this.gcAsset = new DevExpress.XtraGrid.GridControl();
             this.gvAsset = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grAssetId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grDepartmentUsed = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcAssetGroup = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clManufacturer = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clCondition = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
             this.nbAssets = new DevExpress.XtraNavBar.NavBarControl();
             this.nbAssetsType = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbDepartmentUsed = new DevExpress.XtraNavBar.NavBarGroup();
             this.ControlTab2 = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            this.gcPartner = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.clId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmAddress = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmPhone = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clmTaxCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.standaloneBarDockControl2 = new DevExpress.XtraBars.StandaloneBarDockControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.lblStatusAlert = new DevExpress.XtraEditors.LabelControl();
+            this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
+            this.listBoxControl1 = new DevExpress.XtraEditors.ListBoxControl();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
@@ -106,24 +122,19 @@
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.standaloneBarDockControl2 = new DevExpress.XtraBars.StandaloneBarDockControl();
-            this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem16 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
             this.barEditItem2 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
-            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).BeginInit();
@@ -146,16 +157,22 @@
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbAssets)).BeginInit();
             this.ControlTab2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcPartner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
+            this.groupControl6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
+            this.groupControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -673,8 +690,12 @@
             // 
             this.gvAsset.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.grAssetId,
+            this.clName,
             this.grDepartmentUsed,
-            this.gcAssetGroup});
+            this.gcAssetGroup,
+            this.clAmount,
+            this.clManufacturer,
+            this.clCondition});
             this.gvAsset.GridControl = this.gcAsset;
             this.gvAsset.Name = "gvAsset";
             this.gvAsset.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
@@ -691,6 +712,14 @@
             this.grAssetId.Visible = true;
             this.grAssetId.VisibleIndex = 0;
             // 
+            // clName
+            // 
+            this.clName.Caption = "Tên";
+            this.clName.FieldName = "Name";
+            this.clName.Name = "clName";
+            this.clName.Visible = true;
+            this.clName.VisibleIndex = 3;
+            // 
             // grDepartmentUsed
             // 
             this.grDepartmentUsed.Caption = "Bộ phận sữ dụng";
@@ -706,6 +735,30 @@
             this.gcAssetGroup.Name = "gcAssetGroup";
             this.gcAssetGroup.Visible = true;
             this.gcAssetGroup.VisibleIndex = 2;
+            // 
+            // clAmount
+            // 
+            this.clAmount.Caption = "Số lượng";
+            this.clAmount.FieldName = "Amount";
+            this.clAmount.Name = "clAmount";
+            this.clAmount.Visible = true;
+            this.clAmount.VisibleIndex = 4;
+            // 
+            // clManufacturer
+            // 
+            this.clManufacturer.Caption = "Nhà sản xuất";
+            this.clManufacturer.FieldName = "Manufacturer";
+            this.clManufacturer.Name = "clManufacturer";
+            this.clManufacturer.Visible = true;
+            this.clManufacturer.VisibleIndex = 5;
+            // 
+            // clCondition
+            // 
+            this.clCondition.Caption = "Tình trạng";
+            this.clCondition.FieldName = "Condition";
+            this.clCondition.Name = "clCondition";
+            this.clCondition.Visible = true;
+            this.clCondition.VisibleIndex = 6;
             // 
             // groupControl2
             // 
@@ -766,27 +819,147 @@
             this.ControlTab2.Size = new System.Drawing.Size(1077, 485);
             this.ControlTab2.Text = "Nhà phân phối";
             // 
+            // groupControl4
+            // 
+            this.groupControl4.Controls.Add(this.gcPartner);
+            this.groupControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl4.Location = new System.Drawing.Point(0, 55);
+            this.groupControl4.Name = "groupControl4";
+            this.groupControl4.Size = new System.Drawing.Size(1077, 430);
+            this.groupControl4.TabIndex = 1;
+            this.groupControl4.Text = "Chi tiết";
+            // 
+            // gcPartner
+            // 
+            this.gcPartner.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcPartner.Location = new System.Drawing.Point(2, 21);
+            this.gcPartner.MainView = this.gridView1;
+            this.gcPartner.MenuManager = this.ribbonControl;
+            this.gcPartner.Name = "gcPartner";
+            this.gcPartner.Size = new System.Drawing.Size(1073, 407);
+            this.gcPartner.TabIndex = 0;
+            this.gcPartner.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.clId,
+            this.clmName,
+            this.clmAddress,
+            this.clmPhone,
+            this.clmTaxCode});
+            this.gridView1.GridControl = this.gcPartner;
+            this.gridView1.Name = "gridView1";
+            // 
+            // clId
+            // 
+            this.clId.Caption = "Mã nhà phân phối";
+            this.clId.FieldName = "Id";
+            this.clId.Name = "clId";
+            this.clId.Visible = true;
+            this.clId.VisibleIndex = 0;
+            // 
+            // clmName
+            // 
+            this.clmName.Caption = "Tên";
+            this.clmName.FieldName = "Name";
+            this.clmName.Name = "clmName";
+            this.clmName.Visible = true;
+            this.clmName.VisibleIndex = 1;
+            // 
+            // clmAddress
+            // 
+            this.clmAddress.Caption = "Địa chỉ";
+            this.clmAddress.FieldName = "Address";
+            this.clmAddress.Name = "clmAddress";
+            this.clmAddress.Visible = true;
+            this.clmAddress.VisibleIndex = 2;
+            // 
+            // clmPhone
+            // 
+            this.clmPhone.Caption = "Điện thoại";
+            this.clmPhone.FieldName = "Phone";
+            this.clmPhone.Name = "clmPhone";
+            this.clmPhone.Visible = true;
+            this.clmPhone.VisibleIndex = 3;
+            // 
+            // clmTaxCode
+            // 
+            this.clmTaxCode.Caption = "Mã số thuế";
+            this.clmTaxCode.FieldName = "TaxCode";
+            this.clmTaxCode.Name = "clmTaxCode";
+            this.clmTaxCode.Visible = true;
+            this.clmTaxCode.VisibleIndex = 4;
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.standaloneBarDockControl2);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(1077, 55);
+            this.groupControl1.TabIndex = 0;
+            this.groupControl1.Text = "Công cụ";
+            // 
+            // standaloneBarDockControl2
+            // 
+            this.standaloneBarDockControl2.CausesValidation = false;
+            this.standaloneBarDockControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.standaloneBarDockControl2.Location = new System.Drawing.Point(2, 21);
+            this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
+            this.standaloneBarDockControl2.Size = new System.Drawing.Size(1073, 32);
+            this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
+            // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.groupControl6);
+            this.xtraTabPage1.Controls.Add(this.groupControl5);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(1077, 485);
             this.xtraTabPage1.Text = "Báo cáo";
             // 
-            // labelControl5
+            // groupControl6
             // 
-            this.labelControl5.Location = new System.Drawing.Point(11, 676);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(53, 13);
-            this.labelControl5.TabIndex = 5;
-            this.labelControl5.Text = "Trạng thái:";
+            this.groupControl6.Controls.Add(this.reportViewer1);
+            this.groupControl6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl6.Location = new System.Drawing.Point(261, 0);
+            this.groupControl6.Name = "groupControl6";
+            this.groupControl6.Size = new System.Drawing.Size(816, 485);
+            this.groupControl6.TabIndex = 1;
+            this.groupControl6.Text = "Xem trước";
             // 
-            // lblStatusAlert
+            // reportViewer1
             // 
-            this.lblStatusAlert.Location = new System.Drawing.Point(70, 676);
-            this.lblStatusAlert.Name = "lblStatusAlert";
-            this.lblStatusAlert.Size = new System.Drawing.Size(63, 13);
-            this.lblStatusAlert.TabIndex = 6;
-            this.lblStatusAlert.Text = "labelControl6";
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.Location = new System.Drawing.Point(2, 21);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(812, 462);
+            this.reportViewer1.TabIndex = 0;
+            // 
+            // groupControl5
+            // 
+            this.groupControl5.Controls.Add(this.listBoxControl1);
+            this.groupControl5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupControl5.Location = new System.Drawing.Point(0, 0);
+            this.groupControl5.Name = "groupControl5";
+            this.groupControl5.Size = new System.Drawing.Size(261, 485);
+            this.groupControl5.TabIndex = 0;
+            this.groupControl5.Text = "Báo cáo";
+            // 
+            // listBoxControl1
+            // 
+            this.listBoxControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxControl1.Items.AddRange(new object[] {
+            "Đã xuất ra",
+            "Đang trong kho",
+            "Tình trạng tốt",
+            "Tình trạng tệ",
+            "Hết hạn"});
+            this.listBoxControl1.Location = new System.Drawing.Point(2, 21);
+            this.listBoxControl1.Name = "listBoxControl1";
+            this.listBoxControl1.Size = new System.Drawing.Size(257, 462);
+            this.listBoxControl1.TabIndex = 0;
             // 
             // barManager1
             // 
@@ -949,38 +1122,6 @@
             this.barButtonItem13.Id = 19;
             this.barButtonItem13.Name = "barButtonItem13";
             // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1100, 0);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 700);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1100, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 700);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1100, 0);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 700);
-            // 
-            // gridView2
-            // 
-            this.gridView2.Name = "gridView2";
-            // 
             // bar2
             // 
             this.bar2.BarName = "Custom 2";
@@ -998,32 +1139,6 @@
             this.bar2.OptionsBar.AllowRename = true;
             this.bar2.StandaloneBarDockControl = this.standaloneBarDockControl2;
             this.bar2.Text = "Custom 2";
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.Controls.Add(this.standaloneBarDockControl2);
-            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(0, 0);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1077, 55);
-            this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = "Công cụ";
-            // 
-            // standaloneBarDockControl2
-            // 
-            this.standaloneBarDockControl2.CausesValidation = false;
-            this.standaloneBarDockControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.standaloneBarDockControl2.Location = new System.Drawing.Point(2, 21);
-            this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
-            this.standaloneBarDockControl2.Size = new System.Drawing.Size(1073, 32);
-            this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
-            // 
-            // barButtonItem14
-            // 
-            this.barButtonItem14.Caption = "Add";
-            this.barButtonItem14.Id = 20;
-            this.barButtonItem14.Name = "barButtonItem14";
-            this.barButtonItem14.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem14_ItemClick);
             // 
             // barButtonItem15
             // 
@@ -1063,32 +1178,44 @@
             this.barButtonItem18.Id = 25;
             this.barButtonItem18.Name = "barButtonItem18";
             // 
-            // groupControl4
+            // barDockControlTop
             // 
-            this.groupControl4.Controls.Add(this.gridControl1);
-            this.groupControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl4.Location = new System.Drawing.Point(0, 55);
-            this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(1077, 430);
-            this.groupControl4.TabIndex = 1;
-            this.groupControl4.Text = "Chi tiết";
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1100, 0);
             // 
-            // gridControl1
+            // barDockControlBottom
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(2, 21);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.MenuManager = this.ribbonControl;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1073, 407);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 700);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1100, 0);
             // 
-            // gridView1
+            // barDockControlLeft
             // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 700);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(1100, 0);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 700);
+            // 
+            // barButtonItem14
+            // 
+            this.barButtonItem14.Caption = "Add";
+            this.barButtonItem14.Id = 20;
+            this.barButtonItem14.Name = "barButtonItem14";
+            this.barButtonItem14.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem14_ItemClick);
+            // 
+            // gridView2
+            // 
+            this.gridView2.Name = "gridView2";
             // 
             // Form1
             // 
@@ -1096,8 +1223,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 700);
-            this.Controls.Add(this.lblStatusAlert);
-            this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.splitContainerControl);
             this.Controls.Add(this.ribbonControl);
             this.Controls.Add(this.popupControlContainer1);
@@ -1112,6 +1237,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "AssetManager";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).EndInit();
@@ -1135,18 +1261,23 @@
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nbAssets)).EndInit();
             this.ControlTab2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcPartner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
+            this.groupControl6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
+            this.groupControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1192,8 +1323,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private DevExpress.XtraBars.BarStaticItem siInfo;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.LabelControl lblStatusAlert;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.Ribbon.RibbonMiniToolbar ribbonMiniToolbar1;
@@ -1244,8 +1373,21 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem18;
         private DevExpress.XtraEditors.GroupControl groupControl4;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl gcPartner;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn clName;
+        private DevExpress.XtraGrid.Columns.GridColumn clAmount;
+        private DevExpress.XtraGrid.Columns.GridColumn clManufacturer;
+        private DevExpress.XtraGrid.Columns.GridColumn clCondition;
+        private DevExpress.XtraGrid.Columns.GridColumn clId;
+        private DevExpress.XtraGrid.Columns.GridColumn clmName;
+        private DevExpress.XtraGrid.Columns.GridColumn clmAddress;
+        private DevExpress.XtraGrid.Columns.GridColumn clmPhone;
+        private DevExpress.XtraGrid.Columns.GridColumn clmTaxCode;
+        private DevExpress.XtraEditors.GroupControl groupControl6;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private DevExpress.XtraEditors.GroupControl groupControl5;
+        private DevExpress.XtraEditors.ListBoxControl listBoxControl1;
 
     }
 }

@@ -123,5 +123,10 @@ namespace AssetManagerClient
                 }
             }
         }
+
+        private void DepartmentInfo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

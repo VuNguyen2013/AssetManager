@@ -26,7 +26,7 @@ namespace AssetManagerClient.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:2485/AssetManagerService.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://thietkewebnet.com/assetmanager/AssetManagerService.asmx")]
         public string AssetManagerClient_WebService_AssetManagerService {
             get {
                 return ((string)(this["AssetManagerClient_WebService_AssetManagerService"]));
@@ -81,6 +81,18 @@ namespace AssetManagerClient.Properties {
             }
             set {
                 this["attach"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://thietkewebnet.com/assetmanage/")]
+        public string LinkUrl {
+            get {
+                return ((string)(this["LinkUrl"]));
+            }
+            set {
+                this["LinkUrl"] = value;
             }
         }
     }

@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="AssetManagerClient_WebService_AssetManagerService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://localhost:2485/AssetManagerService.asmx</Value>
+      <Value Profile="(Default)">http://thietkewebnet.com/assetmanager/AssetManagerService.asmx</Value>
     </Setting>
     <Setting Name="UsernameFtp" Type="System.String" Scope="Application">
       <Value Profile="(Default)">chsboqgl</Value>
@@ -19,6 +19,9 @@
     </Setting>
     <Setting Name="attach" Type="System.String" Scope="User">
       <Value Profile="(Default)">/httpdocs/AssetManage/Attach</Value>
+    </Setting>
+    <Setting Name="LinkUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://thietkewebnet.com/assetmanage/</Value>
     </Setting>
   </Settings>
 </SettingsFile>
